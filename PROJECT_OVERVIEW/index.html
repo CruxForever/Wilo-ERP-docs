@@ -1,0 +1,2275 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cruxforever.github.com/WRU_ERP/PROJECT_OVERVIEW/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>PROJECT_OVERVIEW - Wilo-ERP Controlling Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project_overview" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href=".." title="Wilo-ERP Controlling Docs" class="md-header__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wilo-ERP Controlling Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PROJECT_OVERVIEW
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Обзор
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../20_process/ACCOUNTING_PRINCIPLES/" class="md-tabs__link">
+          
+  
+  
+  Учёт и калькуляция
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../10_data/data_flows/" class="md-tabs__link">
+          
+  
+  
+  Данные
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../zz_old/backup/CODEX_SPEC_Reconcile_Pools_vs_Allocations/" class="md-tabs__link">
+          
+  
+  
+  Система ERP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../40_runbooks/run_budget_year/" class="md-tabs__link">
+          
+  
+  
+  Runbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Wilo-ERP Controlling Docs" class="md-nav__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Wilo-ERP Controlling Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Главная
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Обзор
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Обзор
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    О системе
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE_SUMMARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Архитектура
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DB_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Схема БД
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ERD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERD-граф
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Учёт и калькуляция
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Учёт и калькуляция
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20_process/ACCOUNTING_PRINCIPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Принципы учёта
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Структура себестоимости
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Структура себестоимости
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20_process/COST_STRUCTURE_STATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Обзор
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20_process/planning/bom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Материальная себестоимость
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20_process/planning/direct_costs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Прямые затраты (cost_rates)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Данные
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Данные
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_data/data_flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Справочники
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zz_old/RULES_COVERAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Правила маппинга
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Система ERP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Система ERP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zz_old/backup/CODEX_SPEC_Reconcile_Pools_vs_Allocations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Переносы затрат
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../zz_old/IMPLEMENTATION_SUMMARY_2025-10-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Аллокации и пулы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runbooks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Runbooks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_runbooks/run_budget_year/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Индекс
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_runbooks/run_close_period/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Обзор модулей
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-calc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package calc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package calc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-calcalloc_engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.alloc_engine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcbudget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.budget
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calccost_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.cost_tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcdl_transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.dl_transfers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcdriver_etl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.driver_etl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcefficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.efficiency
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calclogger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.logger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcmaterialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.materialize
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcmaterialize_sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.materialize_sql
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcmo_materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.mo_materials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcopr_rates_calc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.opr_rates_calc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcovh_flat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.ovh_flat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcovh_rates_calc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.ovh_rates_calc
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcppv_by_cg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.ppv_by_cg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcquality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcrouting_flat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.routing_flat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calcrouting_hours" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.routing_hours
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-calctransfers_opex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module calc.transfers_opex
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package db
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package db">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-dbconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module db.connection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-dbensure_mfc_report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module db.ensure_mfc_report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-dbensure_mo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module db.ensure_mo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-dbqueries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module db.queries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-dbschema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module db.schema
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-loaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package loaders
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package loaders">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersbom_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.bom_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersccg_wru_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.ccg_wru_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersdirect_cost_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.direct_cost_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersload_cost_structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.load_cost_structures
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersloader_mo_prices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.loader_mo_prices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersloaders" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.loaders
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersopex_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.opex_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loaderspersonnel_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.personnel_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersrules_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.rules_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersupdater" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.updater
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-loadersutils" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module loaders.utils
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-appapp-import-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module app.app — import failed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-appinit_db" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module app.init_db
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package ui
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package ui">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-uiadmin_table_editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.admin_table_editor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uialloc_wizard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.alloc_wizard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiapp_streamlit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.app_streamlit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-uicomponents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package ui.components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uicomponentsitem_picker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.components.item_picker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uicomponentsset_window_title" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.components.set_window_title
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uidata_cogs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.data_cogs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_bom_xlsx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_bom_xlsx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_budget
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_cost_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_cost_tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_costing_run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_costing_run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_mo_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_mo_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_opr_rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_opr_rates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_ovh_rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_ovh_rates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_ppv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_ppv
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_transfers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_transfers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_transfers_opex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_transfers_opex
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_updater" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_updater
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-uiviews_upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module ui.views_upload
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package config
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-configsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module config.settings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materials-related" class="md-nav__link">
+    <span class="md-ellipsis">
+      Materials-related
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="project_overview">PROJECT_OVERVIEW<a class="headerlink" href="#project_overview" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Generated: 2025-10-28 12:13 (local)
+Commit: 74b0a98</p>
+</blockquote>
+<p>See also: <a href="../DB_SCHEMA/">DB schema</a></p>
+<h2 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#package-calc">calc</a></li>
+<li><a href="#package-db">db</a></li>
+<li><a href="#package-loaders">loaders</a></li>
+<li><a href="#package-app">app</a></li>
+<li><a href="#package-ui">ui</a></li>
+<li><a href="#package-config">config</a></li>
+</ul>
+<h2 id="package-calc">Package calc<a class="headerlink" href="#package-calc" title="Permanent link">&para;</a></h2>
+<h3 id="module-calcalloc_engine">Module calc.alloc_engine<a class="headerlink" href="#module-calcalloc_engine" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>apply_allocations(conn: 'sqlite3.Connection', period: 'str', scenario: 'str', rule_set_id: 'str', run_id: 'Optional[str]' = None, components: 'Optional[List[str]]' = None) -&gt; 'int'</code> — Apply weight-based allocations for given period and rule set.</li>
+<li>func: <code>ensure_phase_b_default_rules(conn: 'sqlite3.Connection', rule_set_id: 'str' = 'DEFAULT_2026') -&gt; 'None'</code> — </li>
+<li>func: <code>ensure_schema(conn: sqlite3.Connection) -&gt; None</code> — Ensure database schema is up to date.</li>
+</ul>
+<h3 id="module-calcbudget">Module calc.budget<a class="headerlink" href="#module-calcbudget" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>func: <code>build_budget_frames(conn: 'sqlite3.Connection', months_ym: 'List[str]', vol_scn: 'str', *, year: 'int | None' = None, price_scn: 'str | None' = None, ktl_split: 'bool' = False) -&gt; 'Dict[str, pd.DataFrame]'</code> — Build budget sheets dict {sheet_name: DataFrame}: Total and monthly sheets.</li>
+<li>func: <code>build_budget_preview(conn: 'sqlite3.Connection', months_ym: 'List[str]', vol_scn: 'str', *, year: 'int | None' = None, price_scn: 'str | None' = None, ktl_split: 'bool' = False) -&gt; 'Tuple[Dict[str, pd.DataFrame], bytes]'</code> — Возвращает словарь DataFrame и Excel-байты для предпросмотра.</li>
+<li>func: <code>choose_best_rate_scenario(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', year: 'int') -&gt; 'Optional[str]'</code> — Pick scenario from v_routing_costs_scenario (or cost_rates) with max coverage for given year.</li>
+<li>func: <code>export_budget_to_excel(conn: 'sqlite3.Connection', months_ym: 'List[str]', out_xlsx_path: 'str', vol_scn: 'str', *, year: 'int | None' = None, price_scn: 'str | None' = None, ktl_split: 'bool' = False, frames: 'Dict[str, pd.DataFrame] | None' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>price_by_article_sql() -&gt; 'str'</code> — SQL for latest price by scenario (v_price_by_scenario).</li>
+<li>func: <code>unit_cost_breakdown_v2(conn: 'sqlite3.Connection', product_id: 'str', *, year: 'int | None' = None, price_scn: 'str | None' = None, rate_scn: 'str | None' = None) -&gt; 'Dict[str, float]'</code> — Unit cost via v_*_costs_scenario (materials, directs, ovh).</li>
+</ul>
+<h3 id="module-calccost_tree">Module calc.cost_tree<a class="headerlink" href="#module-calccost_tree" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Any(*args, **kwargs)</code> — Special type indicating an unconstrained type.</li>
+<li>class: <code>AuditResult(...)</code> — dict() -&gt; new empty dictionary</li>
+<li>func: <code>TypedDict(typename, fields=None, /, *, total=True, **kwargs)</code> — A simple typed namespace. At runtime it is equivalent to a plain dict.</li>
+<li>func: <code>audit_schema_and_data(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', *, load_id: 'str', year: 'int', scenario: 'str | None') -&gt; 'AuditResult'</code> — </li>
+<li>func: <code>choose_best_price_load_id(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', *, currency: 'str' = 'RUB') -&gt; 'Optional[str]'</code> — Pick load_id from rm_prices that provides the best coverage for product BOM components.</li>
+<li>func: <code>choose_best_rate_scenario(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', year: 'int') -&gt; 'Optional[str]'</code> — Pick scenario from v_routing_costs_scenario (or cost_rates) with max coverage for given year.</li>
+<li>func: <code>fetch_direct_cost(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', year: 'int', scenario: 'Optional[str]' = None) -&gt; 'Tuple[pd.DataFrame, dict]'</code> — Return per-operation direct cost rows with rates from cost_rates.</li>
+<li>func: <code>fetch_direct_cost_by_scenario(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', year: 'int', scenario: 'Optional[str]' = None) -&gt; 'Tuple[pd.DataFrame, dict]'</code> — Прямые (операции) через v_routing_costs_scenario.</li>
+<li>func: <code>fetch_indirect_costs_by_scenario(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]') -&gt; 'pd.DataFrame'</code> — Fetch indirect (non-production) costs from v_ovh_costs_scenario for selected products.</li>
+<li>func: <code>fetch_materials_cost(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', load_id: 'Optional[str]') -&gt; 'Tuple[pd.DataFrame, dict]'</code> — Return materials subtree rows with price from rm_prices(load_id) and diagnostics.</li>
+<li>func: <code>fetch_materials_cost_by_scenario(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', price_scenario: 'str', *, currency: 'str' = 'RUB') -&gt; 'Tuple[pd.DataFrame, dict]'</code> — Материалы из v_bom_costs_scenario для выбранного сценария цен.</li>
+<li>func: <code>list_price_load_ids(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — Вернёт список load_id из rm_prices (упорядоченный по последней дате загрузки, если доступно).</li>
+<li>func: <code>list_price_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — Список доступных сценариев цен (price_scenarios.scenario_code).</li>
+<li>func: <code>list_produced_items(conn: 'sqlite3.Connection') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>list_rate_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>list_rate_years(conn: 'sqlite3.Connection') -&gt; 'list[int]'</code> — </li>
+<li>func: <code>log_report_event(*, log_path: 'str', product_ids: 'Iterable[str]', load_id: 'str', year: 'int', scenario: 'Optional[str]', materials_diag: 'Dict[str, Any] | None' = None, direct_diag: 'Dict[str, Any] | None' = None, error: 'Optional[str]' = None) -&gt; 'None'</code> — </li>
+</ul>
+<h3 id="module-calcdl_transfers">Module calc.dl_transfers<a class="headerlink" href="#module-calcdl_transfers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>apply_transfer(conn, bud_year: int, rule_id: int, donorshare: float = 1.0, elem_root: str = 'MFC_PRIM_1', recipients_cc: list[str] | None = None, comment: str = '', created_by: str = None) -&gt; str</code> — Создает батч и записывает перенос (только дельты).</li>
+<li>func: <code>apply_transfer_by_rules(conn, bud_year: int, elem_root: str = 'MFC_PRIM_1', cc_root: str = 'RU1OP1P21', allow_fallback_global: bool = True, comment: str = '', created_by: str = None) -&gt; str</code> — </li>
+<li>func: <code>create_transfer_batch(conn, bud_year: int, rule_id: int, comment: str = '', created_by: str = None) -&gt; str</code> — </li>
+<li>func: <code>find_zero_cc(conn, bud_year: int) -&gt; pandas.core.frame.DataFrame</code> — ЦЗ с часами &gt; 0 и нулевым среднегодовым headcount.</li>
+<li>func: <code>get_cc_hours(conn, bud_year: int) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>get_opex_by_cc_elem(conn, bud_year: int, elem_root: str = 'MFC_PRIM_1') -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>get_opex_by_cc_elem_detailed(conn, bud_year: int, elem_root: str = 'MFC_PRIM_1', cc_root: str = 'RU1OP1P21') -&gt; pandas.core.frame.DataFrame</code> — Суммы OPEX по ЦЗ и КАЖДОМУ elem_id внутри elem_root,</li>
+<li>func: <code>get_personnel_year_base(conn, bud_year: int) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>plan_transfer(conn, bud_year: int, rule_id: int, donorshare: float = 1.0, elem_root: str = 'MFC_PRIM_1', recipients_cc: list[str] | None = None) -&gt; tuple[pandas.core.frame.DataFrame, pandas.core.frame.DataFrame]</code> — Возвращает два DF: items_personnel, items_opex.</li>
+<li>func: <code>plan_transfer_by_rules(conn, bud_year: int, elem_root: str = 'MFC_PRIM_1', cc_root: str = 'RU1OP1P21', allow_fallback_global: bool = True) -&gt; tuple[pandas.core.frame.DataFrame, pandas.core.frame.DataFrame]</code> — Строит план переносов:</li>
+<li>func: <code>revert_transfer(conn, batch_id: str)</code> — </li>
+</ul>
+<h3 id="module-calcdriver_etl">Module calc.driver_etl<a class="headerlink" href="#module-calcdriver_etl" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Any(*args, **kwargs)</code> — Special type indicating an unconstrained type.</li>
+<li>func: <code>delete_zero_driver_values(conn: 'sqlite3.Connection', set_id: 'str | None' = None, driver_code: 'str | None' = None, period_prefix: 'str | None' = None) -&gt; 'int'</code> — Delete rows from driver_values where ABS(value) is effectively zero.</li>
+<li>func: <code>ensure_driver_catalog_min(conn: 'sqlite3.Connection') -&gt; 'None'</code> — Insert driver cards for HOURS, MATCOST, PAYROLL_OTHER if missing.</li>
+<li>func: <code>ensure_schema(conn: sqlite3.Connection) -&gt; None</code> — Ensure database schema is up to date.</li>
+<li>func: <code>hours_coverage_check(conn: 'sqlite3.Connection', set_id: 'str', month_code: 'str') -&gt; 'List[Dict[str, Any]]'</code> — Return records where HOURS values landed with NULL cc_id (unmapped department -&gt; CC).</li>
+<li>func: <code>populate_hours_plan_driver_values(conn: 'sqlite3.Connection', set_id: 'str', month_code: 'str') -&gt; 'int'</code> — Populate driver_values for HOURS (PLAN) for a given month.</li>
+<li>func: <code>populate_matcost_plan_driver_values(conn: 'sqlite3.Connection', set_id: 'str', month_code: 'str') -&gt; 'int'</code> — Populate driver_values for MATCOST (PLAN) for a given month.</li>
+<li>func: <code>populate_payroll_other_plan_driver_values(conn: 'sqlite3.Connection', set_id: 'str', month_code: 'str') -&gt; 'int'</code> — Populate driver_values for PAYROLL_OTHER (PLAN) for a given month.</li>
+</ul>
+<h3 id="module-calcefficiency">Module calc.efficiency<a class="headerlink" href="#module-calcefficiency" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>apply_efficiency_normalization(conn, bud_year: 'int', hours_per_person: 'float' = 1972, elem_root: 'str' = 'MFC_PRIM_1', cc_root: 'str' = 'RU1OP1P21', vol_scenario: 'str | None' = None, comment: 'str' = 'efficiency normalize', created_by: 'str | None' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>compute_efficiency_table(conn, bud_year: 'int', hours_per_person: 'float' = 1972, elem_root: 'str' = 'MFC_PRIM_1', cc_root: 'str' = 'RU1OP1P21', vol_scenario: 'str | None' = None) -&gt; 'pd.DataFrame'</code> — Таблица эффективности по производственным ЦЗ:</li>
+<li>func: <code>get_routing_hours(conn: 'sqlite3.Connection') -&gt; 'pd.DataFrame'</code> — Return DataFrame with product_id, department_code, hours_per_unit.</li>
+<li>func: <code>plan_efficiency_normalization(conn, bud_year: 'int', hours_per_person: 'float' = 1972, elem_root: 'str' = 'MFC_PRIM_1', cc_root: 'str' = 'RU1OP1P21', vol_scenario: 'str | None' = None) -&gt; 'tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]'</code> — Строит план нормализации:</li>
+</ul>
+<h3 id="module-calclogger">Module calc.logger<a class="headerlink" href="#module-calclogger" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>RunLogger(conn, scope: str, params: dict)</code> — </li>
+</ul>
+<h3 id="module-calcmaterialize">Module calc.materialize<a class="headerlink" href="#module-calcmaterialize" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>datetime(...)</code> — datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])</li>
+<li>func: <code>cleanup_routing_tree(conn, product_id: 'str | None' = None)</code> — </li>
+<li>func: <code>debug_snapshot(conn, pid: 'str | None', tag: 'str')</code> — </li>
+<li>func: <code>materialize_depr_costs(conn, product_id: 'str | None' = None)</code> — </li>
+<li>func: <code>materialize_flat_bom_fast(conn, product_id: 'str | None' = None, max_depth: 'int' = 20)</code> — Materialise leaf-level flat BOM fast (iterative, cycle-safe, &lt;=5 min target).</li>
+<li>func: <code>materialize_flat_bom_recursive(conn, product_id: 'str | None' = None)</code> — </li>
+<li>func: <code>materialize_labor_costs(conn, product_id: 'str | None' = None, on_date: 'str | None' = None)</code> — </li>
+<li>func: <code>materialize_labor_hours(conn, product_id: 'str | None' = None)</code> — </li>
+<li>func: <code>materialize_mo_cost_unit(conn, *, on_date: 'str | None' = None)</code> — Р—Р°РїРѕР»РЅСЏРµС‚ mo_cost_unit РёР· bom_flat Г— mo_last_price (РЅР° РґР°С‚Сѓ РёР»Рё РїРѕ С‚РµРєСѓС‰РµР№).</li>
+<li>func: <code>materialize_mo_cost_unit_monthly(conn, month_code: 'str')</code> — Р”Р»СЏ Р±СЋРґР¶РµС‚Р°: С„РёРєСЃРёСЂСѓРµС‚ С†РµРЅСѓ РЅР° РјРµСЃСЏС† (РЅР° РїРµСЂРІС‹Р№ РґРµРЅСЊ РјРµСЃСЏС†Р°).</li>
+<li>func: <code>materialize_opr_costs(conn, product_id: 'str | None' = None)</code> — </li>
+<li>func: <code>materialize_ovh_costs(conn, product_ids=None, year=2026, scenario=None)</code> — </li>
+<li>func: <code>materialize_ovh_flat(conn, price_scn: 'str', asof: 'str | None' = None, product_ids: 'list[str] | None' = None)</code> — РЎС‚СЂРѕРёС‚ ovh_flat РёР· ovh_tree, СЂР°СЃРїСЂРµРґРµР»СЏСЏ РњРђРўР•Р РРђР›Р¬РќРЈР® СЃС‚РѕРёРјРѕСЃС‚СЊ РїРѕ alloc_group</li>
+<li>func: <code>materialize_ovh_tree(conn, product_ids=None, max_depth: 'int' = 20)</code> — РЎС‚СЂРѕРёС‚ ovh_tree СЃ РїСЂРѕС‚Р°СЃРєРёРІР°РЅРёРµРј alloc_group (Р±Р»РёР¶Р°Р№С€Р°СЏ СЃРІРµСЂС…Сѓ Р·Р°РґР°РЅРЅР°СЏ РіСЂСѓРїРїР°).</li>
+<li>func: <code>materialize_routing_flat(conn, product_id: 'str | None' = None)</code> — Р—Р°РїРѕР»РЅСЏРµС‚ routing_flat РЅР° РѕСЃРЅРѕРІР°РЅРёРё routing_tree Рё routing_operations.</li>
+<li>func: <code>materialize_routing_tree(conn, product_id: 'str | None' = None, max_depth: 'int' = 20)</code> — </li>
+<li>func: <code>materialize_scrap_cost_unit(conn, product_ids=None, year=2026, scenario=None)</code> — SCRAP = Σ по группам ( mat_cost_group * scrap_share[group] )</li>
+<li>func: <code>run_routing_and_labor_pipeline(conn, product_ids=None, *, on_date=None, max_depth=20, clean_before=True, ovh_year=2026)</code> — Р•РґРёРЅС‹Р№ РЅР°РґС‘Р¶РЅС‹Р№ РїР°Р№РїР»Р°Р№РЅ:</li>
+</ul>
+<h3 id="module-calcmaterialize_sql">Module calc.materialize_sql<a class="headerlink" href="#module-calcmaterialize_sql" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>func: <code>materialize_bom_flat(conn: 'sqlite3.Connection', product_id: 'str | None' = None) -&gt; 'int'</code> — Materialize bom_flat using SQL scripts under sql/materialize.</li>
+</ul>
+<h3 id="module-calcmo_materials">Module calc.mo_materials<a class="headerlink" href="#module-calcmo_materials" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>get_mo_materials_df(conn: 'sqlite3.Connection', months_ym: 'Iterable[str]', vol_scn: 'str', price_scn: 'Optional[str]' = None, use_monthly_if_present: 'bool' = True) -&gt; 'pd.DataFrame'</code> — Вернёт DataFrame со сведениями о деталях после МО и их стоимости.</li>
+<li>func: <code>streamlit_app(db_path: 'Optional[str | None]' = None)</code> — </li>
+</ul>
+<h3 id="module-calcopr_rates_calc">Module calc.opr_rates_calc<a class="headerlink" href="#module-calcopr_rates_calc" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>class: <code>Sequence()</code> — All the operations on a read-only sequence.</li>
+<li>class: <code>datetime(...)</code> — datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])</li>
+<li>func: <code>amounts_by_cc_for_elemgroup(conn, bud_year: int, cc_list: list[str], elem_list: list[str]) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>amounts_by_cc_for_elemgroup_sql(conn, bud_year: int, cc_list: collections.abc.Sequence[str], elem_list: collections.abc.Sequence[str]) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>compare_with_previous(conn, df_current: pandas.core.frame.DataFrame, component_code: str, base_scenario: str | None = None) -&gt; pandas.core.frame.DataFrame</code> — Если base_scenario задан и отличается от текущего → сравниваем со снапшотом указанного сценария.</li>
+<li>func: <code>component_code_for_kind(kind: str, components: pandas.core.frame.DataFrame | None = None) -&gt; str</code> — </li>
+<li>func: <code>compute_rates(conn, price_scn: str, months_ym: list[str], cc_root: str, kind: str = 'labor', vol_scn: str = 'BG26_VOL') -&gt; pandas.core.frame.DataFrame</code> — Универсальный расчёт ставки = (Сумма по группе элементов) / (Плановые часы) по каждому ЦЗ.</li>
+<li>func: <code>fetch_last_snapshot(conn, scenario: str, component_code: str) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>hours_by_department(conn, months_ym: list[str], *, vol_scn: str) -&gt; pandas.core.frame.DataFrame</code> — Плановые часы по участкам за указанные месяцы:</li>
+<li>func: <code>hours_by_department_sql(conn, months_ym: collections.abc.Sequence[str], *, vol_scn: str) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>list_rate_components(conn) -&gt; pandas.core.frame.DataFrame</code> — Return active cost rate components with fallbacks.</li>
+<li>func: <code>save_rates_cost_rates(conn, df_rates: pandas.core.frame.DataFrame, component_code: str, scenario: str = '') -&gt; int</code> — Save computed yearly rates into unified cost_rates (idempotent).</li>
+<li>func: <code>scenario_to_year(price_scn: str, default: int | None = None) -&gt; int</code> — Derive numeric budget year from scenario code (e.g. BG26_VOL -&gt; 2026).</li>
+</ul>
+<h3 id="module-calcovh_flat">Module calc.ovh_flat<a class="headerlink" href="#module-calcovh_flat" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>func: <code>materialize_ovh_flat(conn: 'sqlite3.Connection') -&gt; 'int'</code> — Materialize ovh_flat via SQL scripts under sql/materialize.</li>
+</ul>
+<h3 id="module-calcovh_rates_calc">Module calc.ovh_rates_calc<a class="headerlink" href="#module-calcovh_rates_calc" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>class: <code>TariffParams(year: 'int', vol_scenario: 'str', price_scenario: 'str', routing_scenario: 'str') -&gt; None</code> — TariffParams(year: 'int', vol_scenario: 'str', price_scenario: 'str', routing_scenario: 'str')</li>
+<li>class: <code>TariffPreview(params: 'TariffParams', summary: 'pd.DataFrame', shares: 'pd.DataFrame', totals: 'dict[str, float]', distributions: 'dict[str, pd.DataFrame]') -&gt; None</code> — TariffPreview(params: 'TariffParams', summary: 'pd.DataFrame', shares: 'pd.DataFrame', totals: 'dict[str, float]', distributions: 'dict[str, pd.DataFrame]')</li>
+<li>func: <code>build_cost_distributions(summary: 'pd.DataFrame', totals: 'dict[str, float]') -&gt; 'dict[str, pd.DataFrame]'</code> — </li>
+<li>func: <code>calculate_tariff_summary(material_df: 'pd.DataFrame', admin_df: 'pd.DataFrame') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>dataclass(cls=None, /, *, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False, weakref_slot=False)</code> — Add dunder methods based on the fields defined in the class.</li>
+<li>func: <code>expand_tariff_rows(summary: 'pd.DataFrame', *, scrap_share: 'Optional[float]' = None, distributions: 'Optional[dict[str, pd.DataFrame]]' = None) -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>fetch_admin_base(conn: 'sqlite3.Connection', params: 'TariffParams') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>fetch_cost_pools(conn: 'sqlite3.Connection', year: 'int') -&gt; 'dict[str, float]'</code> — </li>
+<li>func: <code>fetch_material_base(conn: 'sqlite3.Connection', params: 'TariffParams') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>list_price_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>list_routing_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>list_volume_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>preview_tariffs(conn: 'sqlite3.Connection', *, year: 'Optional[int]' = None, vol_scenario: 'Optional[str]' = None, price_scenario: 'Optional[str]' = None, routing_scenario: 'Optional[str]' = None, scrap_share: 'Optional[float]' = None) -&gt; 'TariffPreview'</code> — </li>
+<li>func: <code>save_tariffs(conn: 'sqlite3.Connection', preview: 'TariffPreview', *, cost_types: 'Optional[Iterable[str]]' = None) -&gt; 'int'</code> — </li>
+<li>func: <code>write_scrap_tariffs(conn: 'sqlite3.Connection', params: 'TariffParams', share: 'float', *, year: 'Optional[int]' = None, groups: 'Optional[Sequence[str]]' = None) -&gt; 'int'</code> — </li>
+</ul>
+<h3 id="module-calcppv_by_cg">Module calc.ppv_by_cg<a class="headerlink" href="#module-calcppv_by_cg" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>compute_ppv_by_cg(conn: 'sqlite3.Connection', *, vol_s: 'str', s1: 'str', s2: 'str', s3: 'str', pure_only: 'bool' = False) -&gt; 'Dict[str, pd.DataFrame]'</code> — Рассчитать PPV по commodity group.</li>
+</ul>
+<h3 id="module-calcquality">Module calc.quality<a class="headerlink" href="#module-calcquality" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>check_bom_components_missing_prices(conn)</code> — Компоненты из BOM без цены в rm_prices (по последней загрузке).</li>
+<li>func: <code>check_bom_unknown_items(conn)</code> — BOM с компонентами, отсутствующими в items.</li>
+<li>func: <code>check_budget_has_nonproduced(conn)</code> — В prod_budget есть product_id, который в items помечен как is_produced=0.</li>
+<li>func: <code>check_budget_missing_routing_ops(conn)</code> — Produced items in active volume scenario that are missing in routing_flat,</li>
+<li>func: <code>check_items_duplicate_article(conn)</code> — Дубли артикулов (один article на несколько item_id).</li>
+<li>func: <code>check_items_nonproduced_has_routing_or_ovh(conn)</code> — Непроизводимые (is_produced=0) с заполненными routing_group/ovh_group_code (подозрительно).</li>
+<li>func: <code>check_items_produced_missing_routing_or_ovh(conn)</code> — Производимые (is_produced=1), у которых пусты routing_group или ovh_group_code.</li>
+<li>func: <code>check_items_required_fields(conn)</code> — Пустые/нулевые article, name, uom.</li>
+<li>func: <code>check_ovh_groups_missing_tariffs(conn, year: 'int | None' = None, scenario: 'str | None' = None)</code> — Группы из ovh_flat, которых нет в ovh_tariffs (по году; если год None — берём max(year)).</li>
+<li>func: <code>check_routing_flat_missing_rates(conn)</code> — Департаменты из routing_flat без ставки в labor_rates_snapshot.</li>
+<li>func: <code>render_quality_ui(conn, st)</code> — Экран проверок с чекбоксами. Пример использования в вашей вьюшке:</li>
+<li>func: <code>run_quality_checks(conn, selected: 'list[str] | None' = None) -&gt; 'dict[str, pd.DataFrame]'</code> — selected: список кодов проверок. Если None — запустить все.</li>
+</ul>
+<h3 id="module-calcrouting_flat">Module calc.routing_flat<a class="headerlink" href="#module-calcrouting_flat" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>func: <code>materialize_routing_flat(conn: 'sqlite3.Connection') -&gt; 'int'</code> — Materialize routing_flat via SQL scripts under sql/materialize.</li>
+</ul>
+<h3 id="module-calcrouting_hours">Module calc.routing_hours<a class="headerlink" href="#module-calcrouting_hours" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>get_routing_hours(conn: 'sqlite3.Connection') -&gt; 'pd.DataFrame'</code> — Return DataFrame with product_id, department_code, hours_per_unit.</li>
+</ul>
+<h3 id="module-calctransfers_opex">Module calc.transfers_opex<a class="headerlink" href="#module-calctransfers_opex" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>apply_cycle(conn, cycle_id: 'int', cycle_no: 'int', comment: 'str', created_by: 'str | None' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>apply_transfer_opex_by_rules(conn, bud_year: 'int', elem_root: 'str', cycle_no: 'int', rules_df, comment: 'str', created_by: 'str | None', rule_id: 'int') -&gt; 'str'</code> — </li>
+<li>func: <code>ensure_rule_for_cycle(conn, cycle_id: 'int') -&gt; 'int'</code> — </li>
+<li>func: <code>load_cycle_meta(conn: 'sqlite3.Connection', cycle_id: 'int')</code> — </li>
+<li>func: <code>load_cycle_rule_id(conn: 'sqlite3.Connection', cycle_id: 'int') -&gt; 'int'</code> — </li>
+<li>func: <code>load_cycle_rules_df(conn: 'sqlite3.Connection', cycle_id: 'int') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>load_rule_meta(conn: 'sqlite3.Connection', rule_id: 'int')</code> — </li>
+<li>func: <code>load_rule_recipients_df(conn: 'sqlite3.Connection', rule_id: 'int') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>plan_transfer_opex_by_rules(conn: 'sqlite3.Connection', bud_year: 'int', elem_root: 'str', cycle_no: 'int', rules_df: 'pd.DataFrame') -&gt; 'pd.DataFrame'</code> — rules_df: columns = donor_cc_id, to_cc_id, share (0..1), optional to_elem_id.</li>
+</ul>
+<h2 id="package-db">Package db<a class="headerlink" href="#package-db" title="Permanent link">&para;</a></h2>
+<h3 id="module-dbconnection">Module db.connection<a class="headerlink" href="#module-dbconnection" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>contextmanager(func)</code> — @contextmanager decorator.</li>
+<li>func: <code>get_table_info(conn, table: str)</code> — </li>
+<li>func: <code>normalize_db_path(raw: str | pathlib.Path) -&gt; pathlib.Path</code> — </li>
+</ul>
+<h3 id="module-dbensure_mfc_report">Module db.ensure_mfc_report<a class="headerlink" href="#module-dbensure_mfc_report" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>ensure_mfc_report_defs_table(conn)</code> — Таблица вариантов отчёта (версионирование Target2026/2027 и т.п.).</li>
+<li>func: <code>ensure_mfc_report_indexes(conn)</code> — Доп. индексы для быстрых выборок по году/сценариям через mfc_report_defs.</li>
+<li>func: <code>ensure_mfc_report_line_rules_table(conn)</code> — Правила агрегации для каждой строки.</li>
+<li>func: <code>ensure_mfc_report_lines_table(conn)</code> — Список строк внутри конкретного отчёта (порядок, заголовок).</li>
+<li>func: <code>ensure_mfc_report_rules_add_sets(conn)</code> — </li>
+<li>func: <code>ensure_mfc_report_schema(conn)</code> — Главная обёртка: создать всё для правила-сборки отчётов.</li>
+<li>func: <code>ensure_mfc_sets_schema(conn)</code> — </li>
+</ul>
+<h3 id="module-dbensure_mo">Module db.ensure_mo<a class="headerlink" href="#module-dbensure_mo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>ensure_mo_tables(conn)</code> — </li>
+</ul>
+<h3 id="module-dbqueries">Module db.queries<a class="headerlink" href="#module-dbqueries" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>fetch_flat_bom_for_parent(conn, product_id)</code> — </li>
+<li>func: <code>fetch_labor_cost_unit(conn, product_id)</code> — </li>
+<li>func: <code>fetch_labor_total(conn, product_id) -&gt; float</code> — </li>
+<li>func: <code>fetch_materials_from_bom(conn, product_id)</code> — </li>
+<li>func: <code>fetch_produced_items(conn)</code> — </li>
+<li>func: <code>search_items_by_tokens(conn, tokens: str | list[str], limit_per_token: int = 20) -&gt; pandas.core.frame.DataFrame</code> — Ищет items по множеству токенов (артикул/название/код).</li>
+</ul>
+<h3 id="module-dbschema">Module db.schema<a class="headerlink" href="#module-dbschema" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Migration(version: int, name: str, apply: Callable[[sqlite3.Connection], NoneType]) -&gt; None</code> — Migration(version: int, name: str, apply: Callable[[sqlite3.Connection], NoneType])</li>
+<li>class: <code>SchemaManager(migrations: Optional[List[db.schema.Migration]] = None)</code> — </li>
+<li>func: <code>add_column_if_missing(conn, table: str, coldef: str)</code> — </li>
+<li>func: <code>column_exists(conn, table: str, column: str) -&gt; bool</code> — </li>
+<li>func: <code>dataclass(cls=None, /, *, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False, weakref_slot=False)</code> — Add dunder methods based on the fields defined in the class.</li>
+<li>func: <code>ensure_active_scenarios(conn)</code> — </li>
+<li>func: <code>ensure_bom_struct_stage_table(conn)</code> — </li>
+<li>func: <code>ensure_bom_table(conn)</code> — Ensure bom_flat exists and 'bom' view points to it; handle legacy bom table.</li>
+<li>func: <code>ensure_budget_tables(conn)</code> — РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†С‹ РґР»СЏ Р·Р°РіСЂСѓР·РєРё Рё С…СЂР°РЅРµРЅРёСЏ Р±СЋРґР¶РµС‚Р° OPEX.</li>
+<li>func: <code>ensure_cc_extra_columns(conn)</code> — Backwards-compatible helper; migrations add required columns.</li>
+<li>func: <code>ensure_commodity_map(conn)</code> — </li>
+<li>func: <code>ensure_cost_rates_indexes(conn)</code> — </li>
+<li>func: <code>ensure_depr_opr_cost_tables(conn)</code> — </li>
+<li>func: <code>ensure_depr_opr_rates(conn)</code> — </li>
+<li>func: <code>ensure_item_cg_view(conn)</code> — </li>
+<li>func: <code>ensure_items_columns(conn)</code> — </li>
+<li>func: <code>ensure_labor_cost_table(conn)</code> — </li>
+<li>func: <code>ensure_labor_hours_table(conn)</code> — </li>
+<li>func: <code>ensure_labor_rates_snapshot_schema(conn)</code> — </li>
+<li>func: <code>ensure_mfc_report_schema(conn)</code> — Главная обёртка: создать всё для правила-сборки отчётов.</li>
+<li>func: <code>ensure_mo_tables(conn)</code> — </li>
+<li>func: <code>ensure_ovh_bases_year_table(conn)</code> — РЎРЅРёРјРѕРє Р±Р°Р· Рё СЂР°СЃРїСЂРµРґРµР»РµРЅРёР№ РїРѕ РѕРІРµСЂС…РµРґ-РіСЂСѓРїРїР°Рј (A001вЂ“A010) РЅР° РєРѕРЅРєСЂРµС‚РЅС‹Р№ РіРѕРґ.</li>
+<li>func: <code>ensure_ovh_cost_unit_table(conn)</code> — </li>
+<li>func: <code>ensure_ovh_costs_table(conn)</code> — Ensure ovh_costs table exists and is indexed.</li>
+<li>func: <code>ensure_ovh_flat_table(conn)</code> — Ensure ovh_flat unified schema columns exist (idempotent).</li>
+<li>func: <code>ensure_ovh_tariffs_indexes(conn)</code> — </li>
+<li>func: <code>ensure_ovh_tariffs_table(conn)</code> — </li>
+<li>func: <code>ensure_ovh_views(conn)</code> — </li>
+<li>func: <code>ensure_price_views(conn)</code> — </li>
+<li>func: <code>ensure_prod_budget_table(conn)</code> — </li>
+<li>func: <code>ensure_prod_budget_views(conn)</code> — </li>
+<li>func: <code>ensure_rm_price_load_table(conn)</code> — </li>
+<li>func: <code>ensure_rm_prices(conn)</code> — </li>
+<li>func: <code>ensure_routing_flat_table(conn)</code> — Ensure routing_flat exists with required columns and indexes.</li>
+<li>func: <code>ensure_routing_tree_table(conn)</code> — </li>
+<li>func: <code>ensure_routings_columns(conn)</code> — </li>
+<li>func: <code>ensure_run_logging(conn)</code> — </li>
+<li>func: <code>ensure_scenario_cost_views(conn)</code> — Create scenario-based cost views for BOM, routing, and overhead (OVH).</li>
+<li>func: <code>ensure_schema(conn: sqlite3.Connection) -&gt; None</code> — Ensure database schema is up to date.</li>
+<li>func: <code>ensure_scrap_cost_unit_table(conn)</code> — </li>
+<li>func: <code>ensure_transfers_schema(conn)</code> — </li>
+<li>func: <code>ensure_unique_routing_group(conn)</code> — </li>
+<li>func: <code>get_table_info(conn, table: str)</code> — </li>
+<li>func: <code>migrate_ovh_tariffs_to_tall(conn)</code> — Миграция таблицы ovh_tariffs к формату (overhead_group, year, scenario, cost_type, share)</li>
+<li>func: <code>populate_ovh_costs(conn)</code> — Rebuild ovh_costs for active year with restricted driverв†’cost_type mapping.</li>
+<li>func: <code>table_exists(conn, name: str) -&gt; bool</code> — </li>
+</ul>
+<h2 id="package-loaders">Package loaders<a class="headerlink" href="#package-loaders" title="Permanent link">&para;</a></h2>
+<h3 id="module-loadersbom_loader">Module loaders.bom_loader<a class="headerlink" href="#module-loadersbom_loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Any(*args, **kwargs)</code> — Special type indicating an unconstrained type.</li>
+<li>func: <code>load_bom_components_xlsx(conn, file_bytes: 'bytes', mapping: 'Optional[Dict[str, str]]' = None, default_spec_valid_from: 'Optional[str]' = None, load_id: 'Optional[str]' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>load_bom_specs_xlsx(conn, file_bytes: 'bytes', mapping: 'Optional[Dict[str, str]]' = None, default_valid_from: 'Optional[str]' = None, load_id: 'Optional[str]' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>normalize_bom_components_stage(conn, load_id: 'Optional[str]' = None) -&gt; 'int'</code> — Normalize bom_components_stage by assigning line_no where missing and clearing error_flag.</li>
+<li>func: <code>upsert_bom_components_from_stage(conn, load_id: 'str', verbose: 'bool' = False) -&gt; 'int'</code> — Fast upsert from stage to bom_spec_components for a given load_id.</li>
+<li>func: <code>upsert_bom_specs_from_stage(conn, load_id: 'str') -&gt; 'int'</code> — </li>
+</ul>
+<h3 id="module-loadersccg_wru_loader">Module loaders.ccg_wru_loader<a class="headerlink" href="#module-loadersccg_wru_loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Any(*args, **kwargs)</code> — Special type indicating an unconstrained type.</li>
+<li>func: <code>ensure_cc_extra_columns(conn)</code> — Backwards-compatible helper; migrations add required columns.</li>
+<li>func: <code>load_cc_structure_twofiles(conn: 'sqlite3.Connection', groups_path: 'str', leaves_path: 'str', sheet_name: 'str | None' = None)</code> — </li>
+<li>func: <code>parse_groups_from_ccg(df: 'pd.DataFrame') -&gt; 'Tuple[List[Dict], List[Tuple[str, str]]]'</code> — </li>
+<li>func: <code>parse_leaves_from_list(df: 'pd.DataFrame') -&gt; 'Tuple[List[Dict], List[Tuple[str, str]]]'</code> — </li>
+<li>func: <code>upsert_cc(conn: 'sqlite3.Connection', nodes: 'List[Dict]', edges: 'List[Tuple[str, str]]')</code> — </li>
+</ul>
+<h3 id="module-loadersdirect_cost_loader">Module loaders.direct_cost_loader<a class="headerlink" href="#module-loadersdirect_cost_loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Any(*args, **kwargs)</code> — Special type indicating an unconstrained type.</li>
+<li>class: <code>ColumnMap(cc_id_col: 'str | None', dept_col: 'str | None', month_cols: 'list[Any]', yearly_col: 'str | None') -&gt; None</code> — ColumnMap(cc_id_col: 'str | None', dept_col: 'str | None', month_cols: 'list[Any]', yearly_col: 'str | None')</li>
+<li>func: <code>dataclass(cls=None, /, *, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False, weakref_slot=False)</code> — Add dunder methods based on the fields defined in the class.</li>
+<li>func: <code>render(conn)</code> — </li>
+</ul>
+<h3 id="module-loadersload_cost_structures">Module loaders.load_cost_structures<a class="headerlink" href="#module-loadersload_cost_structures" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Any(*args, **kwargs)</code> — Special type indicating an unconstrained type.</li>
+<li>func: <code>cc_duplicates_report(conn: sqlite3.Connection) -&gt; Dict[str, pandas.core.frame.DataFrame]</code> — Возвращает диагностические DataFrame:</li>
+<li>func: <code>ensure_schema(conn: sqlite3.Connection) -&gt; None</code> — </li>
+<li>func: <code>main()</code> — </li>
+<li>func: <code>parse_ccg(df: pandas.core.frame.DataFrame) -&gt; Tuple[List[Dict], List[Tuple[str, str]]]</code> — Разбор CCG WRU с поддержкой разных имён колонок уровней (Level0/LEVEL 1/L2/Уровень 3 и т.д.).</li>
+<li>func: <code>parse_mfc(df: pandas.core.frame.DataFrame, leaf_level: int = 5) -&gt; Tuple[List[Dict], List[Tuple[str, str]]]</code> — Скольжение по дереву MFCPRIM:</li>
+<li>func: <code>quality_checks(conn: sqlite3.Connection) -&gt; Dict[str, int]</code> — </li>
+<li>func: <code>upsert_cc(conn: sqlite3.Connection, nodes: List[Dict], edges: List[Tuple[str, str]]) -&gt; None</code> — </li>
+<li>func: <code>upsert_elem(conn, nodes, edges)</code> — </li>
+</ul>
+<h3 id="module-loadersloader_mo_prices">Module loaders.loader_mo_prices<a class="headerlink" href="#module-loadersloader_mo_prices" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>datetime(...)</code> — datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])</li>
+<li>func: <code>load_mo_prices(path: str, conn, *, sheet_name: int | str = 0, vendor: Optional[str] = None, effective_from: Optional[str] = None, effective_to: Optional[str] = None, source: Optional[str] = None, preview_only: bool = True)</code> — </li>
+</ul>
+<h3 id="module-loadersloaders">Module loaders.loaders<a class="headerlink" href="#module-loadersloaders" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Decimal(value='0', context=None)</code> — Construct a new Decimal object. 'value' can be an integer, string, tuple,</li>
+<li>class: <code>InvalidOperation(...)</code> — Base class for arithmetic errors.</li>
+<li>class: <code>datetime(...)</code> — datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])</li>
+<li>func: <code>apply_department_suggestions(conn, df_suggestions)</code> — Применяет suggested_dept к операциям с UNASSIGNED/пустым департаментом.</li>
+<li>func: <code>diagnose_routings(conn)</code> — Возвращает словарь DataFrame'ов:</li>
+<li>func: <code>ensure_items_columns(conn)</code> — </li>
+<li>func: <code>ensure_prod_budget_table(conn)</code> — </li>
+<li>func: <code>ensure_routings_columns(conn)</code> — </li>
+<li>func: <code>is_object_dtype(arr_or_dtype) -&gt; 'bool'</code> — Check whether an array-like or dtype is of the object dtype.</li>
+<li>func: <code>load_ovh_tariffs(conn, csv_path: 'str', year: 'int')</code> — Принимает wide CSV (колонки: overhead_group, scrap_share, depr_opr_share, log_share, adm_share)</li>
+<li>func: <code>load_prod_budget_from_xlsx(conn, xlsx_path: 'str', scenario: 'str', article_aliases=None, name_aliases=None)</code> — Двухстрочный заголовок: склеиваем header=[0,1].</li>
+<li>func: <code>normalize_date_any(x)</code> — </li>
+<li>func: <code>normalize_department_code(dept_raw, operation_text: 'str')</code> — Возвращает (dept_code, source), где source ∈ {"given","inferred","default"}.</li>
+<li>func: <code>read_rm_prices_xlsx(file_or_path, sheet_name=0) -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>safe_col(df: pandas.core.frame.DataFrame, name: str, default=None)</code> — </li>
+<li>func: <code>split_work_type(row) -&gt; 'pd.Series'</code> — Из "Вид работ" пытается извлечь operation и department.</li>
+<li>func: <code>sync_bom_struct_from_stage(conn, spec_codes: 'list[str] | None' = None)</code> — </li>
+<li>func: <code>to_float_ru(x)</code> — </li>
+<li>func: <code>upsert_bom_general(conn, df: 'pd.DataFrame', allow_stub_items: 'bool' = False)</code> — </li>
+<li>func: <code>upsert_bom_struct(conn, df: 'pd.DataFrame', *, default_qty_if_blank: 'float' = 1.0, create_stub_items: 'bool' = True, source_batch: 'str | None' = None)</code> — </li>
+<li>func: <code>upsert_depr_rates_snapshot(conn, df: 'pd.DataFrame', default_year: 'int | None' = None, source: 'str' = 'file')</code> — </li>
+<li>func: <code>upsert_items(conn, df: 'pd.DataFrame')</code> — </li>
+<li>func: <code>upsert_items_from_xlsx(conn, df: 'pd.DataFrame')</code> — Ожидаемые колонки:</li>
+<li>func: <code>upsert_labor_rates_periodic(conn, df: 'pd.DataFrame')</code> — </li>
+<li>func: <code>upsert_labor_rates_snapshot(conn, df: 'pd.DataFrame', default_year: 'int | None' = None, source: 'str' = 'file')</code> — </li>
+<li>func: <code>upsert_opr_rates_snapshot(conn, df: 'pd.DataFrame', default_year: 'int | None' = None, source: 'str' = 'file')</code> — </li>
+<li>func: <code>upsert_rm_prices(conn, df: 'pd.DataFrame', filename: 'str', effective_from: 'str | None' = None, load_id: 'str | None' = None)</code> — </li>
+<li>func: <code>upsert_routings(conn, df: 'pd.DataFrame')</code> — Единый routing на один routing_group.</li>
+</ul>
+<h3 id="module-loadersopex_loader">Module loaders.opex_loader<a class="headerlink" href="#module-loadersopex_loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>commit_opex(conn: sqlite3.Connection, load_id: str, bud_year: int = 2026) -&gt; tuple[int, float]</code> — </li>
+<li>func: <code>diagnose_opex_stage(conn, load_id: str) -&gt; dict</code> — </li>
+<li>func: <code>read_opex_excel(path: str, sheet_name: str = 'INPUT') -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>stage_opex(conn, df: pandas.core.frame.DataFrame, sheet_name: str, treat_empty_as_zero: bool = False)</code> — </li>
+</ul>
+<h3 id="module-loaderspersonnel_loader">Module loaders.personnel_loader<a class="headerlink" href="#module-loaderspersonnel_loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>BinaryIO()</code> — Typed version of the return of open() in binary mode.</li>
+<li>func: <code>load_personnel_monthly_from_excel(conn, xls: 'ExcelInput', bud_year: 'int', sheet: 'Optional[str]' = None, clear_year_first: 'bool' = False, source: 'str' = 'file', note: 'str' = None) -&gt; 'tuple[int, pd.DataFrame]'</code> — Загружает персонал по месяцам (personnel_monthly) из xlsx формата как в 110_HC_2026.xlsx.</li>
+</ul>
+<h3 id="module-loadersrules_loader">Module loaders.rules_loader<a class="headerlink" href="#module-loadersrules_loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>ensure_rules_schema(conn: 'sqlite3.Connection') -&gt; 'None'</code> — </li>
+<li>func: <code>list_rules(conn: 'sqlite3.Connection', q: 'Optional[str]' = None, limit: 'int' = 500) -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>read_rules_excel(xlsx_path: 'str') -&gt; 'Tuple[pd.DataFrame, pd.DataFrame]'</code> — Читает оба листа из файла: detail_rules и fallback_rules (если есть).</li>
+<li>func: <code>toggle_rule(conn: 'sqlite3.Connection', rule_id: 'int', enabled: 'bool') -&gt; 'None'</code> — </li>
+<li>func: <code>update_rule_row(conn: 'sqlite3.Connection', row: 'Dict') -&gt; 'None'</code> — </li>
+<li>func: <code>upsert_rules(conn: 'sqlite3.Connection', df_rules: 'pd.DataFrame', enable: 'bool' = True) -&gt; 'int'</code> — Массовая запись правил. Если правило с теми же (priority, cost_type, pattern, elem_id) уже есть —</li>
+<li>func: <code>validate_rules(conn: 'sqlite3.Connection', df_rules: 'pd.DataFrame') -&gt; 'pd.DataFrame'</code> — Проверка: elem_id существует в elem_nodes; предупреждения по пустым cost_type и pattern одновременно.</li>
+</ul>
+<h3 id="module-loadersupdater">Module loaders.updater<a class="headerlink" href="#module-loadersupdater" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>datetime(...)</code> — datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])</li>
+<li>func: <code>apply_items_updates(conn, preview_df: 'pd.DataFrame') -&gt; 'int'</code> — Принимает датафрейм из preview_items_updates; применяет UPDATE только по изменённым полям.</li>
+<li>func: <code>apply_std_prices(conn, preview_df: 'pd.DataFrame', source_name: 'str') -&gt; 'int'</code> — Принимаем датафрейм из preview_std_prices (можно отфильтровать note IS NULL),</li>
+<li>func: <code>preview_items_updates(conn, excel_bytes: 'bytes', sheet: 'str | int' = 0) -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>preview_std_prices(conn, excel_bytes: 'bytes', sheet: 'str | int' = 0, article_col='Material', price_col='STD 2026', uom='ШТ', currency='RUB') -&gt; 'pd.DataFrame'</code> — </li>
+</ul>
+<h3 id="module-loadersutils">Module loaders.utils<a class="headerlink" href="#module-loadersutils" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>drop_1c_totals(df: pandas.core.frame.DataFrame) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>read_1c_txt(file_bytes: bytes, encoding='auto') -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>read_excel(file_bytes: bytes) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>safe_col(df: pandas.core.frame.DataFrame, name: str, default=None)</code> — </li>
+<li>func: <code>to_float_ru(x)</code> — </li>
+</ul>
+<h2 id="package-app">Package app<a class="headerlink" href="#package-app" title="Permanent link">&para;</a></h2>
+<h3 id="module-appapp-import-failed">Module app.app — <em>import failed</em><a class="headerlink" href="#module-appapp-import-failed" title="Permanent link">&para;</a></h3>
+<h3 id="module-appinit_db">Module app.init_db<a class="headerlink" href="#module-appinit_db" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>func: <code>main()</code> — </li>
+</ul>
+<h2 id="package-ui">Package ui<a class="headerlink" href="#package-ui" title="Permanent link">&para;</a></h2>
+<h3 id="module-uiadmin_table_editor">Module ui.admin_table_editor<a class="headerlink" href="#module-uiadmin_table_editor" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>render_table_editor(conn: sqlite3.Connection)</code> — </li>
+</ul>
+<h3 id="module-uialloc_wizard">Module ui.alloc_wizard<a class="headerlink" href="#module-uialloc_wizard" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Any(*args, **kwargs)</code> — Special type indicating an unconstrained type.</li>
+<li>class: <code>DraftRule(component_code: 'str' = 'LABOR_DIRECT', description: 'str' = '', policy: 'str' = 'weights', cc_nodes: 'List[str]' = &lt;factory&gt;, elem_nodes: 'List[str]' = &lt;factory&gt;, driver_code: 'str' = 'HOURS', driver_set: 'str' = 'PLAN_HOURS_2026', fallback: 'str' = 'error', overrides: 'List[Dict[str, Any]]' = &lt;factory&gt;) -&gt; None</code> — DraftRule(component_code: 'str' = 'LABOR_DIRECT', description: 'str' = '', policy: 'str' = 'weights', cc_nodes: 'List[str]' = <factory>, elem_nodes: 'List[str]' = <factory>, driver_code: 'str' = 'HOURS', driver_set: 'str' = 'PLAN_HOURS_2026', fallback: 'str' = 'error', overrides: 'List[Dict[str, Any]]' = <factory>)</li>
+<li>class: <code>WizardState(period_from: 'str' = '2026-01', period_to: 'str' = '2026-01', scenario: 'str' = 'PLAN', rule_set_id: 'str' = 'DEFAULT_2026', rule_set_status: 'str' = 'DRAFT', scope_filter: 'str' = '', draft: 'DraftRule' = &lt;factory&gt;) -&gt; None</code> — WizardState(period_from: 'str' = '2026-01', period_to: 'str' = '2026-01', scenario: 'str' = 'PLAN', rule_set_id: 'str' = 'DEFAULT_2026', rule_set_status: 'str' = 'DRAFT', scope_filter: 'str' = '', draft: 'DraftRule' = <factory>)</li>
+<li>func: <code>apply_allocations(conn: 'sqlite3.Connection', period: 'str', scenario: 'str', rule_set_id: 'str', run_id: 'Optional[str]' = None, components: 'Optional[List[str]]' = None) -&gt; 'int'</code> — Apply weight-based allocations for given period and rule set.</li>
+<li>func: <code>asdict(obj, *, dict_factory=&lt;class 'dict'&gt;)</code> — Return the fields of a dataclass instance as a new dictionary mapping</li>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>dataclass(cls=None, /, *, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False, weakref_slot=False)</code> — Add dunder methods based on the fields defined in the class.</li>
+<li>func: <code>field(*, default=&lt;dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0&gt;, default_factory=&lt;dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0&gt;, init=True, repr=True, hash=None, compare=True, metadata=None, kw_only=&lt;dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0&gt;)</code> — Return an object to identify dataclass fields.</li>
+<li>func: <code>render(db_path: 'str')</code> — </li>
+</ul>
+<h3 id="module-uiapp_streamlit">Module ui.app_streamlit<a class="headerlink" href="#module-uiapp_streamlit" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>ensure_bom_table(conn)</code> — Ensure bom_flat exists and 'bom' view points to it; handle legacy bom table.</li>
+<li>func: <code>ensure_unique_routing_group(conn)</code> — </li>
+<li>func: <code>main()</code> — </li>
+<li>func: <code>normalize_db_path(raw: str | pathlib.Path) -&gt; pathlib.Path</code> — </li>
+<li>func: <code>render_alloc_wizard(db_path: 'str')</code> — </li>
+<li>func: <code>render_budget_run(db_path: str)</code> — </li>
+<li>func: <code>render_cost_tree(db_path: 'str')</code> — </li>
+<li>func: <code>render_costing_run(db_path)</code> — </li>
+<li>func: <code>render_import_data(db_path: str, encoding='auto')</code> — </li>
+<li>func: <code>render_updater(db_path: str)</code> — </li>
+<li>func: <code>run_nsi_refs()</code> — </li>
+</ul>
+<h3 id="package-uicomponents">Package ui.components<a class="headerlink" href="#package-uicomponents" title="Permanent link">&para;</a></h3>
+<h3 id="module-uicomponentsitem_picker">Module ui.components.item_picker<a class="headerlink" href="#module-uicomponentsitem_picker" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>item_paste_picker(db_path: str, key_prefix: str = 'picker', title: str = 'Выбор позиций для расчёта') -&gt; List[str]</code> — Возвращает список выбранных item_id.</li>
+<li>func: <code>search_items_by_tokens(conn, tokens: str | list[str], limit_per_token: int = 20) -&gt; pandas.core.frame.DataFrame</code> — Ищет items по множеству токенов (артикул/название/код).</li>
+</ul>
+<h3 id="module-uicomponentsset_window_title">Module ui.components.set_window_title<a class="headerlink" href="#module-uicomponentsset_window_title" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>set_window_title(title: str)</code> — </li>
+</ul>
+<h3 id="module-uidata_cogs">Module ui.data_cogs<a class="headerlink" href="#module-uidata_cogs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>fetch_cogs_unit(conn: 'sqlite3.Connection', period: 'str', scenario: 'str', product_ids: 'list[str] | None' = None) -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>get_periods(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — Fast list of available periods from base tables (avoid heavy v_cogs_unit).</li>
+<li>func: <code>get_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>pivot_cogs(df: 'pd.DataFrame') -&gt; 'pd.DataFrame'</code> — </li>
+</ul>
+<h3 id="module-uiviews_bom_xlsx">Module ui.views_bom_xlsx<a class="headerlink" href="#module-uiviews_bom_xlsx" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>load_bom_components_xlsx(conn, file_bytes: 'bytes', mapping: 'Optional[Dict[str, str]]' = None, default_spec_valid_from: 'Optional[str]' = None, load_id: 'Optional[str]' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>load_bom_specs_xlsx(conn, file_bytes: 'bytes', mapping: 'Optional[Dict[str, str]]' = None, default_valid_from: 'Optional[str]' = None, load_id: 'Optional[str]' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>render(db_path: str)</code> — </li>
+<li>func: <code>upsert_bom_components_from_stage(conn, load_id: 'str', verbose: 'bool' = False) -&gt; 'int'</code> — Fast upsert from stage to bom_spec_components for a given load_id.</li>
+<li>func: <code>upsert_bom_specs_from_stage(conn, load_id: 'str') -&gt; 'int'</code> — </li>
+</ul>
+<h3 id="module-uiviews_budget">Module ui.views_budget<a class="headerlink" href="#module-uiviews_budget" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>list_price_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — Список доступных сценариев цен (price_scenarios.scenario_code).</li>
+<li>func: <code>list_rate_years(conn: 'sqlite3.Connection') -&gt; 'list[int]'</code> — </li>
+<li>func: <code>normalize_db_path(raw: str | pathlib.Path) -&gt; pathlib.Path</code> — </li>
+<li>func: <code>render_budget_run(db_path: str)</code> — </li>
+<li>func: <code>render_ppv(conn: sqlite3.Connection)</code> — Рендер PPV (Price Purchase Variance) по Commodity Group.</li>
+</ul>
+<h3 id="module-uiviews_cost_tree">Module ui.views_cost_tree<a class="headerlink" href="#module-uiviews_cost_tree" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>audit_schema_and_data(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', *, load_id: 'str', year: 'int', scenario: 'str | None') -&gt; 'AuditResult'</code> — </li>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>fetch_direct_cost(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', year: 'int', scenario: 'Optional[str]' = None) -&gt; 'Tuple[pd.DataFrame, dict]'</code> — Return per-operation direct cost rows with rates from cost_rates.</li>
+<li>func: <code>fetch_direct_cost_by_scenario(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', year: 'int', scenario: 'Optional[str]' = None) -&gt; 'Tuple[pd.DataFrame, dict]'</code> — Прямые (операции) через v_routing_costs_scenario.</li>
+<li>func: <code>fetch_indirect_costs_by_scenario(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]') -&gt; 'pd.DataFrame'</code> — Fetch indirect (non-production) costs from v_ovh_costs_scenario for selected products.</li>
+<li>func: <code>fetch_materials_cost(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', load_id: 'Optional[str]') -&gt; 'Tuple[pd.DataFrame, dict]'</code> — Return materials subtree rows with price from rm_prices(load_id) and diagnostics.</li>
+<li>func: <code>fetch_materials_cost_by_scenario(conn: 'sqlite3.Connection', product_ids: 'Iterable[str]', price_scenario: 'str', *, currency: 'str' = 'RUB') -&gt; 'Tuple[pd.DataFrame, dict]'</code> — Материалы из v_bom_costs_scenario для выбранного сценария цен.</li>
+<li>func: <code>list_price_load_ids(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — Вернёт список load_id из rm_prices (упорядоченный по последней дате загрузки, если доступно).</li>
+<li>func: <code>list_price_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — Список доступных сценариев цен (price_scenarios.scenario_code).</li>
+<li>func: <code>list_produced_items(conn: 'sqlite3.Connection') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>list_rate_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>list_rate_years(conn: 'sqlite3.Connection') -&gt; 'list[int]'</code> — </li>
+<li>func: <code>log_report_event(*, log_path: 'str', product_ids: 'Iterable[str]', load_id: 'str', year: 'int', scenario: 'Optional[str]', materials_diag: 'Dict[str, Any] | None' = None, direct_diag: 'Dict[str, Any] | None' = None, error: 'Optional[str]' = None) -&gt; 'None'</code> — </li>
+<li>func: <code>render(db_path: 'str')</code> — </li>
+</ul>
+<h3 id="module-uiviews_costing_run">Module ui.views_costing_run<a class="headerlink" href="#module-uiviews_costing_run" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>normalize_db_path(raw: str | pathlib.Path) -&gt; pathlib.Path</code> — </li>
+<li>func: <code>render_costing_run(db_path)</code> — </li>
+<li>func: <code>render_ovh_rates_calc(conn, default_year: int = 2026)</code> — </li>
+<li>func: <code>render_rates_calc(conn: sqlite3.Connection, vol_scn: str | None = None) -&gt; None</code> — </li>
+<li>func: <code>render_transfers(conn)</code> — </li>
+</ul>
+<h3 id="module-uiviews_mo_loader">Module ui.views_mo_loader<a class="headerlink" href="#module-uiviews_mo_loader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>load_mo_prices(path: str, conn, *, sheet_name: int | str = 0, vendor: Optional[str] = None, effective_from: Optional[str] = None, effective_to: Optional[str] = None, source: Optional[str] = None, preview_only: bool = True)</code> — </li>
+<li>func: <code>view_mo_loader(conn)</code> — </li>
+</ul>
+<h3 id="module-uiviews_opr_rates">Module ui.views_opr_rates<a class="headerlink" href="#module-uiviews_opr_rates" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>cast(typ, val)</code> — Cast a value to a type.</li>
+<li>func: <code>compare_with_previous(conn, df_current: pandas.core.frame.DataFrame, component_code: str, base_scenario: str | None = None) -&gt; pandas.core.frame.DataFrame</code> — Если base_scenario задан и отличается от текущего → сравниваем со снапшотом указанного сценария.</li>
+<li>func: <code>component_code_for_kind(kind: str, components: pandas.core.frame.DataFrame | None = None) -&gt; str</code> — </li>
+<li>func: <code>compute_rates(conn, price_scn: str, months_ym: list[str], cc_root: str, kind: str = 'labor', vol_scn: str = 'BG26_VOL') -&gt; pandas.core.frame.DataFrame</code> — Универсальный расчёт ставки = (Сумма по группе элементов) / (Плановые часы) по каждому ЦЗ.</li>
+<li>func: <code>fetch_last_snapshot(conn, scenario: str, component_code: str) -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>list_price_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — Список доступных сценариев цен (price_scenarios.scenario_code).</li>
+<li>func: <code>list_rate_components(conn) -&gt; pandas.core.frame.DataFrame</code> — Return active cost rate components with fallbacks.</li>
+<li>func: <code>render_rates_calc(conn: sqlite3.Connection, vol_scn: str | None = None) -&gt; None</code> — </li>
+<li>func: <code>resolve_vol_scenario(conn, bud_year: int, vol_scn: str | None) -&gt; str</code> — </li>
+<li>func: <code>save_rates_cost_rates(conn, df_rates: pandas.core.frame.DataFrame, component_code: str, scenario: str = '') -&gt; int</code> — Save computed yearly rates into unified cost_rates (idempotent).</li>
+<li>func: <code>scenario_to_year(price_scn: str, default: int | None = None) -&gt; int</code> — Derive numeric budget year from scenario code (e.g. BG26_VOL -&gt; 2026).</li>
+</ul>
+<h3 id="module-uiviews_ovh_rates">Module ui.views_ovh_rates<a class="headerlink" href="#module-uiviews_ovh_rates" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>TariffParams(year: 'int', vol_scenario: 'str', price_scenario: 'str', routing_scenario: 'str') -&gt; None</code> — TariffParams(year: 'int', vol_scenario: 'str', price_scenario: 'str', routing_scenario: 'str')</li>
+<li>func: <code>list_price_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>list_routing_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>list_volume_scenarios(conn: 'sqlite3.Connection') -&gt; 'list[str]'</code> — </li>
+<li>func: <code>preview_tariffs(conn: 'sqlite3.Connection', *, year: 'Optional[int]' = None, vol_scenario: 'Optional[str]' = None, price_scenario: 'Optional[str]' = None, routing_scenario: 'Optional[str]' = None, scrap_share: 'Optional[float]' = None) -&gt; 'TariffPreview'</code> — </li>
+<li>func: <code>render_ovh_rates_calc(conn, default_year: int = 2026)</code> — </li>
+<li>func: <code>save_tariffs(conn: 'sqlite3.Connection', preview: 'TariffPreview', *, cost_types: 'Optional[Iterable[str]]' = None) -&gt; 'int'</code> — </li>
+<li>func: <code>write_scrap_tariffs(conn: 'sqlite3.Connection', params: 'TariffParams', share: 'float', *, year: 'Optional[int]' = None, groups: 'Optional[Sequence[str]]' = None) -&gt; 'int'</code> — </li>
+</ul>
+<h3 id="module-uiviews_ppv">Module ui.views_ppv<a class="headerlink" href="#module-uiviews_ppv" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>BytesIO(initial_bytes=b'')</code> — Buffered I/O implementation using an in-memory bytes buffer.</li>
+<li>func: <code>compute_ppv_by_cg(conn: 'sqlite3.Connection', *, vol_s: 'str', s1: 'str', s2: 'str', s3: 'str', pure_only: 'bool' = False) -&gt; 'Dict[str, pd.DataFrame]'</code> — Рассчитать PPV по commodity group.</li>
+<li>func: <code>render_ppv(conn: sqlite3.Connection)</code> — Рендер PPV (Price Purchase Variance) по Commodity Group.</li>
+</ul>
+<h3 id="module-uiviews_quality">Module ui.views_quality<a class="headerlink" href="#module-uiviews_quality" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>check_bom_components_missing_prices(conn)</code> — Компоненты из BOM без цены в rm_prices (по последней загрузке).</li>
+<li>func: <code>check_bom_unknown_items(conn)</code> — BOM с компонентами, отсутствующими в items.</li>
+<li>func: <code>check_budget_has_nonproduced(conn)</code> — В prod_budget есть product_id, который в items помечен как is_produced=0.</li>
+<li>func: <code>check_items_duplicate_article(conn)</code> — Дубли артикулов (один article на несколько item_id).</li>
+<li>func: <code>check_items_nonproduced_has_routing_or_ovh(conn)</code> — Непроизводимые (is_produced=0) с заполненными routing_group/ovh_group_code (подозрительно).</li>
+<li>func: <code>check_items_produced_missing_routing_or_ovh(conn)</code> — Производимые (is_produced=1), у которых пусты routing_group или ovh_group_code.</li>
+<li>func: <code>check_items_required_fields(conn)</code> — Пустые/нулевые article, name, uom.</li>
+<li>func: <code>check_ovh_groups_missing_tariffs(conn, year: 'int | None' = None, scenario: 'str | None' = None)</code> — Группы из ovh_flat, которых нет в ovh_tariffs (по году; если год None — берём max(year)).</li>
+<li>func: <code>check_routing_flat_missing_rates(conn)</code> — Департаменты из routing_flat без ставки в labor_rates_snapshot.</li>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>render(db_path: str)</code> — </li>
+</ul>
+<h3 id="module-uiviews_transfers">Module ui.views_transfers<a class="headerlink" href="#module-uiviews_transfers" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>apply_efficiency_normalization(conn, bud_year: 'int', hours_per_person: 'float' = 1972, elem_root: 'str' = 'MFC_PRIM_1', cc_root: 'str' = 'RU1OP1P21', vol_scenario: 'str | None' = None, comment: 'str' = 'efficiency normalize', created_by: 'str | None' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>compute_efficiency_table(conn, bud_year: 'int', hours_per_person: 'float' = 1972, elem_root: 'str' = 'MFC_PRIM_1', cc_root: 'str' = 'RU1OP1P21', vol_scenario: 'str | None' = None) -&gt; 'pd.DataFrame'</code> — Таблица эффективности по производственным ЦЗ:</li>
+<li>func: <code>plan_efficiency_normalization(conn, bud_year: 'int', hours_per_person: 'float' = 1972, elem_root: 'str' = 'MFC_PRIM_1', cc_root: 'str' = 'RU1OP1P21', vol_scenario: 'str | None' = None) -&gt; 'tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]'</code> — Строит план нормализации:</li>
+<li>func: <code>render_opex_cycles(conn: sqlite3.Connection)</code> — </li>
+<li>func: <code>render_transfers(conn)</code> — </li>
+<li>func: <code>revert_transfer(conn, batch_id: str)</code> — </li>
+</ul>
+<h3 id="module-uiviews_transfers_opex">Module ui.views_transfers_opex<a class="headerlink" href="#module-uiviews_transfers_opex" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>apply_cycle(conn, cycle_id: 'int', cycle_no: 'int', comment: 'str', created_by: 'str | None' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>load_cycle_meta(conn: 'sqlite3.Connection', cycle_id: 'int')</code> — </li>
+<li>func: <code>load_cycle_rules_df(conn: 'sqlite3.Connection', cycle_id: 'int') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>plan_transfer_opex_by_rules(conn: 'sqlite3.Connection', bud_year: 'int', elem_root: 'str', cycle_no: 'int', rules_df: 'pd.DataFrame') -&gt; 'pd.DataFrame'</code> — rules_df: columns = donor_cc_id, to_cc_id, share (0..1), optional to_elem_id.</li>
+<li>func: <code>render_opex_cycles(conn: sqlite3.Connection)</code> — </li>
+</ul>
+<h3 id="module-uiviews_updater">Module ui.views_updater<a class="headerlink" href="#module-uiviews_updater" title="Permanent link">&para;</a></h3>
+<ul>
+<li>func: <code>apply_items_updates(conn, preview_df: 'pd.DataFrame') -&gt; 'int'</code> — Принимает датафрейм из preview_items_updates; применяет UPDATE только по изменённым полям.</li>
+<li>func: <code>apply_std_prices(conn, preview_df: 'pd.DataFrame', source_name: 'str') -&gt; 'int'</code> — Принимаем датафрейм из preview_std_prices (можно отфильтровать note IS NULL),</li>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>preview_items_updates(conn, excel_bytes: 'bytes', sheet: 'str | int' = 0) -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>preview_std_prices(conn, excel_bytes: 'bytes', sheet: 'str | int' = 0, article_col='Material', price_col='STD 2026', uom='ШТ', currency='RUB') -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>render(db_path: str)</code> — </li>
+</ul>
+<h3 id="module-uiviews_upload">Module ui.views_upload<a class="headerlink" href="#module-uiviews_upload" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+<li>func: <code>apply_department_suggestions(conn, df_suggestions)</code> — Применяет suggested_dept к операциям с UNASSIGNED/пустым департаментом.</li>
+<li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
+<li>func: <code>is_object_dtype(arr_or_dtype) -&gt; 'bool'</code> — Check whether an array-like or dtype is of the object dtype.</li>
+<li>func: <code>load_bom_components_xlsx(conn, file_bytes: 'bytes', mapping: 'Optional[Dict[str, str]]' = None, default_spec_valid_from: 'Optional[str]' = None, load_id: 'Optional[str]' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>load_bom_specs_xlsx(conn, file_bytes: 'bytes', mapping: 'Optional[Dict[str, str]]' = None, default_valid_from: 'Optional[str]' = None, load_id: 'Optional[str]' = None) -&gt; 'str'</code> — </li>
+<li>func: <code>load_mo_prices(path: str, conn, *, sheet_name: int | str = 0, vendor: Optional[str] = None, effective_from: Optional[str] = None, effective_to: Optional[str] = None, source: Optional[str] = None, preview_only: bool = True)</code> — </li>
+<li>func: <code>load_personnel_monthly_from_excel(conn, xls: 'ExcelInput', bud_year: 'int', sheet: 'Optional[str]' = None, clear_year_first: 'bool' = False, source: 'str' = 'file', note: 'str' = None) -&gt; 'tuple[int, pd.DataFrame]'</code> — Загружает персонал по месяцам (personnel_monthly) из xlsx формата как в 110_HC_2026.xlsx.</li>
+<li>func: <code>load_prod_budget_from_xlsx(conn, xlsx_path: 'str', scenario: 'str', article_aliases=None, name_aliases=None)</code> — Двухстрочный заголовок: склеиваем header=[0,1].</li>
+<li>func: <code>materialize_bom_flat(conn: 'sqlite3.Connection', product_id: 'str | None' = None) -&gt; 'int'</code> — Materialize bom_flat using SQL scripts under sql/materialize.</li>
+<li>func: <code>materialize_mo_cost_unit(conn, *, on_date: 'str | None' = None)</code> — Р—Р°РїРѕР»РЅСЏРµС‚ mo_cost_unit РёР· bom_flat Г— mo_last_price (РЅР° РґР°С‚Сѓ РёР»Рё РїРѕ С‚РµРєСѓС‰РµР№).</li>
+<li>func: <code>read_1c_txt(file_bytes: bytes, encoding='auto') -&gt; pandas.core.frame.DataFrame</code> — </li>
+<li>func: <code>read_rm_prices_xlsx(file_or_path, sheet_name=0) -&gt; 'pd.DataFrame'</code> — </li>
+<li>func: <code>render(db_path: str, encoding='auto')</code> — </li>
+<li>func: <code>render_direct_cost_loader(conn)</code> — </li>
+<li>func: <code>to_float_ru(x)</code> — </li>
+<li>func: <code>upsert_bom_components_from_stage(conn, load_id: 'str', verbose: 'bool' = False) -&gt; 'int'</code> — Fast upsert from stage to bom_spec_components for a given load_id.</li>
+<li>func: <code>upsert_bom_specs_from_stage(conn, load_id: 'str') -&gt; 'int'</code> — </li>
+<li>func: <code>upsert_items(conn, df: 'pd.DataFrame')</code> — </li>
+<li>func: <code>upsert_items_from_xlsx(conn, df: 'pd.DataFrame')</code> — Ожидаемые колонки:</li>
+<li>func: <code>upsert_rm_prices(conn, df: 'pd.DataFrame', filename: 'str', effective_from: 'str | None' = None, load_id: 'str | None' = None)</code> — </li>
+<li>func: <code>upsert_routings(conn, df: 'pd.DataFrame')</code> — Единый routing на один routing_group.</li>
+</ul>
+<h2 id="package-config">Package config<a class="headerlink" href="#package-config" title="Permanent link">&para;</a></h2>
+<h3 id="module-configsettings">Module config.settings<a class="headerlink" href="#module-configsettings" title="Permanent link">&para;</a></h3>
+<ul>
+<li>class: <code>Path(*args, **kwargs)</code> — PurePath subclass that can make system calls.</li>
+</ul>
+<h2 id="materials-related">Materials-related<a class="headerlink" href="#materials-related" title="Permanent link">&para;</a></h2>
+<ul>
+<li>calc.materialize</li>
+<li>calc.materialize_sql</li>
+<li>calc.mo_materials</li>
+</ul>
+<p>See: <a href="../DB_SCHEMA/">DB schema</a> · <a href="../RULES_COVERAGE/">Rules</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.instant", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
+      
+        <script src="../js/init_mermaid.js"></script>
+      
+    
+  </body>
+</html>
