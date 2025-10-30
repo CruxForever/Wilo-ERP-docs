@@ -1,0 +1,38 @@
+# allocation_rules.yaml — v1
+rule_set: "DEFAULT_2026"
+version: 1
+valid_from: 2026-01-01
+rules:
+  - name: "Labor OH by hours"
+    filter:
+      cc_id: ["2xxxx"]          # можно regex/glob
+      elem_group: ["LABOR_OH"]
+    driver: "hours"
+    split_key: "product_id"
+    params:
+      period_level: "month"
+  - name: "Facilities by area share"
+    filter:
+      cc_id: ["FAC*"]
+      elem_group: ["FACILITIES"]
+    driver: "area_share"
+    split_key: "product_id"
+    params:
+      fallback: "plant_avg"
+  - name: "Material Overhead by material_cost"
+    filter:
+      elem_group: ["MAT_OH"]
+    driver: "material_cost"
+    split_key: "product_id"
+    params: {}
+  - name: "Split specific element into two articles"
+    filter:
+      elem_id: ["E-12345"]
+    driver: "fixed_split"
+    split_key: "article"
+    params:
+      splits:
+        - article: "Logistics OH"
+          share: 0.6
+        - article: "Admin OH"
+          share: 0.4

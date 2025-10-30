@@ -1,0 +1,57 @@
+site_name: Wilo-ERP Controlling Docs
+site_url: https://cruxforever.github.com/WRU_ERP
+docs_dir: docs
+
+theme:
+  name: material
+  language: ru
+  features:
+    - navigation.tabs
+    - navigation.instant   # во время разработки держим выключенным
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
+  - js/init_mermaid.js
+
+extra:
+  generator: false
+
+nav:
+  - Главная: index.md
+  - Обзор:
+      - О системе: 00_overview/README.md
+      - Архитектура: ARCHITECTURE_SUMMARY.md
+      - Схема БД: DB_SCHEMA.md
+      - ERD-граф: ERD.md
+  - Учёт и калькуляция:
+      - Принципы учёта: 20_process/ACCOUNTING_PRINCIPLES.md
+      - Структура себестоимости:
+          - Обзор: 20_process/COST_STRUCTURE_STATION.md
+          - Материальная себестоимость: 20_process/planning/bom.md
+          - Прямые затраты (cost_rates): 20_process/planning/direct_costs.md
+  - Данные:
+      - Справочники: 10_data/data_flows.md
+      - Правила маппинга: zz_old/RULES_COVERAGE.md
+  - Система ERP:
+      - Переносы затрат: zz_old/backup/CODEX_SPEC_Reconcile_Pools_vs_Allocations.md
+      - Аллокации и пулы: zz_old/IMPLEMENTATION_SUMMARY_2025-10-09.md
+  - Runbooks:
+      - Индекс: 40_runbooks/run_budget_year.md
+      - Обзор модулей: 40_runbooks/run_close_period.md
