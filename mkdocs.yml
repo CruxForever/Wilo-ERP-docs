@@ -46,8 +46,11 @@ nav:
           - Обзор: 20_process/COST_STRUCTURE_STATION.md
           - Материальная себестоимость: 20_process/planning/bom.md
           - Прямые затраты (cost_rates): 20_process/planning/direct_costs.md
+          - Непрямые затраты (overhead): 20_process/planning/overhead.md
   - Данные:
       - Справочники: 10_data/data_flows.md
+      - Структура МВЗ: 10_data/cc_structure/index.md
+      - Структура видов затрат: 10_data/elem_structure/index.md
       - Правила маппинга: zz_old/RULES_COVERAGE.md
   - Система ERP:
       - Переносы затрат: zz_old/backup/CODEX_SPEC_Reconcile_Pools_vs_Allocations.md
