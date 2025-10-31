@@ -1,0 +1,1532 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cruxforever.github.com/WRU_ERP/20_process/planning/direct_costs/">
+      
+      
+        <link rel="prev" href="../bom/">
+      
+      
+        <link rel="next" href="../../../10_data/data_flows/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Прямые затраты (cost_rates) - Wilo-ERP Controlling Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="Wilo-ERP Controlling Docs" class="md-header__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wilo-ERP Controlling Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Прямые затраты (cost_rates)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Обзор
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../ACCOUNTING_PRINCIPLES/" class="md-tabs__link">
+          
+  
+  
+  Учёт и калькуляция
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../10_data/data_flows/" class="md-tabs__link">
+          
+  
+  
+  Данные
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../zz_old/backup/CODEX_SPEC_Reconcile_Pools_vs_Allocations/" class="md-tabs__link">
+          
+  
+  
+  Система ERP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../40_runbooks/run_budget_year/" class="md-tabs__link">
+          
+  
+  
+  Runbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Wilo-ERP Controlling Docs" class="md-nav__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Wilo-ERP Controlling Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Главная
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Обзор
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Обзор
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    О системе
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ARCHITECTURE_SUMMARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Архитектура
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DB_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Схема БД
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ERD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ERD-граф
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Учёт и калькуляция
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Учёт и калькуляция
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ACCOUNTING_PRINCIPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Принципы учёта
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Структура себестоимости
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Структура себестоимости
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../COST_STRUCTURE_STATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Обзор
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Материальная себестоимость
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Прямые затраты (cost_rates)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Прямые затраты (cost_rates)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Входные данные
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Входные данные">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-excel-direct_cost_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Excel-файл для загрузчика direct_cost_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-opex-" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. OPEX-бюджет (альтернативный источник ставок)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Маршрутные карты и часы по операциям
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Загрузка ставок из Excel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opex-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Расчёт ставок из OPEX-бюджета
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Получение часов из маршрутов
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Витрины и использование
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерфейсы и автоматизация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Итоговая последовательность
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Данные
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Данные
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/data_flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Справочники
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../zz_old/RULES_COVERAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Правила маппинга
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Система ERP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Система ERP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../zz_old/backup/CODEX_SPEC_Reconcile_Pools_vs_Allocations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Переносы затрат
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../zz_old/IMPLEMENTATION_SUMMARY_2025-10-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Аллокации и пулы
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Runbooks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Runbooks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_runbooks/run_budget_year/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Индекс
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_runbooks/run_close_period/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Обзор модулей
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Входные данные
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Входные данные">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-excel-direct_cost_loader" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Excel-файл для загрузчика direct_cost_loader
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-opex-" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. OPEX-бюджет (альтернативный источник ставок)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Маршрутные карты и часы по операциям
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Загрузка ставок из Excel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opex-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Расчёт ставок из OPEX-бюджета
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Получение часов из маршрутов
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Витрины и использование
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Интерфейсы и автоматизация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Итоговая последовательность
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Прямые затраты: ставки и часы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Прямые затраты попадают в себестоимость напрямую на конкретный продукт и центр затрат производственного подразделения. На текущий момент используются три компонента <code>component_code</code>:
+- <code>LABOR_DIRECT</code> - заработная плата прямого персонала (стоимость часа труда).
+- <code>OPR_DIRECT</code> - прочие прямые расходы на персонал (премии, доплаты, страховые).
+- <code>DEPR_DIRECT</code> - амортизация производственных линий, рассчитанная на час работы.</p>
+<p>Чтобы получить стоимость операции, нужны две группы данных:
+1. <strong>Ставки</strong> (<code>cost_rates.rate_value</code>) в разрезе года/сценария, департамента и центра затрат.
+2. <strong>Часы</strong> (<code>routing_flat.hours_per_unit</code>) по маршрутам выпуска с детализацией до операции.</p>
+<p>Ниже приведена цепочка формирования ставок и часов с указанием интерфейсов, модулей, таблиц и используемых полей.</p>
+<h2 id="_2">Входные данные<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="1-excel-direct_cost_loader">1. Excel-файл для загрузчика direct_cost_loader<a class="headerlink" href="#1-excel-direct_cost_loader" title="Permanent link">&para;</a></h3>
+<p>Интерфейс Streamlit (<code>ui.views_upload.render_direct_cost_loader</code>) принимает широкий Excel и нормализует его в длинную форму. Минимальный набор колонок:</p>
+<table>
+<thead>
+<tr>
+<th>Колонка</th>
+<th>Назначение</th>
+<th>Попадает в</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CostCenter</code>, <code>CC</code>, <code>cc_id</code></td>
+<td>Центр затрат</td>
+<td><code>cost_rates.cc_id</code></td>
+</tr>
+<tr>
+<td><code>WorkCenter</code>, <code>Department</code></td>
+<td>Код цеха/участка</td>
+<td><code>cost_rates.department_code</code> (через <code>ColumnMap.dept_col</code>)</td>
+</tr>
+<tr>
+<td>Месячные столбцы (<code>2026-01</code>, <code>2026-02</code> ...)</td>
+<td>Ставки за месяц</td>
+<td><code>cost_rates.period_or_year</code> (YYYY-MM)</td>
+</tr>
+<tr>
+<td>Годовой столбец (<code>Tariff</code>, <code>Yearly</code>, <code>Rate</code>)</td>
+<td>Среднегодовая ставка</td>
+<td><code>cost_rates.period_or_year</code> (YYYY)</td>
+</tr>
+<tr>
+<td><code>Scenario</code> <em>(опция)</em></td>
+<td>Название сценария</td>
+<td><code>cost_rates.scenario</code></td>
+</tr>
+<tr>
+<td><code>Currency</code>, <code>Unit</code> <em>(UI поля)</em></td>
+<td>Валюта и единица измерения</td>
+<td><code>cost_rates.currency</code>, <code>cost_rates.unit</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-opex-">2. OPEX-бюджет (альтернативный источник ставок)<a class="headerlink" href="#2-opex-" title="Permanent link">&para;</a></h3>
+<p>Ставки можно рассчитать автоматически на основе бюджетов:
+- <code>opex_budget</code>, <code>opex_budget_effective</code> - суммы по элементам расходов, сгруппированные по <code>cc_id</code> и <code>elem_id</code>.
+- <code>dep_cc_map</code> - соответствие производственных департаментов (<code>department_code</code>) и центров затрат (<code>cc_id</code>).
+- <code>prod_budget</code> - плановые объёмы производства по сценариям, нужны для распределения часов.
+- Справочники групп элементов (набор для прямых расходов) хранятся в <code>cost_rate_components</code> и сопутствующих таблицах.</p>
+<h3 id="3">3. Маршрутные карты и часы по операциям<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Excel-файл маршрутов (<code>loaders.upsert_routings</code>) содержит столбцы <code>Технологический процесс</code>, <code>Вид работ</code>, <code>Количество</code> (часы), <code>Ресурсная спецификация.Код</code>, <code>Номенклатура.Код</code> и опциональные департаменты.</li>
+<li>Таблицы: <code>routings</code>, <code>routing_operations</code> с полями <code>operation</code>, <code>department</code>, <code>hours</code>.</li>
+<li>После материализации (см. ниже) формируется <code>routing_flat</code> с <code>product_id</code>, <code>department_code</code>, <code>hours_per_unit</code>.</li>
+</ul>
+<h2 id="excel">Загрузка ставок из Excel<a class="headerlink" href="#excel" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>Модуль / функция</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Чтение файла</td>
+<td><code>loaders.direct_cost_loader._read_xlsx</code></td>
+<td>Загружает лист и нормализует заголовки</td>
+</tr>
+<tr>
+<td>Определение колонок</td>
+<td><code>_detect_columns</code></td>
+<td>Находит поля CC, департамент, месяцы, годовой тариф</td>
+</tr>
+<tr>
+<td>Нормализация</td>
+<td><code>_normalize_long</code></td>
+<td>Преобразует таблицу в длинную форму с полями <code>period_or_year</code>, <code>scenario</code>, <code>component_code</code>, <code>department_code</code>, <code>cc_id</code>, <code>rate_value</code>, <code>unit</code>, <code>currency</code>, <code>source</code></td>
+</tr>
+<tr>
+<td>Запись в БД</td>
+<td><code>_upsert_cost_rates</code></td>
+<td>Через временную таблицу <code>tmp_cost_rates_load</code> выполняет <code>INSERT OR REPLACE</code> в <code>cost_rates</code>, заполняя <code>run_id</code>, <code>loaded_at</code></td>
+</tr>
+<tr>
+<td>Интерфейс</td>
+<td><code>ui.views_upload.render_direct_cost_loader</code></td>
+<td>Позволяет выбрать компонент (<code>LABOR_DIRECT</code> / <code>OPR_DIRECT</code> / <code>DEPR_DIRECT</code>), валюту и единицу измерения, показать диагностику</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица <code>cost_rates</code> после миграций содержит ключевой набор полей:
+<code>period_or_year</code>, <code>scenario</code>, <code>component_code</code>, <code>department_code</code>, <code>cc_id</code>, <code>product_id</code>, <code>rate_value</code>, <code>unit</code>, <code>currency</code>, <code>source</code>, <code>run_id</code>, <code>loaded_at</code>.
+Первичный ключ: <code>(period_or_year, scenario, component_code, department_code, cc_id, product_id)</code>.</p>
+<h2 id="opex-">Расчёт ставок из OPEX-бюджета<a class="headerlink" href="#opex-" title="Permanent link">&para;</a></h2>
+<p>Скрипты в <code>calc/opr_rates_calc.py</code> позволяют построить ставки автоматически.</p>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>Модуль / SQL</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Определение компонентов</td>
+<td><code>DEFAULT_RATE_COMPONENTS</code> / <code>list_rate_components</code></td>
+<td>Список активных компонент прямых затрат</td>
+</tr>
+<tr>
+<td>Часы</td>
+<td><code>sql/opr_rates_calc/select_hours_by_department.sql</code></td>
+<td>Вычисляет <code>hours_year</code> = Σ(плановый объём × <code>routing_flat.hours_per_unit</code>) по <code>prod_budget</code> и <code>routing_flat</code>, фильтруя по сценарию и месяцам</td>
+</tr>
+<tr>
+<td>Суммы OPEX</td>
+<td><code>sql/opr_rates_calc/select_amounts_by_cc_for_elemgroup.sql</code></td>
+<td>Выбирает суммы по <code>opex_budget_effective</code> для нужных центров и элементов расходов</td>
+</tr>
+<tr>
+<td>Сведение</td>
+<td><code>calc/opr_rates_calc.calculate_tariff_summary</code> (и связанные функции)</td>
+<td>Строит DataFrame c суммами и часами, рассчитывает ставку <code>amount_total / hours_year</code></td>
+</tr>
+<tr>
+<td>Запись ставок</td>
+<td><code>calc/opr_rates_calc.save_rates_cost_rates</code> + <code>sql/opr_rates_calc/upsert_cost_rates.sql</code></td>
+<td>Записывает рассчитанные ставки в <code>cost_rates</code> с признаком источника (<code>source = 'opr_calc'</code>, <code>run_id = uuid</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Дополнительно модуль поддерживает сравнение с историческими ставками (<code>_load_rates_from_cost_rates</code>) и сценарии «что если» (выбор диапазона месяцев, фильтрация групп элементов).</p>
+<h2 id="_3">Получение часов из маршрутов<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Шаг</th>
+<th>Модуль / таблица</th>
+<th>Детали</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Загрузка маршрутов</td>
+<td><code>loaders.upsert_routings</code> (часть <code>loaders.loaders</code>)</td>
+<td>Записывает операции в <code>routing_operations</code>, автоматически определяет департамент по тексту операции (<code>DEPT_RULES</code>)</td>
+</tr>
+<tr>
+<td>Плоский routing</td>
+<td><code>calc.materialize_sql.materialize_routing_flat</code> (или <code>calc.routing_flat.materialize_routing_flat</code>)</td>
+<td>Скрипты <code>sql/materialize/routing_tree_build.sql</code> и <code>routing_flat_build.sql</code> создают <code>routing_flat</code> с полями <code>product_id</code>, <code>node_product_id</code>, <code>department_code</code>, <code>hours_per_unit</code>, <code>operation_id</code>, <code>routing_group</code></td>
+</tr>
+<tr>
+<td>Контроль департаментов</td>
+<td><code>loaders.loaders.diagnose_routings</code>, <code>ui.views_quality</code></td>
+<td>Помогают выявить операции без департамента или с нулевыми часами</td>
+</tr>
+<tr>
+<td>Связка с центрами затрат</td>
+<td><code>dep_cc_map</code></td>
+<td>При загрузке ставок и при расчётах используется для маппинга <code>department_code -&gt; cc_id</code></td>
+</tr>
+</tbody>
+</table>
+<p>Часы на единицу продукции (<code>routing_flat.hours_per_unit</code>) умножаются на фактические ставки во время расчётов. Если маршрут обновлён, необходимо заново материализовать <code>routing_flat</code> перед пересчётом ставок или запуском калькуляций.</p>
+<h2 id="_4">Витрины и использование<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Артефакт</th>
+<th>Заполняется</th>
+<th>Содержимое</th>
+<th>Где используется</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cost_rates</code></td>
+<td>Либо <code>direct_cost_loader</code>, либо <code>calc/opr_rates_calc.save_rates_cost_rates</code></td>
+<td>Ставки по годам/месяцам, сценариям и компонентам</td>
+<td>Служит источником для <code>v_routing_costs_scenario</code>, <code>calc.cost_tree.fetch_direct_cost</code>, бюджетных отчётов</td>
+</tr>
+<tr>
+<td><code>routing_flat</code></td>
+<td><code>materialize_routing_flat</code></td>
+<td>Часы по операциям на единицу продукта</td>
+<td>Используется при расчёте часов (<code>select_hours_by_department.sql</code>) и в <code>v_routing_costs_scenario</code></td>
+</tr>
+<tr>
+<td><code>v_routing_costs_scenario</code></td>
+<td><code>db.schema.ensure_scenario_cost_views</code></td>
+<td>Стоимость операции = <code>hours_per_unit × rate_value</code> по выбранному сценарию и году</td>
+<td>Источник для <code>calc.cost_tree.fetch_direct_cost_by_scenario</code>, <code>calc.budget.unit_cost_breakdown_v2</code>, UI cost tree</td>
+</tr>
+<tr>
+<td><code>v_cogs_unit</code></td>
+<td>Там же</td>
+<td>Объединяет материалы, прямые ставки и накладные расходы</td>
+<td>Финальная витрина для планирования, variance-анализов и MFC Report</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">Интерфейсы и автоматизация<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>UI</strong>: <code>ui.views_upload</code> содержит вкладку «Ставки прямых затрат», позволяющую загружать Excel, диагностировать данные и публиковать их в <code>cost_rates</code>.</li>
+<li><strong>CLI / автоматизация</strong>: модули <code>calc/opr_rates_calc.py</code>, <code>sql/opr_rates_calc/*</code> и вспомогательные скрипты можно запускать из пайплайна (например, <code>python -m calc.opr_rates_calc ...</code>) для расчёта ставок на основе утверждённых бюджетов.</li>
+<li><strong>Контроль качества</strong>: <code>loaders.direct_cost_loader._validate</code> проверяет данные на пропущенные центры затрат, пустые тарифы и дубликаты; <code>calc.cost_tree.audit_schema_and_data</code> сообщает о пробелах в <code>cost_rates</code> и отсутствующих индексах.</li>
+</ul>
+<h2 id="_6">Итоговая последовательность<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Rates["Ставки"]
+        excel["Excel direct_cost_loader"]
+        opex["OPEX бюджеты\n(opex_budget_effective)"]
+        loader["loaders.direct_cost_loader"]
+        opr_calc["calc/opr_rates_calc"]
+        excel --&gt; loader --&gt; cost_rates
+        opex --&gt; opr_calc --&gt; cost_rates
+    end
+    subgraph Hours["Часы"]
+        rout_xlsx["Маршрутные карты"]
+        rout_loader["loaders.upsert_routings"]
+        rout_flat["routing_flat"]
+        rout_xlsx --&gt; rout_loader --&gt; rout_flat
+    end
+    cost_rates --&gt; v_routing["v_routing_costs_scenario"]
+    rout_flat --&gt; v_routing
+    v_routing --&gt; v_cogs["v_cogs_unit"]</code></pre>
+<p>Полученные ставки и часы обеспечивают корректный расчёт прямых затрат в бюджете, калькуляциях и отчётности, а также позволяют оперативно анализировать их чувствительность к изменениям ставок или маршрутов. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.instant", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
+      
+        <script src="../../../js/init_mermaid.js"></script>
+      
+    
+  </body>
+</html>

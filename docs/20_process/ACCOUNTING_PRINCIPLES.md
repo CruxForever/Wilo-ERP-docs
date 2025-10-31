@@ -145,4 +145,5 @@ flowchart TD
 
 - [Материальная себестоимость (BOM)](planning/bom.md)
 - [Прямые затраты (cost_rates)](planning/direct_costs.md)
+- [Непрямые затраты (overhead)](planning/overhead.md)
 
