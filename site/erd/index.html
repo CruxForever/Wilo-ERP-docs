@@ -472,6 +472,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    ERD-граф
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -483,6 +496,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintenance
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -995,7 +1036,7 @@
   
   
   <span class="md-ellipsis">
-    Индекс
+    Бюджет
     
   </span>
   
@@ -1056,6 +1097,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maintenance
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1071,14 +1129,15 @@
 
 
 <h1 id="erd">ERD<a class="headerlink" href="#erd" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Generated: 2025-10-28 12:14 (local)
-Commit: 74b0a98</p>
-</blockquote>
-<p>Сгенерирован граф зависимостей таблиц по внешним ключам.</p>
+<p>The entity relationship diagram below is rendered on the fly from the DOT source stored in <code>erd/schema.dot</code>. The page loads the definition and converts it to SVG in the browser, so keeping the DOT file up to date is enough to refresh the picture.</p>
+<div class="graphviz" data-graphviz-src="{{ base_url }}/erd/schema.dot">
+  <em>Loading ERD graph...</em>
+</div>
+
+<h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h2>
 <ul>
-<li>DOT: <code>./erd/schema.dot</code></li>
-<li>SVG: (graphviz недоступен)</li>
+<li>Edit <code>docs/erd/schema.dot</code> to change the diagram structure.</li>
+<li>The renderer relies on Viz.js and logs messages prefixed with <code>[Graphviz]</code> in the browser console if something goes wrong.</li>
 </ul>
 
 
@@ -1131,6 +1190,12 @@ Commit: 74b0a98</p>
         <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
       
         <script src="../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+      
+        <script src="../js/init_graphviz.js"></script>
       
     
   </body>

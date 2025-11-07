@@ -18,7 +18,7 @@
     
     
       
-        <title>Erd - Wilo-ERP Controlling Docs</title>
+        <title>ERD - Wilo-ERP Controlling Docs</title>
       
     
     
@@ -59,6 +59,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#erd" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -89,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Erd
+              ERD
             
           </span>
         </div>
@@ -969,7 +974,7 @@
   
   
   <span class="md-ellipsis">
-    Индекс
+    Бюджет
     
   </span>
   
@@ -1027,6 +1032,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1042,9 +1049,15 @@
 
 
 
-  <h1>Erd</h1>
+<h1 id="erd">ERD<a class="headerlink" href="#erd" title="Permanent link">&para;</a></h1>
+<p>This page mirrors the ERD overview diagram. The visualization is rendered directly from the shared DOT definition at <code>erd/schema.dot</code>.</p>
+<div class="graphviz" data-graphviz-src="{{ base_url }}/erd/schema.dot">
+  <em>Loading ERD graph...</em>
+</div>
 
-
+<blockquote>
+<p>Update <code>docs/erd/schema.dot</code> to change the structure of the diagram.</p>
+</blockquote>
 
 
 
@@ -1096,6 +1109,12 @@
         <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
       
         <script src="../../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+      
+        <script src="../../js/init_graphviz.js"></script>
       
     
   </body>

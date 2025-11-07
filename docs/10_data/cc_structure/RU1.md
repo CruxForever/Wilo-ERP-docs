@@ -18,6 +18,6 @@
   </div>
   <div>
     <h2>Дочерние элементы</h2>
-<div class='cc-children'><a class='cc-tile' href='../../level_02/RU1ADMI/'><div class='cc-tag'>GROUP</div><div>RU1ADMI — Administration</div></a><a class='cc-tile' href='../../level_02/RU1OP/'><div class='cc-tag'>GROUP</div><div>RU1OP — Operations</div></a><a class='cc-tile' href='../../level_02/RU1OTH/'><div class='cc-tag'>GROUP</div><div>RU1OTH — Other Cost Center / Controllin</div></a><a class='cc-tile' href='../../level_02/RU1RD/'><div class='cc-tag'>GROUP</div><div>RU1RD — R&amp;D</div></a><a class='cc-tile' href='../../level_02/RU1SAL/'><div class='cc-tag'>GROUP</div><div>RU1SAL — Sales</div></a></div>
+<div class='cc-children'><a class='cc-tile' href='../level_02/RU1ADMI/'><div class='cc-tag'>GROUP</div><div>RU1ADMI — Administration</div></a><a class='cc-tile' href='../level_02/RU1OP/'><div class='cc-tag'>GROUP</div><div>RU1OP — Operations</div></a><a class='cc-tile' href='../level_02/RU1OTH/'><div class='cc-tag'>GROUP</div><div>RU1OTH — Other Cost Center / Controllin</div></a><a class='cc-tile' href='../level_02/RU1RD/'><div class='cc-tag'>GROUP</div><div>RU1RD — R&amp;D</div></a><a class='cc-tile' href='../level_02/RU1SAL/'><div class='cc-tag'>GROUP</div><div>RU1SAL — Sales</div></a></div>
   </div>
 </div>

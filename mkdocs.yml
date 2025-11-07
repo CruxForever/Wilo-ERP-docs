@@ -1,6 +1,8 @@
 site_name: Wilo-ERP Controlling Docs
+strict: false
 site_url: https://cruxforever.github.com/WRU_ERP
 docs_dir: docs
+
 
 theme:
   name: material
@@ -29,9 +31,17 @@ markdown_extensions:
 extra_javascript:
   - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
   - js/init_mermaid.js
+  - https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js
+  - https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js
+  - js/init_graphviz.js
 
 extra:
   generator: false
+
+not_in_nav: |
+  10_data/cc_structure/**/*.md
+  10_data/elem_structure/**/*.md
+  zz_old/**/*.md
 
 nav:
   - Главная: index.md
@@ -56,5 +66,5 @@ nav:
       - Переносы затрат: zz_old/backup/CODEX_SPEC_Reconcile_Pools_vs_Allocations.md
       - Аллокации и пулы: zz_old/IMPLEMENTATION_SUMMARY_2025-10-09.md
   - Runbooks:
-      - Индекс: 40_runbooks/run_budget_year.md
+      - Бюджет: 40_runbooks/run_budget_year.md
       - Обзор модулей: 40_runbooks/run_close_period.md
