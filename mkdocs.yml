@@ -57,14 +57,11 @@ nav:
           - Материальная себестоимость: 20_process/planning/bom.md
           - Прямые затраты (cost_rates): 20_process/planning/direct_costs.md
           - Непрямые затраты (overhead): 20_process/planning/overhead.md
-  - Данные:
+  - НСИ:
       - Справочники: 10_data/data_flows.md
       - Структура МВЗ: 10_data/cc_structure/index.md
       - Структура видов затрат: 10_data/elem_structure/index.md
       - Правила маппинга: zz_old/RULES_COVERAGE.md
-  - Система ERP:
-      - Переносы затрат: zz_old/backup/CODEX_SPEC_Reconcile_Pools_vs_Allocations.md
-      - Аллокации и пулы: zz_old/IMPLEMENTATION_SUMMARY_2025-10-09.md
   - Runbooks:
       - Бюджет: 40_runbooks/run_budget_year.md
-      - Обзор модулей: 40_runbooks/run_close_period.md
+      - Отчетность: 40_runbooks/run_reporting.md

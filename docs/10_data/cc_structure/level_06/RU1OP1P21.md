@@ -1,24 +1,33 @@
 # RU1OP1P21 — OP PL NOGI Production
-<p class="cc-breadcrumb">← <a href='../../level_06/RU1FIACTAL/'>Назад к RU1FIACTAL</a></p>
+<p class='cc-breadcrumb'>← <a href='../../level_04/RU1OP1P2/'>К родителю RU1OP1P2</a></p>
 <style>
-.cc-container { display: flex; flex-direction: column; gap: 1.5rem; }
-.cc-breadcrumb { margin: 0; }
-.cc-parent { padding: 1rem 1.25rem; border-radius: 12px; background: #f1f5f9; border: 1px solid #d8dee9; text-align: center; font-weight: 600; }
-.cc-parent .cc-tag { font-size: 0.8rem; text-transform: uppercase; color: #475569; letter-spacing: 0.06em; }
-.cc-children { display: flex; flex-wrap: wrap; gap: 1rem; }
-.cc-tile { display: block; min-width: 180px; padding: 0.85rem 1rem; border-radius: 12px; border: 1px solid #d1d5db; background: #ffffff; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08); transition: transform 0.1s ease, box-shadow 0.1s ease; color: inherit; text-decoration: none; }
-.cc-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(15, 23, 42, 0.15); }
-.cc-tile-leaf { background: #f8fafc; }
-.cc-tag { font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
-.cc-person { margin-top: 0.35rem; font-size: 0.8rem; color: #1f2937; }
+.cc-breadcrumb { margin: 0 0 1rem; font-size: 0.9rem; color: #475569; }
+.cc-breadcrumb a { color: #2563eb; text-decoration: underline; }
+.cc-tree { --cc-accent:#94a3f8; --cc-border:#e2e8f0; display:flex; flex-direction:column; gap:0.5rem; }
+.cc-root-block { display:flex; justify-content:center; }
+.cc-node { border:1px solid var(--cc-border); border-radius:14px; padding:1rem 1.25rem; background:#ffffff; box-shadow:0 4px 16px rgba(15,23,42,0.08); min-width:240px; }
+.cc-node-leaf { background:#f8fafc; border-style:dashed; }
+.cc-node-link { text-decoration:none; color:inherit; display:block; }
+.cc-pill { display:inline-flex; padding:0.1rem 0.55rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; border-radius:999px; background:#eef2ff; color:#4338ca; margin-bottom:0.25rem; }
+.cc-title { font-weight:600; font-size:1.05rem; color:#0f172a; }
+.cc-code { font-family:"JetBrains Mono","SFMono-Regular",monospace; font-size:0.9rem; margin-right:0.4rem; color:#6366f1; }
+.cc-desc { margin:0.5rem 0 0; color:#475569; }
+.cc-person { margin-top:0.35rem; font-size:0.85rem; color:#1f2937; }
+.cc-meta { margin-top:0.4rem; font-size:0.75rem; color:#475569; display:flex; gap:1rem; flex-wrap:wrap; }
+.cc-root-connector { width:2px; height:1.5rem; background:var(--cc-accent); margin:0.2rem auto; position:relative; }
+.cc-root-connector::after { content:""; position:absolute; left:-5px; bottom:-7px; border:6px solid transparent; border-top-color:var(--cc-accent); }
+.cc-children { margin-left:2.5rem; display:flex; flex-direction:column; gap:0.75rem; position:relative; }
+.cc-children::before { content:""; position:absolute; left:0.35rem; top:0.2rem; bottom:0; border-left:2px solid rgba(148,163,248,0.6); }
+.cc-branch { position:relative; padding-left:1.6rem; }
+.cc-branch::before { content:""; position:absolute; left:0; top:1.2rem; width:1.2rem; border-top:2px solid rgba(148,163,248,0.8); }
+.cc-branch::after { content:""; position:absolute; left:1.2rem; top:0.9rem; border:6px solid transparent; border-left-color:rgba(148,163,248,0.9); }
+.cc-empty { border:1px dashed var(--cc-border); border-radius:12px; padding:0.85rem 1rem; background:#fff; color:#475569; margin-left:2.5rem; }
+@media (max-width: 640px) {
+  .cc-node { width:100%; }
+  .cc-root-block { justify-content:flex-start; }
+}
 </style>
-<div class='cc-container'>
-  <div class='cc-parent'>
-    <div class='cc-tag'>Группа</div>
-    <div>RU1OP1P21 — OP PL NOGI Production</div>
-  </div>
-  <div>
-    <h2>Дочерние элементы</h2>
-<div class='cc-children'><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25001 — Managing Director NEW</div><div class="cc-person">Ответственный: Alexander Zimin</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25410 — NL_IL_BL</div><div class="cc-person">Ответственный: Reiter Alexey</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25411 — TWU_REXA_FA</div><div class="cc-person">Ответственный: Denisov Denis</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25412 — UPD: BOOST_FFS</div><div class="cc-person">Ответственный: Reiter Alexey</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25413 — HELIX_MS</div><div class="cc-person">Ответственный: Reiter Alexey</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25414 — CNTRL_BOX</div><div class="cc-person">Ответственный: Reiter Alexey</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25416 — MECH SECTION</div><div class="cc-person">Ответственный: Reiter Aleksey</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25422 — SPARE_PARTS</div><div class="cc-person">Ответственный: Reiter Aleksey</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25423 — MANIFOLDS</div><div class="cc-person">Ответственный: Reiter Aleksey</div></div><div class='cc-tile cc-tile-leaf'><div class='cc-tag'>CC</div><div>25424 — TEST BENCH</div><div class="cc-person">Ответственный: Controlling</div></div></div>
-  </div>
+<div class='cc-tree'>
+<div class='cc-root-block'><div class='cc-node'><div class='cc-pill'>ГРУППА</div><div class='cc-title'><span class='cc-code'>RU1OP1P21</span>— OP PL NOGI Production</div></div></div>
+<div class='cc-root-connector' aria-hidden='true'></div><div class='cc-children'><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25414</span>— CNTRL_BOX</div><div class='cc-person'>Ответственный: Reiter Alexey</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25413</span>— HELIX_MS</div><div class='cc-person'>Ответственный: Reiter Alexey</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25001</span>— Managing Director NEW</div><div class='cc-person'>Ответственный: Alexander Zimin</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 111208RU</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25423</span>— MANIFOLDS</div><div class='cc-person'>Ответственный: Reiter Aleksey</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25416</span>— MECH SECTION</div><div class='cc-person'>Ответственный: Reiter Aleksey</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25410</span>— NL_IL_BL</div><div class='cc-person'>Ответственный: Reiter Alexey</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25422</span>— SPARE_PARTS</div><div class='cc-person'>Ответственный: Reiter Aleksey</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25424</span>— TEST BENCH</div><div class='cc-person'>Ответственный: Controlling</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25411</span>— TWU_REXA_FA</div><div class='cc-person'>Ответственный: Denisov Denis</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div><div class='cc-branch cc-branch-leaf'><div class='cc-node cc-node-leaf'><div class='cc-pill'>ЦФО</div><div class='cc-title'><span class='cc-code'>25412</span>— UPD: BOOST_FFS</div><div class='cc-person'>Ответственный: Reiter Alexey</div><div class='cc-meta'>Функциональная область: PRCO | ПЦ: 14992541</div></div></div></div>
 </div>

@@ -32,3 +32,4 @@
 ## Runbooks
 - [Бюджет: годовой цикл](./40_runbooks/run_budget_year.md)
 - [Закрытие периода](./40_runbooks/run_close_period.md)
+- [Отчетность (Budget)](./40_runbooks/run_reporting.md)
