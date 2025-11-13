@@ -1,0 +1,3522 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cruxforever.github.com/WRU_ERP/zz_old/backup/DATA_DICTIONARY_CONDENSED/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Data dictionary (condensed) - Wilo-ERP Controlling Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-dictionary-condensed" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="Wilo-ERP Controlling Docs" class="md-header__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wilo-ERP Controlling Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data dictionary (condensed)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Обзор
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../20_process/ACCOUNTING_PRINCIPLES/" class="md-tabs__link">
+          
+  
+  
+  Учёт и калькуляция
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../10_data/data_flows/" class="md-tabs__link">
+          
+  
+  
+  НСИ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../40_runbooks/run_budget_year/" class="md-tabs__link">
+          
+  
+  
+  Runbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Wilo-ERP Controlling Docs" class="md-nav__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Wilo-ERP Controlling Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Обзор
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О системе
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ARCHITECTURE_SUMMARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DB_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Схема БД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ERD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ERD-граф
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учёт и калькуляция
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учёт и калькуляция
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/ACCOUNTING_PRINCIPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Принципы учёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура себестоимости
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Структура себестоимости
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/COST_STRUCTURE_STATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/bom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Материальная себестоимость
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/direct_costs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прямые затраты (cost_rates)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/overhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Непрямые затраты (overhead)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    НСИ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    НСИ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/data_flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Справочники
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/cc_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура МВЗ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/elem_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура видов затрат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RULES_COVERAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правила маппинга
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Runbooks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_runbooks/run_budget_year/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бюджет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_runbooks/run_reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отчетность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bom
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bom_spec_components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bom_spec_components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bom_specs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bom_specs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dep_cc_map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dep_cc_map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depr_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        depr_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depr_cost_unit_total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        depr_cost_unit_total
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depr_rates_snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        depr_rates_snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labor_rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        labor_rates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labor_rates_snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        labor_rates_snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mo_catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mo_catalog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mo_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mo_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mo_prices_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mo_prices_history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opex_budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        opex_budget
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opex_staging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        opex_staging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opr_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        opr_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opr_cost_unit_total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        opr_cost_unit_total
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opr_rates_snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        opr_rates_snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ovh_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ovh_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ovh_flat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ovh_flat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ovh_tariffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ovh_tariffs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personnel_monthly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        personnel_monthly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prod_budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prod_budget
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rm_prices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rm_prices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing_operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        routing_operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        routing_tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        routings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run_log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_log
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scrap_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scrap_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite_sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sqlite_sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer_batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        transfer_batches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer_opex_items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        transfer_opex_items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer_personnel_items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        transfer_personnel_items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transfer_rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        transfer_rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Views
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-dictionary-condensed">Data dictionary (condensed)<a class="headerlink" href="#data-dictionary-condensed" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Tables: <strong>35</strong>, Views: <strong>3</strong></li>
+</ul>
+<h2 id="bom"><code>bom</code><a class="headerlink" href="#bom" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parent_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>component_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>qty_per_unit</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>valid_from</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>valid_to</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>level</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>path</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bom_spec_components"><code>bom_spec_components</code><a class="headerlink" href="#bom_spec_components" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spec_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>line_no</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>component_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>qty_per_spec</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>uom</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>operation</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>stage</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>valid_from</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'1900-01-01'</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>valid_to</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'2999-12-31'</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bom_specs"><code>bom_specs</code><a class="headerlink" href="#bom_specs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spec_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>batch_size</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>batch_uom</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>valid_from</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'1900-01-01'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>valid_to</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'2999-12-31'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>is_default</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dep_cc_map"><code>dep_cc_map</code><a class="headerlink" href="#dep_cc_map" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="depr_cost_unit"><code>depr_cost_unit</code><a class="headerlink" href="#depr_cost_unit" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>hours_total</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>cost_total</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="depr_cost_unit_total"><code>depr_cost_unit_total</code><a class="headerlink" href="#depr_cost_unit_total" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>cost_total</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="depr_rates_snapshot"><code>depr_rates_snapshot</code><a class="headerlink" href="#depr_rates_snapshot" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>hours_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>personnel_cost_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>calc_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="items"><code>items</code><a class="headerlink" href="#items" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>article</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>name</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>uom</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>is_produced</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="labor_rates"><code>labor_rates</code><a class="headerlink" href="#labor_rates" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>period</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="labor_rates_snapshot"><code>labor_rates_snapshot</code><a class="headerlink" href="#labor_rates_snapshot" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>hours_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>personnel_cost_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>calc_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mo_catalog"><code>mo_catalog</code><a class="headerlink" href="#mo_catalog" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>after_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>is_active</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mo_cost_unit"><code>mo_cost_unit</code><a class="headerlink" href="#mo_cost_unit" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>component_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>qty_per_unit</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>price</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>computed_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mo_prices_history"><code>mo_prices_history</code><a class="headerlink" href="#mo_prices_history" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>after_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>price</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>vendor</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>effective_from</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>effective_to</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opex_budget"><code>opex_budget</code><a class="headerlink" href="#opex_budget" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>load_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>elem_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>text_note</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>supplier_text</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>source_sheet</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>strftime('%s','now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opex_staging"><code>opex_staging</code><a class="headerlink" href="#opex_staging" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>load_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>sheet_name</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>cost_type</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>account_descr</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>bud_2026</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>text_note</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>supplier_text</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>mapped_elem_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>missing_cc</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>unmapped_elem</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>bad_amount</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>dup_candidate</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>strftime('%s','now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opr_cost_unit"><code>opr_cost_unit</code><a class="headerlink" href="#opr_cost_unit" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>hours_total</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>cost_total</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opr_cost_unit_total"><code>opr_cost_unit_total</code><a class="headerlink" href="#opr_cost_unit_total" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>cost_total</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opr_rates_snapshot"><code>opr_rates_snapshot</code><a class="headerlink" href="#opr_rates_snapshot" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>hours_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>personnel_cost_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>calc_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ovh_cost_unit"><code>ovh_cost_unit</code><a class="headerlink" href="#ovh_cost_unit" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>depr_opr_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>log_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>adm_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ovh_flat"><code>ovh_flat</code><a class="headerlink" href="#ovh_flat" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>overhead_group</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>mat_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ovh_tariffs"><code>ovh_tariffs</code><a class="headerlink" href="#ovh_tariffs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>overhead_group</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>scrap_share</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>depr_opr_share</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>log_share</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>adm_share</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="personnel_monthly"><code>personnel_monthly</code><a class="headerlink" href="#personnel_monthly" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>ym</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>headcount</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>note</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prod_budget"><code>prod_budget</code><a class="headerlink" href="#prod_budget" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>month_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rm_prices"><code>rm_prices</code><a class="headerlink" href="#rm_prices" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>item_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>article</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>uom</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>price</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="routing_operations"><code>routing_operations</code><a class="headerlink" href="#routing_operations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>routing_op_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>routing_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>seq</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>operation</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>department</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>hours</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="routing_tree"><code>routing_tree</code><a class="headerlink" href="#routing_tree" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root_product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>node_product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>level</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>qty_per_unit</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>path</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>routing_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>routing_group</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>routing_name</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="routings"><code>routings</code><a class="headerlink" href="#routings" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>routing_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>routing_group</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>spec_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="run_history"><code>run_history</code><a class="headerlink" href="#run_history" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>run_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>started_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>ended_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>params_json</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>status</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="run_log"><code>run_log</code><a class="headerlink" href="#run_log" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>run_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>step</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>level</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>extra_json</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scrap_cost_unit"><code>scrap_cost_unit</code><a class="headerlink" href="#scrap_cost_unit" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>scrap_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sqlite_sequence"><code>sqlite_sequence</code><a class="headerlink" href="#sqlite_sequence" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td></td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>seq</td>
+<td></td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transfer_batches"><code>transfer_batches</code><a class="headerlink" href="#transfer_batches" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>batch_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>rule_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>created_by</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transfer_opex_items"><code>transfer_opex_items</code><a class="headerlink" href="#transfer_opex_items" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>batch_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>from_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td>to_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td>to_elem_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>elem_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td>amount_delta</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transfer_personnel_items"><code>transfer_personnel_items</code><a class="headerlink" href="#transfer_personnel_items" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>batch_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>from_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>to_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>headcount_delta</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transfer_rules"><code>transfer_rules</code><a class="headerlink" href="#transfer_rules" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rule_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td>name</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>donor_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>'direct_personnel'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>recipient_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="views">Views<a class="headerlink" href="#views" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>mo_last_price_current</code></li>
+<li><code>personnel_yearly</code></li>
+<li><code>personnel_yearly_effective</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.instant", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
+      
+        <script src="../../../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+      
+        <script src="../../../js/init_graphviz.js"></script>
+      
+    
+  </body>
+</html>

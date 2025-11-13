@@ -1,0 +1,4207 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cruxforever.github.com/WRU_ERP/zz_old/backup/DB_SCHEMA/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>DB schema - Wilo-ERP Controlling Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#db-schema" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="Wilo-ERP Controlling Docs" class="md-header__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wilo-ERP Controlling Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              DB schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Обзор
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../20_process/ACCOUNTING_PRINCIPLES/" class="md-tabs__link">
+          
+  
+  
+  Учёт и калькуляция
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../10_data/data_flows/" class="md-tabs__link">
+          
+  
+  
+  НСИ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../40_runbooks/run_budget_year/" class="md-tabs__link">
+          
+  
+  
+  Runbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Wilo-ERP Controlling Docs" class="md-nav__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Wilo-ERP Controlling Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Обзор
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О системе
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ARCHITECTURE_SUMMARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DB_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Схема БД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ERD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ERD-граф
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учёт и калькуляция
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учёт и калькуляция
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/ACCOUNTING_PRINCIPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Принципы учёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура себестоимости
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Структура себестоимости
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/COST_STRUCTURE_STATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/bom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Материальная себестоимость
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/direct_costs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прямые затраты (cost_rates)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/overhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Непрямые затраты (overhead)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    НСИ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    НСИ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/data_flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Справочники
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/cc_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура МВЗ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/elem_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура видов затрат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RULES_COVERAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правила маппинга
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Runbooks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_runbooks/run_budget_year/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бюджет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_runbooks/run_reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отчетность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: bom
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-bom_spec_components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: bom_spec_components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-bom_specs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: bom_specs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-dep_cc_map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: dep_cc_map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-depr_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: depr_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-depr_cost_unit_total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: depr_cost_unit_total
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-depr_rates_snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: depr_rates_snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-labor_rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: labor_rates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-labor_rates_snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: labor_rates_snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-mo_catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: mo_catalog
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-mo_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: mo_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-mo_prices_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: mo_prices_history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-opex_budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: opex_budget
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-opex_staging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: opex_staging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-opr_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: opr_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-opr_cost_unit_total" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: opr_cost_unit_total
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-opr_rates_snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: opr_rates_snapshot
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-ovh_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: ovh_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-ovh_flat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: ovh_flat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-ovh_tariffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: ovh_tariffs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-personnel_monthly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: personnel_monthly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-prod_budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: prod_budget
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-rm_prices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: rm_prices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-routing_operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: routing_operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-routing_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: routing_tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-routings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: routings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-run_history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: run_history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-run_log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: run_log
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-scrap_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: scrap_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-sqlite_sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: sqlite_sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-transfer_batches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: transfer_batches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-transfer_opex_items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: transfer_opex_items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-transfer_personnel_items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: transfer_personnel_items
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-transfer_rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TABLE: transfer_rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-mo_last_price_current" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VIEW: mo_last_price_current
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-personnel_yearly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VIEW: personnel_yearly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-personnel_yearly_effective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VIEW: personnel_yearly_effective
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="db-schema">DB schema<a class="headerlink" href="#db-schema" title="Permanent link">&para;</a></h1>
+<p><em>Schema built by</em>: <code>db.schema.ensure_schema</code></p>
+<h2 id="table-bom">TABLE: <code>bom</code><a class="headerlink" href="#table-bom" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">bom</span><span class="p">(</span>
+<span class="w">      </span><span class="n">parent_item_id</span><span class="w">    </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">component_item_id</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">qty_per_unit</span><span class="w">      </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">qty_per_unit</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">      </span><span class="n">valid_from</span><span class="w">        </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">valid_to</span><span class="w">          </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="k">level</span><span class="w">             </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">path</span><span class="w">              </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">parent_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">component_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">valid_from</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>parent_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>component_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>qty_per_unit</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>valid_from</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>valid_to</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>level</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>path</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-bom_spec_components">TABLE: <code>bom_spec_components</code><a class="headerlink" href="#table-bom_spec_components" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">bom_spec_components</span><span class="p">(</span>
+<span class="w">      </span><span class="n">spec_code</span><span class="w">    </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">line_no</span><span class="w">      </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">component_id</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">qty_per_spec</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">qty_per_spec</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">      </span><span class="n">uom</span><span class="w">          </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="k">operation</span><span class="w">    </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">stage</span><span class="w">        </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">valid_from</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">valid_to</span><span class="w">     </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;2999-12-31&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">spec_code</span><span class="p">,</span><span class="w"> </span><span class="n">line_no</span><span class="p">,</span><span class="w"> </span><span class="n">valid_from</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>spec_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>line_no</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>component_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>qty_per_spec</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>uom</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>operation</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>stage</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>valid_from</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'1900-01-01'</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>valid_to</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'2999-12-31'</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-bom_specs">TABLE: <code>bom_specs</code><a class="headerlink" href="#table-bom_specs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">bom_specs</span><span class="p">(</span>
+<span class="w">      </span><span class="n">spec_code</span><span class="w">  </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">      </span><span class="n">product_id</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">batch_size</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">batch_size</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">      </span><span class="n">batch_uom</span><span class="w">  </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">valid_from</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">valid_to</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;2999-12-31&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="n">is_default</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">is_default</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>spec_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>batch_size</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>batch_uom</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>valid_from</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'1900-01-01'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>valid_to</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'2999-12-31'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>is_default</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-dep_cc_map">TABLE: <code>dep_cc_map</code><a class="headerlink" href="#table-dep_cc_map" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">dep_cc_map</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="n">department_code</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">  </span>
+<span class="w">      </span><span class="n">cc_id</span><span class="w">           </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">      </span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-depr_cost_unit">TABLE: <code>depr_cost_unit</code><a class="headerlink" href="#table-depr_cost_unit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">depr_cost_unit</span><span class="p">(</span>
+<span class="w">      </span><span class="n">product_id</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">department_code</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">hours_total</span><span class="w">     </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">rate_per_hour</span><span class="w">   </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">currency</span><span class="w">        </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">cost_total</span><span class="w">      </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">department_code</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>hours_total</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>cost_total</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-depr_cost_unit_total">TABLE: <code>depr_cost_unit_total</code><a class="headerlink" href="#table-depr_cost_unit_total" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">depr_cost_unit_total</span><span class="p">(</span>
+<span class="w">      </span><span class="n">product_id</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">      </span><span class="n">cost_total</span><span class="w">   </span><span class="nb">REAL</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>cost_total</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-depr_rates_snapshot">TABLE: <code>depr_rates_snapshot</code><a class="headerlink" href="#table-depr_rates_snapshot" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">depr_rates_snapshot</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="n">department_code</span><span class="w">     </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">cc_id</span><span class="w">               </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">rate_per_hour</span><span class="w">       </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">rate_per_hour</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">            </span><span class="n">hours_year</span><span class="w">          </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">personnel_cost_year</span><span class="w"> </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">bud_year</span><span class="w">            </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">            </span><span class="n">currency</span><span class="w">            </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;RUB&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="k">source</span><span class="w">              </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">calc_at</span><span class="w">             </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">loaded_at</span><span class="w">           </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>hours_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>personnel_cost_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>calc_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-items">TABLE: <code>items</code><a class="headerlink" href="#table-items" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">items</span><span class="p">(</span>
+<span class="w">      </span><span class="n">item_id</span><span class="w">     </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">      </span><span class="n">article</span><span class="w">     </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">name</span><span class="w">        </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">uom</span><span class="w">         </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">is_produced</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>article</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>name</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>uom</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>is_produced</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-labor_rates">TABLE: <code>labor_rates</code><a class="headerlink" href="#table-labor_rates" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">labor_rates</span><span class="p">(</span>
+<span class="w">      </span><span class="k">period</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">department_code</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">rate_per_hour</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">rate_per_hour</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">      </span><span class="n">currency</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;RUB&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="k">period</span><span class="p">,</span><span class="w"> </span><span class="n">department_code</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>period</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-labor_rates_snapshot">TABLE: <code>labor_rates_snapshot</code><a class="headerlink" href="#table-labor_rates_snapshot" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">labor_rates_snapshot</span><span class="w"> </span><span class="p">(</span>
+<span class="w">      </span><span class="n">department_code</span><span class="w">      </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">cc_id</span><span class="w">                </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">rate_per_hour</span><span class="w">        </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">hours_year</span><span class="w">           </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">personnel_cost_year</span><span class="w">  </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">bud_year</span><span class="w">             </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">      </span><span class="k">source</span><span class="w">               </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">calc_at</span><span class="w">              </span><span class="nb">TEXT</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;currency&quot;</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>hours_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>personnel_cost_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>calc_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-mo_catalog">TABLE: <code>mo_catalog</code><a class="headerlink" href="#table-mo_catalog" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">mo_catalog</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">before_item_id</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">after_item_id</span><span class="w">  </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">is_active</span><span class="w">      </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="k">source</span><span class="w">         </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">        </span><span class="n">loaded_at</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="k">UNIQUE</span><span class="p">(</span><span class="n">before_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">after_item_id</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>before_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>after_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>is_active</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-mo_cost_unit">TABLE: <code>mo_cost_unit</code><a class="headerlink" href="#table-mo_cost_unit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">mo_cost_unit</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">product_id</span><span class="w">          </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">component_item_id</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">qty_per_unit</span><span class="w">        </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">price</span><span class="w">               </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">amount</span><span class="w">              </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">currency</span><span class="w">            </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;RUB&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">computed_at</span><span class="w">         </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">component_item_id</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>component_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>qty_per_unit</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>price</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>amount</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>computed_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-mo_prices_history">TABLE: <code>mo_prices_history</code><a class="headerlink" href="#table-mo_prices_history" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">mo_prices_history</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">after_item_id</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">price</span><span class="w">           </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">currency</span><span class="w">        </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;RUB&#39;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">vendor</span><span class="w">          </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">        </span><span class="n">effective_from</span><span class="w">  </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">        </span><span class="n">effective_to</span><span class="w">    </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">        </span><span class="k">source</span><span class="w">          </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">        </span><span class="n">loaded_at</span><span class="w">       </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>after_item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>price</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>vendor</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>effective_from</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>effective_to</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-opex_budget">TABLE: <code>opex_budget</code><a class="headerlink" href="#table-opex_budget" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">opex_budget</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w">                       </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">load_id</span><span class="w">                  </span><span class="nb">TEXT</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">cc_id</span><span class="w">                    </span><span class="nb">TEXT</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                 </span><span class="c1">-- FK → cc_nodes.cc_id</span>
+<span class="w">    </span><span class="n">elem_id</span><span class="w">                  </span><span class="nb">TEXT</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                 </span><span class="c1">-- FK → elem_nodes.elem_id</span>
+<span class="w">    </span><span class="n">bud_year</span><span class="w">                 </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                 </span><span class="c1">-- например, 2026</span>
+<span class="w">    </span><span class="n">amount</span><span class="w">                   </span><span class="nb">REAL</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                 </span><span class="c1">-- нормализованная сумма</span>
+
+<span class="w">    </span><span class="n">text_note</span><span class="w">                </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">comments</span><span class="w">                 </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">supplier_text</span><span class="w">            </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">source_sheet</span><span class="w">             </span><span class="nb">TEXT</span><span class="p">,</span>
+
+<span class="w">    </span><span class="n">created_at</span><span class="w">               </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">(</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%s&#39;</span><span class="p">,</span><span class="s1">&#39;now&#39;</span><span class="p">)),</span>
+
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">cc_id</span><span class="p">)</span><span class="w">   </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">cc_nodes</span><span class="p">(</span><span class="n">cc_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">elem_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">elem_nodes</span><span class="p">(</span><span class="n">elem_id</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>load_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>elem_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>amount</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>text_note</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>comments</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>supplier_text</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>source_sheet</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>created_at</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>strftime('%s','now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Foreign keys</strong>:
+- <code>elem_id</code> → <code>elem_nodes(elem_id)</code> (on update NO ACTION, on delete NO ACTION, match NONE)
+- <code>cc_id</code> → <code>cc_nodes(cc_id)</code> (on update NO ACTION, on delete NO ACTION, match NONE)</p>
+<h2 id="table-opex_staging">TABLE: <code>opex_staging</code><a class="headerlink" href="#table-opex_staging" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">opex_staging</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id</span><span class="w">                       </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">load_id</span><span class="w">                  </span><span class="nb">TEXT</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                 </span><span class="c1">-- UUID загрузки</span>
+<span class="w">    </span><span class="n">sheet_name</span><span class="w">               </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                             </span><span class="c1">-- имя листа Excel</span>
+<span class="w">    </span><span class="n">cc_id</span><span class="w">                    </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                             </span><span class="c1">-- CC из исходника</span>
+<span class="w">    </span><span class="n">cost_type</span><span class="w">                </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">account_descr</span><span class="w">            </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">bud_2026</span><span class="w">                 </span><span class="nb">REAL</span><span class="p">,</span><span class="w">                             </span><span class="c1">-- сумма из колонки &#39;BUD 2026&#39;</span>
+<span class="w">    </span><span class="n">text_note</span><span class="w">                </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                             </span><span class="c1">-- &#39;Text&#39;</span>
+<span class="w">    </span><span class="n">comments</span><span class="w">                 </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                             </span><span class="c1">-- &#39;Comments&#39;</span>
+<span class="w">    </span><span class="n">supplier_text</span><span class="w">            </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                             </span><span class="c1">-- &#39;Suppliers/Text&#39;</span>
+
+<span class="w">    </span><span class="n">mapped_elem_id</span><span class="w">           </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">                             </span><span class="c1">-- результат правил (elem_id) или NULL</span>
+
+<span class="w">    </span><span class="c1">-- флаги валидации</span>
+<span class="w">    </span><span class="n">missing_cc</span><span class="w">               </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">       </span><span class="c1">-- 1 если CC не найден в БД</span>
+<span class="w">    </span><span class="n">unmapped_elem</span><span class="w">            </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">       </span><span class="c1">-- 1 если правило не сработало</span>
+<span class="w">    </span><span class="n">bad_amount</span><span class="w">               </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">       </span><span class="c1">-- 1 если bud_2026 пуст/нечисло</span>
+<span class="w">    </span><span class="n">dup_candidate</span><span class="w">            </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">       </span><span class="c1">-- 1 если потенциальный дубль</span>
+
+<span class="w">    </span><span class="n">created_at</span><span class="w">               </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">(</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%s&#39;</span><span class="p">,</span><span class="s1">&#39;now&#39;</span><span class="p">)),</span>
+
+<span class="w">    </span><span class="c1">-- мягкие FK (без ON DELETE/UPDATE CASCADE, чтобы staging не падал при админ-операциях)</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">cc_id</span><span class="p">)</span><span class="w">       </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">cc_nodes</span><span class="p">(</span><span class="n">cc_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">mapped_elem_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">elem_nodes</span><span class="p">(</span><span class="n">elem_id</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>load_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>sheet_name</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>cost_type</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>account_descr</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>bud_2026</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>text_note</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>comments</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>supplier_text</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td>mapped_elem_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td>missing_cc</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td>unmapped_elem</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td>bad_amount</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td>dup_candidate</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td>created_at</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>strftime('%s','now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Foreign keys</strong>:
+- <code>mapped_elem_id</code> → <code>elem_nodes(elem_id)</code> (on update NO ACTION, on delete NO ACTION, match NONE)
+- <code>cc_id</code> → <code>cc_nodes(cc_id)</code> (on update NO ACTION, on delete NO ACTION, match NONE)</p>
+<h2 id="table-opr_cost_unit">TABLE: <code>opr_cost_unit</code><a class="headerlink" href="#table-opr_cost_unit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">opr_cost_unit</span><span class="p">(</span>
+<span class="w">      </span><span class="n">product_id</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">department_code</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">hours_total</span><span class="w">     </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">rate_per_hour</span><span class="w">   </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">currency</span><span class="w">        </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">cost_total</span><span class="w">      </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">department_code</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>hours_total</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>cost_total</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-opr_cost_unit_total">TABLE: <code>opr_cost_unit_total</code><a class="headerlink" href="#table-opr_cost_unit_total" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">opr_cost_unit_total</span><span class="p">(</span>
+<span class="w">      </span><span class="n">product_id</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">      </span><span class="n">cost_total</span><span class="w">   </span><span class="nb">REAL</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>cost_total</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-opr_rates_snapshot">TABLE: <code>opr_rates_snapshot</code><a class="headerlink" href="#table-opr_rates_snapshot" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">opr_rates_snapshot</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="n">department_code</span><span class="w">     </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">cc_id</span><span class="w">               </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">rate_per_hour</span><span class="w">       </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">rate_per_hour</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">            </span><span class="n">hours_year</span><span class="w">          </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">personnel_cost_year</span><span class="w"> </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">bud_year</span><span class="w">            </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">            </span><span class="n">currency</span><span class="w">            </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;RUB&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="k">source</span><span class="w">              </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">calc_at</span><span class="w">             </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">loaded_at</span><span class="w">           </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>department_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>rate_per_hour</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>hours_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>personnel_cost_year</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td>calc_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-ovh_cost_unit">TABLE: <code>ovh_cost_unit</code><a class="headerlink" href="#table-ovh_cost_unit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">ovh_cost_unit</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">product_id</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">depr_opr_cost</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="c1">-- Амортизация ОПР</span>
+<span class="w">        </span><span class="n">log_cost</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="w">       </span><span class="c1">-- ОХР логистика</span>
+<span class="w">        </span><span class="n">adm_cost</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="w">        </span><span class="c1">-- ОХР управленческие</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>depr_opr_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>log_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>adm_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-ovh_flat">TABLE: <code>ovh_flat</code><a class="headerlink" href="#table-ovh_flat" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">ovh_flat</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">product_id</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">overhead_group</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">mat_cost</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">overhead_group</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>overhead_group</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>mat_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-ovh_tariffs">TABLE: <code>ovh_tariffs</code><a class="headerlink" href="#table-ovh_tariffs" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">ovh_tariffs</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">overhead_group</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="k">year</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">scrap_share</span><span class="w"> </span><span class="nb">REAL</span><span class="p">,</span><span class="w">       </span><span class="c1">-- Брак: от материалов</span>
+<span class="w">        </span><span class="n">depr_opr_share</span><span class="w"> </span><span class="nb">REAL</span><span class="p">,</span><span class="w">    </span><span class="c1">-- Амортизация ОПР: от материалов</span>
+<span class="w">        </span><span class="n">log_share</span><span class="w"> </span><span class="nb">REAL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- ОХР логистика: от материалов</span>
+<span class="w">        </span><span class="n">adm_share</span><span class="w"> </span><span class="nb">REAL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- ОХР управленч.: от (труд + амортизация ОПР_по_группе)</span>
+<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">overhead_group</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>overhead_group</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>scrap_share</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>depr_opr_share</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>log_share</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>adm_share</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-personnel_monthly">TABLE: <code>personnel_monthly</code><a class="headerlink" href="#table-personnel_monthly" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">personnel_monthly</span><span class="p">(</span>
+<span class="w">            </span><span class="n">cc_id</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ym</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- &#39;YYYY-MM&#39;</span>
+<span class="w">            </span><span class="n">headcount</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">headcount</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">            </span><span class="k">source</span><span class="w">  </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">note</span><span class="w">    </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">loaded_at</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)),</span>
+<span class="w">            </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">cc_id</span><span class="p">,</span><span class="w"> </span><span class="n">ym</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>ym</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>headcount</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>note</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-prod_budget">TABLE: <code>prod_budget</code><a class="headerlink" href="#table-prod_budget" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">prod_budget</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">product_id</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">        </span><span class="n">month_code</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">   </span><span class="c1">-- &#39;YYYY-MM&#39; (например &#39;2026-01&#39;)</span>
+<span class="w">        </span><span class="n">qty</span><span class="w">          </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="n">month_code</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>month_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>qty</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-rm_prices">TABLE: <code>rm_prices</code><a class="headerlink" href="#table-rm_prices" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">rm_prices</span><span class="p">(</span>
+<span class="w">      </span><span class="n">item_code</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">article</span><span class="w">   </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">uom</span><span class="w">       </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">price</span><span class="w">     </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">price</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">      </span><span class="n">currency</span><span class="w">  </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;RUB&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="k">source</span><span class="w">    </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">loaded_at</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)),</span>
+<span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">item_code</span><span class="p">,</span><span class="w"> </span><span class="n">currency</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>item_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>article</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>uom</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>price</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>currency</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td>'RUB'</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>source</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>loaded_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-routing_operations">TABLE: <code>routing_operations</code><a class="headerlink" href="#table-routing_operations" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">routing_operations</span><span class="p">(</span>
+<span class="w">      </span><span class="n">routing_op_id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">routing_id</span><span class="w">    </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">seq</span><span class="w">           </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="k">operation</span><span class="w">     </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">department</span><span class="w">    </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">hours</span><span class="w">         </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">CHECK</span><span class="p">(</span><span class="n">hours</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">),</span>
+<span class="w">      </span><span class="k">UNIQUE</span><span class="p">(</span><span class="n">routing_id</span><span class="p">,</span><span class="w"> </span><span class="n">seq</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>routing_op_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>routing_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>seq</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>operation</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>department</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>hours</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-routing_tree">TABLE: <code>routing_tree</code><a class="headerlink" href="#table-routing_tree" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">routing_tree</span><span class="p">(</span>
+<span class="w">      </span><span class="n">root_product_id</span><span class="w">  </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">node_product_id</span><span class="w">  </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="k">level</span><span class="w">            </span><span class="nb">INTEGER</span><span class="p">,</span>
+<span class="w">      </span><span class="n">qty_per_unit</span><span class="w">     </span><span class="nb">REAL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">path</span><span class="w">             </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">routing_id</span><span class="w">       </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">routing_group</span><span class="w">    </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">routing_name</span><span class="w">     </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">root_product_id</span><span class="p">,</span><span class="w"> </span><span class="n">node_product_id</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>root_product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>node_product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>level</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>qty_per_unit</td>
+<td>REAL</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>path</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>routing_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>routing_group</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td>routing_name</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-routings">TABLE: <code>routings</code><a class="headerlink" href="#table-routings" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">routings</span><span class="p">(</span>
+<span class="w">      </span><span class="n">routing_id</span><span class="w">   </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">routing_group</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">      </span><span class="n">spec_code</span><span class="w">     </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">item_id</span><span class="w">       </span><span class="nb">TEXT</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>routing_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>routing_group</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>spec_code</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>item_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-run_history">TABLE: <code>run_history</code><a class="headerlink" href="#table-run_history" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">run_history</span><span class="p">(</span>
+<span class="w">      </span><span class="n">run_id</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">      </span><span class="n">started_at</span><span class="w">  </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">ended_at</span><span class="w">    </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="k">scope</span><span class="w">       </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">             </span><span class="c1">-- e.g. &quot;all_produced&quot; | &quot;explicit_list&quot;</span>
+<span class="w">      </span><span class="n">params_json</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">status</span><span class="w">      </span><span class="nb">TEXT</span><span class="w">              </span><span class="c1">-- &quot;ok&quot; | &quot;error&quot; | &quot;partial&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>run_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>started_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>ended_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>scope</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>params_json</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>status</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-run_log">TABLE: <code>run_log</code><a class="headerlink" href="#table-run_log" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">run_log</span><span class="p">(</span>
+<span class="w">      </span><span class="n">run_id</span><span class="w">      </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">step</span><span class="w">        </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">             </span><span class="c1">-- &quot;bom&quot; | &quot;tree&quot; | &quot;flat&quot; | &quot;hours&quot; | &quot;labor_cost&quot; | &quot;opr_cost&quot; | &quot;depr_cost&quot;</span>
+<span class="w">      </span><span class="n">product_id</span><span class="w">  </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="k">level</span><span class="w">       </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">             </span><span class="c1">-- &quot;INFO&quot; | &quot;WARN&quot; | &quot;ERROR&quot;</span>
+<span class="w">      </span><span class="n">msg</span><span class="w">         </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">extra_json</span><span class="w">  </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">      </span><span class="n">ts</span><span class="w">          </span><span class="nb">TEXT</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>run_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>step</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>level</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>msg</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>extra_json</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td>ts</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-scrap_cost_unit">TABLE: <code>scrap_cost_unit</code><a class="headerlink" href="#table-scrap_cost_unit" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">scrap_cost_unit</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">product_id</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">        </span><span class="n">scrap_cost</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>product_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>scrap_cost</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td>0.0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-sqlite_sequence">TABLE: <code>sqlite_sequence</code><a class="headerlink" href="#table-sqlite_sequence" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">sqlite_sequence</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">seq</span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>name</td>
+<td></td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>seq</td>
+<td></td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-transfer_batches">TABLE: <code>transfer_batches</code><a class="headerlink" href="#table-transfer_batches" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">transfer_batches</span><span class="p">(</span>
+<span class="w">            </span><span class="n">batch_id</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">   </span><span class="c1">-- UUID</span>
+<span class="w">            </span><span class="n">bud_year</span><span class="w">   </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">rule_id</span><span class="w">    </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">created_at</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)),</span>
+<span class="w">            </span><span class="n">created_by</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="k">comment</span><span class="w">    </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">            </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">rule_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">transfer_rules</span><span class="p">(</span><span class="n">rule_id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>batch_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>bud_year</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>rule_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>created_at</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>datetime('now')</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>created_by</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>comment</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Foreign keys</strong>:
+- <code>rule_id</code> → <code>transfer_rules(rule_id)</code> (on update NO ACTION, on delete NO ACTION, match NONE)</p>
+<h2 id="table-transfer_opex_items">TABLE: <code>transfer_opex_items</code><a class="headerlink" href="#table-transfer_opex_items" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">transfer_opex_items</span><span class="p">(</span>
+<span class="w">            </span><span class="n">batch_id</span><span class="w">     </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">from_cc_id</span><span class="w">   </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">to_cc_id</span><span class="w">     </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">elem_id</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">amount_delta</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">batch_id</span><span class="p">,</span><span class="w"> </span><span class="n">from_cc_id</span><span class="p">,</span><span class="w"> </span><span class="n">to_cc_id</span><span class="p">,</span><span class="w"> </span><span class="n">elem_id</span><span class="p">),</span>
+<span class="w">            </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">batch_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">transfer_batches</span><span class="p">(</span><span class="n">batch_id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>batch_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>from_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>to_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>to_elem_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>elem_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>amount_delta</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Foreign keys</strong>:
+- <code>batch_id</code> → <code>transfer_batches(batch_id)</code> (on update NO ACTION, on delete NO ACTION, match NONE)</p>
+<h2 id="table-transfer_personnel_items">TABLE: <code>transfer_personnel_items</code><a class="headerlink" href="#table-transfer_personnel_items" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="ss">&quot;transfer_personnel_items&quot;</span><span class="p">(</span>
+<span class="w">            </span><span class="n">id</span><span class="w">              </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">batch_id</span><span class="w">        </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">from_cc_id</span><span class="w">      </span><span class="nb">TEXT</span><span class="p">,</span><span class="w">            </span><span class="c1">-- в старых записях могло быть NULL</span>
+<span class="w">            </span><span class="n">to_cc_id</span><span class="w">        </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">headcount_delta</span><span class="w"> </span><span class="nb">REAL</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="p">(</span><span class="n">batch_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">transfer_batches</span><span class="p">(</span><span class="n">batch_id</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>batch_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>from_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>to_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>headcount_delta</td>
+<td>REAL</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Foreign keys</strong>:
+- <code>batch_id</code> → <code>transfer_batches(batch_id)</code> (on update NO ACTION, on delete NO ACTION, match NONE)</p>
+<h2 id="table-transfer_rules">TABLE: <code>transfer_rules</code><a class="headerlink" href="#table-transfer_rules" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">transfer_rules</span><span class="p">(</span>
+<span class="w">            </span><span class="n">rule_id</span><span class="w">        </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTOINCREMENT</span><span class="p">,</span>
+<span class="w">            </span><span class="n">name</span><span class="w">           </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">donor_cc_id</span><span class="w">    </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">            </span><span class="n">enabled</span><span class="w">        </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="k">scope</span><span class="w">          </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;direct_personnel&#39;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">recipient_cc_id</span><span class="w"> </span><span class="nb">TEXT</span>
+<span class="w">        </span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>name</th>
+<th>type</th>
+<th style="text-align: center;">notnull</th>
+<th>default</th>
+<th style="text-align: center;">pk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td>rule_id</td>
+<td>INTEGER</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td>name</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td>donor_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">1</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td>enabled</td>
+<td>INTEGER</td>
+<td style="text-align: center;">1</td>
+<td>1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td>scope</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td>'direct_personnel'</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td>recipient_cc_id</td>
+<td>TEXT</td>
+<td style="text-align: center;">0</td>
+<td></td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="view-mo_last_price_current">VIEW: <code>mo_last_price_current</code><a class="headerlink" href="#view-mo_last_price_current" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">mo_last_price_current</span><span class="w"> </span><span class="k">AS</span>
+<span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="n">ranked</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">after_item_id</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">datetime</span><span class="p">(</span><span class="n">loaded_at</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span>
+<span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="n">rn</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">mo_prices_history</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">after_item_id</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">currency</span><span class="p">,</span><span class="w"> </span><span class="n">vendor</span><span class="p">,</span><span class="w"> </span><span class="k">source</span><span class="p">,</span><span class="w"> </span><span class="n">loaded_at</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">ranked</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">rn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+</code></pre></div>
+<h2 id="view-personnel_yearly">VIEW: <code>personnel_yearly</code><a class="headerlink" href="#view-personnel_yearly" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">personnel_yearly</span><span class="w"> </span><span class="k">AS</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">cc_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cc_id</span><span class="p">,</span>
+<span class="w">               </span><span class="k">CAST</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">ym</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bud_year</span><span class="p">,</span>
+<span class="w">               </span><span class="k">AVG</span><span class="p">(</span><span class="n">headcount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">headcount_avg_year</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">personnel_monthly</span>
+<span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">cc_id</span><span class="p">),</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">ym</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="view-personnel_yearly_effective">VIEW: <code>personnel_yearly_effective</code><a class="headerlink" href="#view-personnel_yearly_effective" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="n">personnel_yearly_effective</span><span class="w"> </span><span class="k">AS</span>
+<span class="w">        </span><span class="k">WITH</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">cc_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cc_id</span><span class="p">,</span>
+<span class="w">                   </span><span class="k">CAST</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">ym</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bud_year</span><span class="p">,</span>
+<span class="w">                   </span><span class="k">AVG</span><span class="p">(</span><span class="n">headcount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">headcount_avg_year</span>
+<span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="n">personnel_monthly</span>
+<span class="w">            </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">cc_id</span><span class="p">),</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">ym</span><span class="p">),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">)</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">        </span><span class="n">delta_in</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">to_cc_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cc_id</span><span class="p">,</span>
+<span class="w">                   </span><span class="k">CAST</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">bud_year</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bud_year</span><span class="p">,</span>
+<span class="w">                   </span><span class="k">SUM</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">headcount_delta</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">delta</span>
+<span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="n">transfer_personnel_items</span><span class="w"> </span><span class="n">i</span>
+<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">transfer_batches</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">batch_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">batch_id</span>
+<span class="w">            </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">to_cc_id</span><span class="p">),</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">bud_year</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">)</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">        </span><span class="n">delta_out</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">from_cc_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">cc_id</span><span class="p">,</span>
+<span class="w">                   </span><span class="k">CAST</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">bud_year</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bud_year</span><span class="p">,</span>
+<span class="w">                   </span><span class="o">-</span><span class="k">SUM</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">headcount_delta</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">delta</span>
+<span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="n">transfer_personnel_items</span><span class="w"> </span><span class="n">i</span>
+<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">transfer_batches</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">batch_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">batch_id</span>
+<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">i</span><span class="p">.</span><span class="n">from_cc_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="w">            </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">TRIM</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">from_cc_id</span><span class="p">),</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="k">REPLACE</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">bud_year</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">INTEGER</span><span class="p">)</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">        </span><span class="n">deltas</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="n">cc_id</span><span class="p">,</span><span class="w"> </span><span class="n">bud_year</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">headcount_delta_year</span>
+<span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<span class="w">                </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">delta_in</span>
+<span class="w">                </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+<span class="w">                </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">delta_out</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">            </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cc_id</span><span class="p">,</span><span class="w"> </span><span class="n">bud_year</span>
+<span class="w">        </span><span class="p">),</span>
+<span class="w">        </span><span class="n">keys</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="n">cc_id</span><span class="p">,</span><span class="w"> </span><span class="n">bud_year</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">base</span>
+<span class="w">            </span><span class="k">UNION</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="n">cc_id</span><span class="p">,</span><span class="w"> </span><span class="n">bud_year</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">deltas</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">cc_id</span><span class="p">,</span>
+<span class="w">               </span><span class="n">k</span><span class="p">.</span><span class="n">bud_year</span><span class="p">,</span>
+<span class="w">               </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">headcount_avg_year</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">headcount_delta_year</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">                   </span><span class="k">AS</span><span class="w"> </span><span class="n">headcount_avg_year_effective</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">k</span>
+<span class="w">        </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">base</span><span class="w">   </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">cc_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">cc_id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">bud_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">bud_year</span>
+<span class="w">        </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">deltas</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">cc_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">cc_id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">bud_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="n">bud_year</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.instant", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
+      
+        <script src="../../../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+      
+        <script src="../../../js/init_graphviz.js"></script>
+      
+    
+  </body>
+</html>

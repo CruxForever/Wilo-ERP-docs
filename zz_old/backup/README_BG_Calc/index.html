@@ -1,0 +1,1731 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cruxforever.github.com/WRU_ERP/zz_old/backup/README_BG_Calc/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>📘 Mini-ERP — техническое описание - Wilo-ERP Controlling Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mini-erp" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../../.." title="Wilo-ERP Controlling Docs" class="md-header__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wilo-ERP Controlling Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📘 Mini-ERP — техническое описание
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Обзор
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../20_process/ACCOUNTING_PRINCIPLES/" class="md-tabs__link">
+          
+  
+  
+  Учёт и калькуляция
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../10_data/data_flows/" class="md-tabs__link">
+          
+  
+  
+  НСИ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../40_runbooks/run_budget_year/" class="md-tabs__link">
+          
+  
+  
+  Runbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Wilo-ERP Controlling Docs" class="md-nav__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Wilo-ERP Controlling Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Обзор
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О системе
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ARCHITECTURE_SUMMARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DB_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Схема БД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ERD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ERD-граф
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учёт и калькуляция
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учёт и калькуляция
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/ACCOUNTING_PRINCIPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Принципы учёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура себестоимости
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Структура себестоимости
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/COST_STRUCTURE_STATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/bom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Материальная себестоимость
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/direct_costs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прямые затраты (cost_rates)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../20_process/planning/overhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Непрямые затраты (overhead)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    НСИ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    НСИ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/data_flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Справочники
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/cc_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура МВЗ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../10_data/elem_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура видов затрат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RULES_COVERAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правила маппинга
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Runbooks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_runbooks/run_budget_year/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бюджет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../40_runbooks/run_reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отчетность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📂 Структура проекта (папки/модули)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Поток данных (ETL → расчёты → отчёты)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ Схема данных (основные таблицы и поля)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗄️ Схема данных (основные таблицы и поля)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Справочники и входные
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) Справочники и входные">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        items
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bom
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rm_prices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rm_prices — история цен материалов
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routing_flat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        routing_flat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#labor_rates_snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        labor_rates_snapshot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Материализованные / агрегированные
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2) Материализованные / агрегированные">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#labor_cost_unit-depr_cost_unit-opr_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        labor_cost_unit, depr_cost_unit, opr_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scrap_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scrap_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ovh_tree-ovh_flat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ovh_tree, ovh_flat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ovh_tariffs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ovh_tariffs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ovh_cost_unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ovh_cost_unit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Бюджет
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) Бюджет">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prod_budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prod_budget
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧮 Калькуляции (что и как считается)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧮 Калькуляции (что и как считается)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build_unified_detailed_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Расширенный отчёт (build_unified_detailed_table)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build_unified_compact_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Компактный отчёт (build_unified_compact_table)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Итоговые суммы
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Порядок вывода секций (сортировка)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📥 Загрузчики (Excel)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📥 Загрузчики (Excel)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-overhead-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Изменение маршрутов и overhead-групп (items)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-rm_prices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Загрузка стандартных цен (rm_prices)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Контроль качества данных (quality)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Правила и договорённости
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Бюджет
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 Где искать код
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Чек-лист готовности
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mini-erp">📘 Mini-ERP — техническое описание<a class="headerlink" href="#mini-erp" title="Permanent link">&para;</a></h1>
+<p>Компактная ERP-система на <strong>Python + SQLite + Streamlit</strong> для расчёта себестоимости, бюджетирования и контроля качества данных. Сквозной путь: <strong>загрузка данных → материализация → калькуляция → массовый расчёт → бюджет/отчёты</strong>.&#x20;</p>
+<hr />
+<h2 id="_1">📂 Структура проекта (папки/модули)<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>ui/</code> — интерфейс Streamlit: точка входа <code>app_streamlit.py</code>, экраны калькуляции, загрузки, массовых прогонов, бюджетов.&#x20;</li>
+<li><code>calc/</code> — доменные расчёты: материализация деревьев, калькуляции, бюджет, пайплайн.&#x20;</li>
+<li><code>db/</code> — подключение и функции <code>ensure_*</code> для схем БД.&#x20;</li>
+<li><code>loaders/</code> — загрузчики XLSX/TXT (материалы, ставки, цены, бюджет).&#x20;</li>
+<li><code>config/</code> — настройки путей/кодировок.&#x20;</li>
+</ul>
+<hr />
+<h2 id="etl">🔄 Поток данных (ETL → расчёты → отчёты)<a class="headerlink" href="#etl" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Загрузка</strong> внешних таблиц → SQLite (items, BOM, цены, ставки и т.д.).</li>
+<li><strong>Материализация</strong>: строятся <code>routing_tree/routing_flat</code>, труд/аморт/ОПР/overhead, scrap.</li>
+<li><strong>Калькуляция</strong>: сбор себестоимости по изделию в единую таблицу.</li>
+<li><strong>Бюджет</strong>: загрузка плана выпуска, объединение с себестоимостью, экспорт в Excel.&#x20;</li>
+</ol>
+<p>Ключевые вычислительные функции: <code>materialize_*</code>, <code>compute_item_cost_unified</code>, <code>build_unified_(detailed|compact)_table</code>, <code>run_full_pipeline</code>, <code>export_budget_to_excel</code>.&#x20;</p>
+<hr />
+<h2 id="_2">🗄️ Схема данных (основные таблицы и поля)<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Ниже — практическая спецификация колонок (факт, без лишней теории). Ссылки — как используются в расчётах.</p>
+<h3 id="1">1) Справочники и входные<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="items"><code>items</code><a class="headerlink" href="#items" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>item_id</code> (TEXT, PK) — <strong>внутренний код</strong> (используется в расчётах и связях).</li>
+<li><code>article</code> (TEXT, уникальный) — <strong>внешний артикул</strong> (используется в UI и Excel-загрузках).</li>
+<li><code>name</code> (TEXT) — наименование.</li>
+<li><code>uom</code> (TEXT) — единица измерения (ШТ/КГ/…).</li>
+<li><code>is_produced</code> (INT 0/1) — флаг производимой позиции.</li>
+<li><code>routing_group</code> (TEXT, опц.) — группа маршрута на уровне изделия (для материализации/контроля).</li>
+<li><code>ovh_group_code</code> (TEXT, опц.) — код overhead-группы на уровне изделия (А00/…).</li>
+</ul>
+<blockquote>
+<p>В калькуляции <strong>артикул</strong> показывается как <code>article</code>, а все связи идут по <strong><code>item_id</code></strong>.</p>
+</blockquote>
+<h4 id="bom"><code>bom</code><a class="headerlink" href="#bom" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>parent_item_id</code> (TEXT) — узел выше.</li>
+<li><code>component_item_id</code> (TEXT) — компонент.</li>
+<li><code>level</code> (INT) — глубина (1 — непосредственный компонент).</li>
+<li><code>path</code> (TEXT) — путь от корня: <code>FG › … › parent_id › component_id</code> (разделители нормализуются).</li>
+<li><code>qty_per_unit</code> (REAL) — количество компонента на единицу FG.</li>
+</ul>
+<blockquote>
+<p>В расширенном отчёте для материалов строится <code>context</code>:</p>
+<ul>
+<li>на <code>level=1</code> — артикул FG,</li>
+<li>на <code>level≥2</code> — артикул <strong>родительского</strong> узла из <code>path</code>.</li>
+</ul>
+</blockquote>
+<h4 id="rm_prices"><code>rm_prices</code> — <strong>история цен материалов</strong><a class="headerlink" href="#rm_prices" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>item_code</code> (TEXT) — = <code>items.item_id</code>.</li>
+<li><code>article</code> (TEXT) — дублируется для удобства контроля.</li>
+<li><code>uom</code> (TEXT)</li>
+<li><code>price</code> (REAL) — цена за UOM.</li>
+<li><code>currency</code> (TEXT, напр. <code>RUB</code>).</li>
+<li><code>source</code> (TEXT) — источник/комментарий загрузки.</li>
+<li><code>loaded_at</code> (TEXT, <code>YYYY-MM-DD HH:MM:SS</code>) — штамп загрузки.</li>
+</ul>
+<p><strong>Как выбирается цена:</strong> CTE <code>last_price</code> берёт <strong>последнюю по <code>loaded_at</code></strong> для каждого <code>item_code</code> (см. SQL-фрагменты в расчётах).&#x20;</p>
+<blockquote>
+<p>⚠️ Поддерживается <strong>история цен</strong>: допустимо несколько записей на <code>item_code/currency</code>.
+В отчётах всегда используется <strong>самая свежая</strong>.</p>
+</blockquote>
+<h4 id="routing_flat"><code>routing_flat</code><a class="headerlink" href="#routing_flat" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>product_id</code> (TEXT) — <code>item_id</code> изделия.</li>
+<li><code>routing_name</code> (TEXT) — название операции/маршрута.</li>
+<li><code>department_code</code> (TEXT) — цех/участок.</li>
+<li><code>hours_per_unit</code> (REAL) — трудоёмкость на 1 единицу FG (агрегируется).&#x20;</li>
+</ul>
+<h4 id="labor_rates_snapshot"><code>labor_rates_snapshot</code><a class="headerlink" href="#labor_rates_snapshot" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>department_code</code> (TEXT)</li>
+<li><code>rate_per_hour</code> (REAL)</li>
+<li><code>currency</code> (TEXT)</li>
+</ul>
+<blockquote>
+<p>Используется для умножения <code>hours_per_unit</code> → <strong>стоимость прямого труда</strong>.</p>
+</blockquote>
+<h3 id="2">2) Материализованные / агрегированные<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="labor_cost_unit-depr_cost_unit-opr_cost_unit"><code>labor_cost_unit</code>, <code>depr_cost_unit</code>, <code>opr_cost_unit</code><a class="headerlink" href="#labor_cost_unit-depr_cost_unit-opr_cost_unit" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>product_id</code> (TEXT)</li>
+<li><code>department_code</code> (TEXT)</li>
+<li><code>hours_total</code> (REAL)</li>
+<li><code>rate_per_hour</code> (REAL)</li>
+<li><code>cost_total</code> (REAL)</li>
+</ul>
+<blockquote>
+<p>Эти таблицы уже содержат агрегаты по департаментам — оттуда напрямую берётся <strong>прямой труд</strong>, <strong>амортизация (производство)</strong> и <strong>ОПР (цеховые)</strong> для компактного отчёта.&#x20;</p>
+</blockquote>
+<h4 id="scrap_cost_unit"><code>scrap_cost_unit</code><a class="headerlink" href="#scrap_cost_unit" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>product_id</code> (TEXT)</li>
+<li><code>overhead_group_code</code> (TEXT)</li>
+<li><code>scrap_cost</code> (REAL)</li>
+</ul>
+<h4 id="ovh_tree-ovh_flat"><code>ovh_tree</code>, <code>ovh_flat</code><a class="headerlink" href="#ovh_tree-ovh_flat" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Дерево и плоский список overhead-групп для распределений.</li>
+</ul>
+<h4 id="ovh_tariffs"><code>ovh_tariffs</code><a class="headerlink" href="#ovh_tariffs" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>overhead_group</code> (TEXT)</li>
+<li><code>year</code> (INT)</li>
+<li><em>поля тарифов</em> для распределения на <strong>Аморт ОПР</strong>, <strong>Логистику</strong>, <strong>Управленческие</strong> (набор зависит от методики).</li>
+</ul>
+<h4 id="ovh_cost_unit"><code>ovh_cost_unit</code><a class="headerlink" href="#ovh_cost_unit" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>product_id</code> (TEXT)</li>
+<li><code>overhead_group_code</code> (TEXT)</li>
+<li><code>depr_opr_cost</code> (REAL)</li>
+<li><code>log_cost</code> (REAL)</li>
+<li><code>adm_cost</code> (REAL)</li>
+</ul>
+<h3 id="3">3) Бюджет<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="prod_budget"><code>prod_budget</code><a class="headerlink" href="#prod_budget" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>product_id</code> (TEXT, = <code>items.item_id</code>)</li>
+<li><code>month_code</code> (TEXT <code>YYYY-MM</code>)</li>
+<li><code>qty</code> (REAL) — план выпуска.&#x20;</li>
+</ul>
+<hr />
+<h2 id="_3">🧮 Калькуляции (что и как считается)<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="build_unified_detailed_table">Расширенный отчёт (<code>build_unified_detailed_table</code>)<a class="headerlink" href="#build_unified_detailed_table" title="Permanent link">&para;</a></h3>
+<p>Единая целевая схема:
+<code>section, article, level, context, name, qty, rate, amount, department_code, overhead_group_code, routing_name</code>.&#x20;</p>
+<ul>
+<li>
+<p><strong>Материалы</strong>:</p>
+</li>
+<li>
+<p>строки из <code>bom</code> (все уровни), <code>article</code> берём из <code>items.article</code>, цена — <code>rm_prices.last_price</code>, <code>amount = qty * rate</code>;</p>
+</li>
+<li><code>context</code>: FG для <code>level=1</code>, <strong>родитель</strong> (по <code>path</code>) для <code>level≥2</code>;</li>
+<li>добавочный вывод <code>path</code> нормализуется (<code>›</code>, <code>→</code>, <code>/</code>, <code>\</code> → <code>&gt;</code>).</li>
+<li><strong>Прямой труд / Амортизация (производство) / ОПР (цеховые)</strong>:
+  <code>context = department_code</code>, <code>article = routing_name</code> (для детальных разрезов по операциям).</li>
+<li><strong>ОХР (логистика/управленческие) и Аморт ОПР, Брак</strong>:
+  <code>context = overhead_group_code</code>, <code>article = overhead_group_code</code>.</li>
+</ul>
+<h3 id="build_unified_compact_table">Компактный отчёт (<code>build_unified_compact_table</code>)<a class="headerlink" href="#build_unified_compact_table" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Суммы по секциям + <strong>TOTAL</strong> и доли секций, % от Total.&#x20;</li>
+<li>Материалы агрегируются из BOM с ценой <code>last_price</code> по <code>item_id</code>.&#x20;</li>
+</ul>
+<h3 id="_4">Итоговые суммы<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>GRAND TOTAL = Материалы + Прямой труд + Аморт (производство) + ОПР (цеховые) + Аморт ОПР + ОХР логистика + ОХР управленческие + Брак</code>.&#x20;</li>
+</ul>
+<h3 id="_5">Порядок вывода секций (сортировка)<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Материалы</li>
+<li>Брак</li>
+<li>ЗП (прямой труд)</li>
+<li>ОПР (цеховые)</li>
+<li>Амортизация (производство)</li>
+<li>Амортизация (админ)</li>
+<li>ОХР (логистика)</li>
+<li>ОХР (управленческие)</li>
+</ol>
+<hr />
+<h2 id="excel">📥 Загрузчики (Excel)<a class="headerlink" href="#excel" title="Permanent link">&para;</a></h2>
+<h3 id="1-overhead-items">1) Изменение маршрутов и overhead-групп (<code>items</code>)<a class="headerlink" href="#1-overhead-items" title="Permanent link">&para;</a></h3>
+<p><strong>Формат XLSX</strong>: колонки <code>item_id</code>, опционально <code>routing_group</code>, <code>ovh_group_code</code>.
+Поведение: показываем предпросмотр различий (old vs new), применяем только изменённые поля.</p>
+<h3 id="2-rm_prices">2) Загрузка стандартных цен (<code>rm_prices</code>)<a class="headerlink" href="#2-rm_prices" title="Permanent link">&para;</a></h3>
+<p><strong>Формат XLSX</strong>:</p>
+<ul>
+<li><code>Material</code> — <strong>артикул</strong> (текст/число → приводится к тексту, с обрезкой суффикса <code>.0</code>).</li>
+<li><code>Material description</code> — игнорируется.</li>
+<li><code>STD 2026</code> — новая цена в рублях.</li>
+</ul>
+<p>Поведение:</p>
+<ul>
+<li><code>article</code> → ищем <code>items.item_id</code> (получаем <code>item_code</code> и <code>uom</code>).</li>
+<li>пишем <strong>новую строку</strong> в <code>rm_prices</code> с <code>source</code> и <code>loaded_at</code> (история).</li>
+<li>отчёты берут последнюю цену по <code>item_code</code> → <code>MAX(loaded_at)</code>.&#x20;</li>
+</ul>
+<hr />
+<h2 id="quality">🧪 Контроль качества данных (quality)<a class="headerlink" href="#quality" title="Permanent link">&para;</a></h2>
+<p>Экран с чекбоксами по проверкам и выгрузкой результатов в <strong>Excel</strong> (по каждой проверке — отдельная вкладка/кнопка):</p>
+<ul>
+<li><code>items</code>: пустые обязательные поля (<code>article/name/uom</code>)</li>
+<li><code>items</code>: дубли артикулов</li>
+<li><strong>Производимые</strong> (<code>is_produced=1</code>) без <code>routing_group</code>/<code>ovh_group_code</code></li>
+<li><strong>Непроизводимые</strong> (<code>is_produced=0</code>) с заполненными <code>routing_group/ovh_group_code</code></li>
+<li><code>BOM</code>: компоненты, которых нет в <code>items</code></li>
+<li><code>routing_flat</code>: департаменты без ставки в <code>labor_rates_snapshot</code></li>
+<li><code>BOM</code>: компоненты без цены в <code>rm_prices</code> (по последней загрузке)</li>
+<li><code>OVH</code>: группы без тарифа на выбранный/последний год</li>
+<li><strong>Бюджет</strong>: в <code>prod_budget</code> встречаются позиции с <code>is_produced=0</code></li>
+</ul>
+<hr />
+<h2 id="_6">🧭 Правила и договорённости<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ID vs Артикул</strong>: во всех связях используем <strong><code>item_id</code></strong>, в UI и Excel — <strong><code>article</code></strong>.</li>
+<li><strong>Путь BOM</strong>: в БД хранится как цепочка <code>item_id</code>, в UI выводится параллельная колонка <code>path_article</code> (идентификаторы заменены на артикула).</li>
+<li><strong>Цены материалов</strong>: <code>rm_prices</code> хранит историю; «актуальная» — запись с максимальным <code>loaded_at</code>.</li>
+<li><strong>Ставки труда</strong>: берутся из <code>labor_rates_snapshot</code> по <code>department_code</code>.</li>
+<li><strong>Сортировка секций</strong>: фиксированная (см. список выше).</li>
+<li><strong>Единицы</strong>: для агрегатов числовые поля приводятся к числам и округляются (<code>qty</code> — до 6, <code>amount</code> — до 2).</li>
+</ul>
+<hr />
+<h2 id="_7">📈 Бюджет<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Загрузка плана <code>prod_budget</code> (артикул → <code>item_id</code>, месяцы <code>YYYY-MM</code>).</li>
+<li>Построение кадров <strong>Total</strong> и <strong>по месяцам</strong>; экспорт в Excel.&#x20;</li>
+</ul>
+<hr />
+<h2 id="_8">🧩 Где искать код<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Детальные отчёты/компактный вид: <code>calc/item_cost.py</code> (единые колонки, подитоги, форматирование). &#x20;</li>
+<li>Материализация и агрегаты: <code>calc/materialize.py</code> (деревья, труд, аморт, ОПР, OVH, scrap).&#x20;</li>
+<li>Пайплайн и бюджет: <code>calc/pipeline.py</code>, <code>calc/budget.py</code>.&#x20;</li>
+<li>Загрузчики: <code>loaders/*</code> и экраны <code>ui/views_loader.py</code>.&#x20;</li>
+</ul>
+<hr />
+<h2 id="-">✅ Чек-лист готовности<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<ul>
+<li>[ ] Загружены <code>items</code>, <code>bom</code>, <code>rm_prices</code>, <code>labor_rates_snapshot</code></li>
+<li>[ ] Выполнена материализация <code>routing_*</code>, <code>*_cost_unit</code>, <code>ovh_*</code></li>
+<li>[ ] Проверки качества (все чекбоксы «0 проблем» или приняты решения)</li>
+<li>[ ] В калькуляции корректны <strong>Материалы</strong> (цены подтягиваются)</li>
+<li>[ ] Бюджет собран и выгружен в Excel</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.instant", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
+      
+        <script src="../../../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+      
+        <script src="../../../js/init_graphviz.js"></script>
+      
+    
+  </body>
+</html>
