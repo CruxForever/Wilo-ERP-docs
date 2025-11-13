@@ -1,12 +1,9 @@
 # ERD
 
-The entity relationship diagram below is rendered on the fly from the DOT source stored in `erd/schema.dot`. The page loads the definition and converts it to SVG in the browser, so keeping the DOT file up to date is enough to refresh the picture.
+> Generated: 2025-11-13 16:09 (local)
+> Commit: b1d6540
 
-<div class="graphviz" data-graphviz-src="{{ base_url }}/erd/schema.dot">
-  <em>Loading ERD graph...</em>
-</div>
+Сгенерирован граф зависимостей таблиц по внешним ключам.
 
-## Maintenance
-
-- Edit `docs/erd/schema.dot` to change the diagram structure.
-- The renderer relies on Viz.js and logs messages prefixed with `[Graphviz]` in the browser console if something goes wrong.
+- DOT: `./erd/schema.dot`
+- SVG: ![ERD](./erd/diagram.svg)

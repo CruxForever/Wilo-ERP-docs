@@ -1,7 +1,7 @@
 # DB_SCHEMA
 
-> Generated: 2025-10-28 12:14 (local)
-> Commit: 74b0a98
+> Generated: 2025-11-13 16:09 (local)
+> Commit: b1d6540
 
 _Schema built by_: `db.schema.ensure_schema`
 
@@ -12,21 +12,28 @@ _Schema built by_: `db.schema.ensure_schema`
   - [TABLE: active_scenarios](#table-active_scenarios)
   - [TABLE: activity_to_routing](#table-activity_to_routing)
   - [TABLE: bom](#table-bom)
+  - [TABLE: bom_components_stage](#table-bom_components_stage)
   - [TABLE: bom_spec_components](#table-bom_spec_components)
   - [TABLE: bom_specs](#table-bom_specs)
-  - [TABLE: bom_specs_new](#table-bom_specs_new)
+  - [TABLE: bom_specs_stage](#table-bom_specs_stage)
   - [TABLE: commodity_map](#table-commodity_map)
   - [TABLE: cost_allocations](#table-cost_allocations)
+  - [TABLE: cost_rate_components](#table-cost_rate_components)
   - [TABLE: cost_rates](#table-cost_rates)
   - [TABLE: dep_cc_map](#table-dep_cc_map)
-  - [TABLE: depr_rates_snapshot](#table-depr_rates_snapshot)
   - [TABLE: driver_sets](#table-driver_sets)
   - [TABLE: driver_values](#table-driver_values)
   - [TABLE: drivers](#table-drivers)
+  - [TABLE: elem_edges](#table-elem_edges)
+  - [TABLE: elem_nodes](#table-elem_nodes)
   - [TABLE: elem_to_ovh](#table-elem_to_ovh)
   - [TABLE: fact_measures](#table-fact_measures)
   - [TABLE: item_nodes](#table-item_nodes)
   - [TABLE: items](#table-items)
+  - [TABLE: labor_cost_unit](#table-labor_cost_unit)
+  - [TABLE: labor_cost_unit_total](#table-labor_cost_unit_total)
+  - [TABLE: labor_hours_unit](#table-labor_hours_unit)
+  - [TABLE: labor_hours_unit_total](#table-labor_hours_unit_total)
   - [TABLE: lineage_links](#table-lineage_links)
   - [TABLE: mfc_cc_set_items](#table-mfc_cc_set_items)
   - [TABLE: mfc_cc_sets](#table-mfc_cc_sets)
@@ -43,17 +50,19 @@ _Schema built by_: `db.schema.ensure_schema`
   - [TABLE: opex_cycle_defs](#table-opex_cycle_defs)
   - [TABLE: opex_cycle_rules](#table-opex_cycle_rules)
   - [TABLE: opex_staging (materials pipeline)](#table-opex_staging)
-  - [TABLE: opr_rates_snapshot](#table-opr_rates_snapshot)
   - [TABLE: ovh_bases_year](#table-ovh_bases_year)
   - [TABLE: ovh_cost_unit](#table-ovh_cost_unit)
+  - [TABLE: ovh_costs](#table-ovh_costs)
   - [TABLE: ovh_flat](#table-ovh_flat)
   - [TABLE: ovh_nodes](#table-ovh_nodes)
   - [TABLE: ovh_tariffs](#table-ovh_tariffs)
+  - [TABLE: ovh_tariffs_new](#table-ovh_tariffs_new)
   - [TABLE: personnel_monthly](#table-personnel_monthly)
   - [TABLE: price_scenarios (materials pipeline)](#table-price_scenarios)
   - [TABLE: prod_budget](#table-prod_budget)
   - [TABLE: rm_price_load (materials pipeline)](#table-rm_price_load)
   - [TABLE: rm_prices (materials pipeline)](#table-rm_prices)
+  - [TABLE: routing_flat](#table-routing_flat)
   - [TABLE: routing_nodes](#table-routing_nodes)
   - [TABLE: routing_operations](#table-routing_operations)
   - [TABLE: routing_tree](#table-routing_tree)
@@ -74,26 +83,29 @@ _Schema built by_: `db.schema.ensure_schema`
 - Views:
   - [VIEW: mo_last_price_current](#view-mo_last_price_current)
   - [VIEW: opex_budget_effective](#view-opex_budget_effective)
-  - [VIEW: ovh_tariffs_wide_compat](#view-ovh_tariffs_wide_compat)
   - [VIEW: personnel_yearly](#view-personnel_yearly)
   - [VIEW: personnel_yearly_effective](#view-personnel_yearly_effective)
   - [VIEW: v_alloc_lineage](#view-v_alloc_lineage)
   - [VIEW: v_allocation_rule_effective](#view-v_allocation_rule_effective)
+  - [VIEW: v_bom_costs_scenario](#view-v_bom_costs_scenario)
   - [VIEW: v_cogs_unit](#view-v_cogs_unit)
   - [VIEW: v_component_pools](#view-v_component_pools)
+  - [VIEW: v_depr_rates_snapshot](#view-v_depr_rates_snapshot)
   - [VIEW: v_driver_catalog](#view-v_driver_catalog)
   - [VIEW: v_driver_values](#view-v_driver_values)
   - [VIEW: v_elem_component_map](#view-v_elem_component_map)
   - [VIEW: v_item_cg](#view-v_item_cg)
   - [VIEW: v_labor_cost_unit_total](#view-v_labor_cost_unit_total)
+  - [VIEW: v_labor_rates_snapshot](#view-v_labor_rates_snapshot)
   - [VIEW: v_opr_cost_unit_total](#view-v_opr_cost_unit_total)
-  - [VIEW: v_ovh_cost_unit](#view-v_ovh_cost_unit)
+  - [VIEW: v_opr_rates_snapshot](#view-v_opr_rates_snapshot)
+  - [VIEW: v_ovh_costs_scenario](#view-v_ovh_costs_scenario)
   - [VIEW: v_ovh_flat_compat](#view-v_ovh_flat_compat)
   - [VIEW: v_price_by_article](#view-v_price_by_article)
   - [VIEW: v_price_by_scenario (materials pipeline)](#view-v_price_by_scenario)
   - [VIEW: v_prod_budget_active](#view-v_prod_budget_active)
   - [VIEW: v_rate_parity](#view-v_rate_parity)
-  - [VIEW: v_recon_checks](#view-v_recon_checks)
+  - [VIEW: v_routing_costs_scenario](#view-v_routing_costs_scenario)
 
 <a id="table-active_alloc_sets"></a>
 ## TABLE: active_alloc_sets
@@ -134,7 +146,7 @@ CREATE TABLE active_scenarios(
       id INTEGER PRIMARY KEY CHECK (id=1),
       vol_scenario   TEXT,  -- РЅР°РїСЂРёРјРµСЂ 'BG26_VOL'
       price_scenario TEXT   -- РЅР°РїСЂРёРјРµСЂ 'FC3' РёР»Рё 'BG26' (РµСЃР»Рё Р±СѓРґРµС€СЊ РёРјРµРЅРѕРІР°С‚СЊ price-СЃС†РµРЅР°СЂРёРё РєР°Рє РІ price-loads)
-    )
+    , year INTEGER)
 ```
 
 | # | name | type | notnull | default | pk |
@@ -142,6 +154,7 @@ CREATE TABLE active_scenarios(
 | 0 | id | INTEGER | 0 |  | 1 |
 | 1 | vol_scenario | TEXT | 0 |  | 0 |
 | 2 | price_scenario | TEXT | 0 |  | 0 |
+| 3 | year | INTEGER | 0 |  | 0 |
 
 <a id="table-activity_to_routing"></a>
 ## TABLE: activity_to_routing
@@ -183,63 +196,75 @@ CREATE TABLE bom(
 | 5 | level | INTEGER | 1 |  | 0 |
 | 6 | path | TEXT | 0 |  | 0 |
 
+<a id="table-bom_components_stage"></a>
+## TABLE: bom_components_stage
+```sql
+CREATE TABLE bom_components_stage(
+              load_id         TEXT,
+              spec_code       TEXT,
+              spec_valid_from TEXT,
+              line_no         INTEGER,
+              component_id    TEXT,
+              qty_per_spec    REAL,
+              uom             TEXT,
+              operation       TEXT,
+              stage           TEXT,
+              raw_row_no      INTEGER,
+              error_flag      INTEGER DEFAULT 0,
+              meta_json       TEXT
+            )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | load_id | TEXT | 0 |  | 0 |
+| 1 | spec_code | TEXT | 0 |  | 0 |
+| 2 | spec_valid_from | TEXT | 0 |  | 0 |
+| 3 | line_no | INTEGER | 0 |  | 0 |
+| 4 | component_id | TEXT | 0 |  | 0 |
+| 5 | qty_per_spec | REAL | 0 |  | 0 |
+| 6 | uom | TEXT | 0 |  | 0 |
+| 7 | operation | TEXT | 0 |  | 0 |
+| 8 | stage | TEXT | 0 |  | 0 |
+| 9 | raw_row_no | INTEGER | 0 |  | 0 |
+| 10 | error_flag | INTEGER | 0 | 0 | 0 |
+| 11 | meta_json | TEXT | 0 |  | 0 |
+
 <a id="table-bom_spec_components"></a>
 ## TABLE: bom_spec_components
 ```sql
-CREATE TABLE bom_spec_components(
-      spec_code    TEXT NOT NULL,
-      line_no      INTEGER NOT NULL,
-      component_id TEXT NOT NULL,
-      qty_per_spec REAL NOT NULL CHECK(qty_per_spec>=0),
-      uom          TEXT,
-      operation    TEXT,
-      stage        TEXT,
-      valid_from   TEXT NOT NULL DEFAULT '1900-01-01',
-      valid_to     TEXT NOT NULL DEFAULT '2999-12-31',
-      PRIMARY KEY(spec_code, line_no, valid_from)
-    )
+CREATE TABLE "bom_spec_components"(
+              spec_code       TEXT NOT NULL,
+              spec_valid_from TEXT NOT NULL,
+              line_no         INTEGER NOT NULL,
+              component_id    TEXT NOT NULL,
+              qty_per_spec    REAL NOT NULL DEFAULT 0,
+              uom             TEXT,
+              operation       TEXT,
+              stage           TEXT,
+              valid_from      TEXT,
+              valid_to        TEXT,
+              PRIMARY KEY (spec_code, spec_valid_from, line_no)
+            )
 ```
 
 | # | name | type | notnull | default | pk |
 |---:|------|------|:------:|---------|:--:|
 | 0 | spec_code | TEXT | 1 |  | 1 |
-| 1 | line_no | INTEGER | 1 |  | 2 |
-| 2 | component_id | TEXT | 1 |  | 0 |
-| 3 | qty_per_spec | REAL | 1 |  | 0 |
-| 4 | uom | TEXT | 0 |  | 0 |
-| 5 | operation | TEXT | 0 |  | 0 |
-| 6 | stage | TEXT | 0 |  | 0 |
-| 7 | valid_from | TEXT | 1 | '1900-01-01' | 3 |
-| 8 | valid_to | TEXT | 1 | '2999-12-31' | 0 |
+| 1 | spec_valid_from | TEXT | 1 |  | 2 |
+| 2 | line_no | INTEGER | 1 |  | 3 |
+| 3 | component_id | TEXT | 1 |  | 0 |
+| 4 | qty_per_spec | REAL | 1 | 0 | 0 |
+| 5 | uom | TEXT | 0 |  | 0 |
+| 6 | operation | TEXT | 0 |  | 0 |
+| 7 | stage | TEXT | 0 |  | 0 |
+| 8 | valid_from | TEXT | 0 |  | 0 |
+| 9 | valid_to | TEXT | 0 |  | 0 |
 
 <a id="table-bom_specs"></a>
 ## TABLE: bom_specs
 ```sql
-CREATE TABLE bom_specs(
-      spec_code  TEXT PRIMARY KEY,
-      product_id TEXT NOT NULL,
-      batch_size REAL NOT NULL DEFAULT 1 CHECK(batch_size>0),
-      batch_uom  TEXT,
-      valid_from TEXT NOT NULL DEFAULT '1900-01-01',
-      valid_to   TEXT NOT NULL DEFAULT '2999-12-31',
-      is_default INTEGER NOT NULL DEFAULT 1 CHECK(is_default IN (0,1))
-    )
-```
-
-| # | name | type | notnull | default | pk |
-|---:|------|------|:------:|---------|:--:|
-| 0 | spec_code | TEXT | 0 |  | 1 |
-| 1 | product_id | TEXT | 1 |  | 0 |
-| 2 | batch_size | REAL | 1 | 1 | 0 |
-| 3 | batch_uom | TEXT | 0 |  | 0 |
-| 4 | valid_from | TEXT | 1 | '1900-01-01' | 0 |
-| 5 | valid_to | TEXT | 1 | '2999-12-31' | 0 |
-| 6 | is_default | INTEGER | 1 | 1 | 0 |
-
-<a id="table-bom_specs_new"></a>
-## TABLE: bom_specs_new
-```sql
-CREATE TABLE bom_specs_new(
+CREATE TABLE "bom_specs"(
               spec_code   TEXT NOT NULL,
               product_id  TEXT NOT NULL,
               batch_size  REAL NOT NULL DEFAULT 1.0,
@@ -260,6 +285,38 @@ CREATE TABLE bom_specs_new(
 | 4 | valid_from | TEXT | 1 |  | 2 |
 | 5 | valid_to | TEXT | 1 | '2999-12-31' | 0 |
 | 6 | is_default | INTEGER | 1 | 1 | 0 |
+
+<a id="table-bom_specs_stage"></a>
+## TABLE: bom_specs_stage
+```sql
+CREATE TABLE bom_specs_stage(
+              load_id     TEXT,
+              spec_code   TEXT,
+              product_id  TEXT,
+              batch_size  REAL,
+              batch_uom   TEXT,
+              valid_from  TEXT,
+              valid_to    TEXT,
+              is_default  INTEGER,
+              raw_row_no  INTEGER,
+              error_flag  INTEGER DEFAULT 0,
+              meta_json   TEXT
+            )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | load_id | TEXT | 0 |  | 0 |
+| 1 | spec_code | TEXT | 0 |  | 0 |
+| 2 | product_id | TEXT | 0 |  | 0 |
+| 3 | batch_size | REAL | 0 |  | 0 |
+| 4 | batch_uom | TEXT | 0 |  | 0 |
+| 5 | valid_from | TEXT | 0 |  | 0 |
+| 6 | valid_to | TEXT | 0 |  | 0 |
+| 7 | is_default | INTEGER | 0 |  | 0 |
+| 8 | raw_row_no | INTEGER | 0 |  | 0 |
+| 9 | error_flag | INTEGER | 0 | 0 | 0 |
+| 10 | meta_json | TEXT | 0 |  | 0 |
 
 <a id="table-commodity_map"></a>
 ## TABLE: commodity_map
@@ -308,6 +365,30 @@ CREATE TABLE cost_allocations (
 | 7 | weight | REAL | 0 |  | 0 |
 | 8 | run_id | TEXT | 0 |  | 0 |
 
+<a id="table-cost_rate_components"></a>
+## TABLE: cost_rate_components
+```sql
+CREATE TABLE cost_rate_components (
+        component_code TEXT PRIMARY KEY,
+        display_name   TEXT NOT NULL,
+        kind           TEXT NOT NULL,
+        is_active      INTEGER NOT NULL DEFAULT 1,
+        sort_order     INTEGER NOT NULL DEFAULT 0,
+        created_at     TEXT NOT NULL DEFAULT (datetime('now')),
+        updated_at     TEXT NOT NULL DEFAULT (datetime('now'))
+    )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | component_code | TEXT | 0 |  | 1 |
+| 1 | display_name | TEXT | 1 |  | 0 |
+| 2 | kind | TEXT | 1 |  | 0 |
+| 3 | is_active | INTEGER | 1 | 1 | 0 |
+| 4 | sort_order | INTEGER | 1 | 0 | 0 |
+| 5 | created_at | TEXT | 1 | datetime('now') | 0 |
+| 6 | updated_at | TEXT | 1 | datetime('now') | 0 |
+
 <a id="table-cost_rates"></a>
 ## TABLE: cost_rates
 ```sql
@@ -320,7 +401,7 @@ CREATE TABLE cost_rates (
             rate_value     REAL NOT NULL,
             unit           TEXT,
             source         TEXT,
-            run_id         TEXT,
+            run_id         TEXT, department_code TEXT NOT NULL DEFAULT '', currency TEXT NOT NULL DEFAULT 'RUB', loaded_at TEXT NOT NULL DEFAULT (datetime('now')),
             PRIMARY KEY (period_or_year, scenario, component_code, cc_id, product_id)
         )
 ```
@@ -336,6 +417,9 @@ CREATE TABLE cost_rates (
 | 6 | unit | TEXT | 0 |  | 0 |
 | 7 | source | TEXT | 0 |  | 0 |
 | 8 | run_id | TEXT | 0 |  | 0 |
+| 9 | department_code | TEXT | 1 | '' | 0 |
+| 10 | currency | TEXT | 1 | 'RUB' | 0 |
+| 11 | loaded_at | TEXT | 1 | datetime('now') | 0 |
 
 <a id="table-dep_cc_map"></a>
 ## TABLE: dep_cc_map
@@ -350,36 +434,6 @@ CREATE TABLE dep_cc_map (
 |---:|------|------|:------:|---------|:--:|
 | 0 | department_code | TEXT | 0 |  | 1 |
 | 1 | cc_id | TEXT | 1 |  | 0 |
-
-<a id="table-depr_rates_snapshot"></a>
-## TABLE: depr_rates_snapshot
-```sql
-CREATE TABLE depr_rates_snapshot (
-            department_code     TEXT,
-            cc_id               TEXT,
-            rate_per_hour       REAL NOT NULL CHECK(rate_per_hour>=0),
-            hours_year          REAL,
-            personnel_cost_year REAL,
-            bud_year            INTEGER,
-            currency            TEXT NOT NULL DEFAULT 'RUB',
-            source              TEXT,
-            calc_at             TEXT,
-            loaded_at           TEXT DEFAULT (datetime('now'))
-        )
-```
-
-| # | name | type | notnull | default | pk |
-|---:|------|------|:------:|---------|:--:|
-| 0 | department_code | TEXT | 0 |  | 0 |
-| 1 | cc_id | TEXT | 0 |  | 0 |
-| 2 | rate_per_hour | REAL | 1 |  | 0 |
-| 3 | hours_year | REAL | 0 |  | 0 |
-| 4 | personnel_cost_year | REAL | 0 |  | 0 |
-| 5 | bud_year | INTEGER | 0 |  | 0 |
-| 6 | currency | TEXT | 1 | 'RUB' | 0 |
-| 7 | source | TEXT | 0 |  | 0 |
-| 8 | calc_at | TEXT | 0 |  | 0 |
-| 9 | loaded_at | TEXT | 0 | datetime('now') | 0 |
 
 <a id="table-driver_sets"></a>
 ## TABLE: driver_sets
@@ -466,6 +520,48 @@ CREATE TABLE drivers (
 | 5 | source_policy | TEXT | 0 |  | 0 |
 | 6 | is_ratio | INTEGER | 1 | 0 | 0 |
 
+<a id="table-elem_edges"></a>
+## TABLE: elem_edges
+```sql
+CREATE TABLE elem_edges (
+          parent_id   TEXT REFERENCES elem_nodes(elem_id),
+          child_id    TEXT REFERENCES elem_nodes(elem_id),
+          PRIMARY KEY (parent_id, child_id)
+        )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | parent_id | TEXT | 0 |  | 1 |
+| 1 | child_id | TEXT | 0 |  | 2 |
+
+**Foreign keys:**
+- child_id -> elem_nodes(elem_id) (on update NO ACTION, on delete NO ACTION, match NONE)
+- parent_id -> elem_nodes(elem_id) (on update NO ACTION, on delete NO ACTION, match NONE)
+
+<a id="table-elem_nodes"></a>
+## TABLE: elem_nodes
+```sql
+CREATE TABLE elem_nodes (
+          elem_id     TEXT PRIMARY KEY,
+          name        TEXT,
+          level_no    INTEGER,
+          node_type   TEXT CHECK(node_type IN ('GROUP','LEAF')),
+          parent_id   TEXT REFERENCES elem_nodes(elem_id)
+        )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | elem_id | TEXT | 0 |  | 1 |
+| 1 | name | TEXT | 0 |  | 0 |
+| 2 | level_no | INTEGER | 0 |  | 0 |
+| 3 | node_type | TEXT | 0 |  | 0 |
+| 4 | parent_id | TEXT | 0 |  | 0 |
+
+**Foreign keys:**
+- parent_id -> elem_nodes(elem_id) (on update NO ACTION, on delete NO ACTION, match NONE)
+
 <a id="table-elem_to_ovh"></a>
 ## TABLE: elem_to_ovh
 ```sql
@@ -549,6 +645,78 @@ CREATE TABLE items(
 | 6 | ovh_group_code | TEXT | 0 |  | 0 |
 | 7 | matl_group | TEXT | 0 |  | 0 |
 | 8 | product_hierarchy | TEXT | 0 |  | 0 |
+
+<a id="table-labor_cost_unit"></a>
+## TABLE: labor_cost_unit
+```sql
+CREATE TABLE labor_cost_unit(
+      product_id      TEXT NOT NULL,
+      department_code TEXT NOT NULL,
+      hours_total     REAL NOT NULL,
+      rate_per_hour   REAL,
+      currency        TEXT,
+      cost_total      REAL,
+      PRIMARY KEY(product_id, department_code)
+    )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | product_id | TEXT | 1 |  | 1 |
+| 1 | department_code | TEXT | 1 |  | 2 |
+| 2 | hours_total | REAL | 1 |  | 0 |
+| 3 | rate_per_hour | REAL | 0 |  | 0 |
+| 4 | currency | TEXT | 0 |  | 0 |
+| 5 | cost_total | REAL | 0 |  | 0 |
+
+<a id="table-labor_cost_unit_total"></a>
+## TABLE: labor_cost_unit_total
+```sql
+CREATE TABLE labor_cost_unit_total(
+      product_id   TEXT PRIMARY KEY,
+      cost_total   REAL
+    )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | product_id | TEXT | 0 |  | 1 |
+| 1 | cost_total | REAL | 0 |  | 0 |
+
+<a id="table-labor_hours_unit"></a>
+## TABLE: labor_hours_unit
+```sql
+CREATE TABLE labor_hours_unit(
+      product_id      TEXT NOT NULL,
+      department_code TEXT NOT NULL,
+      hours_self      REAL NOT NULL,
+      hours_children  REAL NOT NULL,
+      hours_total     REAL NOT NULL,
+      PRIMARY KEY(product_id, department_code)
+    )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | product_id | TEXT | 1 |  | 1 |
+| 1 | department_code | TEXT | 1 |  | 2 |
+| 2 | hours_self | REAL | 1 |  | 0 |
+| 3 | hours_children | REAL | 1 |  | 0 |
+| 4 | hours_total | REAL | 1 |  | 0 |
+
+<a id="table-labor_hours_unit_total"></a>
+## TABLE: labor_hours_unit_total
+```sql
+CREATE TABLE labor_hours_unit_total(
+      product_id   TEXT PRIMARY KEY,
+      hours_total  REAL NOT NULL
+    )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | product_id | TEXT | 0 |  | 1 |
+| 1 | hours_total | REAL | 1 |  | 0 |
 
 <a id="table-lineage_links"></a>
 ## TABLE: lineage_links
@@ -961,36 +1129,6 @@ CREATE TABLE opex_staging (
 - mapped_elem_id -> elem_nodes(elem_id) (on update NO ACTION, on delete NO ACTION, match NONE)
 - cc_id -> cc_nodes(cc_id) (on update NO ACTION, on delete NO ACTION, match NONE)
 
-<a id="table-opr_rates_snapshot"></a>
-## TABLE: opr_rates_snapshot
-```sql
-CREATE TABLE opr_rates_snapshot (
-            department_code     TEXT,
-            cc_id               TEXT,
-            rate_per_hour       REAL NOT NULL CHECK(rate_per_hour>=0),
-            hours_year          REAL,
-            personnel_cost_year REAL,
-            bud_year            INTEGER,
-            currency            TEXT NOT NULL DEFAULT 'RUB',
-            source              TEXT,
-            calc_at             TEXT,
-            loaded_at           TEXT DEFAULT (datetime('now'))
-        )
-```
-
-| # | name | type | notnull | default | pk |
-|---:|------|------|:------:|---------|:--:|
-| 0 | department_code | TEXT | 0 |  | 0 |
-| 1 | cc_id | TEXT | 0 |  | 0 |
-| 2 | rate_per_hour | REAL | 1 |  | 0 |
-| 3 | hours_year | REAL | 0 |  | 0 |
-| 4 | personnel_cost_year | REAL | 0 |  | 0 |
-| 5 | bud_year | INTEGER | 0 |  | 0 |
-| 6 | currency | TEXT | 1 | 'RUB' | 0 |
-| 7 | source | TEXT | 0 |  | 0 |
-| 8 | calc_at | TEXT | 0 |  | 0 |
-| 9 | loaded_at | TEXT | 0 | datetime('now') | 0 |
-
 <a id="table-ovh_bases_year"></a>
 ## TABLE: ovh_bases_year
 ```sql
@@ -1052,6 +1190,31 @@ CREATE TABLE ovh_cost_unit (
 | 2 | log_cost | REAL | 1 | 0.0 | 0 |
 | 3 | adm_cost | REAL | 1 | 0.0 | 0 |
 
+<a id="table-ovh_costs"></a>
+## TABLE: ovh_costs
+```sql
+CREATE TABLE ovh_costs (
+            product_id      TEXT NOT NULL,
+            node_product_id TEXT,
+            overhead_group  TEXT NOT NULL,
+            cost_type       TEXT NOT NULL, -- 'scrap'|'depr_opr'|'log'|'adm'
+            amount          REAL NOT NULL DEFAULT 0.0,
+            year            INTEGER,
+            source          TEXT,
+            PRIMARY KEY(product_id, node_product_id, overhead_group, cost_type, year)
+        )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | product_id | TEXT | 1 |  | 1 |
+| 1 | node_product_id | TEXT | 0 |  | 2 |
+| 2 | overhead_group | TEXT | 1 |  | 3 |
+| 3 | cost_type | TEXT | 1 |  | 4 |
+| 4 | amount | REAL | 1 | 0.0 | 0 |
+| 5 | year | INTEGER | 0 |  | 5 |
+| 6 | source | TEXT | 0 |  | 0 |
+
 <a id="table-ovh_flat"></a>
 ## TABLE: ovh_flat
 ```sql
@@ -1111,6 +1274,27 @@ CREATE TABLE ovh_nodes (
 ## TABLE: ovh_tariffs
 ```sql
 CREATE TABLE "ovh_tariffs" (
+                    overhead_group TEXT NOT NULL,
+                    year INTEGER NOT NULL,
+                    scenario TEXT NOT NULL DEFAULT '',
+                    cost_type TEXT NOT NULL,
+                    share REAL,
+                    PRIMARY KEY (overhead_group, year, scenario, cost_type)
+                )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | overhead_group | TEXT | 1 |  | 1 |
+| 1 | year | INTEGER | 1 |  | 2 |
+| 2 | scenario | TEXT | 1 | '' | 3 |
+| 3 | cost_type | TEXT | 1 |  | 4 |
+| 4 | share | REAL | 0 |  | 0 |
+
+<a id="table-ovh_tariffs_new"></a>
+## TABLE: ovh_tariffs_new
+```sql
+CREATE TABLE ovh_tariffs_new (
                     overhead_group TEXT NOT NULL,
                     year INTEGER NOT NULL,
                     scenario TEXT NOT NULL DEFAULT '',
@@ -1235,6 +1419,43 @@ CREATE TABLE "rm_prices" (
 | 6 | load_id | TEXT | 1 |  | 0 |
 | 7 | source | TEXT | 0 |  | 0 |
 | 8 | loaded_at | TEXT | 1 | datetime('now') | 0 |
+
+<a id="table-routing_flat"></a>
+## TABLE: routing_flat
+```sql
+CREATE TABLE routing_flat(
+          product_id      TEXT NOT NULL,
+          node_product_id TEXT NOT NULL,
+          routing_id      INTEGER,
+          operation_id    INTEGER NOT NULL,
+          operation       TEXT,
+          department_code TEXT,
+          hours_per_unit  REAL NOT NULL,
+          level           INTEGER NOT NULL,
+          path            TEXT,
+          routing_name    TEXT, routing_group TEXT, driver_code TEXT, driver_value_per_unit REAL, source TEXT, valid_from TEXT, valid_to TEXT,
+          PRIMARY KEY(product_id, node_product_id, operation_id)
+        )
+```
+
+| # | name | type | notnull | default | pk |
+|---:|------|------|:------:|---------|:--:|
+| 0 | product_id | TEXT | 1 |  | 1 |
+| 1 | node_product_id | TEXT | 1 |  | 2 |
+| 2 | routing_id | INTEGER | 0 |  | 0 |
+| 3 | operation_id | INTEGER | 1 |  | 3 |
+| 4 | operation | TEXT | 0 |  | 0 |
+| 5 | department_code | TEXT | 0 |  | 0 |
+| 6 | hours_per_unit | REAL | 1 |  | 0 |
+| 7 | level | INTEGER | 1 |  | 0 |
+| 8 | path | TEXT | 0 |  | 0 |
+| 9 | routing_name | TEXT | 0 |  | 0 |
+| 10 | routing_group | TEXT | 0 |  | 0 |
+| 11 | driver_code | TEXT | 0 |  | 0 |
+| 12 | driver_value_per_unit | REAL | 0 |  | 0 |
+| 13 | source | TEXT | 0 |  | 0 |
+| 14 | valid_from | TEXT | 0 |  | 0 |
+| 15 | valid_to | TEXT | 0 |  | 0 |
 
 <a id="table-routing_nodes"></a>
 ## TABLE: routing_nodes
@@ -1659,25 +1880,6 @@ CREATE VIEW opex_budget_effective AS
 - minus
 - keys
 
-<a id="view-ovh_tariffs_wide_compat"></a>
-## VIEW: ovh_tariffs_wide_compat
-```sql
-CREATE VIEW ovh_tariffs_wide_compat AS
-            SELECT
-                overhead_group,
-                year,
-                scenario,
-                MAX(CASE WHEN cost_type = 'scrap' THEN share END)    AS scrap_share,
-                MAX(CASE WHEN cost_type = 'depr_opr' THEN share END) AS depr_opr_share,
-                MAX(CASE WHEN cost_type = 'log' THEN share END)      AS log_share,
-                MAX(CASE WHEN cost_type = 'adm' THEN share END)      AS adm_share
-            FROM ovh_tariffs
-            GROUP BY overhead_group, year, scenario
-```
-
-**References (best-effort):**
-- ovh_tariffs
-
 <a id="view-personnel_yearly"></a>
 ## VIEW: personnel_yearly
 ```sql
@@ -1798,6 +2000,27 @@ CREATE VIEW v_allocation_rule_effective AS
 - scoped
 - ranked
 
+<a id="view-v_bom_costs_scenario"></a>
+## VIEW: v_bom_costs_scenario
+```sql
+CREATE VIEW v_bom_costs_scenario AS
+        SELECT
+          p.scenario_code,
+          b.parent_item_id    AS product_id,
+          b.component_item_id AS component_id,
+          b.qty_per_unit,
+          p.currency,
+          p.price,
+          b.qty_per_unit * p.price AS cost_component
+        FROM bom_flat b
+        JOIN v_price_by_scenario p
+          ON p.item_code = b.component_item_id
+```
+
+**References (best-effort):**
+- bom_flat
+- v_price_by_scenario
+
 <a id="view-v_cogs_unit"></a>
 ## VIEW: v_cogs_unit
 ```sql
@@ -1881,6 +2104,29 @@ CREATE VIEW v_component_pools AS
 - v_elem_component_map
 - mapped
 - expanded
+
+<a id="view-v_depr_rates_snapshot"></a>
+## VIEW: v_depr_rates_snapshot
+```sql
+CREATE VIEW v_depr_rates_snapshot AS
+        SELECT
+          TRIM(COALESCE(department_code,''))                 AS department_code,
+          NULL                                              AS cc_id,
+          rate_value                                        AS rate_per_hour,
+          NULL                                              AS hours_year,
+          NULL                                              AS personnel_cost_year,
+          CAST(CASE WHEN length(period_or_year)=4 THEN period_or_year
+                    ELSE substr(period_or_year,1,4) END AS INTEGER) AS bud_year,
+          COALESCE(currency, 'RUB')                         AS currency,
+          source,
+          NULL                                              AS calc_at,
+          loaded_at
+        FROM cost_rates
+        WHERE component_code='DEPR_DIRECT'
+```
+
+**References (best-effort):**
+- cost_rates
 
 <a id="view-v_driver_catalog"></a>
 ## VIEW: v_driver_catalog
@@ -1982,6 +2228,29 @@ CREATE VIEW v_labor_cost_unit_total AS
 - alloc
 - qty
 
+<a id="view-v_labor_rates_snapshot"></a>
+## VIEW: v_labor_rates_snapshot
+```sql
+CREATE VIEW v_labor_rates_snapshot AS
+        SELECT
+          TRIM(COALESCE(department_code,''))                 AS department_code,
+          NULL                                              AS cc_id,
+          rate_value                                        AS rate_per_hour,
+          NULL                                              AS hours_year,
+          NULL                                              AS personnel_cost_year,
+          CAST(CASE WHEN length(period_or_year)=4 THEN period_or_year
+                    ELSE substr(period_or_year,1,4) END AS INTEGER) AS bud_year,
+          COALESCE(currency, 'RUB')                         AS currency,
+          source,
+          NULL                                              AS calc_at,
+          loaded_at
+        FROM cost_rates
+        WHERE component_code='LABOR_DIRECT'
+```
+
+**References (best-effort):**
+- cost_rates
+
 <a id="view-v_opr_cost_unit_total"></a>
 ## VIEW: v_opr_cost_unit_total
 ```sql
@@ -2012,15 +2281,63 @@ CREATE VIEW v_opr_cost_unit_total AS
 - alloc
 - qty
 
-<a id="view-v_ovh_cost_unit"></a>
-## VIEW: v_ovh_cost_unit
+<a id="view-v_opr_rates_snapshot"></a>
+## VIEW: v_opr_rates_snapshot
 ```sql
-CREATE VIEW v_ovh_cost_unit AS
-        SELECT product_id, depr_opr_cost, log_cost, adm_cost FROM ovh_cost_unit
+CREATE VIEW v_opr_rates_snapshot AS
+        SELECT
+          TRIM(COALESCE(department_code,''))                 AS department_code,
+          NULL                                              AS cc_id,
+          rate_value                                        AS rate_per_hour,
+          NULL                                              AS hours_year,
+          NULL                                              AS personnel_cost_year,
+          CAST(CASE WHEN length(period_or_year)=4 THEN period_or_year
+                    ELSE substr(period_or_year,1,4) END AS INTEGER) AS bud_year,
+          COALESCE(currency, 'RUB')                         AS currency,
+          source,
+          NULL                                              AS calc_at,
+          loaded_at
+        FROM cost_rates
+        WHERE component_code='OPR_DIRECT'
 ```
 
 **References (best-effort):**
-- ovh_cost_unit
+- cost_rates
+
+<a id="view-v_ovh_costs_scenario"></a>
+## VIEW: v_ovh_costs_scenario
+```sql
+CREATE VIEW v_ovh_costs_scenario AS
+        WITH cfg AS (
+          SELECT COALESCE(year, CAST(strftime('%Y', 'now') AS INTEGER)) AS year
+          FROM active_scenarios WHERE id=1
+        )
+        SELECT
+          f.product_id,
+          f.node_product_id,
+          f.overhead_group,
+          f.driver_code,
+          f.driver_value_per_unit,
+          t.cost_type,
+          t.share,
+          t.year,
+          f.driver_value_per_unit * t.share AS cost_component
+        FROM ovh_flat f
+        JOIN cfg
+        JOIN ovh_tariffs t
+          ON t.overhead_group = f.overhead_group AND t.year = cfg.year
+        WHERE (
+          t.cost_type IN ('scrap','depr_opr','log') AND f.driver_code = 'MATCOST'
+        ) OR (
+          t.cost_type = 'adm' AND f.driver_code = 'PAYROLL_OTHER'
+        )
+```
+
+**References (best-effort):**
+- active_scenarios
+- ovh_flat
+- cfg
+- ovh_tariffs
 
 <a id="view-v_ovh_flat_compat"></a>
 ## VIEW: v_ovh_flat_compat
@@ -2181,50 +2498,27 @@ CREATE VIEW v_rate_parity AS
 - pools
 - sum_rrq
 
-<a id="view-v_recon_checks"></a>
-## VIEW: v_recon_checks
+<a id="view-v_routing_costs_scenario"></a>
+## VIEW: v_routing_costs_scenario
 ```sql
-CREATE VIEW v_recon_checks AS
-        WITH plan AS (
-          SELECT product_id, qty, month_code FROM v_prod_budget_active
-        ),
-        pool AS (
-          SELECT m.cc_id,
-                 p.month_code AS period,
-                 SUM(l.cost_total * p.qty) AS pool_amount
-          FROM labor_cost_unit l
-          JOIN dep_cc_map m ON m.department_code = l.department_code
-          JOIN plan p ON p.product_id = l.product_id
-          GROUP BY m.cc_id, p.month_code
-        ),
-        alloc AS (
-          SELECT ca.cc_id, ca.period, SUM(ca.amount) AS allocated
-          FROM cost_allocations ca
-          JOIN rules r ON r.rule_id = ca.rule_id
-          JOIN active_alloc_sets aas ON aas.scenario = ca.scenario AND aas.rule_set_id = r.rule_set_id
-          WHERE ca.component_code = 'LABOR_DIRECT'
-          GROUP BY ca.cc_id, ca.period
-        )
-        SELECT COALESCE(p.cc_id, a.cc_id) AS cc_id,
-               COALESCE(p.period, a.period) AS period,
-               COALESCE(p.pool_amount,0) AS pool_amount,
-               COALESCE(a.allocated,0) AS allocated,
-               COALESCE(a.allocated,0) - COALESCE(p.pool_amount,0) AS delta
-        FROM pool p
-        LEFT JOIN alloc a ON a.cc_id = p.cc_id AND a.period = p.period
-        UNION
-        SELECT a.cc_id, a.period, 0 AS pool_amount, a.allocated, a.allocated AS delta
-        FROM alloc a
-        WHERE NOT EXISTS (SELECT 1 FROM pool p WHERE p.cc_id = a.cc_id AND p.period = a.period)
+CREATE VIEW v_routing_costs_scenario AS
+        SELECT
+          cr.period_or_year,
+          cr.scenario,
+          rf.product_id,
+          rf.node_product_id,
+          rf.department_code,
+          rf.operation,
+		  rf.operation_id,
+          cr.component_code,
+          rf.hours_per_unit,
+          cr.rate_value,
+          COALESCE(rf.hours_per_unit,0) * COALESCE(cr.rate_value,0) AS cost_component
+        FROM routing_flat rf
+        JOIN cost_rates cr
+          ON TRIM(COALESCE(cr.department_code,'')) = TRIM(COALESCE(rf.department_code,''))
 ```
 
 **References (best-effort):**
-- v_prod_budget_active
-- labor_cost_unit
-- dep_cc_map
-- plan
-- cost_allocations
-- rules
-- active_alloc_sets
-- pool
-- alloc
+- routing_flat
+- cost_rates

@@ -1566,8 +1566,8 @@
 
 <h1 id="project_overview">PROJECT_OVERVIEW<a class="headerlink" href="#project_overview" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>Generated: 2025-10-28 12:13 (local)
-Commit: 74b0a98</p>
+<p>Generated: 2025-11-13 16:09 (local)
+Commit: b1d6540</p>
 </blockquote>
 <p>See also: <a href="../DB_SCHEMA/">DB schema</a></p>
 <h2 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link">&para;</a></h2>
@@ -1813,6 +1813,7 @@ Commit: 74b0a98</p>
 <li>func: <code>ensure_cost_rates_indexes(conn)</code> — </li>
 <li>func: <code>ensure_depr_opr_cost_tables(conn)</code> — </li>
 <li>func: <code>ensure_depr_opr_rates(conn)</code> — </li>
+<li>func: <code>ensure_elem_structure_tables(conn: sqlite3.Connection) -&gt; None</code> — Create elem_nodes/elem_edges tables used for hierarchy traversal.</li>
 <li>func: <code>ensure_item_cg_view(conn)</code> — </li>
 <li>func: <code>ensure_items_columns(conn)</code> — </li>
 <li>func: <code>ensure_labor_cost_table(conn)</code> — </li>
@@ -1979,7 +1980,7 @@ Commit: 74b0a98</p>
 <li>func: <code>asdict(obj, *, dict_factory=&lt;class 'dict'&gt;)</code> — Return the fields of a dataclass instance as a new dictionary mapping</li>
 <li>func: <code>connect_sqlite(p: str | pathlib.Path) -&gt; sqlite3.Connection</code> — </li>
 <li>func: <code>dataclass(cls=None, /, *, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False, weakref_slot=False)</code> — Add dunder methods based on the fields defined in the class.</li>
-<li>func: <code>field(*, default=&lt;dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0&gt;, default_factory=&lt;dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0&gt;, init=True, repr=True, hash=None, compare=True, metadata=None, kw_only=&lt;dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0&gt;)</code> — Return an object to identify dataclass fields.</li>
+<li>func: <code>field(*, default=&lt;dataclasses._MISSING_TYPE object at 0x000001C4572A50A0&gt;, default_factory=&lt;dataclasses._MISSING_TYPE object at 0x000001C4572A50A0&gt;, init=True, repr=True, hash=None, compare=True, metadata=None, kw_only=&lt;dataclasses._MISSING_TYPE object at 0x000001C4572A50A0&gt;)</code> — Return an object to identify dataclass fields.</li>
 <li>func: <code>render(db_path: 'str')</code> — </li>
 </ul>
 <h3 id="module-uiapp_streamlit">Module ui.app_streamlit<a class="headerlink" href="#module-uiapp_streamlit" title="Permanent link">&para;</a></h3>

@@ -1416,29 +1416,34 @@
 <h2 id="_2">Загрузка данных<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Перед расчетом нужно очистить и заново наполнить мастер-данные, затем загрузить все входы для расчетов.</p>
 <h3 id="master-data">Master Data → Справочники<a class="headerlink" href="#master-data" title="Permanent link">&para;</a></h3>
-<p>Работаем последовательно по четырем вкладкам внутри раздела «Справочники».</p>
+<p>Работаем последовательно по четырем вкладкам внутри раздела «Справочники».
+<img alt="Master Data - Dim" src="../../img/Master%20Data/Dim/Dim.png" /></p>
 <h4 id="_3">Путь к БД<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Откройте <code>Master Data → Справочники → Путь к БД</code>.</li>
 <li>Убедитесь, что путь к SQLite указан верно (можно поправить прямо в поле).</li>
-<li>Нажмите «Подготовить/обновить схему» — это создаст недостающие таблицы и приведет структуру к актуальной версии.</li>
+<li>Нажмите «Подготовить/обновить схему» — это создаст недостающие таблицы и приведет структуру к актуальной версии.
+<img alt="Master Data - Dim" src="../../img/Master%20Data/Dim/DB_Path.png" /></li>
 </ul>
 <h4 id="_4">Загрузка элементов<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <ul>
 <li>На вкладке «Загрузка элементов» выберите лист MFCPRIM (по умолчанию <code>MFC_PRIM</code>) и загрузите свежий <code>MFCPRIM.xlsx</code>.</li>
 <li>После кнопки «Загрузить элементы» файл парсится, а таблицы <code>elem_nodes</code>/<code>elem_edges</code> перезаполняются.</li>
-<li>В конце проверьте статистику по узлам/связям; при ошибках лист/формат нужно исправить и повторить загрузку.</li>
+<li>В конце проверьте статистику по узлам/связям; при ошибках лист/формат нужно исправить и повторить загрузку.
+<img alt="Master Data - Dim - CEG" src="../../img/Master%20Data/Dim/CEG_import.png" /></li>
 </ul>
 <h4 id="_5">Загрузка структуры МВЗ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Во вкладке «Загрузка структуры МВЗ» требуется два файла: <code>CCG_WRU.xlsx</code> (иерархия групп) и <code>CC_list.xlsx</code> (листовые центры).</li>
 <li>После указания имени листа (например, <code>CCG_RU1</code>) нажмите «Загрузить структуру ЦФО (2 файла)».</li>
-<li>Система пробежит ensure_schema/ensure_cc_extra_columns, загрузит оба файла, посчитает статистику по <code>cc_nodes/cc_edges</code> и покажет пропущенные ребра. Все предупреждения (skipped_edges) нужно отработать до следующего шага.</li>
+<li>Система пробежит ensure_schema/ensure_cc_extra_columns, загрузит оба файла, посчитает статистику по <code>cc_nodes/cc_edges</code> и покажет пропущенные ребра. Все предупреждения (skipped_edges) нужно отработать до следующего шага.
+<img alt="Master Data - Dim - CCG" src="../../img/Master%20Data/Dim/CCG_import.png" /></li>
 </ul>
 <h4 id="_6">Обновление имен центров и групп затрат<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <ul>
 <li>На вкладке «Обновление имен центров и групп затрат» загрузите Excel c колонками <code>cc_id</code> и <code>name</code>.</li>
-<li>Кнопка «Обновить список имен» применяет значения к <code>cc_nodes</code>. После подтверждения проверьте количество обновленных строк и убедитесь, что файл не содержит пустых значений.</li>
+<li>Кнопка «Обновить список имен» применяет значения к <code>cc_nodes</code>. После подтверждения проверьте количество обновленных строк и убедитесь, что файл не содержит пустых значений.
+<img alt="Master Data - Dim - CCG" src="../../img/Master%20Data/Dim/CCG_update.png" /></li>
 </ul>
 <h3 id="import-data">Import Data → Данные для расчета<a class="headerlink" href="#import-data" title="Permanent link">&para;</a></h3>
 <p>После того как справочники чистые, переходим к вкладке <code>Import Data</code> и последовательно отрабатываем каждый пункт меню.</p>
@@ -1446,67 +1451,78 @@
 <ul>
 <li>Выберите сценарий продаж (BG25_VOL, FC3_VOL, BG26_VOL и т.д.).</li>
 <li>Загрузите Excel с плановыми объемами производства и нажмите «Загрузить файл».</li>
-<li>После сообщения об успехе проверьте список месяцев и предупреждения о ненайденных <code>item_id</code>.</li>
+<li>После сообщения об успехе проверьте список месяцев и предупреждения о ненайденных <code>item_id</code>.
+<img alt="Master Data - Import - SalesBU" src="../../img/Master%20Data/Import/10_Sales_BU.png" /></li>
 </ul>
 <h4 id="opex-bu">Opex BU<a class="headerlink" href="#opex-bu" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Через форму «OPEX Budget Loader» загрузите Excel (лист по умолчанию <code>INPUT</code>) и нажмите «Предпросмотр».</li>
 <li>Если данные корректны, отправьте их в staging (кнопка «Загрузить в staging») и дождитесь <code>load_id</code>.</li>
 <li>Просмотрите диагностику (отсутствующие CC, незамапленные элементы, подозрительные суммы). Исправьте файл при необходимости.</li>
-<li>Когда ошибок нет, нажмите «Залить в БД (opex_budget)» — таблица пополнится новыми данными за выбранный год.</li>
+<li>Когда ошибок нет, нажмите «Залить в БД (opex_budget)» — таблица пополнится новыми данными за выбранный год.
+<img alt="Master Data - Import - OpexBU" src="../../img/Master%20Data/Import/20_Opex_BU.png" /></li>
 </ul>
 <h4 id="_7">Материалы<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Вкладка «Материалы» принимает TXT из 1С или Excel-шаблон <code>items.xlsx</code>.</li>
 <li>После загрузки просмотрите первые строки и нажмите «Загрузить» (формат определяется автоматически).</li>
-<li>При необходимости используйте блок «Флаг производимой номенклатуры», чтобы переключить поле <code>is_produced</code> для конкретного <code>item_id</code>.</li>
+<li>При необходимости используйте блок «Флаг производимой номенклатуры», чтобы переключить поле <code>is_produced</code> для конкретного <code>item_id</code>.
+<img alt="Master Data - Import - Items" src="../../img/Master%20Data/Import/30_items.png" /></li>
 </ul>
 <h4 id="bom-general">BOM: General<a class="headerlink" href="#bom-general" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Укажите дату <code>valid_from</code> (например, <code>2026-01-01</code>) и загрузите файл со спецификациями.</li>
 <li>Кнопка «Загрузить и upsert (Specs)» запускает staging и upsert в <code>bom_specs</code>.</li>
-<li>В описании выводится <code>load_id</code> — зафиксируйте его, чтобы в случае ошибки легко найти загрузку.</li>
+<li>В описании выводится <code>load_id</code> — зафиксируйте его, чтобы в случае ошибки легко найти загрузку.
+<img alt="Master Data - Import - BomG" src="../../img/Master%20Data/Import/40_Bomg.png" /></li>
 </ul>
 <h4 id="bom-compon">BOM: Compon<a class="headerlink" href="#bom-compon" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Заполните <code>spec_valid_from</code>, загрузите файл с компонентами и выполните «Загрузить и upsert (Components)».</li>
-<li>После апдейта можно в том же блоке запустить «Материализовать BOM»: введите <code>product_id</code> (оставьте пустым для всех) и дождитесь сообщения об успешной материализации.</li>
+<li>После апдейта можно в том же блоке запустить «Материализовать BOM»: введите <code>product_id</code> (оставьте пустым для всех) и дождитесь сообщения об успешной материализации.
+<img alt="Master Data - Import - BomC" src="../../img/Master%20Data/Import/45_Bomc.png" /></li>
 </ul>
 <h4 id="_8">Ставки (Тарифы)<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Интерфейс «Ставки (Тарифы)» обслуживает <code>cost_rates</code>. Выберите компонент (DL/OPR/DEPR), сценарий, валюту и единицу измерения.</li>
 <li>Загрузите Excel с тарифами, проверьте автоопределение колонок (CostCenter, WorkCenter, месяцы, годовой тариф) и при необходимости поправьте.</li>
 <li>Нажмите «Нормализовать» для формирования лонг-формата и посмотрите статистику/предпросмотр.</li>
-<li>После валидации (блок «Проверки») нажмите «Загрузить в cost_rates» — система присвоит <code>run_id</code> и заапсертит ставки.</li>
+<li>После валидации (блок «Проверки») нажмите «Загрузить в cost_rates» — система присвоит <code>run_id</code> и заапсертит ставки.
+<img alt="Master Data - Import - D-rates" src="../../img/Master%20Data/Import/50_Rates.png" /></li>
 </ul>
 <h4 id="r-mat">Цены R-mat<a class="headerlink" href="#r-mat" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Загрузите файл с ценами сырья (поддерживаются XLSX/XLS/XLSM). Скрипт приведет текстовые значения, цены и даты к единому виду.</li>
 <li>Проверьте предпросмотр (первые 100 строк). Если в файле нет колонки с датой, заполните поле «Дата начала действия».</li>
-<li>Укажите <code>load_id</code> (опционально, для трассировки) и нажмите «Загрузить цены» — данные попадут в таблицу цен на сырье.</li>
+<li>Укажите <code>load_id</code> (опционально, для трассировки) и нажмите «Загрузить цены» — данные попадут в таблицу цен на сырье.
+<img alt="Master Data - Import - Prices" src="../../img/Master%20Data/Import/60_prices.png" /></li>
 </ul>
 <h4 id="sc-add-value">SC-add Value<a class="headerlink" href="#sc-add-value" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Подготовьте Excel с тарифами цехов/оборудования/добавленной стоимости.</li>
-<li>Загрузите файл, задайте год действия и нажмите «Загрузить тарифы». Обработчик вызовет <code>load_ovh_tariffs</code> и запишет строки за выбранный год.</li>
+<li>Загрузите файл, задайте год действия и нажмите «Загрузить тарифы». Обработчик вызовет <code>load_ovh_tariffs</code> и запишет строки за выбранный год.
+<img alt="Master Data - Import - InD-rates" src="../../img/Master%20Data/Import/55_SC_rates.png" /></li>
 </ul>
 <h4 id="_9">Загрузка рутингов<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Сначала запустите диагностику («Построить диагностику») — она выявит операции без департамента, нулевые нормы, дубли <code>seq</code>.</li>
 <li>При наличии рекомендаций используйте кнопку «Применить автоисправления» для заполнения департаментов.</li>
-<li>После очистки нажмите «Загрузить рутинги», выберите файл (CSV/Excel) и дождитесь ответа <code>upsert_routings</code>.</li>
+<li>После очистки нажмите «Загрузить рутинги», выберите файл (CSV/Excel) и дождитесь ответа <code>upsert_routings</code>.
+<img alt="Master Data - Import - Rout" src="../../img/Master%20Data/Import/70_routings.png" /></li>
 </ul>
 <h4 id="_10">МехОбработка<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Укажите поставщика, даты действия, источник и решите, нужно ли автоматически пересчитывать <code>mo_cost_unit</code>.</li>
 <li>Загрузите файл с расценками мехобработки, выберите лист и нажмите предпросмотр — отобразятся расценки и проблемные строки (не найденные <code>item_id</code>/цены).</li>
-<li>Нажмите «Загрузить прайс МО» (при необходимости с авто-материализацией). Все шаги работают через <code>load_mo_prices</code>, поэтому сохраняйте логи по sheet/source.</li>
+<li>Нажмите «Загрузить прайс МО» (при необходимости с авто-материализацией). Все шаги работают через <code>load_mo_prices</code>, поэтому сохраняйте логи по sheet/source.
+<img alt="Master Data - Import - Sub-C" src="../../img/Master%20Data/Import/80_Sub_c.png" /></li>
 </ul>
 <h4 id="_11">Персонал<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Укажите год и посмотрите текущие записи <code>personnel_monthly</code> (таблица справа покажет существующие строки).</li>
 <li>Загрузите Excel по шаблону <code>110_HC_2026.xlsx</code>, при необходимости отметьте «Очистить год».</li>
-<li>По кнопке «Загрузить» данные запишутся в БД, появится предпросмотр и статистика. Ниже можно проверить агрегированные значения в <code>personnel_yearly</code>.</li>
+<li>По кнопке «Загрузить» данные запишутся в БД, появится предпросмотр и статистика. Ниже можно проверить агрегированные значения в <code>personnel_yearly</code>.
+<img alt="Master Data - Import - FTE" src="../../img/Master%20Data/Import/90_HC_FTE.png" /></li>
 </ul>
 <h2 id="_12">Расчет<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <p>Расчет выполняется в <code>Costing Run → Materialize</code>. План действий:

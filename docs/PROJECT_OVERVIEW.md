@@ -1,7 +1,7 @@
 # PROJECT_OVERVIEW
 
-> Generated: 2025-10-28 12:13 (local)
-> Commit: 74b0a98
+> Generated: 2025-11-13 16:09 (local)
+> Commit: b1d6540
 
 See also: [DB schema](./DB_SCHEMA.md)
 
@@ -204,6 +204,7 @@ See also: [DB schema](./DB_SCHEMA.md)
 - func: `ensure_cost_rates_indexes(conn)` — 
 - func: `ensure_depr_opr_cost_tables(conn)` — 
 - func: `ensure_depr_opr_rates(conn)` — 
+- func: `ensure_elem_structure_tables(conn: sqlite3.Connection) -> None` — Create elem_nodes/elem_edges tables used for hierarchy traversal.
 - func: `ensure_item_cg_view(conn)` — 
 - func: `ensure_items_columns(conn)` — 
 - func: `ensure_labor_cost_table(conn)` — 
@@ -345,7 +346,7 @@ See also: [DB schema](./DB_SCHEMA.md)
 - func: `asdict(obj, *, dict_factory=<class 'dict'>)` — Return the fields of a dataclass instance as a new dictionary mapping
 - func: `connect_sqlite(p: str | pathlib.Path) -> sqlite3.Connection` — 
 - func: `dataclass(cls=None, /, *, init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False, match_args=True, kw_only=False, slots=False, weakref_slot=False)` — Add dunder methods based on the fields defined in the class.
-- func: `field(*, default=<dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0>, default_factory=<dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0>, init=True, repr=True, hash=None, compare=True, metadata=None, kw_only=<dataclasses._MISSING_TYPE object at 0x0000027645A6A4B0>)` — Return an object to identify dataclass fields.
+- func: `field(*, default=<dataclasses._MISSING_TYPE object at 0x000001C4572A50A0>, default_factory=<dataclasses._MISSING_TYPE object at 0x000001C4572A50A0>, init=True, repr=True, hash=None, compare=True, metadata=None, kw_only=<dataclasses._MISSING_TYPE object at 0x000001C4572A50A0>)` — Return an object to identify dataclass fields.
 - func: `render(db_path: 'str')` — 
 ### Module ui.app_streamlit
 - func: `connect_sqlite(p: str | pathlib.Path) -> sqlite3.Connection` — 
