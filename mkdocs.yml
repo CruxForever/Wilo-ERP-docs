@@ -65,7 +65,7 @@ nav:
   - Runbooks:
       - Бюджет: 40_runbooks/run_budget_year.md
       - Отчетность: 40_runbooks/run_reporting.md
-      - 6-Inventories — Запасы:
+      - 6-Inventories - Запасы:
           - Обзор: 40_runbooks/06_inventories/index.md
           - 1. Выгрузка данных из 1С: 40_runbooks/06_inventories/01_export_from_1c.md
           - 2. Обработка данных (общая логика): 40_runbooks/06_inventories/02_processing_data.md
@@ -74,3 +74,12 @@ nav:
           - 2.3. Данные баланса: 40_runbooks/06_inventories/02_03_balance.md
           - 3. Проверка на Worksheet: 40_runbooks/06_inventories/03_check_worksheet.md
           - 4. Финальная проверка 6-Inventories: 40_runbooks/06_inventories/04_final_check_6_inventories.md
+      - 57-Service Business:
+          - Обзор: 40_runbooks/57_service_business/index.md
+          - Выгрузка KE30: 40_runbooks/57_service_business/01_ke30_export.md
+          - 1. KE30 - продажи за период: 40_runbooks/57_service_business/02_ke30_sales.md
+          - 2. Warranty / Goodwill: 40_runbooks/57_service_business/03_warranty_goodwill.md
+          - 3. ZZGA - сервисные надбавки: 40_runbooks/57_service_business/04_zzga_markup.md
+          - 4. 52 Channel - продажи сервиса: 40_runbooks/57_service_business/05_52_channel.md
+          - 5. KSB1 - затраты сервисных центров: 40_runbooks/57_service_business/06_ksb1_costs.md
+          - 6. Финальный лист и отправка: 40_runbooks/57_service_business/07_final.md
