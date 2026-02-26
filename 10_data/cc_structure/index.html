@@ -1,0 +1,5815 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cruxforever.github.com/WRU_ERP/10_data/cc_structure/">
+      
+      
+        <link rel="prev" href="../data_flows/">
+      
+      
+        <link rel="next" href="../elem_structure/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Структура МВЗ - Wilo-ERP Controlling Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Wilo-ERP Controlling Docs" class="md-header__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Wilo-ERP Controlling Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Структура МВЗ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Вкладки" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Главная
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00_overview/" class="md-tabs__link">
+          
+  
+  
+  Обзор
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../20_process/ACCOUNTING_PRINCIPLES/" class="md-tabs__link">
+          
+  
+  
+  Учёт и калькуляция
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../data_flows/" class="md-tabs__link">
+          
+  
+  
+  НСИ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../40_runbooks/run_budget_year/" class="md-tabs__link">
+          
+  
+  
+  Runbooks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ARCHITECTURE_SUMMARY/" class="md-tabs__link">
+          
+  
+  
+  Техническая документация
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Wilo-ERP Controlling Docs" class="md-nav__button md-logo" aria-label="Wilo-ERP Controlling Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Wilo-ERP Controlling Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Обзор
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Что такое Wilo-ERP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/company/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    О компании Wilo Rus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/controlling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контроллинг в Wilo Rus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00_overview/production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Производимая продукция
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Учёт и калькуляция
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Учёт и калькуляция
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_process/ACCOUNTING_PRINCIPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Принципы учёта
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура себестоимости
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Структура себестоимости
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_process/COST_STRUCTURE_STATION/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_process/planning/bom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Материальная себестоимость
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_process/planning/direct_costs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прямые затраты (cost_rates)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../20_process/planning/overhead/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Непрямые затраты (overhead)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    НСИ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    НСИ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Справочники
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура МВЗ
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура МВЗ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как читать коды
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sap-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия (SAP-формат)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Действующая структура МВЗ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Реальные центры затрат (листовые МВЗ)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Все коды — плоская таблица
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elem_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Структура видов затрат
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zz_old/RULES_COVERAGE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Правила маппинга
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Runbooks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Runbooks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/run_budget_year/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Бюджет
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/run_reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Отчетность
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6-Inventories - Запасы
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6-Inventories - Запасы
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/06_inventories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/06_inventories/01_export_from_1c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Выгрузка данных из 1С
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/06_inventories/02_processing_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Обработка данных (общая логика)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/06_inventories/02_01_bw_sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1. Лист BW
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/06_inventories/02_02_suppliers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2. Поставщики
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/06_inventories/02_03_balance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.3. Данные баланса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/06_inventories/03_check_worksheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Проверка на Worksheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/06_inventories/04_final_check_6_inventories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Финальная проверка 6-Inventories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    57-Service Business
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    57-Service Business
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/57_service_business/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Обзор
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/57_service_business/01_ke30_export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Выгрузка KE30
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/57_service_business/02_ke30_sales/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. KE30 - продажи за период
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/57_service_business/03_warranty_goodwill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Warranty / Goodwill
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/57_service_business/04_zzga_markup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. ZZGA - сервисные надбавки
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/57_service_business/05_52_channel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 52 Channel - продажи сервиса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/57_service_business/06_ksb1_costs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. KSB1 - затраты сервисных центров
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../40_runbooks/57_service_business/07_final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Финальный лист и отправка
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Техническая документация
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Техническая документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ARCHITECTURE_SUMMARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Архитектура системы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DB_SCHEMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Схема базы данных
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ERD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ERD-диаграмма
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как читать коды
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sap-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Иерархия (SAP-формат)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Действующая структура МВЗ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Реальные центры затрат (листовые МВЗ)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Все коды — плоская таблица
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">Структура МВЗ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>МВЗ (Место возникновения затрат) — аналитическая единица, по которой собираются затраты.
+В Wilo-ERP каждый МВЗ входит в иерархию: от корневого узла <code>RU1</code> (Wilo Rus) до конкретного участка или региона.</p>
+<hr />
+<h2 id="_2">Как читать коды<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Код строится добавлением суффикса к <code>RU1</code>. Длина и структура суффикса указывают на уровень и принадлежность:</p>
+<table>
+<thead>
+<tr>
+<th>Код</th>
+<th>Название</th>
+<th>Уровень</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RU1</code></td>
+<td>Wilo Rus</td>
+<td>Корень</td>
+</tr>
+<tr>
+<td><code>RU1OP</code></td>
+<td>Operations</td>
+<td>Дивизион</td>
+</tr>
+<tr>
+<td><code>RU1OP1P</code></td>
+<td>Production Ногинск</td>
+<td>Направление</td>
+</tr>
+<tr>
+<td><code>RU1OP1P4</code></td>
+<td>Total Structural Costs</td>
+<td>Группа</td>
+</tr>
+<tr>
+<td><code>RU1OP1P41</code></td>
+<td>StruCo Prod. Management</td>
+<td>Подгруппа</td>
+</tr>
+<tr>
+<td><code>RU1OP1P411</code></td>
+<td>Pl. &amp; Production</td>
+<td>МВЗ</td>
+</tr>
+</tbody>
+</table>
+<p>Узлы <strong>нижнего уровня</strong> (без дочерних) — участники расчётов.
+Остальные — группировочные, используются в отчётности для агрегации.</p>
+<hr />
+<h2 id="sap-">Иерархия (SAP-формат)<a class="headerlink" href="#sap-" title="Permanent link">&para;</a></h2>
+<p>Для поиска используйте <strong>Ctrl+F</strong>.</p>
+<div class="highlight"><pre><span></span><code>RU1                          WILO RUS
+  RU1ADMI                    Administration
+    RU1FICO                  Finance &amp; Controlling
+      RU1CONTR               Controlling
+        RU1CONTMM            Group Controlling Mgmt
+        RU1CONTRG            Group Controlling
+        RU1CONTRL            Local Controlling
+      RU1FIACTA              Accounting &amp; Taxes
+        RU1FIACTAG           Group Accounting &amp; Taxes
+        RU1FIACTAL           Local Accounting &amp; Taxes
+        RU1FIACTMM           Group Acctg &amp; Taxes Mgmt
+    RU1GROTH                 Group functions other
+    RU1HR                    Human Resources
+      RU1HRMAN               HR Management
+      RU1LHR                 Local HR
+    RU1IT                    IT Service
+      RU1FINSE               Group Finance &amp; Financial Services
+      RU1GIT                 Group IT
+      RU1ILIT                Local IT
+      RU1ITMAN               IT Management
+    RU1MAN                   Management
+    RU1SSM                   Strategic Sales &amp; Marketing
+  RU1OP                      Operations
+    RU1FA                    Facilities
+      RU1GFM                 Group Facility Management
+      RU1LF                  Local Facilities
+        RU1LFMDO             Local Facility Management
+        RU1LIS               Local Infrastructure &amp; Service
+        RU1LLB               Land and Buildings
+        RU1LMAIN             Local Maintenance
+    RU1GPST                  Group Production Systems &amp; Technology
+    RU1GROTH                 Group functions other
+    RU1OP1P                  OP PL NOGI Total
+      RU1GHR                 Group HR
+      RU1OP1P0               Bu Mat./Scr./Inb. Freight
+      RU1OP1P1               Direct Labour
+      RU1OP1P2               Machine &amp; Equipment
+        RU1OP1P21            Production
+        RU1OP1P29            External Tools
+      RU1OP1P3               External Tools
+      RU1OP1P4               Total Structural Costs
+        RU1OP1P41            StruCo Prod. Management
+          RU1OP1P411         Pl. &amp; Production
+          RU1OP1P412         WPS / Op. Excellence
+          RU1OP1P413         Prod. Unit Management
+        RU1OP1P42            StruCo Prod. Support
+        RU1OP1P43            StruCo Process Engineering
+        RU1OP1P44            StruCo Supply Planning
+        RU1OP1P45            StruCo Procurement
+        RU1OP1P46            StruCo Logistics
+        RU1OP1P47            StruCo Quality
+        RU1OP1P48            StruCo Other Prod.
+          RU1OP1P481         Enviro. &amp; Safety
+          RU1OP1P482         IT
+          RU1OP1P483         Acc. &amp; Controlling
+          RU1OP1P484         Human Resources
+          RU1OP1P485         Insurances
+          RU1OP1P486         Admin others
+      RU1OP1P9               Other Cost Centers
+        RU1OP1P91            General Cost Centers
+        RU1OP1P92            Calculation Cost Centers
+        RU1OP1P93            ACOS Cost Centers
+        RU1OP1P94            Generic Cost Centers
+        RU1OP1P99            Old Cost Centers
+    RU1PSCM                  Procurement &amp; Supply Chain Management
+      RU1LOG                 Group Logistics
+      RU1PDS                 Group Demand and Supply
+      RU1PROC                Group Procurement
+      RU1PSCMM               Procurement &amp; SCM Management
+    RU1QUAL                  Group Quality
+  RU1OTH                     Other Cost Centers / Controlling
+    RU1ALLOC                 Allocations
+    RU1MISC                  Miscellaneous
+    RU1OLD                   Old
+    RU1RDTLEM                Technology Lead Engineering Motors
+      RU1PBUPRCO             Functional Area x PRCO
+  RU1RD                      R&amp;D
+    RU10POTH                 Others
+      RU1PBUACOS             Functional Area x PBU ACOS
+      RU1PBUAMCO             Functional Area x PBU AMCO
+    RU1RDMS                  Product Line Engineering Multi Stream
+    RU1RDPCI                 Product Compliance Intelligence
+    RU1RDQV                  Qualification &amp; Verification
+    RU1RDRP                  Research &amp; Predevelopment
+    RU1RDSEG                 R&amp;D Strategy, Excellence &amp; Governance
+    RU1RDSPM                 Strategic Project Management
+    RU1RDSS                  Product Line Engineering Systems
+    RU1RDSSDR                PLE Single Stream DR
+    RU1RDSSWR                PLE Single Stream WR
+    RU1RDTLE                 Technology Lead Engineering
+  RU1SAL                     Sales
+    RU1SALSB                 Service Business
+      RU1GRSERV              Group Service
+      RU1OEMSEA              OEM South East Asia
+    RU1SMUL                  Sales Allocations
+    RU1SREM                  Sales Region Emerging Markets
+      RU1SACN                Sales Area China
+      RU1SAEUAS              Sales Area Eurasia
+        RU1SAAZ              Azerbaijan
+        RU1SABY              Belarus
+        RU1SAEURGL           Global
+        RU1SAGE              Georgia
+        RU1SAIL              Israel
+        RU1SAKZ              Kazakhstan
+        RU1SARU              Russian Fed.
+        RU1SAUZ              Uzbekistan
+      RU1SAIND               Sales Area India
+      RU1SAKR                Sales Area Korea
+        RU1SAZA              South Africa
+      RU1SALA                Sales Area Latin America
+        RU1SAAR              Argentina
+        RU1SABR              Brazil
+        RU1SACL              Chile
+        RU1SALAGL            Global
+      RU1SAMENA              Sales Area MENA
+        RU1SADZ              Algeria
+        RU1SAEG              Egypt
+        RU1SALB              Lebanon
+        RU1SAMA              Morocco
+        RU1SAMEGL            Global
+        RU1SATN              Tunisia
+      RU1SAMSA               Sales Area MSA
+        RU1SAAE              Utd. Arab Emirates
+        RU1SACM              Cameroon
+        RU1SAGH              Ghana
+        RU1SAIC              Ivory Coast
+        RU1SAKE              Kenya
+        RU1SAMSAGL           Global
+        RU1SANE              Nigeria
+      RU1SANOAM              Sales Area North America
+        RU1SACA              Canada
+        RU1SANOGL            Global
+        RU1SAUA              Ukraine
+        RU1SAUS              USA
+      RU1SASEA               Sales Area South East Asia
+        RU1SABD              Bangladesh
+        RU1SAID              Indonesia
+        RU1SAMY              Malaysia
+        RU1SASEGL            Global
+        RU1SASG              Singapore
+        RU1SATW              Taiwan
+        RU1SAU               Australia
+      RU1SATR                Sales Area Turkey
+    RU1SRMM                  Sales Region Mature Markets
+      RU1SADACH              Sales Area DACH
+        RU1SAAT              Austria
+        RU1SACH              Switzerland
+        RU1SAGER             Germany
+        RU1SALI              Liechtenstein
+      RU1SAEUEA              Sales Area EU East
+        RU1SABG              Bulgaria
+        RU1SACR              Croatia
+        RU1SACZ              Czech Republic
+        RU1SAEUGL            Global
+        RU1SAHU              Hungary
+        RU1SAPL              Poland
+        RU1SARO              Romania
+        RU1SARS              Serbia/Monten.
+        RU1SASI              Slovenia
+        RU1SASK              Slovakia
+      RU1SAEUNO              Sales Area EU North
+        RU1SABE              Belgium
+        RU1SADK              Denmark
+        RU1SAES              Spain
+        RU1SAEUNGL           Global
+        RU1SAFI              Finland
+        RU1SAIE              Ireland
+        RU1SALT              Lithuania
+        RU1SALV              Latvia
+        RU1SANL              Netherlands
+        RU1SANO              Norway
+        RU1SASE              Sweden
+        RU1SAUK              United Kingdom
+      RU1SAEUSW              Sales Area EU South West
+        RU1SACY              Cyprus
+        RU1SADAGL            Global
+        RU1SAEUSGL           Global
+        RU1SAFR              France
+        RU1SAGP              Guadeloupe
+        RU1SAGR              Greece
+        RU1SAIT              Italy
+        RU1SAPT              Portugal
+    RU1SROEM                 Sales Region OEM
+      RU1OEMCN               OEM China
+        RU1OEMZA             South Africa
+      RU1OEMDACH             OEM DACH
+        RU1OEMAT             Austria
+        RU1OEMCH             Switzerland
+        RU1OEMDAGL           Global
+        RU1OEMGER            Germany
+        RU1OEMLI             Liechtenstein
+      RU1OEMEM               OEM Emerging Markets
+      RU1OEMEUAS             OEM Eurasia
+        RU1OEMAZ             Azerbaijan
+        RU1OEMBY             Belarus
+        RU1OEMEURG           Global
+        RU1OEMGE             Georgia
+        RU1OEMIL             Israel
+        RU1OEMKZ             Kazakhstan
+        RU1OEMRU             Russian Fed.
+      RU1OEMEUEA             OEM EU East
+        RU1OEMBG             Bulgaria
+        RU1OEMCR             Croatia
+        RU1OEMCZ             Czech Republic
+        RU1OEMEUGL           Global
+        RU1OEMHU             Hungary
+        RU1OEMPL             Poland
+        RU1OEMRO             Romania
+        RU1OEMRS             Serbia/Monten.
+        RU1OEMSI             Slovenia
+        RU1OEMSK             Slovakia
+      RU1OEMEUNO             OEM EU North
+        RU1OEMBE             Belgium
+        RU1OEMDK             Denmark
+        RU1OEMENGL           Global
+        RU1OEMES             Spain
+        RU1OEMFI             Finland
+        RU1OEMIE             Ireland
+        RU1OEMLT             Lithuania
+        RU1OEMLV             Latvia
+        RU1OEMNL             Netherlands
+        RU1OEMNO             Norway
+        RU1OEMSE             Sweden
+        RU1OEMUK             United Kingdom
+      RU1OEMEUSW             OEM EU South West
+        RU1OEMCY             Cyprus
+        RU1OEMEUSG           Global
+        RU1OEMFR             France
+        RU1OEMGP             Guadeloupe
+        RU1OEMGR             Greece
+        RU1OEMIT             Italy
+        RU1OEMPT             Portugal
+      RU1OEMIND              OEM India
+      RU1OEMKR               OEM Korea
+      RU1OEMLA               OEM Latin America
+        RU1OEMAR             Argentina
+        RU1OEMBR             Brazil
+        RU1OEMCL             Chile
+        RU1OEMLAGL           Global
+        RU1OEMMX             Mexico
+      RU1OEMMENA             OEM MENA
+        RU1OEMDZ             Algeria
+        RU1OEMEG             Egypt
+        RU1OEMLB             Lebanon
+        RU1OEMMA             Morocco
+        RU1OEMMEGL           Global
+        RU1OEMTN             Tunisia
+        RU1OEMUZ             Uzbekistan
+      RU1OEMMM               OEM Mature Markets
+      RU1OEMMSA              OEM MSA
+        RU1OEMAE             Utd. Arab Emirates
+        RU1OEMCM             Cameroon
+        RU1OEMGH             Ghana
+        RU1OEMIC             Ivory Coast
+        RU1OEMKE             Kenya
+        RU1OEMMSAG           Global
+        RU1OEMNE             Nigeria
+      RU1OEMNOAM             OEM North America
+        RU1OEMCA             Canada
+        RU1OEMNOGL           Global
+        RU1OEMUA             Ukraine
+        RU1OEMUS             USA (OEM)
+      RU1OEMTR               OEM Turkey
+      RU1SASEA               Sales Area South East Asia (OEM)
+    RU1SVREM                 Service Region Emerging Markets
+      RU1SVCN                Service Area China
+      RU1SVEUAS              Service Area Eurasia
+        RU1SVAZ              Azerbaijan
+        RU1SVBY              Belarus
+        RU1SVEURGL           Global
+        RU1SVGE              Georgia
+        RU1SVIL              Israel
+        RU1SVKZ              Kazakhstan
+        RU1SVRU              Russian Fed.
+        RU1SVUZ              Uzbekistan
+      RU1SVIND               Service Area India
+      RU1SVKR                Service Area Korea
+      RU1SVLA                Service Area Latin America
+        RU1SVAR              Argentina
+        RU1SVBR              Brazil
+        RU1SVCL              Chile
+        RU1SVLAGL            Global
+        RU1SVMX              Mexico
+        RU1SVUS              USA
+      RU1SVMENA              Service Area MENA
+        RU1SVAE              Utd. Arab Emirates
+        RU1SVDZ              Algeria
+        RU1SVEG              Egypt
+        RU1SVLB              Lebanon
+        RU1SVMA              Morocco
+        RU1SVMEGL            Global
+        RU1SVTN              Tunisia
+      RU1SVMSA               Service Area MSA
+        RU1SVCM              Cameroon
+        RU1SVGH              Ghana
+        RU1SVIC              Ivory Coast
+        RU1SVKE              Kenya
+        RU1SVMSAGL           Global
+        RU1SVNE              Nigeria
+        RU1SVZA              South Africa
+      RU1SVNOAM              Service Area North America
+        RU1SVCA              Canada
+        RU1SVNOGL            Global
+      RU1SVTR                Service Area Turkey
+      RU1SVSEA               Service Area South East Asia
+        RU1SVBD              Bangladesh
+        RU1SVID              Indonesia
+        RU1SVMY              Malaysia
+        RU1SVSEGL            Global
+        RU1SVSG              Singapore
+        RU1SVTW              Taiwan
+        RU1SVU               Australia
+        RU1SVVN              Vietnam
+    RU1SVRMM                 Service Region Mature Markets
+      RU1SBLF                Service Local Functions
+      RU1SVDACH              Service Area DACH
+        RU1SVAT              Austria
+        RU1SVCH              Switzerland
+        RU1SVGER             Germany
+        RU1SVLI              Liechtenstein
+        RU1OEMVN             Vietnam (OEM)
+      RU1SVEUEA              Service Area EU East
+        RU1SVBG              Bulgaria
+        RU1SVCR              Croatia
+        RU1SVCZ              Czech Republic
+        RU1SVEUGL            Global
+        RU1SVHU              Hungary
+        RU1SVPL              Poland
+        RU1SVRO              Romania
+        RU1SVRS              Serbia/Monten.
+        RU1SVSI              Slovenia
+        RU1SVSK              Slovakia
+        RU1SVUA              Ukraine
+        RU1SVUK              United Kingdom
+      RU1SVEUNO              Service Area EU North
+        RU1SVBE              Belgium
+        RU1SVDK              Denmark
+        RU1SVES              Spain
+        RU1SVEUNGL           Global
+        RU1SVFI              Finland
+        RU1SVIE              Ireland
+        RU1SVLT              Lithuania
+        RU1SVLV              Latvia
+        RU1SVNL              Netherlands
+        RU1SVNO              Norway
+        RU1SVSE              Sweden
+      RU1SVEUSW              Service Area EU South West
+        RU1SVCY              Cyprus
+        RU1SVDAGL            Global
+        RU1SVEUSGL           Global
+        RU1SVFR              France
+        RU1SVGP              Guadeloupe
+        RU1SVGR              Greece
+        RU1SVIT              Italy
+        RU1SVPT              Portugal
+</code></pre></div>
+<hr />
+<h2 id="_3">Действующая структура МВЗ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Полная иерархия с реальными центрами затрат. Группы без МВЗ исключены.
+Числовые коды (например <code>25101</code>) — фактические МВЗ, буквенные (<code>RU1OP</code>) — группировочные узлы.
+Для поиска — <strong>Ctrl+F</strong>.</p>
+<div class="highlight"><pre><span></span><code>RU1                   WILO RUS
+  RU1ADMI               Administration
+    RU1FICO               Finance &amp; Controlling
+      RU1CONTR              Controlling
+        RU1CONTRL             Local Controlling
+          25801         FICO MANAGEMENT
+          25802         CONTROLLING
+        RU1SVVN               Vietnam
+          25816         IFRS 16
+          25882         ADMINISTRATION
+          25886         Management Fee
+          25887         Strategic Management
+          25888         Facility Project Manager
+          25891         Building Cost GADM
+      RU1FINSE              Group Finance &amp; Financial Serv
+        RU1FIACTAL            Local Accounting &amp; Taxes
+          25183         Wilo Academy
+          25803         ACCOUNTING
+          25804         LEGAL
+          25811         IT MANAGEMENT
+          25812         IC IT Charges
+          25831         HR MANAGEMENT
+          25833         HR MANAGEMENT
+          25991         Subst 2541 PRCO own
+    RU1SVREM              Service Region Emerging Market
+      RU1SVEUAS             Service Area Eurasia
+        RU1SVRU               Russian Fed.
+          25301         SERVICE CENTRAL FUNCTIONS
+          25302         FIELD SERVICE NORTH-WEST REGION
+          25303         FIELD SERVICE SIBERIA REGION
+          25304         FIELD SERVICE FAR EAST REGION
+          25305         FIELD SERVICE URAL REGION
+          25306         FIELD SERVICE VOLGA REGION
+          25307         FIELD SERVICE SOUTH REGION
+          25308         FIELD SERVICE CENTRAL REGION
+          25309         IN HOUSE REPAIR
+          25310         FIELD SERVICE MOSCOW REGION
+          25311         FIELD SERVICE QUALITY
+          25313         Service Central Functions
+          25321         SERVICE CENTRAL FUNC
+          25322         SERVICE CENTRAL FUNC
+          25323         SERVICE CENTRAL FUNC
+          25391         Building Cost SALC
+  RU1OP                 Operations
+    RU10POTH              Others
+      RU1PBUACOS            Functional Area x PBU ACOS
+        RU1LMAIN              Local Maintenance
+          25499         Other operating result (Production)
+          25997         Sales
+          25999         Other operating result
+    RU1OP1P               OP PL NOGI Total
+      RU1OP1P2              OP PL NOGI Machine &amp; Equipment
+        RU1OP1P21             OP PL NOGI Production
+          25001         Managing Director NEW
+          25410         NL_IL_BL
+          25411         TWU_REXA_FA
+          25412         UPD: BOOST_FFS
+          25413         HELIX_MS
+          25414         CNTRL_BOX
+          25416         MECH SECTION
+          25422         SPARE_PARTS
+          25423         MANIFOLDS
+          25424         TEST BENCH
+      RU1OP1P3              OP PL NOGI External Tools
+        25912         External Tools
+      RU1OP1P4              OP PL NOGI Total Stru. Costs
+        RU1OP1P29             OP PL NOGI External Tools
+          25415         MAINTENANCE
+        RU1OP1P41             OP PL NOGI StruCo Prod. Mngmnt
+          RU1OP1P411            OP PL NOGI StruCo Pl. &amp; Prod.
+            25401         ASSEMBLY MANAGEMENT
+            25407         PROJECT OFFICE SpIC
+            25408         PROJECT OFFICE SpIC
+            25417         PRODUCTION MANAGER
+            25651         INDIRECT PRODUCTION TECH
+          25418         SHIFT LEADERS
+        RU1OP1P43             OP PL NOGI StruCo Process Eng.
+          25420         Automation Design
+          25425         Mechanical design
+        RU1OP1P44             OP PL NOGI StruCo Supply Plann
+          25419         PPC (INCL. PROCUREMENT)
+        RU1OP1P45             OP PL NOGI StruCo Procurement
+          25604         PURCHASING MANAGEMENT
+        RU1OP1P46             OP PL NOGI StruCo Logistics
+          25007         INTERNAL LOGISTICS
+          25696         Central Warehouse Production
+        RU1OP1P47             OP PL NOGI StruCo Quality
+          25421         QUALITY DEPARTMENT
+      RU1OP1P9              OP PL NOGI Other Cost Centers
+        RU1OP1P48             OP PL NOGI StruCo Other Prod.
+          RU1OP1P481            OP PL NOGI StruCo Enviro.&amp;Safe
+            25406         HSE
+          RU1OP1P482            OP PL NOGI StruCo IT
+            25981         Allocation IT
+          RU1OP1P483            OP PL NOGI StruCo Acc. &amp; Cont.
+            25982         Allocation Acc/Contr
+          RU1OP1P484            OP PL NOGI StruCo Human Resour
+            25983         Allocation Human Resources
+            25985         Dual Education Project
+          RU1OP1P485            OP PL NOGI StruCo Insurances &amp;
+            25490         Allocations Insurances &amp; Taxes
+          RU1OP1P486            OP PL NOGI StruCo Admin others
+            25002         Facility Variance NEW
+        RU1OP1P91             OP PL NOGI General Cost Centers
+          25491         Building Cost PRCO
+          25619         Building Cost WHS
+          25682         CENTRAL WAREHOUSE
+          25697         Central Warehouse Trading Goods
+          25698         External Warehouse
+          25909         BUILDING COST
+          25998         Oefault Cost Center Material PRCO
+        RU1OP1P92             OP PL NOGI Calculation Cost Centers
+          25971         Allocation SCP
+          25972         Allocation Boosters Plus
+          25973         Allocation Boosters
+          25974         Allocation FFS
+          25975         Allocation Helix
+          25976         Allocation Control Boxes
+          25977         Allocation AMP
+          25978         Allocation Manifolds
+          25979         Allocation Resale
+          25995         Allocation OvHd 2531
+          25996         Allocation Pump Equipment
+        RU1OP1P93             ACOS cost centers
+          25993         Subst 2541 ACOS own
+        RU1OP1P94             Generic cost centers
+          25988         Subst 2541 PRCO TG
+          25989         Subst 2541 ACOS TG
+          25992         Subst 2541 PRCO IC Mat
+          25994         Subst 2541 ACOS IC Mat
+  RU1SAL                Sales
+    RU1SREM               Sales Region Emerging Markets
+      RU1SAEUAS             Sales Area Eurasia
+        RU1SAAZ               Azerbaijan
+          25191         REPRESENTATIVE OFFICE IN AZERBAIJAN
+        RU1SABY               Belarus
+          25198         REGION EAST BELARUS
+        RU1SAEURGL            Global
+          25190         REPRESENTATIVE OFFICE IN ARMENIA
+          25194         REPRESENTATIVE OFFICE IN KYRGYZSTAN
+          25195         REPRESENTATIVE OFFICE IN MONGOLIA
+          25196         REPRESENTATIVE OFFICE IN TURKMENISTAN
+          25197         REPRESENTATIVE OFFICE IN TAJIKISTAN
+          25832         Human Resources
+          25881         CEO
+          25883         Sales manager CAM
+          25885         REGION LATAM
+        RU1SAGE               Georgia
+          25192         REPRESENTATIVE OFFICE IN GEORGIA
+        RU1SAIL               Israel
+          25193         REPRESENTATIVE OFFICE IN ISRAEL
+        RU1SAKZ               Kazakhstan
+          25199         REGION CAM KAZAKHSTAN
+        RU1SARU               Russian Fed.
+          25101         MARKETING DPT
+          25102         SALES MANAGEMENT BS
+          25103         SALES MANAGEMENT IND/WM
+          25151         SALES OFFICE MOSCOW
+          25152         SALES OFFICE TULA
+          25153         SALES OFFICE YAROSLAVL&#39;
+          25154         SALES OFFICE ROSTOV-ON-DON
+          25155         SALES OFFICE KRASNODAR
+          25156         SALES OFFICE PYATIGORSK
+          25157         SALES OFFICE VOLGOGRAD
+          25159         SALES OFFICE SOCHI
+          25160         SALES OFFICE KAZAN&#39;
+          25161         SALES OFFICE NIZHNY NOVGOROD
+          25162         SALES OFFICE SARATOV
+          25163         SALES OFFICE SAMARA
+          25164         SALES OFFICE SANKT-PETERBURG
+          25165         SALES OFFICE ARKHANGELSK
+          25166         SALES OFFICE KALININGRAD
+          25167         SALES OFFICE KHABAROVSK
+          25168         SALES OFFICE VLADIVOSTOK
+          25169         SALES OFFICE YAKUTSK
+          25170         SALES OFFICE NOVOSIBIRSK
+          25171         SALES OFFICE IRKUTSK
+          25172         SALES OFFICE KRASNOYARSK
+          25173         SALES OFFICE NOVOKUZNETSK
+          25174         SALES OFFICE OMSK
+          25175         SALES OFFICE EKATERINBURG
+          25176         SALES OFFICE PERM&#39;
+          25177         SALES OFFICE CHELYABINSK
+          25178         SALES OFFICE TYUMEN&#39;
+          25179         SALES OFFICE UFA
+          25180         SALES OFFICE ORENBURG
+          25181         SALES OFFICE SEVOSTOPOL
+          25184         SALES OFFICE VORONEZH
+          25185         SALES OFFICE OREL
+          25222         SALES ADMINISTRATION
+          25279         GIP DEPARTMENT
+          25280         ENIGINEERING DEPARTMENT
+          25286         SALES SUPPORT DEPARTAMENT
+          25601         PL MANAGEMENT
+          25602         LOGISTICS
+          25603         ORDER MANAGEMENT
+          25605         Outbound Freight
+          25606         Outbound Freight Export
+          25607         Inter Warehouse Freight
+          25681         WAREHOUSE KRASNOYARSK
+          25683         WAREHOUSE EKATERINBURG
+          25684         WAREHOUSE KHABAROVSK
+          25685         WAREHOUSE KALININGRAD
+          25686         WAREHOUSE SAMARA
+          25687         WAREHOUSE ROSTOV
+          25688         WAREHOUSE PYATIGORSK
+          25690         WAREHOUSE PETERSBURG
+          25691         WAREHOUSE NOVOSIBIRS
+          25692         WAREHOUSE IRKUTSK
+          25694         WAREHOUSE VLADIVOSTOK
+          25695         WAREHOUSE YAKUTSK
+          25884         Managing Director
+      RU1SAMENA             Sales Area MENA
+        RU1SAUZ               Uzbekistan
+          25182         REPRESENTATIVE OFFICE IN UZBEKISTAN
+    RU1SROEM              Sales Region OEM
+      RU1OEMEUAS            OEM Eurasia
+        RU1OEMRU              Russian Fed.
+          25104         OEM Business
+</code></pre></div>
+<hr />
+<h2 id="_4">Реальные центры затрат (листовые МВЗ)<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Это фактические МВЗ, участвующие в расчётах — те, что появляются в отчётах.
+Всего <strong>164 МВЗ</strong>. Используйте <strong>Ctrl+F</strong> для поиска по номеру, названию или ответственному.</p>
+<table>
+<thead>
+<tr>
+<th>CC ID</th>
+<th>Название</th>
+<th>Группа МВЗ</th>
+<th>Ответственный</th>
+<th>Func. Area</th>
+<th>Profit Center</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25801</td>
+<td>FICO MANAGEMENT</td>
+<td>RU1CONTRL</td>
+<td>Andrey Rozhnov</td>
+<td>FNNC</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25802</td>
+<td>CONTROLLING</td>
+<td>RU1CONTRL</td>
+<td>Irina Luzhina</td>
+<td>CONT</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25183</td>
+<td>Wilo Academy</td>
+<td>RU1FIACTAL</td>
+<td>Pavel Speranskiy</td>
+<td>HUMA</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25803</td>
+<td>ACCOUNTING</td>
+<td>RU1FIACTAL</td>
+<td>Galina Shoniya</td>
+<td>ACTX</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25804</td>
+<td>LEGAL</td>
+<td>RU1FIACTAL</td>
+<td>Roman Kuznetsov</td>
+<td>HUMA</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25811</td>
+<td>IT MANAGEMENT</td>
+<td>RU1FIACTAL</td>
+<td>Lavrenchuk Mikhail</td>
+<td>ITLO</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25812</td>
+<td>IC IT Charges</td>
+<td>RU1FIACTAL</td>
+<td>Lavrenchuk Mikhail</td>
+<td>ITLO</td>
+<td>16999999</td>
+</tr>
+<tr>
+<td>25831</td>
+<td>HR MANAGEMENT</td>
+<td>RU1FIACTAL</td>
+<td>N.N.</td>
+<td>HUMA</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25833</td>
+<td>HR MANAGEMENT</td>
+<td>RU1FIACTAL</td>
+<td>N.N.</td>
+<td>HUMA</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25991</td>
+<td>Subst 2541 PRCO own</td>
+<td>RU1FIACTAL</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25499</td>
+<td>Other operating result (Production)</td>
+<td>RU1LMAIN</td>
+<td>Controlling</td>
+<td>OPRE</td>
+<td>99999990</td>
+</tr>
+<tr>
+<td>25997</td>
+<td>Sales</td>
+<td>RU1LMAIN</td>
+<td>Controlling</td>
+<td>SALE</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25999</td>
+<td>Other operating result</td>
+<td>RU1LMAIN</td>
+<td>Controlling</td>
+<td>OPRE</td>
+<td>99999990</td>
+</tr>
+<tr>
+<td>25104</td>
+<td>OEM Business</td>
+<td>RU1OEMRU</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>122208RU</td>
+</tr>
+<tr>
+<td>25001</td>
+<td>Managing Director</td>
+<td>RU1OP1P21</td>
+<td>Alexander Zimin</td>
+<td>PRCO</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25410</td>
+<td>NL_IL_BL</td>
+<td>RU1OP1P21</td>
+<td>Reiter Alexey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25411</td>
+<td>TWU_REXA_FA</td>
+<td>RU1OP1P21</td>
+<td>Denisov Denis</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25412</td>
+<td>UPD: BOOST_FFS</td>
+<td>RU1OP1P21</td>
+<td>Reiter Alexey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25413</td>
+<td>HELIX_MS</td>
+<td>RU1OP1P21</td>
+<td>Reiter Alexey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25414</td>
+<td>CNTRL_BOX</td>
+<td>RU1OP1P21</td>
+<td>Reiter Alexey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25416</td>
+<td>MECH SECTION</td>
+<td>RU1OP1P21</td>
+<td>Reiter Aleksey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25422</td>
+<td>SPARE_PARTS</td>
+<td>RU1OP1P21</td>
+<td>Reiter Aleksey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25423</td>
+<td>MANIFOLDS</td>
+<td>RU1OP1P21</td>
+<td>Reiter Aleksey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25424</td>
+<td>TEST BENCH</td>
+<td>RU1OP1P21</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25415</td>
+<td>MAINTENANCE</td>
+<td>RU1OP1P29</td>
+<td>Alexander Tumanov</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25912</td>
+<td>External Tools</td>
+<td>RU1OP1P3</td>
+<td>Khayretdinov Damir</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25418</td>
+<td>SHIFT LEADERS</td>
+<td>RU1OP1P41</td>
+<td>Reiter Aleksey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25401</td>
+<td>ASSEMBLY MANAGEMENT</td>
+<td>RU1OP1P411</td>
+<td>Zimin Alexander</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25407</td>
+<td>PROJECT OFFICE SpIC</td>
+<td>RU1OP1P411</td>
+<td>Khayretdinov Damir</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25408</td>
+<td>PROJECT OFFICE SpIC</td>
+<td>RU1OP1P411</td>
+<td>Khayretdinov Damir</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25417</td>
+<td>PRODUCTION MANAGER</td>
+<td>RU1OP1P411</td>
+<td>Reiter Aleksey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25651</td>
+<td>INDIRECT PRODUCTION TECH</td>
+<td>RU1OP1P411</td>
+<td>Pavel Filippenkov</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25420</td>
+<td>Automation Design</td>
+<td>RU1OP1P43</td>
+<td>Sychkov Dmitry</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25425</td>
+<td>Mechanical design</td>
+<td>RU1OP1P43</td>
+<td>Makhnev Andrey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25419</td>
+<td>PPC (INCL. PROCUREMENT)</td>
+<td>RU1OP1P44</td>
+<td>Alexander Zimin</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25604</td>
+<td>PURCHASING MANAGEMENT</td>
+<td>RU1OP1P45</td>
+<td>Oleg Strashko</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25007</td>
+<td>INTERNAL LOGISTICS</td>
+<td>RU1OP1P46</td>
+<td>Svetlana Krylova</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25696</td>
+<td>Central Warehouse Production</td>
+<td>RU1OP1P46</td>
+<td>Razumov Aleksey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25421</td>
+<td>QUALITY DEPARTMENT</td>
+<td>RU1OP1P47</td>
+<td>Zvyagintsev S.</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25406</td>
+<td>HSE</td>
+<td>RU1OP1P481</td>
+<td>Natalia Lebedeva</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25981</td>
+<td>Allocation IT</td>
+<td>RU1OP1P482</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25982</td>
+<td>Allocation Acc/Contr</td>
+<td>RU1OP1P483</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25983</td>
+<td>Allocation Human Resources</td>
+<td>RU1OP1P484</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25985</td>
+<td>Dual Education Project</td>
+<td>RU1OP1P484</td>
+<td>Irina Lavrentyeva</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25490</td>
+<td>Allocations Insurances &amp; Taxes</td>
+<td>RU1OP1P485</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25002</td>
+<td>Facility Variance</td>
+<td>RU1OP1P486</td>
+<td>Natalia Lebedeva</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25491</td>
+<td>Building Cost PRCO</td>
+<td>RU1OP1P91</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25619</td>
+<td>Building Cost WHS</td>
+<td>RU1OP1P91</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25682</td>
+<td>CENTRAL WAREHOUSE</td>
+<td>RU1OP1P91</td>
+<td>Razumov Aleksey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25697</td>
+<td>Central Warehouse Trading Goods</td>
+<td>RU1OP1P91</td>
+<td>Razumov Aleksey</td>
+<td>PRCO</td>
+<td>14991111</td>
+</tr>
+<tr>
+<td>25698</td>
+<td>External Warehouse</td>
+<td>RU1OP1P91</td>
+<td>Razumov Aleksey</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25909</td>
+<td>BUILDING COST</td>
+<td>RU1OP1P91</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25998</td>
+<td>Default Cost Center Material PRCO</td>
+<td>RU1OP1P91</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25971</td>
+<td>Allocation SCP</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25972</td>
+<td>Allocation Boosters Plus</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25973</td>
+<td>Allocation Boosters</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25974</td>
+<td>Allocation FFS</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25975</td>
+<td>Allocation Helix</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25976</td>
+<td>Allocation Control Boxes</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25977</td>
+<td>Allocation AMP</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25978</td>
+<td>Allocation Manifolds</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25979</td>
+<td>Allocation Resale</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25995</td>
+<td>Allocation OvHd 2531</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25996</td>
+<td>Allocation Pump Equipment</td>
+<td>RU1OP1P92</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25993</td>
+<td>Subst 2541 ACOS own</td>
+<td>RU1OP1P93</td>
+<td>Controlling</td>
+<td>ACOS</td>
+<td>14992541</td>
+</tr>
+<tr>
+<td>25988</td>
+<td>Subst 2541 PRCO TG</td>
+<td>RU1OP1P94</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14991112</td>
+</tr>
+<tr>
+<td>25989</td>
+<td>Subst 2541 ACOS TG</td>
+<td>RU1OP1P94</td>
+<td>Controlling</td>
+<td>ACOS</td>
+<td>14991112</td>
+</tr>
+<tr>
+<td>25992</td>
+<td>Subst 2541 PRCO IC Mat</td>
+<td>RU1OP1P94</td>
+<td>Controlling</td>
+<td>PRCO</td>
+<td>14991111</td>
+</tr>
+<tr>
+<td>25994</td>
+<td>Subst 2541 ACOS IC Mat</td>
+<td>RU1OP1P94</td>
+<td>Controlling</td>
+<td>ACOS</td>
+<td>14991111</td>
+</tr>
+<tr>
+<td>25191</td>
+<td>REPRESENTATIVE OFFICE IN AZERBAIJAN</td>
+<td>RU1SAAZ</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>111208AZ</td>
+</tr>
+<tr>
+<td>25198</td>
+<td>REGION EAST BELARUS</td>
+<td>RU1SABY</td>
+<td>Kozus Evgenij</td>
+<td>SALC</td>
+<td>111208BY</td>
+</tr>
+<tr>
+<td>25190</td>
+<td>REPRESENTATIVE OFFICE IN ARMENIA</td>
+<td>RU1SAEURGL</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>11120899</td>
+</tr>
+<tr>
+<td>25194</td>
+<td>REPRESENTATIVE OFFICE IN KYRGYZSTAN</td>
+<td>RU1SAEURGL</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>11120899</td>
+</tr>
+<tr>
+<td>25195</td>
+<td>REPRESENTATIVE OFFICE IN MONGOLIA</td>
+<td>RU1SAEURGL</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>11120899</td>
+</tr>
+<tr>
+<td>25196</td>
+<td>REPRESENTATIVE OFFICE IN TURKMENISTAN</td>
+<td>RU1SAEURGL</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>11120899</td>
+</tr>
+<tr>
+<td>25197</td>
+<td>REPRESENTATIVE OFFICE IN TAJIKISTAN</td>
+<td>RU1SAEURGL</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>11120899</td>
+</tr>
+<tr>
+<td>25832</td>
+<td>Human Resources</td>
+<td>RU1SAEURGL</td>
+<td>N. Embulaeva</td>
+<td>SALC</td>
+<td>11129998</td>
+</tr>
+<tr>
+<td>25881</td>
+<td>CEO</td>
+<td>RU1SAEURGL</td>
+<td>Jens Dallendoerfer</td>
+<td>SALC</td>
+<td>11129998</td>
+</tr>
+<tr>
+<td>25883</td>
+<td>Sales manager CAM</td>
+<td>RU1SAEURGL</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>11120899</td>
+</tr>
+<tr>
+<td>25885</td>
+<td>REGION LATAM</td>
+<td>RU1SAEURGL</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>11120899</td>
+</tr>
+<tr>
+<td>25192</td>
+<td>REPRESENTATIVE OFFICE IN GEORGIA</td>
+<td>RU1SAGE</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>111208GE</td>
+</tr>
+<tr>
+<td>25193</td>
+<td>REPRESENTATIVE OFFICE IN ISRAEL</td>
+<td>RU1SAIL</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>111208IL</td>
+</tr>
+<tr>
+<td>25199</td>
+<td>REGION CAM KAZAKHSTAN</td>
+<td>RU1SAKZ</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>111208KZ</td>
+</tr>
+<tr>
+<td>25101</td>
+<td>MARKETING DPT</td>
+<td>RU1SARU</td>
+<td>Anastasia Nosova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25102</td>
+<td>SALES MANAGEMENT BS</td>
+<td>RU1SARU</td>
+<td>Konstantin Shinkaruk</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25103</td>
+<td>SALES MANAGEMENT IND/WM</td>
+<td>RU1SARU</td>
+<td>Timur Aimaletdinov</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25151</td>
+<td>SALES OFFICE MOSCOW</td>
+<td>RU1SARU</td>
+<td>Teneta Izabella</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25152</td>
+<td>SALES OFFICE TULA</td>
+<td>RU1SARU</td>
+<td>Artem Ptakhin</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25153</td>
+<td>SALES OFFICE YAROSLAVL</td>
+<td>RU1SARU</td>
+<td>Karulin Alexey</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25154</td>
+<td>SALES OFFICE ROSTOV-ON-DON</td>
+<td>RU1SARU</td>
+<td>Sterlev Dmitry</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25155</td>
+<td>SALES OFFICE KRASNODAR</td>
+<td>RU1SARU</td>
+<td>Noskov Andrey</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25156</td>
+<td>SALES OFFICE PYATIGORSK</td>
+<td>RU1SARU</td>
+<td>Sinebryukhov Roman</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25157</td>
+<td>SALES OFFICE VOLGOGRAD</td>
+<td>RU1SARU</td>
+<td>Zhivotov Valentin</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25159</td>
+<td>SALES OFFICE SOCHI</td>
+<td>RU1SARU</td>
+<td>Usatyy Nikolay</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25160</td>
+<td>SALES OFFICE KAZAN</td>
+<td>RU1SARU</td>
+<td>Lyakhov Andrey</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25161</td>
+<td>SALES OFFICE NIZHNY NOVGOROD</td>
+<td>RU1SARU</td>
+<td>Kornev Aleksandr</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25162</td>
+<td>SALES OFFICE SARATOV</td>
+<td>RU1SARU</td>
+<td>Ulyanov Alexander</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25163</td>
+<td>SALES OFFICE SAMARA</td>
+<td>RU1SARU</td>
+<td>Rogozhin Alexander</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25164</td>
+<td>SALES OFFICE SANKT-PETERBURG</td>
+<td>RU1SARU</td>
+<td>Kostyakov Igor</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25165</td>
+<td>SALES OFFICE ARKHANGELSK</td>
+<td>RU1SARU</td>
+<td>Chulanova Alyona</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25166</td>
+<td>SALES OFFICE KALININGRAD</td>
+<td>RU1SARU</td>
+<td>Zhukov Alexey</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25167</td>
+<td>SALES OFFICE KHABAROVSK</td>
+<td>RU1SARU</td>
+<td>Varlamov Denis</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25168</td>
+<td>SALES OFFICE VLADIVOSTOK</td>
+<td>RU1SARU</td>
+<td>Osadchii Dmitry</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25169</td>
+<td>SALES OFFICE YAKUTSK</td>
+<td>RU1SARU</td>
+<td>Nalivayko Konstantin</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25170</td>
+<td>SALES OFFICE NOVOSIBIRSK</td>
+<td>RU1SARU</td>
+<td>Davydov Andrey</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25171</td>
+<td>SALES OFFICE IRKUTSK</td>
+<td>RU1SARU</td>
+<td>Malashenko Dmitry</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25172</td>
+<td>SALES OFFICE KRASNOYARSK</td>
+<td>RU1SARU</td>
+<td>Izosimin Roman</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25173</td>
+<td>SALES OFFICE NOVOKUZNETSK</td>
+<td>RU1SARU</td>
+<td>Vasilyev Anton</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25174</td>
+<td>SALES OFFICE OMSK</td>
+<td>RU1SARU</td>
+<td>Kolos Eugenia</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25175</td>
+<td>SALES OFFICE EKATERINBURG</td>
+<td>RU1SARU</td>
+<td>Trapeznikov V.</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25176</td>
+<td>SALES OFFICE PERM</td>
+<td>RU1SARU</td>
+<td>Raspopov Sergey</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25177</td>
+<td>SALES OFFICE CHELYABINSK</td>
+<td>RU1SARU</td>
+<td>Volkov Andrey</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25178</td>
+<td>SALES OFFICE TYUMEN</td>
+<td>RU1SARU</td>
+<td>Ivanov Sergey</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25179</td>
+<td>SALES OFFICE UFA</td>
+<td>RU1SARU</td>
+<td>Kabirov Damir</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25180</td>
+<td>SALES OFFICE ORENBURG</td>
+<td>RU1SARU</td>
+<td>Kashirin Ivan</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25181</td>
+<td>SALES OFFICE SEVOSTOPOL</td>
+<td>RU1SARU</td>
+<td>N.N.</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25184</td>
+<td>SALES OFFICE VORONEZH</td>
+<td>RU1SARU</td>
+<td>Artem Ptakhin</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25185</td>
+<td>SALES OFFICE OREL</td>
+<td>RU1SARU</td>
+<td>Artem Ptakhin</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25222</td>
+<td>SALES ADMINISTRATION</td>
+<td>RU1SARU</td>
+<td>Nikolay Samoylov</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25279</td>
+<td>GIP DEPARTMENT</td>
+<td>RU1SARU</td>
+<td>Denisenko D.</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25280</td>
+<td>ENIGINEERING DEPARTMENT</td>
+<td>RU1SARU</td>
+<td>Denisenko D.</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25286</td>
+<td>SALES SUPPORT DEPARTAMENT</td>
+<td>RU1SARU</td>
+<td>Denisenko D.</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25601</td>
+<td>PL MANAGEMENT</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25602</td>
+<td>LOGISTICS</td>
+<td>RU1SARU</td>
+<td>Gudz Maxim</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25603</td>
+<td>ORDER MANAGEMENT</td>
+<td>RU1SARU</td>
+<td>Loginov Andrei</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25605</td>
+<td>Outbound Freight</td>
+<td>RU1SARU</td>
+<td>Gudz Maxim</td>
+<td>DISC</td>
+<td>119208RU</td>
+</tr>
+<tr>
+<td>25606</td>
+<td>Outbound Freight Export</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>DISC</td>
+<td>119208RU</td>
+</tr>
+<tr>
+<td>25607</td>
+<td>Inter Warehouse Freight</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>DISC</td>
+<td>119208RU</td>
+</tr>
+<tr>
+<td>25681</td>
+<td>WAREHOUSE KRASNOYARSK</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25683</td>
+<td>WAREHOUSE EKATERINBURG</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25684</td>
+<td>WAREHOUSE KHABAROVSK</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25685</td>
+<td>WAREHOUSE KALININGRAD</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25686</td>
+<td>WAREHOUSE SAMARA</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25687</td>
+<td>WAREHOUSE ROSTOV</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25688</td>
+<td>WAREHOUSE PYATIGORSK</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25690</td>
+<td>WAREHOUSE PETERSBURG</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25691</td>
+<td>WAREHOUSE NOVOSIBIRSK</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25692</td>
+<td>WAREHOUSE IRKUTSK</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25694</td>
+<td>WAREHOUSE VLADIVOSTOK</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25695</td>
+<td>WAREHOUSE YAKUTSK</td>
+<td>RU1SARU</td>
+<td>Svetlana Krylova</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25884</td>
+<td>Managing Director</td>
+<td>RU1SARU</td>
+<td>Nikolay Samoylov</td>
+<td>SALC</td>
+<td>111208RU</td>
+</tr>
+<tr>
+<td>25182</td>
+<td>REPRESENTATIVE OFFICE IN UZBEKISTAN</td>
+<td>RU1SAUZ</td>
+<td>Radishevsky S.</td>
+<td>SALC</td>
+<td>111208UZ</td>
+</tr>
+<tr>
+<td>25301</td>
+<td>SERVICE CENTRAL FUNCTIONS</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>SALC</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25302</td>
+<td>FIELD SERVICE NORTH-WEST REGION</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25303</td>
+<td>FIELD SERVICE SIBERIA REGION</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25304</td>
+<td>FIELD SERVICE FAR EAST REGION</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25305</td>
+<td>FIELD SERVICE URAL REGION</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25306</td>
+<td>FIELD SERVICE VOLGA REGION</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25307</td>
+<td>FIELD SERVICE SOUTH REGION</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25308</td>
+<td>FIELD SERVICE CENTRAL REGION</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25309</td>
+<td>IN HOUSE REPAIR</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25310</td>
+<td>FIELD SERVICE MOSCOW REGION</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25311</td>
+<td>FIELD SERVICE QUALITY</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25313</td>
+<td>Service Central Functions</td>
+<td>RU1SVRU</td>
+<td>Vasilieva</td>
+<td>PRCO</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25321</td>
+<td>SERVICE CENTRAL FUNC</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>SALC</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25322</td>
+<td>SERVICE CENTRAL FUNC</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>SALC</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25323</td>
+<td>SERVICE CENTRAL FUNC</td>
+<td>RU1SVRU</td>
+<td>Anfisa Vasilieva</td>
+<td>SALC</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25391</td>
+<td>Building Cost SALC</td>
+<td>RU1SVRU</td>
+<td>Controlling</td>
+<td>SALC</td>
+<td>131208RU</td>
+</tr>
+<tr>
+<td>25816</td>
+<td>IFRS 16</td>
+<td>RU1SVVN</td>
+<td>Controlling</td>
+<td>GADM</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25882</td>
+<td>ADMINISTRATION</td>
+<td>RU1SVVN</td>
+<td>Marina Yudina</td>
+<td>GADM</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25886</td>
+<td>Management Fee</td>
+<td>RU1SVVN</td>
+<td>Andrey Rozhnov</td>
+<td>GADM</td>
+<td>22999999</td>
+</tr>
+<tr>
+<td>25887</td>
+<td>Strategic Management</td>
+<td>RU1SVVN</td>
+<td>Andrey Rozhnov</td>
+<td>STRA</td>
+<td>22999999</td>
+</tr>
+<tr>
+<td>25888</td>
+<td>Facility Project Manager</td>
+<td>RU1SVVN</td>
+<td>Natalia Lebedeva</td>
+<td>GADM</td>
+<td>229208RU</td>
+</tr>
+<tr>
+<td>25891</td>
+<td>Building Cost GADM</td>
+<td>RU1SVVN</td>
+<td>Controlling</td>
+<td>GADM</td>
+<td>229208RU</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_5">Все коды — плоская таблица<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Используйте <strong>Ctrl+F</strong> для поиска по коду или названию.</p>
+<table>
+<thead>
+<tr>
+<th>Код</th>
+<th>Название</th>
+<th>Родитель</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RU1</td>
+<td>WILO RUS</td>
+<td>—</td>
+</tr>
+<tr>
+<td>RU1ADMI</td>
+<td>Administration</td>
+<td>RU1</td>
+</tr>
+<tr>
+<td>RU1FICO</td>
+<td>Finance &amp; Controlling</td>
+<td>RU1ADMI</td>
+</tr>
+<tr>
+<td>RU1CONTR</td>
+<td>Controlling</td>
+<td>RU1FICO</td>
+</tr>
+<tr>
+<td>RU1CONTMM</td>
+<td>Group Controlling Mgmt</td>
+<td>RU1CONTR</td>
+</tr>
+<tr>
+<td>RU1CONTRG</td>
+<td>Group Controlling</td>
+<td>RU1CONTR</td>
+</tr>
+<tr>
+<td>RU1CONTRL</td>
+<td>Local Controlling</td>
+<td>RU1CONTR</td>
+</tr>
+<tr>
+<td>RU1FIACTA</td>
+<td>Accounting &amp; Taxes</td>
+<td>RU1FICO</td>
+</tr>
+<tr>
+<td>RU1FIACTAG</td>
+<td>Group Accounting &amp; Taxes</td>
+<td>RU1FIACTA</td>
+</tr>
+<tr>
+<td>RU1FIACTAL</td>
+<td>Local Accounting &amp; Taxes</td>
+<td>RU1FIACTA</td>
+</tr>
+<tr>
+<td>RU1FIACTMM</td>
+<td>Group Acctg &amp; Taxes Mgmt</td>
+<td>RU1FIACTA</td>
+</tr>
+<tr>
+<td>RU1GROTH</td>
+<td>Group functions other</td>
+<td>RU1ADMI</td>
+</tr>
+<tr>
+<td>RU1HR</td>
+<td>Human Resources</td>
+<td>RU1ADMI</td>
+</tr>
+<tr>
+<td>RU1HRMAN</td>
+<td>HR Management</td>
+<td>RU1HR</td>
+</tr>
+<tr>
+<td>RU1LHR</td>
+<td>Local HR</td>
+<td>RU1HR</td>
+</tr>
+<tr>
+<td>RU1IT</td>
+<td>IT Service</td>
+<td>RU1ADMI</td>
+</tr>
+<tr>
+<td>RU1FINSE</td>
+<td>Group Finance &amp; Financial Services</td>
+<td>RU1IT</td>
+</tr>
+<tr>
+<td>RU1GIT</td>
+<td>Group IT</td>
+<td>RU1IT</td>
+</tr>
+<tr>
+<td>RU1ILIT</td>
+<td>Local IT</td>
+<td>RU1IT</td>
+</tr>
+<tr>
+<td>RU1ITMAN</td>
+<td>IT Management</td>
+<td>RU1IT</td>
+</tr>
+<tr>
+<td>RU1MAN</td>
+<td>Management</td>
+<td>RU1ADMI</td>
+</tr>
+<tr>
+<td>RU1SSM</td>
+<td>Strategic Sales &amp; Marketing</td>
+<td>RU1ADMI</td>
+</tr>
+<tr>
+<td>RU1OP</td>
+<td>Operations</td>
+<td>RU1</td>
+</tr>
+<tr>
+<td>RU1FA</td>
+<td>Facilities</td>
+<td>RU1OP</td>
+</tr>
+<tr>
+<td>RU1GFM</td>
+<td>Group Facility Management</td>
+<td>RU1FA</td>
+</tr>
+<tr>
+<td>RU1LF</td>
+<td>Local Facilities</td>
+<td>RU1FA</td>
+</tr>
+<tr>
+<td>RU1LFMDO</td>
+<td>Local Facility Management</td>
+<td>RU1LF</td>
+</tr>
+<tr>
+<td>RU1LIS</td>
+<td>Local Infrastructure &amp; Service</td>
+<td>RU1LF</td>
+</tr>
+<tr>
+<td>RU1LLB</td>
+<td>Land and Buildings</td>
+<td>RU1LF</td>
+</tr>
+<tr>
+<td>RU1LMAIN</td>
+<td>Local Maintenance</td>
+<td>RU1LF</td>
+</tr>
+<tr>
+<td>RU1GPST</td>
+<td>Group Production Systems &amp; Technology</td>
+<td>RU1OP</td>
+</tr>
+<tr>
+<td>RU1GROTH</td>
+<td>Group functions other</td>
+<td>RU1OP</td>
+</tr>
+<tr>
+<td>RU1OP1P</td>
+<td>OP PL NOGI Total</td>
+<td>RU1OP</td>
+</tr>
+<tr>
+<td>RU1GHR</td>
+<td>Group HR</td>
+<td>RU1OP1P</td>
+</tr>
+<tr>
+<td>RU1OP1P0</td>
+<td>Bu Mat./Scr./Inb. Freight</td>
+<td>RU1OP1P</td>
+</tr>
+<tr>
+<td>RU1OP1P1</td>
+<td>Direct Labour</td>
+<td>RU1OP1P</td>
+</tr>
+<tr>
+<td>RU1OP1P2</td>
+<td>Machine &amp; Equipment</td>
+<td>RU1OP1P</td>
+</tr>
+<tr>
+<td>RU1OP1P21</td>
+<td>Production</td>
+<td>RU1OP1P2</td>
+</tr>
+<tr>
+<td>RU1OP1P29</td>
+<td>External Tools</td>
+<td>RU1OP1P2</td>
+</tr>
+<tr>
+<td>RU1OP1P3</td>
+<td>External Tools</td>
+<td>RU1OP1P</td>
+</tr>
+<tr>
+<td>RU1OP1P4</td>
+<td>Total Structural Costs</td>
+<td>RU1OP1P</td>
+</tr>
+<tr>
+<td>RU1OP1P41</td>
+<td>StruCo Prod. Management</td>
+<td>RU1OP1P4</td>
+</tr>
+<tr>
+<td>RU1OP1P411</td>
+<td>Pl. &amp; Production</td>
+<td>RU1OP1P41</td>
+</tr>
+<tr>
+<td>RU1OP1P412</td>
+<td>WPS / Op. Excellence</td>
+<td>RU1OP1P41</td>
+</tr>
+<tr>
+<td>RU1OP1P413</td>
+<td>Prod. Unit Management</td>
+<td>RU1OP1P41</td>
+</tr>
+<tr>
+<td>RU1OP1P42</td>
+<td>StruCo Prod. Support</td>
+<td>RU1OP1P4</td>
+</tr>
+<tr>
+<td>RU1OP1P43</td>
+<td>StruCo Process Engineering</td>
+<td>RU1OP1P4</td>
+</tr>
+<tr>
+<td>RU1OP1P44</td>
+<td>StruCo Supply Planning</td>
+<td>RU1OP1P4</td>
+</tr>
+<tr>
+<td>RU1OP1P45</td>
+<td>StruCo Procurement</td>
+<td>RU1OP1P4</td>
+</tr>
+<tr>
+<td>RU1OP1P46</td>
+<td>StruCo Logistics</td>
+<td>RU1OP1P4</td>
+</tr>
+<tr>
+<td>RU1OP1P47</td>
+<td>StruCo Quality</td>
+<td>RU1OP1P4</td>
+</tr>
+<tr>
+<td>RU1OP1P48</td>
+<td>StruCo Other Prod.</td>
+<td>RU1OP1P4</td>
+</tr>
+<tr>
+<td>RU1OP1P481</td>
+<td>Enviro. &amp; Safety</td>
+<td>RU1OP1P48</td>
+</tr>
+<tr>
+<td>RU1OP1P482</td>
+<td>IT</td>
+<td>RU1OP1P48</td>
+</tr>
+<tr>
+<td>RU1OP1P483</td>
+<td>Acc. &amp; Controlling</td>
+<td>RU1OP1P48</td>
+</tr>
+<tr>
+<td>RU1OP1P484</td>
+<td>Human Resources</td>
+<td>RU1OP1P48</td>
+</tr>
+<tr>
+<td>RU1OP1P485</td>
+<td>Insurances</td>
+<td>RU1OP1P48</td>
+</tr>
+<tr>
+<td>RU1OP1P486</td>
+<td>Admin others</td>
+<td>RU1OP1P48</td>
+</tr>
+<tr>
+<td>RU1OP1P9</td>
+<td>Other Cost Centers</td>
+<td>RU1OP1P</td>
+</tr>
+<tr>
+<td>RU1OP1P91</td>
+<td>General Cost Centers</td>
+<td>RU1OP1P9</td>
+</tr>
+<tr>
+<td>RU1OP1P92</td>
+<td>Calculation Cost Centers</td>
+<td>RU1OP1P9</td>
+</tr>
+<tr>
+<td>RU1OP1P93</td>
+<td>ACOS Cost Centers</td>
+<td>RU1OP1P9</td>
+</tr>
+<tr>
+<td>RU1OP1P94</td>
+<td>Generic Cost Centers</td>
+<td>RU1OP1P9</td>
+</tr>
+<tr>
+<td>RU1OP1P99</td>
+<td>Old Cost Centers</td>
+<td>RU1OP1P9</td>
+</tr>
+<tr>
+<td>RU1PSCM</td>
+<td>Procurement &amp; Supply Chain Management</td>
+<td>RU1OP</td>
+</tr>
+<tr>
+<td>RU1LOG</td>
+<td>Group Logistics</td>
+<td>RU1PSCM</td>
+</tr>
+<tr>
+<td>RU1PDS</td>
+<td>Group Demand and Supply</td>
+<td>RU1PSCM</td>
+</tr>
+<tr>
+<td>RU1PROC</td>
+<td>Group Procurement</td>
+<td>RU1PSCM</td>
+</tr>
+<tr>
+<td>RU1PSCMM</td>
+<td>Procurement &amp; SCM Management</td>
+<td>RU1PSCM</td>
+</tr>
+<tr>
+<td>RU1QUAL</td>
+<td>Group Quality</td>
+<td>RU1OP</td>
+</tr>
+<tr>
+<td>RU1OTH</td>
+<td>Other Cost Centers / Controlling</td>
+<td>RU1</td>
+</tr>
+<tr>
+<td>RU1ALLOC</td>
+<td>Allocations</td>
+<td>RU1OTH</td>
+</tr>
+<tr>
+<td>RU1MISC</td>
+<td>Miscellaneous</td>
+<td>RU1OTH</td>
+</tr>
+<tr>
+<td>RU1OLD</td>
+<td>Old</td>
+<td>RU1OTH</td>
+</tr>
+<tr>
+<td>RU1RDTLEM</td>
+<td>Technology Lead Engineering Motors</td>
+<td>RU1OTH</td>
+</tr>
+<tr>
+<td>RU1PBUPRCO</td>
+<td>Functional Area x PRCO</td>
+<td>RU1RDTLEM</td>
+</tr>
+<tr>
+<td>RU1RD</td>
+<td>R&amp;D</td>
+<td>RU1</td>
+</tr>
+<tr>
+<td>RU10POTH</td>
+<td>Others</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1PBUACOS</td>
+<td>Functional Area x PBU ACOS</td>
+<td>RU10POTH</td>
+</tr>
+<tr>
+<td>RU1PBUAMCO</td>
+<td>Functional Area x PBU AMCO</td>
+<td>RU10POTH</td>
+</tr>
+<tr>
+<td>RU1RDMS</td>
+<td>Product Line Engineering Multi Stream</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDPCI</td>
+<td>Product Compliance Intelligence</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDQV</td>
+<td>Qualification &amp; Verification</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDRP</td>
+<td>Research &amp; Predevelopment</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDSEG</td>
+<td>R&amp;D Strategy, Excellence &amp; Governance</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDSPM</td>
+<td>Strategic Project Management</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDSS</td>
+<td>Product Line Engineering Systems</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDSSDR</td>
+<td>PLE Single Stream DR</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDSSWR</td>
+<td>PLE Single Stream WR</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1RDTLE</td>
+<td>Technology Lead Engineering</td>
+<td>RU1RD</td>
+</tr>
+<tr>
+<td>RU1SAL</td>
+<td>Sales</td>
+<td>RU1</td>
+</tr>
+<tr>
+<td>RU1SALSB</td>
+<td>Service Business</td>
+<td>RU1SAL</td>
+</tr>
+<tr>
+<td>RU1GRSERV</td>
+<td>Group Service</td>
+<td>RU1SALSB</td>
+</tr>
+<tr>
+<td>RU1OEMSEA</td>
+<td>OEM South East Asia</td>
+<td>RU1SALSB</td>
+</tr>
+<tr>
+<td>RU1SMUL</td>
+<td>Sales Allocations</td>
+<td>RU1SAL</td>
+</tr>
+<tr>
+<td>RU1SREM</td>
+<td>Sales Region Emerging Markets</td>
+<td>RU1SAL</td>
+</tr>
+<tr>
+<td>RU1SACN</td>
+<td>Sales Area China</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SAEUAS</td>
+<td>Sales Area Eurasia</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SAAZ</td>
+<td>Azerbaijan</td>
+<td>RU1SAEUAS</td>
+</tr>
+<tr>
+<td>RU1SABY</td>
+<td>Belarus</td>
+<td>RU1SAEUAS</td>
+</tr>
+<tr>
+<td>RU1SAEURGL</td>
+<td>Global</td>
+<td>RU1SAEUAS</td>
+</tr>
+<tr>
+<td>RU1SAGE</td>
+<td>Georgia</td>
+<td>RU1SAEUAS</td>
+</tr>
+<tr>
+<td>RU1SAIL</td>
+<td>Israel</td>
+<td>RU1SAEUAS</td>
+</tr>
+<tr>
+<td>RU1SAKZ</td>
+<td>Kazakhstan</td>
+<td>RU1SAEUAS</td>
+</tr>
+<tr>
+<td>RU1SARU</td>
+<td>Russian Fed.</td>
+<td>RU1SAEUAS</td>
+</tr>
+<tr>
+<td>RU1SAUZ</td>
+<td>Uzbekistan</td>
+<td>RU1SAEUAS</td>
+</tr>
+<tr>
+<td>RU1SAIND</td>
+<td>Sales Area India</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SAKR</td>
+<td>Sales Area Korea</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SAZA</td>
+<td>South Africa</td>
+<td>RU1SAKR</td>
+</tr>
+<tr>
+<td>RU1SALA</td>
+<td>Sales Area Latin America</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SAAR</td>
+<td>Argentina</td>
+<td>RU1SALA</td>
+</tr>
+<tr>
+<td>RU1SABR</td>
+<td>Brazil</td>
+<td>RU1SALA</td>
+</tr>
+<tr>
+<td>RU1SACL</td>
+<td>Chile</td>
+<td>RU1SALA</td>
+</tr>
+<tr>
+<td>RU1SALAGL</td>
+<td>Global</td>
+<td>RU1SALA</td>
+</tr>
+<tr>
+<td>RU1SAMENA</td>
+<td>Sales Area MENA</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SADZ</td>
+<td>Algeria</td>
+<td>RU1SAMENA</td>
+</tr>
+<tr>
+<td>RU1SAEG</td>
+<td>Egypt</td>
+<td>RU1SAMENA</td>
+</tr>
+<tr>
+<td>RU1SALB</td>
+<td>Lebanon</td>
+<td>RU1SAMENA</td>
+</tr>
+<tr>
+<td>RU1SAMA</td>
+<td>Morocco</td>
+<td>RU1SAMENA</td>
+</tr>
+<tr>
+<td>RU1SAMEGL</td>
+<td>Global</td>
+<td>RU1SAMENA</td>
+</tr>
+<tr>
+<td>RU1SATN</td>
+<td>Tunisia</td>
+<td>RU1SAMENA</td>
+</tr>
+<tr>
+<td>RU1SAMSA</td>
+<td>Sales Area MSA</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SAAE</td>
+<td>Utd. Arab Emirates</td>
+<td>RU1SAMSA</td>
+</tr>
+<tr>
+<td>RU1SACM</td>
+<td>Cameroon</td>
+<td>RU1SAMSA</td>
+</tr>
+<tr>
+<td>RU1SAGH</td>
+<td>Ghana</td>
+<td>RU1SAMSA</td>
+</tr>
+<tr>
+<td>RU1SAIC</td>
+<td>Ivory Coast</td>
+<td>RU1SAMSA</td>
+</tr>
+<tr>
+<td>RU1SAKE</td>
+<td>Kenya</td>
+<td>RU1SAMSA</td>
+</tr>
+<tr>
+<td>RU1SAMSAGL</td>
+<td>Global</td>
+<td>RU1SAMSA</td>
+</tr>
+<tr>
+<td>RU1SANE</td>
+<td>Nigeria</td>
+<td>RU1SAMSA</td>
+</tr>
+<tr>
+<td>RU1SANOAM</td>
+<td>Sales Area North America</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SACA</td>
+<td>Canada</td>
+<td>RU1SANOAM</td>
+</tr>
+<tr>
+<td>RU1SANOGL</td>
+<td>Global</td>
+<td>RU1SANOAM</td>
+</tr>
+<tr>
+<td>RU1SAUA</td>
+<td>Ukraine</td>
+<td>RU1SANOAM</td>
+</tr>
+<tr>
+<td>RU1SAUS</td>
+<td>USA</td>
+<td>RU1SANOAM</td>
+</tr>
+<tr>
+<td>RU1SASEA</td>
+<td>Sales Area South East Asia</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SABD</td>
+<td>Bangladesh</td>
+<td>RU1SASEA</td>
+</tr>
+<tr>
+<td>RU1SAID</td>
+<td>Indonesia</td>
+<td>RU1SASEA</td>
+</tr>
+<tr>
+<td>RU1SAMY</td>
+<td>Malaysia</td>
+<td>RU1SASEA</td>
+</tr>
+<tr>
+<td>RU1SASEGL</td>
+<td>Global</td>
+<td>RU1SASEA</td>
+</tr>
+<tr>
+<td>RU1SASG</td>
+<td>Singapore</td>
+<td>RU1SASEA</td>
+</tr>
+<tr>
+<td>RU1SATW</td>
+<td>Taiwan</td>
+<td>RU1SASEA</td>
+</tr>
+<tr>
+<td>RU1SAU</td>
+<td>Australia</td>
+<td>RU1SASEA</td>
+</tr>
+<tr>
+<td>RU1SATR</td>
+<td>Sales Area Turkey</td>
+<td>RU1SREM</td>
+</tr>
+<tr>
+<td>RU1SRMM</td>
+<td>Sales Region Mature Markets</td>
+<td>RU1SAL</td>
+</tr>
+<tr>
+<td>RU1SADACH</td>
+<td>Sales Area DACH</td>
+<td>RU1SRMM</td>
+</tr>
+<tr>
+<td>RU1SAAT</td>
+<td>Austria</td>
+<td>RU1SADACH</td>
+</tr>
+<tr>
+<td>RU1SACH</td>
+<td>Switzerland</td>
+<td>RU1SADACH</td>
+</tr>
+<tr>
+<td>RU1SAGER</td>
+<td>Germany</td>
+<td>RU1SADACH</td>
+</tr>
+<tr>
+<td>RU1SALI</td>
+<td>Liechtenstein</td>
+<td>RU1SADACH</td>
+</tr>
+<tr>
+<td>RU1SAEUEA</td>
+<td>Sales Area EU East</td>
+<td>RU1SRMM</td>
+</tr>
+<tr>
+<td>RU1SABG</td>
+<td>Bulgaria</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SACR</td>
+<td>Croatia</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SACZ</td>
+<td>Czech Republic</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SAEUGL</td>
+<td>Global</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SAHU</td>
+<td>Hungary</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SAPL</td>
+<td>Poland</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SARO</td>
+<td>Romania</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SARS</td>
+<td>Serbia/Monten.</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SASI</td>
+<td>Slovenia</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SASK</td>
+<td>Slovakia</td>
+<td>RU1SAEUEA</td>
+</tr>
+<tr>
+<td>RU1SAEUNO</td>
+<td>Sales Area EU North</td>
+<td>RU1SRMM</td>
+</tr>
+<tr>
+<td>RU1SABE</td>
+<td>Belgium</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SADK</td>
+<td>Denmark</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SAES</td>
+<td>Spain</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SAEUNGL</td>
+<td>Global</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SAFI</td>
+<td>Finland</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SAIE</td>
+<td>Ireland</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SALT</td>
+<td>Lithuania</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SALV</td>
+<td>Latvia</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SANL</td>
+<td>Netherlands</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SANO</td>
+<td>Norway</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SASE</td>
+<td>Sweden</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SAUK</td>
+<td>United Kingdom</td>
+<td>RU1SAEUNO</td>
+</tr>
+<tr>
+<td>RU1SAEUSW</td>
+<td>Sales Area EU South West</td>
+<td>RU1SRMM</td>
+</tr>
+<tr>
+<td>RU1SACY</td>
+<td>Cyprus</td>
+<td>RU1SAEUSW</td>
+</tr>
+<tr>
+<td>RU1SADAGL</td>
+<td>Global</td>
+<td>RU1SAEUSW</td>
+</tr>
+<tr>
+<td>RU1SAEUSGL</td>
+<td>Global</td>
+<td>RU1SAEUSW</td>
+</tr>
+<tr>
+<td>RU1SAFR</td>
+<td>France</td>
+<td>RU1SAEUSW</td>
+</tr>
+<tr>
+<td>RU1SAGP</td>
+<td>Guadeloupe</td>
+<td>RU1SAEUSW</td>
+</tr>
+<tr>
+<td>RU1SAGR</td>
+<td>Greece</td>
+<td>RU1SAEUSW</td>
+</tr>
+<tr>
+<td>RU1SAIT</td>
+<td>Italy</td>
+<td>RU1SAEUSW</td>
+</tr>
+<tr>
+<td>RU1SAPT</td>
+<td>Portugal</td>
+<td>RU1SAEUSW</td>
+</tr>
+<tr>
+<td>RU1SROEM</td>
+<td>Sales Region OEM</td>
+<td>RU1SAL</td>
+</tr>
+<tr>
+<td>RU1OEMCN</td>
+<td>OEM China</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMZA</td>
+<td>South Africa</td>
+<td>RU1OEMCN</td>
+</tr>
+<tr>
+<td>RU1OEMDACH</td>
+<td>OEM DACH</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMAT</td>
+<td>Austria</td>
+<td>RU1OEMDACH</td>
+</tr>
+<tr>
+<td>RU1OEMCH</td>
+<td>Switzerland</td>
+<td>RU1OEMDACH</td>
+</tr>
+<tr>
+<td>RU1OEMDAGL</td>
+<td>Global</td>
+<td>RU1OEMDACH</td>
+</tr>
+<tr>
+<td>RU1OEMGER</td>
+<td>Germany</td>
+<td>RU1OEMDACH</td>
+</tr>
+<tr>
+<td>RU1OEMLI</td>
+<td>Liechtenstein</td>
+<td>RU1OEMDACH</td>
+</tr>
+<tr>
+<td>RU1OEMEM</td>
+<td>OEM Emerging Markets</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMEUAS</td>
+<td>OEM Eurasia</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMAZ</td>
+<td>Azerbaijan</td>
+<td>RU1OEMEUAS</td>
+</tr>
+<tr>
+<td>RU1OEMBY</td>
+<td>Belarus</td>
+<td>RU1OEMEUAS</td>
+</tr>
+<tr>
+<td>RU1OEMEURG</td>
+<td>Global</td>
+<td>RU1OEMEUAS</td>
+</tr>
+<tr>
+<td>RU1OEMGE</td>
+<td>Georgia</td>
+<td>RU1OEMEUAS</td>
+</tr>
+<tr>
+<td>RU1OEMIL</td>
+<td>Israel</td>
+<td>RU1OEMEUAS</td>
+</tr>
+<tr>
+<td>RU1OEMKZ</td>
+<td>Kazakhstan</td>
+<td>RU1OEMEUAS</td>
+</tr>
+<tr>
+<td>RU1OEMRU</td>
+<td>Russian Fed.</td>
+<td>RU1OEMEUAS</td>
+</tr>
+<tr>
+<td>RU1OEMEUEA</td>
+<td>OEM EU East</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMBG</td>
+<td>Bulgaria</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMCR</td>
+<td>Croatia</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMCZ</td>
+<td>Czech Republic</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMEUGL</td>
+<td>Global</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMHU</td>
+<td>Hungary</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMPL</td>
+<td>Poland</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMRO</td>
+<td>Romania</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMRS</td>
+<td>Serbia/Monten.</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMSI</td>
+<td>Slovenia</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMSK</td>
+<td>Slovakia</td>
+<td>RU1OEMEUEA</td>
+</tr>
+<tr>
+<td>RU1OEMEUNO</td>
+<td>OEM EU North</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMBE</td>
+<td>Belgium</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMDK</td>
+<td>Denmark</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMENGL</td>
+<td>Global</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMES</td>
+<td>Spain</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMFI</td>
+<td>Finland</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMIE</td>
+<td>Ireland</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMLT</td>
+<td>Lithuania</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMLV</td>
+<td>Latvia</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMNL</td>
+<td>Netherlands</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMNO</td>
+<td>Norway</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMSE</td>
+<td>Sweden</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMUK</td>
+<td>United Kingdom</td>
+<td>RU1OEMEUNO</td>
+</tr>
+<tr>
+<td>RU1OEMEUSW</td>
+<td>OEM EU South West</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMCY</td>
+<td>Cyprus</td>
+<td>RU1OEMEUSW</td>
+</tr>
+<tr>
+<td>RU1OEMEUSG</td>
+<td>Global</td>
+<td>RU1OEMEUSW</td>
+</tr>
+<tr>
+<td>RU1OEMFR</td>
+<td>France</td>
+<td>RU1OEMEUSW</td>
+</tr>
+<tr>
+<td>RU1OEMGP</td>
+<td>Guadeloupe</td>
+<td>RU1OEMEUSW</td>
+</tr>
+<tr>
+<td>RU1OEMGR</td>
+<td>Greece</td>
+<td>RU1OEMEUSW</td>
+</tr>
+<tr>
+<td>RU1OEMIT</td>
+<td>Italy</td>
+<td>RU1OEMEUSW</td>
+</tr>
+<tr>
+<td>RU1OEMPT</td>
+<td>Portugal</td>
+<td>RU1OEMEUSW</td>
+</tr>
+<tr>
+<td>RU1OEMIND</td>
+<td>OEM India</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMKR</td>
+<td>OEM Korea</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMLA</td>
+<td>OEM Latin America</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMAR</td>
+<td>Argentina</td>
+<td>RU1OEMLA</td>
+</tr>
+<tr>
+<td>RU1OEMBR</td>
+<td>Brazil</td>
+<td>RU1OEMLA</td>
+</tr>
+<tr>
+<td>RU1OEMCL</td>
+<td>Chile</td>
+<td>RU1OEMLA</td>
+</tr>
+<tr>
+<td>RU1OEMLAGL</td>
+<td>Global</td>
+<td>RU1OEMLA</td>
+</tr>
+<tr>
+<td>RU1OEMMX</td>
+<td>Mexico</td>
+<td>RU1OEMLA</td>
+</tr>
+<tr>
+<td>RU1OEMMENA</td>
+<td>OEM MENA</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMDZ</td>
+<td>Algeria</td>
+<td>RU1OEMMENA</td>
+</tr>
+<tr>
+<td>RU1OEMEG</td>
+<td>Egypt</td>
+<td>RU1OEMMENA</td>
+</tr>
+<tr>
+<td>RU1OEMLB</td>
+<td>Lebanon</td>
+<td>RU1OEMMENA</td>
+</tr>
+<tr>
+<td>RU1OEMMA</td>
+<td>Morocco</td>
+<td>RU1OEMMENA</td>
+</tr>
+<tr>
+<td>RU1OEMMEGL</td>
+<td>Global</td>
+<td>RU1OEMMENA</td>
+</tr>
+<tr>
+<td>RU1OEMTN</td>
+<td>Tunisia</td>
+<td>RU1OEMMENA</td>
+</tr>
+<tr>
+<td>RU1OEMUZ</td>
+<td>Uzbekistan</td>
+<td>RU1OEMMENA</td>
+</tr>
+<tr>
+<td>RU1OEMMM</td>
+<td>OEM Mature Markets</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMMSA</td>
+<td>OEM MSA</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMAE</td>
+<td>Utd. Arab Emirates</td>
+<td>RU1OEMMSA</td>
+</tr>
+<tr>
+<td>RU1OEMCM</td>
+<td>Cameroon</td>
+<td>RU1OEMMSA</td>
+</tr>
+<tr>
+<td>RU1OEMGH</td>
+<td>Ghana</td>
+<td>RU1OEMMSA</td>
+</tr>
+<tr>
+<td>RU1OEMIC</td>
+<td>Ivory Coast</td>
+<td>RU1OEMMSA</td>
+</tr>
+<tr>
+<td>RU1OEMKE</td>
+<td>Kenya</td>
+<td>RU1OEMMSA</td>
+</tr>
+<tr>
+<td>RU1OEMMSAG</td>
+<td>Global</td>
+<td>RU1OEMMSA</td>
+</tr>
+<tr>
+<td>RU1OEMNE</td>
+<td>Nigeria</td>
+<td>RU1OEMMSA</td>
+</tr>
+<tr>
+<td>RU1OEMNOAM</td>
+<td>OEM North America</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMCA</td>
+<td>Canada</td>
+<td>RU1OEMNOAM</td>
+</tr>
+<tr>
+<td>RU1OEMNOGL</td>
+<td>Global</td>
+<td>RU1OEMNOAM</td>
+</tr>
+<tr>
+<td>RU1OEMUA</td>
+<td>Ukraine</td>
+<td>RU1OEMNOAM</td>
+</tr>
+<tr>
+<td>RU1OEMUS</td>
+<td>USA (OEM)</td>
+<td>RU1OEMNOAM</td>
+</tr>
+<tr>
+<td>RU1OEMSEA</td>
+<td>OEM South East Asia</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1OEMBD</td>
+<td>Bangladesh</td>
+<td>RU1OEMSEA</td>
+</tr>
+<tr>
+<td>RU1OEMID</td>
+<td>Indonesia</td>
+<td>RU1OEMSEA</td>
+</tr>
+<tr>
+<td>RU1OEMMY</td>
+<td>Malaysia</td>
+<td>RU1OEMSEA</td>
+</tr>
+<tr>
+<td>RU1OEMSEGL</td>
+<td>Global</td>
+<td>RU1OEMSEA</td>
+</tr>
+<tr>
+<td>RU1OEMSG</td>
+<td>Singapore</td>
+<td>RU1OEMSEA</td>
+</tr>
+<tr>
+<td>RU1OEMTW</td>
+<td>Taiwan</td>
+<td>RU1OEMSEA</td>
+</tr>
+<tr>
+<td>RU1OEMU</td>
+<td>Australia</td>
+<td>RU1OEMSEA</td>
+</tr>
+<tr>
+<td>RU1OEMTR</td>
+<td>OEM Turkey</td>
+<td>RU1SROEM</td>
+</tr>
+<tr>
+<td>RU1SVREM</td>
+<td>Service Region Emerging Markets</td>
+<td>RU1SAL</td>
+</tr>
+<tr>
+<td>RU1SVCN</td>
+<td>Service Area China</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVEUAS</td>
+<td>Service Area Eurasia</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVAZ</td>
+<td>Azerbaijan</td>
+<td>RU1SVEUAS</td>
+</tr>
+<tr>
+<td>RU1SVBY</td>
+<td>Belarus</td>
+<td>RU1SVEUAS</td>
+</tr>
+<tr>
+<td>RU1SVEURGL</td>
+<td>Global</td>
+<td>RU1SVEUAS</td>
+</tr>
+<tr>
+<td>RU1SVGE</td>
+<td>Georgia</td>
+<td>RU1SVEUAS</td>
+</tr>
+<tr>
+<td>RU1SVIL</td>
+<td>Israel</td>
+<td>RU1SVEUAS</td>
+</tr>
+<tr>
+<td>RU1SVKZ</td>
+<td>Kazakhstan</td>
+<td>RU1SVEUAS</td>
+</tr>
+<tr>
+<td>RU1SVRU</td>
+<td>Russian Fed.</td>
+<td>RU1SVEUAS</td>
+</tr>
+<tr>
+<td>RU1SVUZ</td>
+<td>Uzbekistan</td>
+<td>RU1SVEUAS</td>
+</tr>
+<tr>
+<td>RU1SVIND</td>
+<td>Service Area India</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVKR</td>
+<td>Service Area Korea</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVLA</td>
+<td>Service Area Latin America</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVAR</td>
+<td>Argentina</td>
+<td>RU1SVLA</td>
+</tr>
+<tr>
+<td>RU1SVBR</td>
+<td>Brazil</td>
+<td>RU1SVLA</td>
+</tr>
+<tr>
+<td>RU1SVCL</td>
+<td>Chile</td>
+<td>RU1SVLA</td>
+</tr>
+<tr>
+<td>RU1SVLAGL</td>
+<td>Global</td>
+<td>RU1SVLA</td>
+</tr>
+<tr>
+<td>RU1SVMX</td>
+<td>Mexico</td>
+<td>RU1SVLA</td>
+</tr>
+<tr>
+<td>RU1SVUS</td>
+<td>USA</td>
+<td>RU1SVLA</td>
+</tr>
+<tr>
+<td>RU1SVMENA</td>
+<td>Service Area MENA</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVAE</td>
+<td>Utd. Arab Emirates</td>
+<td>RU1SVMENA</td>
+</tr>
+<tr>
+<td>RU1SVDZ</td>
+<td>Algeria</td>
+<td>RU1SVMENA</td>
+</tr>
+<tr>
+<td>RU1SVEG</td>
+<td>Egypt</td>
+<td>RU1SVMENA</td>
+</tr>
+<tr>
+<td>RU1SVLB</td>
+<td>Lebanon</td>
+<td>RU1SVMENA</td>
+</tr>
+<tr>
+<td>RU1SVMA</td>
+<td>Morocco</td>
+<td>RU1SVMENA</td>
+</tr>
+<tr>
+<td>RU1SVMEGL</td>
+<td>Global</td>
+<td>RU1SVMENA</td>
+</tr>
+<tr>
+<td>RU1SVTN</td>
+<td>Tunisia</td>
+<td>RU1SVMENA</td>
+</tr>
+<tr>
+<td>RU1SVMSA</td>
+<td>Service Area MSA</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVCM</td>
+<td>Cameroon</td>
+<td>RU1SVMSA</td>
+</tr>
+<tr>
+<td>RU1SVGH</td>
+<td>Ghana</td>
+<td>RU1SVMSA</td>
+</tr>
+<tr>
+<td>RU1SVIC</td>
+<td>Ivory Coast</td>
+<td>RU1SVMSA</td>
+</tr>
+<tr>
+<td>RU1SVKE</td>
+<td>Kenya</td>
+<td>RU1SVMSA</td>
+</tr>
+<tr>
+<td>RU1SVMSAGL</td>
+<td>Global</td>
+<td>RU1SVMSA</td>
+</tr>
+<tr>
+<td>RU1SVNE</td>
+<td>Nigeria</td>
+<td>RU1SVMSA</td>
+</tr>
+<tr>
+<td>RU1SVZA</td>
+<td>South Africa</td>
+<td>RU1SVMSA</td>
+</tr>
+<tr>
+<td>RU1SVNOAM</td>
+<td>Service Area North America</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVCA</td>
+<td>Canada</td>
+<td>RU1SVNOAM</td>
+</tr>
+<tr>
+<td>RU1SVNOGL</td>
+<td>Global</td>
+<td>RU1SVNOAM</td>
+</tr>
+<tr>
+<td>RU1SVTR</td>
+<td>Service Area Turkey</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVSEA</td>
+<td>Service Area South East Asia</td>
+<td>RU1SVREM</td>
+</tr>
+<tr>
+<td>RU1SVBD</td>
+<td>Bangladesh</td>
+<td>RU1SVSEA</td>
+</tr>
+<tr>
+<td>RU1SVID</td>
+<td>Indonesia</td>
+<td>RU1SVSEA</td>
+</tr>
+<tr>
+<td>RU1SVMY</td>
+<td>Malaysia</td>
+<td>RU1SVSEA</td>
+</tr>
+<tr>
+<td>RU1SVSEGL</td>
+<td>Global</td>
+<td>RU1SVSEA</td>
+</tr>
+<tr>
+<td>RU1SVSG</td>
+<td>Singapore</td>
+<td>RU1SVSEA</td>
+</tr>
+<tr>
+<td>RU1SVTW</td>
+<td>Taiwan</td>
+<td>RU1SVSEA</td>
+</tr>
+<tr>
+<td>RU1SVU</td>
+<td>Australia</td>
+<td>RU1SVSEA</td>
+</tr>
+<tr>
+<td>RU1SVVN</td>
+<td>Vietnam</td>
+<td>RU1SVSEA</td>
+</tr>
+<tr>
+<td>RU1SVRMM</td>
+<td>Service Region Mature Markets</td>
+<td>RU1SAL</td>
+</tr>
+<tr>
+<td>RU1SBLF</td>
+<td>Service Local Functions</td>
+<td>RU1SVRMM</td>
+</tr>
+<tr>
+<td>RU1SVDACH</td>
+<td>Service Area DACH</td>
+<td>RU1SVRMM</td>
+</tr>
+<tr>
+<td>RU1SVAT</td>
+<td>Austria</td>
+<td>RU1SVDACH</td>
+</tr>
+<tr>
+<td>RU1SVCH</td>
+<td>Switzerland</td>
+<td>RU1SVDACH</td>
+</tr>
+<tr>
+<td>RU1SVGER</td>
+<td>Germany</td>
+<td>RU1SVDACH</td>
+</tr>
+<tr>
+<td>RU1SVLI</td>
+<td>Liechtenstein</td>
+<td>RU1SVDACH</td>
+</tr>
+<tr>
+<td>RU1OEMVN</td>
+<td>Vietnam (OEM)</td>
+<td>RU1SVDACH</td>
+</tr>
+<tr>
+<td>RU1SVEUEA</td>
+<td>Service Area EU East</td>
+<td>RU1SVRMM</td>
+</tr>
+<tr>
+<td>RU1SVBG</td>
+<td>Bulgaria</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVCR</td>
+<td>Croatia</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVCZ</td>
+<td>Czech Republic</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVEUGL</td>
+<td>Global</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVHU</td>
+<td>Hungary</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVPL</td>
+<td>Poland</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVRO</td>
+<td>Romania</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVRS</td>
+<td>Serbia/Monten.</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVSI</td>
+<td>Slovenia</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVSK</td>
+<td>Slovakia</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVUA</td>
+<td>Ukraine</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVUK</td>
+<td>United Kingdom</td>
+<td>RU1SVEUEA</td>
+</tr>
+<tr>
+<td>RU1SVEUNO</td>
+<td>Service Area EU North</td>
+<td>RU1SVRMM</td>
+</tr>
+<tr>
+<td>RU1SVBE</td>
+<td>Belgium</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVDK</td>
+<td>Denmark</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVES</td>
+<td>Spain</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVEUNGL</td>
+<td>Global</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVFI</td>
+<td>Finland</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVIE</td>
+<td>Ireland</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVLT</td>
+<td>Lithuania</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVLV</td>
+<td>Latvia</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVNL</td>
+<td>Netherlands</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVNO</td>
+<td>Norway</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVSE</td>
+<td>Sweden</td>
+<td>RU1SVEUNO</td>
+</tr>
+<tr>
+<td>RU1SVEUSW</td>
+<td>Service Area EU South West</td>
+<td>RU1SVRMM</td>
+</tr>
+<tr>
+<td>RU1SVCY</td>
+<td>Cyprus</td>
+<td>RU1SVEUSW</td>
+</tr>
+<tr>
+<td>RU1SVDAGL</td>
+<td>Global</td>
+<td>RU1SVEUSW</td>
+</tr>
+<tr>
+<td>RU1SVEUSGL</td>
+<td>Global</td>
+<td>RU1SVEUSW</td>
+</tr>
+<tr>
+<td>RU1SVFR</td>
+<td>France</td>
+<td>RU1SVEUSW</td>
+</tr>
+<tr>
+<td>RU1SVGP</td>
+<td>Guadeloupe</td>
+<td>RU1SVEUSW</td>
+</tr>
+<tr>
+<td>RU1SVGR</td>
+<td>Greece</td>
+<td>RU1SVEUSW</td>
+</tr>
+<tr>
+<td>RU1SVIT</td>
+<td>Italy</td>
+<td>RU1SVEUSW</td>
+</tr>
+<tr>
+<td>RU1SVPT</td>
+<td>Portugal</td>
+<td>RU1SVEUSW</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.instant", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js"></script>
+      
+        <script src="../../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js"></script>
+      
+        <script src="../../js/init_graphviz.js"></script>
+      
+    
+  </body>
+</html>
