@@ -46,10 +46,10 @@ not_in_nav: |
 nav:
   - Главная: index.md
   - Обзор:
-      - О системе: 00_overview/README.md
-      - Архитектура: ARCHITECTURE_SUMMARY.md
-      - Схема БД: DB_SCHEMA.md
-      - ERD-граф: ERD.md
+      - Что такое Wilo-ERP: 00_overview/README.md
+      - О компании Wilo Rus: 00_overview/company.md
+      - Контроллинг в Wilo Rus: 00_overview/controlling.md
+      - Производимая продукция: 00_overview/production.md
   - Учёт и калькуляция:
       - Принципы учёта: 20_process/ACCOUNTING_PRINCIPLES.md
       - Структура себестоимости:
@@ -83,3 +83,7 @@ nav:
           - 4. 52 Channel - продажи сервиса: 40_runbooks/57_service_business/05_52_channel.md
           - 5. KSB1 - затраты сервисных центров: 40_runbooks/57_service_business/06_ksb1_costs.md
           - 6. Финальный лист и отправка: 40_runbooks/57_service_business/07_final.md
+  - Техническая документация:
+      - Архитектура системы: ARCHITECTURE_SUMMARY.md
+      - Схема базы данных: DB_SCHEMA.md
+      - ERD-диаграмма: ERD.md
