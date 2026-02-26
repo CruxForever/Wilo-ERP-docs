@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(py --version)",
+      "Bash(python3 -c \"print\\(''hello''\\)\")",
+      "Bash(py -3 -c \"print\\(''hello''\\)\")",
+      "Bash(py -3 -c \":*)",
+      "Bash(echo EXIT_CODE:$?)"
+    ]
+  }
+}

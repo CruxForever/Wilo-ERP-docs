@@ -844,7 +844,16 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Верхний уровень
+      Как читать коды
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sap-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Иерархия (SAP-формат)
     </span>
   </a>
   
@@ -853,7 +862,16 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Как обновить
+      Все коды — плоская таблица
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sap-gl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Счета SAP GL (листовые виды затрат)
     </span>
   </a>
   
@@ -1604,7 +1622,16 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      Верхний уровень
+      Как читать коды
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sap-" class="md-nav__link">
+    <span class="md-ellipsis">
+      Иерархия (SAP-формат)
     </span>
   </a>
   
@@ -1613,7 +1640,16 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Как обновить
+      Все коды — плоская таблица
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sap-gl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Счета SAP GL (листовые виды затрат)
     </span>
   </a>
   
@@ -1635,18 +1671,4412 @@
 
 
 
-<h1 id="_1">Иерархия элементов затрат<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>Сгенерировано 2025-11-13 09:16 из <code>costcalc.db</code></p>
-</blockquote>
-<h2 id="_2">Верхний уровень<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="level_00/MFC_PRIM/">MFC_PRIM - MFC - Total primary costs</a></li>
-</ul>
-<h2 id="_3">Как обновить<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>tools/gen_elem_docs.py
+<h1 id="_1">Структура видов затрат<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Вид затрат (ВЗ) — аналитическая единица, по которой классифицируются расходы.
+В Wilo-ERP используется трёхуровневая группировка, отражающая структуру SAP CO.</p>
+<hr />
+<h2 id="_2">Как читать коды<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Коды имеют формат <code>CO-XXX.ASS</code>. Суффикс <code>.ASS</code> означает принадлежность к основной иерархии затрат.
+Группы верхнего уровня называются <code>MFC_PRIM_N</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Группа</th>
+<th>Что сюда входит</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MFC_PRIM_1</code></td>
+<td>Затраты на персонал: зарплата, соцвзносы, пенсионные</td>
+</tr>
+<tr>
+<td><code>MFC_PRIM_2</code></td>
+<td>Прочие операционные затраты: обслуживание, страховки, аренда, командировки, реклама и др.</td>
+</tr>
+<tr>
+<td><code>MFC_PRIM_3</code></td>
+<td>Амортизация: основная, исключительная, дополнительная</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sap-">Иерархия (SAP-формат)<a class="headerlink" href="#sap-" title="Permanent link">&para;</a></h2>
+<p>Для поиска используйте <strong>Ctrl+F</strong>. В скобках — номер SAP счёта.</p>
+<div class="highlight"><pre><span></span><code>MFC_PRIM                                 Total primary costs
+  MFC_PRIM_1                             Total primary personnel costs
+    CO-PERS.ASS                          Personnel expenses
+      CO-PAYR.ASS         [30630000]     Payroll
+      CO-RED.ASS          [30630100]     Staff redundancy payments
+      CO-SOC.ASS          [30630200]     Social security contributions
+      CO-PEN.ASS          [30630300]     Pension Plan expenses
+      CO-VAR.ASS          [30630400]     Royalty / Variable Payments
+    CO-EXPERS.ASS         [30840190]     Employees temp. contracts
+  MFC_PRIM_2                             Total primary other costs
+    CO-MAIN.ASS           [30840000]     Maintenance
+    CO-INSU.ASS           [30840010]     Insurance
+    CO-OPERS.ASS          [30840020]     Other personnel expenses
+    CO-EDU.ASS            [30840025]     Education costs
+    CO-RENT.ASS           [30840030]     Rents / Leasing
+    CO-TRENT.ASS          [30840040]     Travelling and Entertainment
+      CO-TRAV.ASS         [30840040]     Travelling
+      CO-ENT.ASS          [30840040]     Entertainment
+    CO-COM.ASS            [30840050]     Communication
+    CO-CONS.ASS           [30840060]     Legal, consultancy, audit
+    CO-EXSER.ASS          [30840065]     External services
+    CO-OTCO.ASS                          Other costs
+      CO-OT.ASS           [30840070]     Sundry other expenses
+      CO-OFF.ASS          [30840071]     Office supplies
+      CO-TAX.ASS          [30840072]     Other Fees
+      CO-CONEN.ASS        [30840073]     Cost of operating supplies
+      CO-ENERGY.ASS       [30840075]     Energy costs
+      CO-MPDEV.ASS        [30840076]     Material product development
+      CO-SMTOOL.ASS       [30840077]     Small tools
+    CO-EXPREV.ASS         [30840080]     Exp. prev. years not cov. by prov.
+    CO-INCPROV.ASS        [30840090]     Income reversal of other provisions
+    CO-WAR.ASS            [30840100]     Installation costs warranty
+      CO-WARA.ASS         [30840100]     Warranty assessment
+      CO-WARC.ASS         [30840100]     Warranty contracting firms
+      CO-WARNC.ASS        [30840100]     Warranty non-contracting firms
+    CO-ADDWAR.ASS         [30840110]     Addition to provision warranty
+    CO-ADV.ASS            [30840150]     Advertising
+    CO-FR.ASS             [30840160]     Freights
+    CO-PROV.ASS           [30840170]     Provisions / Commissions
+    CO-BANK.ASS           [30840180]     Bank Charges
+    CO-INCH.ASS                          Internal charges
+      CO-INTCHIT.ASS      [30840310]     Internal charges IT
+    CO-ALLOC.ASS          [30840320]     Internal Charges
+    CO-ALLPR.ASS          [30840330]     Internal Charges Projects
+    CO-REVWAR.ASS         [30430210]     Income reversal provision warranty
+    CO-INCOTLI.ASS        [30430630]     Income reversal other Liability
+    CO-INCTHIR.ASS        [30430640]     Income reinv. costs third party
+    CO-CAPSER.ASS         [30430790]     Capitalized Services
+    CO-DEPRREC.ASS                       Depreciation on receivables
+      CO-INCGENA.ASS      [30430110]     Inc. expected credit loss IFRS9
+      CO-INCPD.ASS        [30430120]     Inc. prov. exp. product dispute
+      CO-INCBADA.ASS      [30430160]     Inc. release spec. bad-debt allow.
+      CO-LOSSREC.ASS      [30830710]     Loss of receivables
+      CO-BADDEPT.ASS      [30830720]     Alloc. to spec. bad-debt allow.
+      CO-GENALLO.ASS      [30830730]     All. expected credit loss IFRS9
+      CO-EXPPD.ASS        [30830740]     Prov. expected product dispute
+    CO-RESIC.ASS                         Income and expense Intercompany
+      CO-EXPIC.ASS                       Expense services purchased IC
+        CO-RENTIC.ASS     [30840120]     Rents / leasing intercompany
+        CO-MAN.ASS        [30840130]     Management Fees
+        CO-SERVIC.ASS     [30840140]     Other services purch. intercompany
+        CO-ITIC.ASS       [30840650]     IT costs Intercompany
+        CO-PEIC.ASS       [30840660]     Personnel expense Intercompany
+        CO-MAIC.ASS       [30840670]     Marketing expenses Intercompany
+      CO-INCIC.ASS                       Income invoicing costs IC
+        CO-OINCIC.ASS     [30430600]     Income other services purch. IC
+        CO-REINCIC.ASS    [30430610]     Rental income intercompany
+        CO-INCMAN.ASS     [30430620]     Income from Management fees
+        CO-INCICIT.ASS    [30430650]     Inc. IT costs Intercompany
+        CO-INCICPE.ASS    [30430660]     Inc. personnel expense Interco.
+        CO-INCICMA.ASS    [30430670]     Inc. Marketing expense Interco.
+  MFC_PRIM_3                             Total primary depreciations
+    CO-DEPR.ASS           [30740000]     Depreciation IAS
+      CO-DEPRACT.ASS                     Depreciation actual
+      CO-DEPRADD.ASS                     Depreciation additional
+      CO-DEPREXC.ASS      [30740100]     Exceptional depreciation IAS
 </code></pre></div>
-<p>Данные берутся из таблиц <code>elem_nodes</code> и <code>elem_edges</code>. Листовые элементы отображаются прямо в карточке родительской группы.</p>
+<hr />
+<h2 id="_3">Все коды — плоская таблица<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Используйте <strong>Ctrl+F</strong> для поиска по коду, названию или номеру SAP.</p>
+<table>
+<thead>
+<tr>
+<th>Код</th>
+<th>SAP №</th>
+<th>Название</th>
+<th>Группа</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MFC_PRIM</td>
+<td>—</td>
+<td>Total primary costs</td>
+<td>—</td>
+</tr>
+<tr>
+<td>MFC_PRIM_1</td>
+<td>—</td>
+<td>Total primary personnel costs</td>
+<td>MFC_PRIM</td>
+</tr>
+<tr>
+<td>CO-PERS.ASS</td>
+<td>—</td>
+<td>Personnel expenses</td>
+<td>MFC_PRIM_1</td>
+</tr>
+<tr>
+<td>CO-PAYR.ASS</td>
+<td>30630000</td>
+<td>Payroll</td>
+<td>CO-PERS.ASS</td>
+</tr>
+<tr>
+<td>CO-RED.ASS</td>
+<td>30630100</td>
+<td>Staff redundancy payments</td>
+<td>CO-PERS.ASS</td>
+</tr>
+<tr>
+<td>CO-SOC.ASS</td>
+<td>30630200</td>
+<td>Social security contributions</td>
+<td>CO-PERS.ASS</td>
+</tr>
+<tr>
+<td>CO-PEN.ASS</td>
+<td>30630300</td>
+<td>Pension Plan expenses</td>
+<td>CO-PERS.ASS</td>
+</tr>
+<tr>
+<td>CO-VAR.ASS</td>
+<td>30630400</td>
+<td>Royalty / Variable Payments</td>
+<td>CO-PERS.ASS</td>
+</tr>
+<tr>
+<td>CO-EXPERS.ASS</td>
+<td>30840190</td>
+<td>Employees temp. contracts</td>
+<td>MFC_PRIM_1</td>
+</tr>
+<tr>
+<td>MFC_PRIM_2</td>
+<td>—</td>
+<td>Total primary other costs</td>
+<td>MFC_PRIM</td>
+</tr>
+<tr>
+<td>CO-MAIN.ASS</td>
+<td>30840000</td>
+<td>Maintenance</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-INSU.ASS</td>
+<td>30840010</td>
+<td>Insurance</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-OPERS.ASS</td>
+<td>30840020</td>
+<td>Other personnel expenses</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-EDU.ASS</td>
+<td>30840025</td>
+<td>Education costs</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-RENT.ASS</td>
+<td>30840030</td>
+<td>Rents / Leasing</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-TRENT.ASS</td>
+<td>30840040</td>
+<td>Travelling and Entertainment</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-TRAV.ASS</td>
+<td>30840040</td>
+<td>Travelling</td>
+<td>CO-TRENT.ASS</td>
+</tr>
+<tr>
+<td>CO-ENT.ASS</td>
+<td>30840040</td>
+<td>Entertainment</td>
+<td>CO-TRENT.ASS</td>
+</tr>
+<tr>
+<td>CO-COM.ASS</td>
+<td>30840050</td>
+<td>Communication</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-CONS.ASS</td>
+<td>30840060</td>
+<td>Legal, consultancy, audit</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-EXSER.ASS</td>
+<td>30840065</td>
+<td>External services</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-OTCO.ASS</td>
+<td>—</td>
+<td>Other costs</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-OT.ASS</td>
+<td>30840070</td>
+<td>Sundry other expenses</td>
+<td>CO-OTCO.ASS</td>
+</tr>
+<tr>
+<td>CO-OFF.ASS</td>
+<td>30840071</td>
+<td>Office supplies</td>
+<td>CO-OTCO.ASS</td>
+</tr>
+<tr>
+<td>CO-TAX.ASS</td>
+<td>30840072</td>
+<td>Other Fees</td>
+<td>CO-OTCO.ASS</td>
+</tr>
+<tr>
+<td>CO-CONEN.ASS</td>
+<td>30840073</td>
+<td>Cost of operating supplies</td>
+<td>CO-OTCO.ASS</td>
+</tr>
+<tr>
+<td>CO-ENERGY.ASS</td>
+<td>30840075</td>
+<td>Energy costs</td>
+<td>CO-OTCO.ASS</td>
+</tr>
+<tr>
+<td>CO-MPDEV.ASS</td>
+<td>30840076</td>
+<td>Material product development</td>
+<td>CO-OTCO.ASS</td>
+</tr>
+<tr>
+<td>CO-SMTOOL.ASS</td>
+<td>30840077</td>
+<td>Small tools</td>
+<td>CO-OTCO.ASS</td>
+</tr>
+<tr>
+<td>CO-EXPREV.ASS</td>
+<td>30840080</td>
+<td>Exp. prev. years not cov. by prov.</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-INCPROV.ASS</td>
+<td>30840090</td>
+<td>Income reversal of other provisions</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-WAR.ASS</td>
+<td>30840100</td>
+<td>Installation costs warranty</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-WARA.ASS</td>
+<td>30840100</td>
+<td>Warranty assessment</td>
+<td>CO-WAR.ASS</td>
+</tr>
+<tr>
+<td>CO-WARC.ASS</td>
+<td>30840100</td>
+<td>Warranty contracting firms</td>
+<td>CO-WAR.ASS</td>
+</tr>
+<tr>
+<td>CO-WARNC.ASS</td>
+<td>30840100</td>
+<td>Warranty non-contracting firms</td>
+<td>CO-WAR.ASS</td>
+</tr>
+<tr>
+<td>CO-ADDWAR.ASS</td>
+<td>30840110</td>
+<td>Addition to provision warranty</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-ADV.ASS</td>
+<td>30840150</td>
+<td>Advertising</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-FR.ASS</td>
+<td>30840160</td>
+<td>Freights</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-PROV.ASS</td>
+<td>30840170</td>
+<td>Provisions / Commissions</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-BANK.ASS</td>
+<td>30840180</td>
+<td>Bank Charges</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-INCH.ASS</td>
+<td>—</td>
+<td>Internal charges</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-INTCHIT.ASS</td>
+<td>30840310</td>
+<td>Internal charges IT</td>
+<td>CO-INCH.ASS</td>
+</tr>
+<tr>
+<td>CO-ALLOC.ASS</td>
+<td>30840320</td>
+<td>Internal Charges</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-ALLPR.ASS</td>
+<td>30840330</td>
+<td>Internal Charges Projects</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-REVWAR.ASS</td>
+<td>30430210</td>
+<td>Income reversal provision warranty</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-INCOTLI.ASS</td>
+<td>30430630</td>
+<td>Income reversal other Liability</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-INCTHIR.ASS</td>
+<td>30430640</td>
+<td>Income reinv. costs third party</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-CAPSER.ASS</td>
+<td>30430790</td>
+<td>Capitalized Services</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-DEPRREC.ASS</td>
+<td>—</td>
+<td>Depreciation on receivables</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-INCGENA.ASS</td>
+<td>30430110</td>
+<td>Inc. expected credit loss IFRS9</td>
+<td>CO-DEPRREC.ASS</td>
+</tr>
+<tr>
+<td>CO-INCPD.ASS</td>
+<td>30430120</td>
+<td>Inc. prov. exp. product dispute</td>
+<td>CO-DEPRREC.ASS</td>
+</tr>
+<tr>
+<td>CO-INCBADA.ASS</td>
+<td>30430160</td>
+<td>Inc. release spec. bad-debt allow.</td>
+<td>CO-DEPRREC.ASS</td>
+</tr>
+<tr>
+<td>CO-LOSSREC.ASS</td>
+<td>30830710</td>
+<td>Loss of receivables</td>
+<td>CO-DEPRREC.ASS</td>
+</tr>
+<tr>
+<td>CO-BADDEPT.ASS</td>
+<td>30830720</td>
+<td>Alloc. to spec. bad-debt allow.</td>
+<td>CO-DEPRREC.ASS</td>
+</tr>
+<tr>
+<td>CO-GENALLO.ASS</td>
+<td>30830730</td>
+<td>All. expected credit loss IFRS9</td>
+<td>CO-DEPRREC.ASS</td>
+</tr>
+<tr>
+<td>CO-EXPPD.ASS</td>
+<td>30830740</td>
+<td>Prov. expected product dispute</td>
+<td>CO-DEPRREC.ASS</td>
+</tr>
+<tr>
+<td>CO-RESIC.ASS</td>
+<td>—</td>
+<td>Income and expense Intercompany</td>
+<td>MFC_PRIM_2</td>
+</tr>
+<tr>
+<td>CO-EXPIC.ASS</td>
+<td>—</td>
+<td>Expense services purchased IC</td>
+<td>CO-RESIC.ASS</td>
+</tr>
+<tr>
+<td>CO-RENTIC.ASS</td>
+<td>30840120</td>
+<td>Rents / leasing intercompany</td>
+<td>CO-EXPIC.ASS</td>
+</tr>
+<tr>
+<td>CO-MAN.ASS</td>
+<td>30840130</td>
+<td>Management Fees</td>
+<td>CO-EXPIC.ASS</td>
+</tr>
+<tr>
+<td>CO-SERVIC.ASS</td>
+<td>30840140</td>
+<td>Other services purch. intercompany</td>
+<td>CO-EXPIC.ASS</td>
+</tr>
+<tr>
+<td>CO-ITIC.ASS</td>
+<td>30840650</td>
+<td>IT costs Intercompany</td>
+<td>CO-EXPIC.ASS</td>
+</tr>
+<tr>
+<td>CO-PEIC.ASS</td>
+<td>30840660</td>
+<td>Personnel expense Intercompany</td>
+<td>CO-EXPIC.ASS</td>
+</tr>
+<tr>
+<td>CO-MAIC.ASS</td>
+<td>30840670</td>
+<td>Marketing expenses Intercompany</td>
+<td>CO-EXPIC.ASS</td>
+</tr>
+<tr>
+<td>CO-INCIC.ASS</td>
+<td>—</td>
+<td>Income invoicing costs IC</td>
+<td>CO-RESIC.ASS</td>
+</tr>
+<tr>
+<td>CO-OINCIC.ASS</td>
+<td>30430600</td>
+<td>Income other services purch. IC</td>
+<td>CO-INCIC.ASS</td>
+</tr>
+<tr>
+<td>CO-REINCIC.ASS</td>
+<td>30430610</td>
+<td>Rental income intercompany</td>
+<td>CO-INCIC.ASS</td>
+</tr>
+<tr>
+<td>CO-INCMAN.ASS</td>
+<td>30430620</td>
+<td>Income from Management fees</td>
+<td>CO-INCIC.ASS</td>
+</tr>
+<tr>
+<td>CO-INCICIT.ASS</td>
+<td>30430650</td>
+<td>Inc. IT costs Intercompany</td>
+<td>CO-INCIC.ASS</td>
+</tr>
+<tr>
+<td>CO-INCICPE.ASS</td>
+<td>30430660</td>
+<td>Inc. personnel expense Interco.</td>
+<td>CO-INCIC.ASS</td>
+</tr>
+<tr>
+<td>CO-INCICMA.ASS</td>
+<td>30430670</td>
+<td>Inc. Marketing expense Interco.</td>
+<td>CO-INCIC.ASS</td>
+</tr>
+<tr>
+<td>MFC_PRIM_3</td>
+<td>—</td>
+<td>Total primary depreciations</td>
+<td>MFC_PRIM</td>
+</tr>
+<tr>
+<td>CO-DEPR.ASS</td>
+<td>30740000</td>
+<td>Depreciation IAS</td>
+<td>MFC_PRIM_3</td>
+</tr>
+<tr>
+<td>CO-DEPRACT.ASS</td>
+<td>—</td>
+<td>Depreciation actual</td>
+<td>CO-DEPR.ASS</td>
+</tr>
+<tr>
+<td>CO-DEPRADD.ASS</td>
+<td>—</td>
+<td>Depreciation additional</td>
+<td>CO-DEPR.ASS</td>
+</tr>
+<tr>
+<td>CO-DEPREXC.ASS</td>
+<td>30740100</td>
+<td>Exceptional depreciation IAS</td>
+<td>CO-DEPR.ASS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sap-gl">Счета SAP GL (листовые виды затрат)<a class="headerlink" href="#sap-gl" title="Permanent link">&para;</a></h2>
+<p>Всего 754 счётов SAP GL, сгруппированных по 62 видам затрат.
+Разверните нужный раздел для просмотра списка счётов.</p>
+<details class="note">
+<summary>CO-ADDWAR.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1698300</td>
+<td>Addition to provision for warranties</td>
+</tr>
+<tr>
+<td>3698300</td>
+<td>Addition to provision for warranties</td>
+</tr>
+<tr>
+<td>3698309</td>
+<td>Plan Addition prov. warranty (CO-ADDWAR)</td>
+</tr>
+<tr>
+<td>3698395</td>
+<td>Add. to provision for warranties accr.</td>
+</tr>
+<tr>
+<td>3842445</td>
+<td>Allocation addition provision warranty</td>
+</tr>
+<tr>
+<td>3842446</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-ADV.ASS — 32 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1687000</td>
+<td>Advertising</td>
+</tr>
+<tr>
+<td>3639643</td>
+<td>non deductable expenses</td>
+</tr>
+<tr>
+<td>3664715</td>
+<td>Salmson printed matter promo</td>
+</tr>
+<tr>
+<td>3687000</td>
+<td>Insertions</td>
+</tr>
+<tr>
+<td>3687009</td>
+<td>Plan advertising</td>
+</tr>
+<tr>
+<td>3687100</td>
+<td>Lithographies, clichés, photos</td>
+</tr>
+<tr>
+<td>3687200</td>
+<td>Catalogues,brochures,printed papers</td>
+</tr>
+<tr>
+<td>3687300</td>
+<td>Advertising and exhibition material</td>
+</tr>
+<tr>
+<td>3687400</td>
+<td>Addition.cost for advertising and exhib.</td>
+</tr>
+<tr>
+<td>3687500</td>
+<td>Advertising gifts</td>
+</tr>
+<tr>
+<td>3687501</td>
+<td>Advertising gifts &lt; 10 EUR</td>
+</tr>
+<tr>
+<td>3687600</td>
+<td>Advertising consulting cost</td>
+</tr>
+<tr>
+<td>3687610</td>
+<td>Media oper. fee,network promotion fee</td>
+</tr>
+<tr>
+<td>3687700</td>
+<td>Advertising cost/Public relations</td>
+</tr>
+<tr>
+<td>3687800</td>
+<td>Sponsoring</td>
+</tr>
+<tr>
+<td>3687830</td>
+<td>Publications promotional grants</td>
+</tr>
+<tr>
+<td>3687890</td>
+<td>Advertising - Contribution</td>
+</tr>
+<tr>
+<td>3687995</td>
+<td>Promotion - Bid exp.</td>
+</tr>
+<tr>
+<td>3689000</td>
+<td>Contrib.for custom.&amp;adver.cost,house exh</td>
+</tr>
+<tr>
+<td>3689009</td>
+<td>Plan Sales Promotion (CO-ADV)</td>
+</tr>
+<tr>
+<td>3689010</td>
+<td>Sales Promotion</td>
+</tr>
+<tr>
+<td>3689095</td>
+<td>Advertising/sales promo-accrual mth-end</td>
+</tr>
+<tr>
+<td>3689100</td>
+<td>gifts below € 35,00</td>
+</tr>
+<tr>
+<td>3689101</td>
+<td>Gifts up to 8,40 € net (gross = 10 €)</td>
+</tr>
+<tr>
+<td>3689200</td>
+<td>Gifts over 35,00 €</td>
+</tr>
+<tr>
+<td>3689210</td>
+<td>Gifts to customers (60% tax)</td>
+</tr>
+<tr>
+<td>3689300</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3689400</td>
+<td>Speeches/Events/Trainings</td>
+</tr>
+<tr>
+<td>3689401</td>
+<td>Customer travels/Incentives</td>
+</tr>
+<tr>
+<td>3689500</td>
+<td>Cost for entertainment at customer event</td>
+</tr>
+<tr>
+<td>3842250</td>
+<td>Allocation advertising/promotion</td>
+</tr>
+<tr>
+<td>3842251</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-ALLOC.ASS — 13 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3842565</td>
+<td>Alloc. internal charge</td>
+</tr>
+<tr>
+<td>3842566</td>
+<td>Alloc. Internal charge plan</td>
+</tr>
+<tr>
+<td>3842570</td>
+<td>Alloc. Internal charge RTE</td>
+</tr>
+<tr>
+<td>3842800</td>
+<td>AS Plan Facility</td>
+</tr>
+<tr>
+<td>3842801</td>
+<td>AS Plan Maintenance</td>
+</tr>
+<tr>
+<td>3842802</td>
+<td>AS Plan Energy</td>
+</tr>
+<tr>
+<td>3842805</td>
+<td>AS Deviation Facility</td>
+</tr>
+<tr>
+<td>3842806</td>
+<td>AS Deviation Maintenance</td>
+</tr>
+<tr>
+<td>3842807</td>
+<td>AS Deviation Energy</td>
+</tr>
+<tr>
+<td>3842810</td>
+<td>AS Plan Central HR</td>
+</tr>
+<tr>
+<td>3842815</td>
+<td>AS Deviation Central HR</td>
+</tr>
+<tr>
+<td>3842816</td>
+<td>Internal charge total costs plan</td>
+</tr>
+<tr>
+<td>3842820</td>
+<td>Internal charge Labiratory</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-ALLPR.ASS — 40 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3843015</td>
+<td>Allocation Project Hours</td>
+</tr>
+<tr>
+<td>3843252</td>
+<td>Cost Allocation Application Sewage</td>
+</tr>
+<tr>
+<td>3843253</td>
+<td>Cost Allocation Standard Office</td>
+</tr>
+<tr>
+<td>3843254</td>
+<td>Cost Allocation Construction Electricity</td>
+</tr>
+<tr>
+<td>3843255</td>
+<td>Cost Allocation Test Workshop</td>
+</tr>
+<tr>
+<td>3843257</td>
+<td>Cost Allocation Application Mixer</td>
+</tr>
+<tr>
+<td>3843260</td>
+<td>Cost Allocation Design Big general</td>
+</tr>
+<tr>
+<td>3843262</td>
+<td>Cost Allocation Design Big Flow</td>
+</tr>
+<tr>
+<td>3843901</td>
+<td>Structure Borne Sound Acoustics</td>
+</tr>
+<tr>
+<td>3843902</td>
+<td>Acoustic Chamber</td>
+</tr>
+<tr>
+<td>3843903</td>
+<td>Acoustic Measuring Systems</td>
+</tr>
+<tr>
+<td>3843904</td>
+<td>Low Temperature Liquid</td>
+</tr>
+<tr>
+<td>3843905</td>
+<td>Mechanical Seal, Pressure Cycling Test</td>
+</tr>
+<tr>
+<td>3843906</td>
+<td>Test-Tube WILO Specimen</td>
+</tr>
+<tr>
+<td>3843907</td>
+<td>Pressure Burst and Holding</td>
+</tr>
+<tr>
+<td>3843908</td>
+<td>High Ambient Temperature</td>
+</tr>
+<tr>
+<td>3843909</td>
+<td>PDWT Particle-driven-wear</td>
+</tr>
+<tr>
+<td>3843910</td>
+<td>Bearing Qualification</td>
+</tr>
+<tr>
+<td>3843911</td>
+<td>TDWT</td>
+</tr>
+<tr>
+<td>3843912</td>
+<td>TCT EDAG</td>
+</tr>
+<tr>
+<td>3843913</td>
+<td>Dry Runner Endurance</td>
+</tr>
+<tr>
+<td>3843914</td>
+<td>TCT/TF/DVGW</td>
+</tr>
+<tr>
+<td>3843915</td>
+<td>Endurance MS45/65</td>
+</tr>
+<tr>
+<td>3843916</td>
+<td>Endurance MS25</td>
+</tr>
+<tr>
+<td>3843917</td>
+<td>Qualification-Test E&amp;M</td>
+</tr>
+<tr>
+<td>3843918</td>
+<td>EMC HF-Absorber Cabin</td>
+</tr>
+<tr>
+<td>3843919</td>
+<td>Hydraulic Measurement Small Pumps</td>
+</tr>
+<tr>
+<td>3843920</td>
+<td>Systems</td>
+</tr>
+<tr>
+<td>3843921</td>
+<td>Hydraulic Measurement Big Pumps</td>
+</tr>
+<tr>
+<td>3843922</td>
+<td>Brake (passive)</td>
+</tr>
+<tr>
+<td>3843923</td>
+<td>Motor Test Bench 45kw</td>
+</tr>
+<tr>
+<td>3843924</td>
+<td>Permanent Magnet Rotor Test</td>
+</tr>
+<tr>
+<td>3843925</td>
+<td>DzP Motor Test Bench</td>
+</tr>
+<tr>
+<td>3843926</td>
+<td>Climatic Chamber Thermodynamics</td>
+</tr>
+<tr>
+<td>3843927</td>
+<td>High Temperature Thermodynamics</td>
+</tr>
+<tr>
+<td>3843928</td>
+<td>CNC Milling Machine Low</td>
+</tr>
+<tr>
+<td>3843929</td>
+<td>CNC Milling Machine High (vc560)</td>
+</tr>
+<tr>
+<td>3843930</td>
+<td>CNC Lathing Machine</td>
+</tr>
+<tr>
+<td>3843931</td>
+<td>Additive Manufacturing 3D Printer</td>
+</tr>
+<tr>
+<td>3843939</td>
+<td>Internal charge Plan Research &amp; Techn.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-BADDEPT.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1650350</td>
+<td>Allowance to provision trade receivables</td>
+</tr>
+<tr>
+<td>3697400</td>
+<td>Allocation to value adjustment trade rec</td>
+</tr>
+<tr>
+<td>3842395</td>
+<td>Allocation specific bad debt allowance</td>
+</tr>
+<tr>
+<td>3842396</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-BANK.ASS — 9 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3639663</td>
+<td>Bank charges</td>
+</tr>
+<tr>
+<td>3639678</td>
+<td>bank charges on doc.remittance</td>
+</tr>
+<tr>
+<td>3639680</td>
+<td>Bank Commission on Security</td>
+</tr>
+<tr>
+<td>3673300</td>
+<td>Bank charges</td>
+</tr>
+<tr>
+<td>3673309</td>
+<td>Plan Bank charges (CO-BANK)</td>
+</tr>
+<tr>
+<td>3673320</td>
+<td>Bank Charges : Letter of credit</td>
+</tr>
+<tr>
+<td>3673500</td>
+<td>Bank charges abroad (paym.in+out)</td>
+</tr>
+<tr>
+<td>3842385</td>
+<td>Allocation bank charges</td>
+</tr>
+<tr>
+<td>3842386</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-CAPSER.ASS — 5 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1822200</td>
+<td>Capitalisation of development costs Proj</td>
+</tr>
+<tr>
+<td>3548200</td>
+<td>Capitalized service (CO-CAPSER)</td>
+</tr>
+<tr>
+<td>3822200</td>
+<td></td>
+</tr>
+<tr>
+<td>3842560</td>
+<td>Alloc. income Marketing Intercompany</td>
+</tr>
+<tr>
+<td>3842561</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-COM.ASS — 12 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1682195</td>
+<td>Communication cost accruals</td>
+</tr>
+<tr>
+<td>1682400</td>
+<td>Telephone fees D2 / mobile phone</td>
+</tr>
+<tr>
+<td>3682000</td>
+<td>Cost for postage</td>
+</tr>
+<tr>
+<td>3682009</td>
+<td>Plan communication (CO-COM)</td>
+</tr>
+<tr>
+<td>3682100</td>
+<td>Telephone/Telefax</td>
+</tr>
+<tr>
+<td>3682101</td>
+<td>Telephone/Fax/privat part</td>
+</tr>
+<tr>
+<td>3682102</td>
+<td>Telephone/Fax flat reimbursement</td>
+</tr>
+<tr>
+<td>3682195</td>
+<td>Communication cost accruals</td>
+</tr>
+<tr>
+<td>3682200</td>
+<td>Internet/Datex/ISDN</td>
+</tr>
+<tr>
+<td>3682400</td>
+<td>Telephone fees D2 / mobile phone</td>
+</tr>
+<tr>
+<td>3842295</td>
+<td>Allocation communication</td>
+</tr>
+<tr>
+<td>3842296</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-CONEN.ASS — 18 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1605000</td>
+<td>Fuels, oils for cars</td>
+</tr>
+<tr>
+<td>3602000</td>
+<td>Supplies product, oils, lubricating mat,</td>
+</tr>
+<tr>
+<td>3602009</td>
+<td>Plan supplies (CO-CONEN)</td>
+</tr>
+<tr>
+<td>3602095</td>
+<td>supplies / accrual month end</td>
+</tr>
+<tr>
+<td>3602400</td>
+<td>Withdrawal of material for cost centre</td>
+</tr>
+<tr>
+<td>3602401</td>
+<td>Output cost center for maintenance parts</td>
+</tr>
+<tr>
+<td>3602402</td>
+<td>Outputs cost center - manufact. supples</td>
+</tr>
+<tr>
+<td>3604100</td>
+<td>Wrapping material not product specific</td>
+</tr>
+<tr>
+<td>3605000</td>
+<td>Fuels, oils for cars</td>
+</tr>
+<tr>
+<td>3605001</td>
+<td>FUEL overspend (non tax-deductable)</td>
+</tr>
+<tr>
+<td>3605009</td>
+<td>Plan Fuels</td>
+</tr>
+<tr>
+<td>3607912</td>
+<td>Common packaging</td>
+</tr>
+<tr>
+<td>3607914</td>
+<td>Manufacturing supplies</td>
+</tr>
+<tr>
+<td>3607930</td>
+<td>Gas</td>
+</tr>
+<tr>
+<td>3687940</td>
+<td>petrol expenses</td>
+</tr>
+<tr>
+<td>3687945</td>
+<td>Gasoil expenses</td>
+</tr>
+<tr>
+<td>3842320</td>
+<td>Allocation other operating supplies</td>
+</tr>
+<tr>
+<td>3842321</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-CONS.ASS — 10 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1677000</td>
+<td>Legal consulting fees (legal, tax, audit</td>
+</tr>
+<tr>
+<td>1677200</td>
+<td>Management consulting</td>
+</tr>
+<tr>
+<td>3639631</td>
+<td>Audit financial fees</td>
+</tr>
+<tr>
+<td>3677000</td>
+<td>Legal consulting fees (legal, tax, audit</td>
+</tr>
+<tr>
+<td>3677009</td>
+<td>Plan consulting fees (CO-CONS)</td>
+</tr>
+<tr>
+<td>3677100</td>
+<td>Auditors</td>
+</tr>
+<tr>
+<td>3677200</td>
+<td>Management consulting</td>
+</tr>
+<tr>
+<td>3677295</td>
+<td>Consulting fees / accrual month end</td>
+</tr>
+<tr>
+<td>3842305</td>
+<td>Allocation legal consultancy, audit</td>
+</tr>
+<tr>
+<td>3842306</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-DEPRACT.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1650000</td>
+<td>Depreciation intangible until 31.05.04</td>
+</tr>
+<tr>
+<td>1650320</td>
+<td>Depreciation intang. assets self-created</td>
+</tr>
+<tr>
+<td>1650400</td>
+<td>Depreciation on fixed assets (mth. acc.)</td>
+</tr>
+<tr>
+<td>1651000</td>
+<td>Depreciation intangible assets</td>
+</tr>
+<tr>
+<td>1653000</td>
+<td>Depreciation on Tangible Fixed Assets</td>
+</tr>
+<tr>
+<td>3842350</td>
+<td>Allocation depreciation IAS</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-DEPRADD.ASS — 2 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1651009</td>
+<td>Plan depreciaton IAS (CO-DEPR)</td>
+</tr>
+<tr>
+<td>3842351</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-DEPREXC.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1655000</td>
+<td>Except. depreciation on tang. fixed Ass.</td>
+</tr>
+<tr>
+<td>3655000</td>
+<td>Exc. depreciation on Tang.Fixed Assets</td>
+</tr>
+<tr>
+<td>3842490</td>
+<td>Alloc. Exceptional depreciation</td>
+</tr>
+<tr>
+<td>3842491</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-EDU.ASS — 10 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1664095</td>
+<td>Education and further education cost</td>
+</tr>
+<tr>
+<td>3664000</td>
+<td>Education and further education cost</td>
+</tr>
+<tr>
+<td>3664400</td>
+<td>Staff entertainment during education</td>
+</tr>
+<tr>
+<td>3664409</td>
+<td>Plan education cost (CO-EDU)</td>
+</tr>
+<tr>
+<td>3664500</td>
+<td>Travelling cost staff at education(e.g.o</td>
+</tr>
+<tr>
+<td>3664595</td>
+<td>Accruals education cost</td>
+</tr>
+<tr>
+<td>3709340</td>
+<td>Training external institution</td>
+</tr>
+<tr>
+<td>3842525</td>
+<td>Alloc. Eduaction</td>
+</tr>
+<tr>
+<td>3842526</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3843030</td>
+<td>Conference package training center Dortm</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-ENERGY.ASS — 8 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1695195</td>
+<td>energy cost / accrual month end</td>
+</tr>
+<tr>
+<td>3605100</td>
+<td>Energy costs (electricity, gas, water, h</td>
+</tr>
+<tr>
+<td>3605109</td>
+<td>Plan energy cost (CO-ENERGY)</td>
+</tr>
+<tr>
+<td>3605150</td>
+<td>Electric charging station</td>
+</tr>
+<tr>
+<td>3605195</td>
+<td>energy cost / accrual month end</td>
+</tr>
+<tr>
+<td>3605200</td>
+<td>Water / sewage</td>
+</tr>
+<tr>
+<td>3842575</td>
+<td>Allocation energy costs</td>
+</tr>
+<tr>
+<td>3842576</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-ENT.ASS — 10 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3685600</td>
+<td>Entertainment of business friend</td>
+</tr>
+<tr>
+<td>3685700</td>
+<td>Other entertainment cost</td>
+</tr>
+<tr>
+<td>3685710</td>
+<td>Entertainment cost not tax deduct. 30%</td>
+</tr>
+<tr>
+<td>3685800</td>
+<td>Cost for room rent meeting WILO/staff</td>
+</tr>
+<tr>
+<td>3842285</td>
+<td>Allocation entertainment</td>
+</tr>
+<tr>
+<td>3842286</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3843002</td>
+<td>Rent training center Dortmund</td>
+</tr>
+<tr>
+<td>3843003</td>
+<td>Catering costs training center Dortmund</td>
+</tr>
+<tr>
+<td>3843004</td>
+<td>Other services training center Dortmund</td>
+</tr>
+<tr>
+<td>3843005</td>
+<td>Conference package training center Dortm</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-EXPERS.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3610855</td>
+<td>Temporary staff direct</td>
+</tr>
+<tr>
+<td>3694100</td>
+<td>Employees on temporary loan</td>
+</tr>
+<tr>
+<td>3694109</td>
+<td>Plan Employees tempor. loan (CO-EXPERS)</td>
+</tr>
+<tr>
+<td>3694195</td>
+<td>Employees on temp. loan accrual mth. end</td>
+</tr>
+<tr>
+<td>3842505</td>
+<td>Alloc. employees on temporary loan</td>
+</tr>
+<tr>
+<td>3842506</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-EXPPD.ASS — 2 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1697500</td>
+<td>Plan Addit.prov.exp.prod.disp.(CO-EXPPD)</td>
+</tr>
+<tr>
+<td>3842590</td>
+<td>Assessement addition to provision IFRS9</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-EXPREV.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1698200</td>
+<td>Extra exp. on utilisation of provisions</td>
+</tr>
+<tr>
+<td>3698200</td>
+<td>Extra exp. on utilisation of provisions</td>
+</tr>
+<tr>
+<td>3842435</td>
+<td>Alloc. exp. prev. year not cov. by prov.</td>
+</tr>
+<tr>
+<td>3842436</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-EXSER.ASS — 22 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1694295</td>
+<td>Cleaning of buildings accrual</td>
+</tr>
+<tr>
+<td>1694895</td>
+<td>Diverse external services</td>
+</tr>
+<tr>
+<td>3601011</td>
+<td>Residual products-conversion</td>
+</tr>
+<tr>
+<td>3607830</td>
+<td>Subcontracting Manufacturing Tools</td>
+</tr>
+<tr>
+<td>3610300</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3610400</td>
+<td>Product-related extern.services</td>
+</tr>
+<tr>
+<td>3610450</td>
+<td>Start up costs products</td>
+</tr>
+<tr>
+<td>3610820</td>
+<td>Subcontracting - operating system</td>
+</tr>
+<tr>
+<td>3610840</td>
+<td>Eco-contribution</td>
+</tr>
+<tr>
+<td>3614900</td>
+<td>External storage cost</td>
+</tr>
+<tr>
+<td>3614909</td>
+<td>Plan extern.Storage cost</td>
+</tr>
+<tr>
+<td>3693520</td>
+<td>Honoraires Prestations Diverses</td>
+</tr>
+<tr>
+<td>3694009</td>
+<td>Plan other external services (CO-EXSER)</td>
+</tr>
+<tr>
+<td>3694200</td>
+<td>Cleaning of buildings</td>
+</tr>
+<tr>
+<td>3694210</td>
+<td>disposal cost</td>
+</tr>
+<tr>
+<td>3694500</td>
+<td>Exter.servic.for prod.develpm.construct.</td>
+</tr>
+<tr>
+<td>3694795</td>
+<td>Product-related extern.servic./accr.mth.</td>
+</tr>
+<tr>
+<td>3694800</td>
+<td>Diverse external services</td>
+</tr>
+<tr>
+<td>3694895</td>
+<td>External services/accrual mont end</td>
+</tr>
+<tr>
+<td>3694910</td>
+<td>Testing Charges</td>
+</tr>
+<tr>
+<td>3842310</td>
+<td>Allocation external services</td>
+</tr>
+<tr>
+<td>3842311</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-FR.ASS — 20 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1614930</td>
+<td>Sundry Transport</td>
+</tr>
+<tr>
+<td>3614009</td>
+<td>Plan Freights (CO-FR)</td>
+</tr>
+<tr>
+<td>3614095</td>
+<td>Freights accruals month end</td>
+</tr>
+<tr>
+<td>3614830</td>
+<td>Transport btw. Establishment/contruction</td>
+</tr>
+<tr>
+<td>3614930</td>
+<td>Sundry Transport</td>
+</tr>
+<tr>
+<td>3614931</td>
+<td>Sundry Transport production</td>
+</tr>
+<tr>
+<td>3614960</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3615135</td>
+<td>Parcel service domestic</td>
+</tr>
+<tr>
+<td>3615140</td>
+<td>Freights domestic</td>
+</tr>
+<tr>
+<td>3615141</td>
+<td>Freights export</td>
+</tr>
+<tr>
+<td>3615145</td>
+<td>Sea freight</td>
+</tr>
+<tr>
+<td>3615150</td>
+<td>Courier domestic</td>
+</tr>
+<tr>
+<td>3615155</td>
+<td>Air freight</td>
+</tr>
+<tr>
+<td>3615160</td>
+<td>Express domestic</td>
+</tr>
+<tr>
+<td>3615161</td>
+<td>Transportation Managm. freight differenc</td>
+</tr>
+<tr>
+<td>3615165</td>
+<td>Shuttle Service</td>
+</tr>
+<tr>
+<td>3615175</td>
+<td>Re-sending to deliverer</td>
+</tr>
+<tr>
+<td>3664714</td>
+<td>Transport problems</td>
+</tr>
+<tr>
+<td>3842270</td>
+<td>Allocation freights</td>
+</tr>
+<tr>
+<td>3842271</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-GENALLO.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1697031</td>
+<td>Addition to general allowance for doubtf</td>
+</tr>
+<tr>
+<td>1697400</td>
+<td>General allowance for doubtful Acc.</td>
+</tr>
+<tr>
+<td>3697031</td>
+<td>Addition to general allowance for doubtf</td>
+</tr>
+<tr>
+<td>3697409</td>
+<td>Plan Gen. allow. doubt. Acc.(CO-GENALLO)</td>
+</tr>
+<tr>
+<td>3842475</td>
+<td>Alloc. general allow. for doubtful acc.</td>
+</tr>
+<tr>
+<td>3842476</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCBADA.ASS — 5 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1545100</td>
+<td>Inc. specific allowance doubtful acc.</td>
+</tr>
+<tr>
+<td>1548106</td>
+<td>Rev. of provision debts receivable</td>
+</tr>
+<tr>
+<td>3548106</td>
+<td>Rev. of provision debts receivable</td>
+</tr>
+<tr>
+<td>3842485</td>
+<td>Alloc. Inc. specific bad debts</td>
+</tr>
+<tr>
+<td>3842486</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCGENA.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1545400</td>
+<td>Inc. general allowance doubtful acc.</td>
+</tr>
+<tr>
+<td>3545400</td>
+<td>Inc. general allowance doubtful acc.</td>
+</tr>
+<tr>
+<td>3842480</td>
+<td>Alloc. Inc. gen. allow. for doubtf. acc.</td>
+</tr>
+<tr>
+<td>3842481</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCICIT.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1540555</td>
+<td>Accrual Income intercompany from chargi</td>
+</tr>
+<tr>
+<td>3540550</td>
+<td>Income intercompany costs IT</td>
+</tr>
+<tr>
+<td>3540555</td>
+<td>Income IT Intercompany Accruals</td>
+</tr>
+<tr>
+<td>3540559</td>
+<td>Plan Inc. IT cost Interco. (CO-INCICIT)</td>
+</tr>
+<tr>
+<td>3842520</td>
+<td>Alloc. income IT costs Intercompany</td>
+</tr>
+<tr>
+<td>3842521</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCICMA.ASS — 5 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1540015</td>
+<td>Income IC Marketing</td>
+</tr>
+<tr>
+<td>3540010</td>
+<td>Income IC reinv. Marketing exp.</td>
+</tr>
+<tr>
+<td>3540019</td>
+<td>Plan Inc. Marketing exp. IC (CO-INCICMA)</td>
+</tr>
+<tr>
+<td>3842550</td>
+<td>Alloc. income Marketing Intercompany</td>
+</tr>
+<tr>
+<td>3842551</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCICPE.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1540565</td>
+<td>Accruals Income IC from charging personn</td>
+</tr>
+<tr>
+<td>3540560</td>
+<td>Income IC charging personnel expense</td>
+</tr>
+<tr>
+<td>3540565</td>
+<td>Income personnel expenses IC Accruals</td>
+</tr>
+<tr>
+<td>3540569</td>
+<td>Plan Inc. personnel exp. IC (CO-INCICPE)</td>
+</tr>
+<tr>
+<td>3842515</td>
+<td>Alloc. income personnel expense IC</td>
+</tr>
+<tr>
+<td>3842516</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCMAN.ASS — 5 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3540890</td>
+<td>Income IC management fees</td>
+</tr>
+<tr>
+<td>3540895</td>
+<td>Income IC management fee accrual</td>
+</tr>
+<tr>
+<td>3540899</td>
+<td>Plan Inc. Mgm. fees Interco. (CO-INCMAN)</td>
+</tr>
+<tr>
+<td>3842470</td>
+<td>Allocation income management fees</td>
+</tr>
+<tr>
+<td>3842471</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCOTLI.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1548100</td>
+<td>Income on the reversal other liabilities</td>
+</tr>
+<tr>
+<td>3548100</td>
+<td>Income on reversal of liabilities</td>
+</tr>
+<tr>
+<td>3842495</td>
+<td>Alloc. Income reversal other liabilities</td>
+</tr>
+<tr>
+<td>3842496</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCPD.ASS — 2 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1545450</td>
+<td>Income on release provision expected pro</td>
+</tr>
+<tr>
+<td>3842595</td>
+<td>Assessment reversal of provision IFRS9</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCPROV.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1548000</td>
+<td>Inc. on the reversal of other provisions</td>
+</tr>
+<tr>
+<td>1548108</td>
+<td>other reversals of provisions</td>
+</tr>
+<tr>
+<td>1548117</td>
+<td>Reversal.of prov.for extrord.liabil char</td>
+</tr>
+<tr>
+<td>3548000</td>
+<td>Income reversal of other provisions</td>
+</tr>
+<tr>
+<td>3842440</td>
+<td>Allocation Inc. reversal of provisions</td>
+</tr>
+<tr>
+<td>3842441</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INCTHIR.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3540909</td>
+<td>Plan Inc. reinv third party (CO-INCTHIR)</td>
+</tr>
+<tr>
+<td>3540972</td>
+<td>Income reinvoicing costs third party</td>
+</tr>
+<tr>
+<td>3540973</td>
+<td>Income from reinvoicing prod. expense</td>
+</tr>
+<tr>
+<td>3540975</td>
+<td>Acc. Income f. reinvoicing to thrd part.</td>
+</tr>
+<tr>
+<td>3842500</td>
+<td>Alloc. income services Intercompany</td>
+</tr>
+<tr>
+<td>3842501</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INSU.ASS — 13 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3687095</td>
+<td>Taxes,insurances,contribut./accural mth.</td>
+</tr>
+<tr>
+<td>3690000</td>
+<td>Build. and property insur. (fire/mach.)</td>
+</tr>
+<tr>
+<td>3690009</td>
+<td>Plan insurances (CO-INSU)</td>
+</tr>
+<tr>
+<td>3690100</td>
+<td>Insurance for interruption of business</td>
+</tr>
+<tr>
+<td>3690200</td>
+<td>Business and environm.liability insur.</td>
+</tr>
+<tr>
+<td>3690300</td>
+<td>Transport insurance</td>
+</tr>
+<tr>
+<td>3690400</td>
+<td>Debtors insurance</td>
+</tr>
+<tr>
+<td>3690500</td>
+<td>Group accident insurance</td>
+</tr>
+<tr>
+<td>3690700</td>
+<td>/transp., group accid., electr. current</td>
+</tr>
+<tr>
+<td>3690800</td>
+<td>Canceled insurance agreement income</td>
+</tr>
+<tr>
+<td>3691000</td>
+<td>Insurance for cars</td>
+</tr>
+<tr>
+<td>3842260</td>
+<td>Allocation Insurance</td>
+</tr>
+<tr>
+<td>3842261</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-INTCHIT.ASS — 11 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3840009</td>
+<td>Plan Intern. serv. charge IT(CO-INTCHIT)</td>
+</tr>
+<tr>
+<td>3842510</td>
+<td>Alloc. internal charges IT</td>
+</tr>
+<tr>
+<td>3842511</td>
+<td>Assessment Other IT Services</td>
+</tr>
+<tr>
+<td>3843000</td>
+<td>Calculative rent PC</td>
+</tr>
+<tr>
+<td>3843001</td>
+<td>Calculative costs PC</td>
+</tr>
+<tr>
+<td>3843050</td>
+<td>IT internal charge Hardware</td>
+</tr>
+<tr>
+<td>3843051</td>
+<td>IT internal charge BS</td>
+</tr>
+<tr>
+<td>3843052</td>
+<td>IT internal charge Communic</td>
+</tr>
+<tr>
+<td>3843053</td>
+<td>IT internal charge Cons/Pro</td>
+</tr>
+<tr>
+<td>3843054</td>
+<td>IT internal charge IT intt.</td>
+</tr>
+<tr>
+<td>3843055</td>
+<td>IT internal charge IT intt.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-ITIC.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1610015</td>
+<td>Expenses Intercompany IT costs</td>
+</tr>
+<tr>
+<td>3610010</td>
+<td>Expenses Intercompany IT costs</td>
+</tr>
+<tr>
+<td>3610015</td>
+<td>Accruals Expense IC fr. charging IT cost</td>
+</tr>
+<tr>
+<td>3610019</td>
+<td>Plan Exp. IT Cost Interco. (CO-ITIC)</td>
+</tr>
+<tr>
+<td>3842530</td>
+<td>Alloc. IT costs Intercompany</td>
+</tr>
+<tr>
+<td>3842531</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-LOSSREC.ASS — 9 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1650360</td>
+<td>Allowance to provision other receivables</td>
+</tr>
+<tr>
+<td>3639696</td>
+<td>Depreciation other expenses</td>
+</tr>
+<tr>
+<td>3639713</td>
+<td>Loss on bad debts</td>
+</tr>
+<tr>
+<td>3697100</td>
+<td>Depriciation on receivables domestic</td>
+</tr>
+<tr>
+<td>3697200</td>
+<td>Deprieciation on receivables abroad</td>
+</tr>
+<tr>
+<td>3697310</td>
+<td>Doubtful Deposits</td>
+</tr>
+<tr>
+<td>3697600</td>
+<td>Depreciations curr. assets-other receiv.</td>
+</tr>
+<tr>
+<td>3842390</td>
+<td>Allocation loss of receivables</td>
+</tr>
+<tr>
+<td>3842391</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-MAIC.ASS — 8 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1687010</td>
+<td>Advertising expenses IC</td>
+</tr>
+<tr>
+<td>1687015</td>
+<td>accr. marketing expense IC</td>
+</tr>
+<tr>
+<td>1687020</td>
+<td>Advertising gifts IC</td>
+</tr>
+<tr>
+<td>3687010</td>
+<td>Expense Intercompany advertising</td>
+</tr>
+<tr>
+<td>3687019</td>
+<td>Plan Exp. Adv./Marketing IC (CO-MAIC)</td>
+</tr>
+<tr>
+<td>3687020</td>
+<td>Expense Intercompany gifts advertising</td>
+</tr>
+<tr>
+<td>3842555</td>
+<td>Alloc. Marketing costs Intercompany</td>
+</tr>
+<tr>
+<td>3842556</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-MAIN.ASS — 17 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1616000</td>
+<td>External maintenance bulidings</td>
+</tr>
+<tr>
+<td>1616300</td>
+<td>Maintenance cars</td>
+</tr>
+<tr>
+<td>3606009</td>
+<td>Plan material for maintenance</td>
+</tr>
+<tr>
+<td>3616000</td>
+<td>Maintenance buildings</td>
+</tr>
+<tr>
+<td>3616009</td>
+<td>Plan external maintenance (CO-MAIN)</td>
+</tr>
+<tr>
+<td>3616100</td>
+<td>Maintenance machines</td>
+</tr>
+<tr>
+<td>3616200</td>
+<td>Maintenance other equipment</td>
+</tr>
+<tr>
+<td>3616295</td>
+<td>maintenance/accrual month end</td>
+</tr>
+<tr>
+<td>3616300</td>
+<td>Maintenance cars</td>
+</tr>
+<tr>
+<td>3616301</td>
+<td>Non Deductable Car maintenance Expenses</td>
+</tr>
+<tr>
+<td>3616400</td>
+<td>Maintenance IT</td>
+</tr>
+<tr>
+<td>3616590</td>
+<td>Maintenance-fixtures and fittings progra</td>
+</tr>
+<tr>
+<td>3616611</td>
+<td>Purchase order not received</td>
+</tr>
+<tr>
+<td>3616630</td>
+<td>Security fire</td>
+</tr>
+<tr>
+<td>3664712</td>
+<td>Machinery maintenance</td>
+</tr>
+<tr>
+<td>3842255</td>
+<td>Allocation maintenance</td>
+</tr>
+<tr>
+<td>3842256</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-MAN.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1695395</td>
+<td>Expense IC management fees accrual</td>
+</tr>
+<tr>
+<td>3695300</td>
+<td>Expense IC management fees</td>
+</tr>
+<tr>
+<td>3695309</td>
+<td>Plan Exp. Mgmt. fees IC (CO-MAN)</td>
+</tr>
+<tr>
+<td>3695395</td>
+<td>Expense IC management fees accrual</td>
+</tr>
+<tr>
+<td>3842380</td>
+<td>Allocation Management fees</td>
+</tr>
+<tr>
+<td>3842381</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-MPDEV.ASS — 7 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3600300</td>
+<td>Material product development</td>
+</tr>
+<tr>
+<td>3600309</td>
+<td>Plan mat. product development (CO-MPDEV)</td>
+</tr>
+<tr>
+<td>3600310</td>
+<td>Material product development Prototypes</td>
+</tr>
+<tr>
+<td>3600395</td>
+<td>Material product development accruals</td>
+</tr>
+<tr>
+<td>3615123</td>
+<td>R&amp;D Product development</td>
+</tr>
+<tr>
+<td>3842580</td>
+<td>Allocation material product development</td>
+</tr>
+<tr>
+<td>3842581</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-OFF.ASS — 11 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1681000</td>
+<td>Textbooks and professional journals</td>
+</tr>
+<tr>
+<td>3608080</td>
+<td>Supplies IT and equipment</td>
+</tr>
+<tr>
+<td>3680100</td>
+<td>printing papers (not prod.and sell.rel.)</td>
+</tr>
+<tr>
+<td>3680200</td>
+<td>Small office equipment</td>
+</tr>
+<tr>
+<td>3681000</td>
+<td>Textbooks and professional journals</td>
+</tr>
+<tr>
+<td>3681009</td>
+<td>Plan literary tools</td>
+</tr>
+<tr>
+<td>3681040</td>
+<td>Office supplies - PC consumables</td>
+</tr>
+<tr>
+<td>3683009</td>
+<td>Plan offic. supplies (CO-OFF)</td>
+</tr>
+<tr>
+<td>3683095</td>
+<td>Office supplies accruals</td>
+</tr>
+<tr>
+<td>3842290</td>
+<td>Allocation office supplies</td>
+</tr>
+<tr>
+<td>3842291</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-OINCIC.ASS — 13 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1540500</td>
+<td>Income Intercompany reincoicing costs</td>
+</tr>
+<tr>
+<td>3540500</td>
+<td>Income reinvoicing Intercompany</td>
+</tr>
+<tr>
+<td>3540509</td>
+<td>Plan Inc. reinvoic. Interc. (CO-OINCIC)</td>
+</tr>
+<tr>
+<td>3540595</td>
+<td>Income IC reincoicing costs accruals</td>
+</tr>
+<tr>
+<td>3540600</td>
+<td>Income Intercompany commissions</td>
+</tr>
+<tr>
+<td>3540920</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3540940</td>
+<td>Reinvoicing services Dortmund</td>
+</tr>
+<tr>
+<td>3540970</td>
+<td>Income Intercompany services</td>
+</tr>
+<tr>
+<td>3540981</td>
+<td>Income Intercompany transport expense</td>
+</tr>
+<tr>
+<td>3540995</td>
+<td>Services Intercompany accruals</td>
+</tr>
+<tr>
+<td>3842460</td>
+<td>Alloc. income services Intercompany</td>
+</tr>
+<tr>
+<td>3842461</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3910509</td>
+<td>Plan Income from Services IC</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-OPERS.ASS — 54 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1639100</td>
+<td>Anniversary payments</td>
+</tr>
+<tr>
+<td>1645100</td>
+<td>Addition to prov.for flex.retirem. regul</td>
+</tr>
+<tr>
+<td>1648000</td>
+<td>Contributions to re-covery insurance</td>
+</tr>
+<tr>
+<td>1660195</td>
+<td>Contribution payment for eating and milk</td>
+</tr>
+<tr>
+<td>1662195</td>
+<td>Company doctor, medical examination accr</td>
+</tr>
+<tr>
+<td>1664775</td>
+<td>contribution for employees transport acc</td>
+</tr>
+<tr>
+<td>3607913</td>
+<td>Workcloth</td>
+</tr>
+<tr>
+<td>3629000</td>
+<td>Collection premium for the mainten. men</td>
+</tr>
+<tr>
+<td>3629109</td>
+<td>Plan other personnel cost (CO-OPERS)</td>
+</tr>
+<tr>
+<td>3629200</td>
+<td>Premium suggestions for improvement</td>
+</tr>
+<tr>
+<td>3632900</td>
+<td>Lump-sum taxation (wage-tax taken over)</td>
+</tr>
+<tr>
+<td>3639009</td>
+<td>Plan voluntary social expenses</td>
+</tr>
+<tr>
+<td>3639010</td>
+<td>canteen</td>
+</tr>
+<tr>
+<td>3639100</td>
+<td>Anniversary paments</td>
+</tr>
+<tr>
+<td>3639200</td>
+<td>Special paym. staff funds-taxable</td>
+</tr>
+<tr>
+<td>3639280</td>
+<td>Car allowance</td>
+</tr>
+<tr>
+<td>3639300</td>
+<td>Inventor payments</td>
+</tr>
+<tr>
+<td>3639500</td>
+<td>lump-sum taxation/monetary advantage car</td>
+</tr>
+<tr>
+<td>3639501</td>
+<td>Lump-sum taxation/monetary advantage bik</td>
+</tr>
+<tr>
+<td>3639638</td>
+<td>Removal expenses</td>
+</tr>
+<tr>
+<td>3639664</td>
+<td>training expenses laval hotel</td>
+</tr>
+<tr>
+<td>3639700</td>
+<td>Contribution staff equity participation</td>
+</tr>
+<tr>
+<td>3643020</td>
+<td>Welfare expenses - Loyality incentive</td>
+</tr>
+<tr>
+<td>3648000</td>
+<td>Contributions to re-covery insurance</td>
+</tr>
+<tr>
+<td>3648035</td>
+<td>Private health insurance expenses</td>
+</tr>
+<tr>
+<td>3660000</td>
+<td>cost for staff employment</td>
+</tr>
+<tr>
+<td>3660100</td>
+<td>Contribution paym. for eating and milk</td>
+</tr>
+<tr>
+<td>3660150</td>
+<td>cost for housing and removal</td>
+</tr>
+<tr>
+<td>3661000</td>
+<td>Contribution paym. for travell. expenses</td>
+</tr>
+<tr>
+<td>3662000</td>
+<td>Company doctor, medical examination</td>
+</tr>
+<tr>
+<td>3662100</td>
+<td>Welfare Expenses</td>
+</tr>
+<tr>
+<td>3662200</td>
+<td>Employee's Flat Rent</td>
+</tr>
+<tr>
+<td>3664009</td>
+<td>Plan personnel development</td>
+</tr>
+<tr>
+<td>3664095</td>
+<td>Other personnel cost/accrual month end</td>
+</tr>
+<tr>
+<td>3664300</td>
+<td>Care and education of trainees</td>
+</tr>
+<tr>
+<td>3664600</td>
+<td>Symposium,seminars,conferences expenses</td>
+</tr>
+<tr>
+<td>3664750</td>
+<td>Recruitment fees</td>
+</tr>
+<tr>
+<td>3664760</td>
+<td>Training expense hotel/travel</td>
+</tr>
+<tr>
+<td>3664775</td>
+<td>expense for employees transport (e.g. sh</td>
+</tr>
+<tr>
+<td>3664790</td>
+<td>other sundry services</td>
+</tr>
+<tr>
+<td>3664795</td>
+<td>Payments to works council</td>
+</tr>
+<tr>
+<td>3664800</td>
+<td>Staff abroad</td>
+</tr>
+<tr>
+<td>3669000</td>
+<td>other social security contributions</td>
+</tr>
+<tr>
+<td>3669100</td>
+<td>Benefits in kind staff</td>
+</tr>
+<tr>
+<td>3669250</td>
+<td>Factory sports</td>
+</tr>
+<tr>
+<td>3669300</td>
+<td>Working clothes (purchase,rent,cleaning)</td>
+</tr>
+<tr>
+<td>3669400</td>
+<td>Premiums for pupils</td>
+</tr>
+<tr>
+<td>3689110</td>
+<td>Gifts to staff tax deductable</td>
+</tr>
+<tr>
+<td>3689120</td>
+<td>Gifts to staff special reason</td>
+</tr>
+<tr>
+<td>3689130</td>
+<td>Gifts to staff</td>
+</tr>
+<tr>
+<td>3694110</td>
+<td>Personnel temporary attached / loaned</td>
+</tr>
+<tr>
+<td>3842265</td>
+<td>Allocation other personnal expenses</td>
+</tr>
+<tr>
+<td>3842266</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3843070</td>
+<td>Internal charge HR Recruitment</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-OT.ASS — 25 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1694220</td>
+<td>Service Charges</td>
+</tr>
+<tr>
+<td>1695029</td>
+<td>Indexation IAS 29 expenses</td>
+</tr>
+<tr>
+<td>3602409</td>
+<td>Plan other costs (CO-OT)</td>
+</tr>
+<tr>
+<td>3607600</td>
+<td>prepar.cost,fee f.dimin.quant.,express</td>
+</tr>
+<tr>
+<td>3615121</td>
+<td>Outputs cost center business gestures</td>
+</tr>
+<tr>
+<td>3615125</td>
+<td>Brokerage on export sales</td>
+</tr>
+<tr>
+<td>3615180</td>
+<td>Express reinvoice to customer</td>
+</tr>
+<tr>
+<td>3639610</td>
+<td>General documentation</td>
+</tr>
+<tr>
+<td>3639620</td>
+<td>Service Purchase Returns Income</td>
+</tr>
+<tr>
+<td>3648010</td>
+<td>Social solidarity contribution: ORGANIC</td>
+</tr>
+<tr>
+<td>3678000</td>
+<td>Fees for directors and advisory board</td>
+</tr>
+<tr>
+<td>3692100</td>
+<td>patent annuity offic</td>
+</tr>
+<tr>
+<td>3692200</td>
+<td>patent annuity professional fee</td>
+</tr>
+<tr>
+<td>3692400</td>
+<td>patent information</td>
+</tr>
+<tr>
+<td>3694220</td>
+<td>Service Charges</td>
+</tr>
+<tr>
+<td>3695095</td>
+<td>Other costs accruals</td>
+</tr>
+<tr>
+<td>3695100</td>
+<td>Re-invoicing for affiliated companies</td>
+</tr>
+<tr>
+<td>3695195</td>
+<td>Re-Invoicing for aff. comp. for investm.</td>
+</tr>
+<tr>
+<td>3695200</td>
+<td>Other re-invoicing (staff etc.)</td>
+</tr>
+<tr>
+<td>3710000</td>
+<td>Octroi On Sales</td>
+</tr>
+<tr>
+<td>3711000</td>
+<td>Tender Stamp &amp; Hundies</td>
+</tr>
+<tr>
+<td>3712000</td>
+<td>Erection &amp; Site Expenses</td>
+</tr>
+<tr>
+<td>3842330</td>
+<td>Allocation sundry other expenses</td>
+</tr>
+<tr>
+<td>3842331</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3920196</td>
+<td>Particiopation DIF</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-PAYR.ASS — 95 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1630095</td>
+<td>Salaries etc.</td>
+</tr>
+<tr>
+<td>1631200</td>
+<td>additional payment for holidays salary</td>
+</tr>
+<tr>
+<td>1632800</td>
+<td>Other payments (staff related)</td>
+</tr>
+<tr>
+<td>3616850</td>
+<td>Given direct labour</td>
+</tr>
+<tr>
+<td>3616860</td>
+<td>Received direct labour</td>
+</tr>
+<tr>
+<td>3620000</td>
+<td>wages, hourly wage etc.</td>
+</tr>
+<tr>
+<td>3620045</td>
+<td>to outs.lab.prod(help of third parties</td>
+</tr>
+<tr>
+<td>3620050</td>
+<td>flexible retirement regulation</td>
+</tr>
+<tr>
+<td>3620100</td>
+<td>Premium pay</td>
+</tr>
+<tr>
+<td>3620109</td>
+<td>Plan premium pay</td>
+</tr>
+<tr>
+<td>3620200</td>
+<td>(basic wage for overtime work)</td>
+</tr>
+<tr>
+<td>3620209</td>
+<td>Plan overtime pay</td>
+</tr>
+<tr>
+<td>3620220</td>
+<td>overtime premium pay (25%, 50%)</td>
+</tr>
+<tr>
+<td>3620300</td>
+<td>Premium pay for late and night work</td>
+</tr>
+<tr>
+<td>3620309</td>
+<td>Plan premiums</td>
+</tr>
+<tr>
+<td>3620400</td>
+<td>Proportional 13.Wage</td>
+</tr>
+<tr>
+<td>3620409</td>
+<td>Plan Proportional 13. Wage</td>
+</tr>
+<tr>
+<td>3620600</td>
+<td>Prem. pay for Sunday and public holiday</td>
+</tr>
+<tr>
+<td>3621100</td>
+<td>Holiday-payment</td>
+</tr>
+<tr>
+<td>3621300</td>
+<td>P.for work on public holiday wage-earner</td>
+</tr>
+<tr>
+<td>3621400</td>
+<td>additional payment for holidays wage-ea.</td>
+</tr>
+<tr>
+<td>3621409</td>
+<td>Plan additional payment for holidays wag</td>
+</tr>
+<tr>
+<td>3622100</td>
+<td>Premium pay for aggravation and dirt</td>
+</tr>
+<tr>
+<td>3622400</td>
+<td>Contri. paym. for motherhood wage-earner</td>
+</tr>
+<tr>
+<td>3622500</td>
+<td>Prop.-creating performance wage-earner</td>
+</tr>
+<tr>
+<td>3622600</td>
+<td>Account-carrynig charges wage-earner</td>
+</tr>
+<tr>
+<td>3626109</td>
+<td>Plan other wages</td>
+</tr>
+<tr>
+<td>3629100</td>
+<td>lump-sum for stand-by service</td>
+</tr>
+<tr>
+<td>3629150</td>
+<td>Other payments/wage-earner</td>
+</tr>
+<tr>
+<td>3630000</td>
+<td>Salaries etc.</td>
+</tr>
+<tr>
+<td>3630009</td>
+<td>Plan salaries (CO-PAYR)</td>
+</tr>
+<tr>
+<td>3630010</td>
+<td>Salar.employees outside the agreed scale</td>
+</tr>
+<tr>
+<td>3630050</td>
+<td>Salar.increase flexible reirement regul.</td>
+</tr>
+<tr>
+<td>3630072</td>
+<td>other payed free-time</td>
+</tr>
+<tr>
+<td>3630095</td>
+<td>Salaries accrual month end</td>
+</tr>
+<tr>
+<td>3630200</td>
+<td>Overtime salary-payment/-lump sum</td>
+</tr>
+<tr>
+<td>3630209</td>
+<td>Plan overtime pay salary earner</td>
+</tr>
+<tr>
+<td>3630220</td>
+<td>Pre.pay overtime,night work, Sunday,publ</td>
+</tr>
+<tr>
+<td>3630300</td>
+<td>Premium pay for late and night work</td>
+</tr>
+<tr>
+<td>3630301</td>
+<td>Co's Contribution to Gratuity Fund</td>
+</tr>
+<tr>
+<td>3630302</td>
+<td>Lumsum Payments - Current Year</td>
+</tr>
+<tr>
+<td>3630303</td>
+<td>Co's Contribution M&amp;P Welfare Soc.</td>
+</tr>
+<tr>
+<td>3630400</td>
+<td>Proportional 13. Salary</td>
+</tr>
+<tr>
+<td>3630409</td>
+<td>Plan Proportional 13. Salary</td>
+</tr>
+<tr>
+<td>3631100</td>
+<td>Holiday-payment</td>
+</tr>
+<tr>
+<td>3631109</td>
+<td>Plan other salaries</td>
+</tr>
+<tr>
+<td>3631200</td>
+<td>additional pay for holiday salary-earner</td>
+</tr>
+<tr>
+<td>3631209</td>
+<td>Plan additional payment for holidays sal</td>
+</tr>
+<tr>
+<td>3632400</td>
+<td>Contrib.pay for motherhood salary-earner</td>
+</tr>
+<tr>
+<td>3632500</td>
+<td>Property-creating performance salary-ea</td>
+</tr>
+<tr>
+<td>3632600</td>
+<td>Account-carrying charges salary-earner</td>
+</tr>
+<tr>
+<td>3632700</td>
+<td>Expenses for busines trips</td>
+</tr>
+<tr>
+<td>3632800</td>
+<td>Other payments (staff related)</td>
+</tr>
+<tr>
+<td>3632801</td>
+<td>Other payments (staff related)production</td>
+</tr>
+<tr>
+<td>3632810</td>
+<td>Other payments (staff related)</td>
+</tr>
+<tr>
+<td>3632850</td>
+<td>One time payment with social securities</td>
+</tr>
+<tr>
+<td>3632851</td>
+<td></td>
+</tr>
+<tr>
+<td>3632859</td>
+<td></td>
+</tr>
+<tr>
+<td>3636000</td>
+<td>Payment to trainees</td>
+</tr>
+<tr>
+<td>3636100</td>
+<td>help,students,learner/salary-earner</td>
+</tr>
+<tr>
+<td>3636109</td>
+<td>Plan helps salaries</td>
+</tr>
+<tr>
+<td>3639020</td>
+<td>Foreign Wages</td>
+</tr>
+<tr>
+<td>3639070</td>
+<td>Holidays paid taken</td>
+</tr>
+<tr>
+<td>3639080</td>
+<td>Legal holiday for personnel</td>
+</tr>
+<tr>
+<td>3639090</td>
+<td>Allowness bonus</td>
+</tr>
+<tr>
+<td>3639120</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3639150</td>
+<td>Provision on paid holiday</td>
+</tr>
+<tr>
+<td>3639170</td>
+<td>Accrual allowance year</td>
+</tr>
+<tr>
+<td>3639210</td>
+<td>Provision long sev. Medal</td>
+</tr>
+<tr>
+<td>3639220</td>
+<td>Provision RTT</td>
+</tr>
+<tr>
+<td>3639250</td>
+<td>Compensation without tax</td>
+</tr>
+<tr>
+<td>3639260</td>
+<td>Partial activity conv. Allowance</td>
+</tr>
+<tr>
+<td>3639270</td>
+<td>Additional allowance for partial activit</td>
+</tr>
+<tr>
+<td>3639282</td>
+<td>Other compensation</td>
+</tr>
+<tr>
+<td>3639284</td>
+<td>Benefit in kind</td>
+</tr>
+<tr>
+<td>3639288</td>
+<td>Premium profit share year</td>
+</tr>
+<tr>
+<td>3639292</td>
+<td>personnel expense PERCO</td>
+</tr>
+<tr>
+<td>3639294</td>
+<td>Provision for determinated contract</td>
+</tr>
+<tr>
+<td>3639845</td>
+<td>Employee profit sharing scheme v</td>
+</tr>
+<tr>
+<td>3640050</td>
+<td>pen.insur., increase flex.retirem.regul.</td>
+</tr>
+<tr>
+<td>3640095</td>
+<td>Incidental pers. expense wage accr.month</td>
+</tr>
+<tr>
+<td>3641050</td>
+<td>pens.insur.,incr.flex.retirem.regu.sal.</td>
+</tr>
+<tr>
+<td>3642000</td>
+<td>Contribution to professional association</td>
+</tr>
+<tr>
+<td>3643000</td>
+<td>charge for invalid people</td>
+</tr>
+<tr>
+<td>3643100</td>
+<td>Reimburs.empl.part health&amp;pension insur.</td>
+</tr>
+<tr>
+<td>3647000</td>
+<td>Superannuation security association</td>
+</tr>
+<tr>
+<td>3648020</td>
+<td>Direct statutory sick play</td>
+</tr>
+<tr>
+<td>3664805</td>
+<td>Compensation with tax</td>
+</tr>
+<tr>
+<td>3669150</td>
+<td>premium for the year</td>
+</tr>
+<tr>
+<td>3669170</td>
+<td>direct insurance-wage</td>
+</tr>
+<tr>
+<td>3669200</td>
+<td>direct insurance-salaries</td>
+</tr>
+<tr>
+<td>3842200</td>
+<td>Allocation Payroll</td>
+</tr>
+<tr>
+<td>3842201</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3842202</td>
+<td>Allocation Payroll Manual</td>
+</tr>
+<tr>
+<td>3950100</td>
+<td>Salary monthly bonus</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-PEIC.ASS — 6 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1615035</td>
+<td>Accruals personnel expenses Intercompany</td>
+</tr>
+<tr>
+<td>3615030</td>
+<td>Expense Intercompany personnel costs</td>
+</tr>
+<tr>
+<td>3615035</td>
+<td>Accruals personnel expenses Intercompany</td>
+</tr>
+<tr>
+<td>3615039</td>
+<td>Plan Exp. personnel cost IC (CO-PEIC)</td>
+</tr>
+<tr>
+<td>3842535</td>
+<td>Alloc. personnel expenses Intercompany</td>
+</tr>
+<tr>
+<td>3842536</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-PEN.ASS — 11 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1548103</td>
+<td>Reversal of provision f. pensions</td>
+</tr>
+<tr>
+<td>1645000</td>
+<td>Addition to provisions for pensions</td>
+</tr>
+<tr>
+<td>1645095</td>
+<td>Provisions for pensions accruals</td>
+</tr>
+<tr>
+<td>3644000</td>
+<td>Payment for current pensions</td>
+</tr>
+<tr>
+<td>3644009</td>
+<td>Plan payment current pensions (CO-PEN)</td>
+</tr>
+<tr>
+<td>3645000</td>
+<td>Addition to provision for pension</td>
+</tr>
+<tr>
+<td>3645010</td>
+<td>Relief fund</td>
+</tr>
+<tr>
+<td>3645095</td>
+<td>Provisions for pensions accruals</td>
+</tr>
+<tr>
+<td>3664810</td>
+<td>Compensation for retirement</td>
+</tr>
+<tr>
+<td>3842215</td>
+<td>Allocation pension plan expenses</td>
+</tr>
+<tr>
+<td>3842216</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-PROV.ASS — 8 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1615200</td>
+<td>Commissions/Provisions abroad third part</td>
+</tr>
+<tr>
+<td>3518100</td>
+<td>Delcredere commission</td>
+</tr>
+<tr>
+<td>3518110</td>
+<td>Delcredere commission/accrual</td>
+</tr>
+<tr>
+<td>3615009</td>
+<td>Plan Commissions (CO-PROV)</td>
+</tr>
+<tr>
+<td>3615095</td>
+<td>Comissions/accrual month end</td>
+</tr>
+<tr>
+<td>3615200</td>
+<td>Commissions/Provisions abroad third part</td>
+</tr>
+<tr>
+<td>3842275</td>
+<td>Allocation provisions/commissions</td>
+</tr>
+<tr>
+<td>3842276</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-RED.ASS — 9 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1629450</td>
+<td>Staff redundancy payments</td>
+</tr>
+<tr>
+<td>1639291</td>
+<td>Severance Compensation</td>
+</tr>
+<tr>
+<td>3620095</td>
+<td>Redundancy payments accrual month end</td>
+</tr>
+<tr>
+<td>3629450</td>
+<td>Staff redundancy payments</td>
+</tr>
+<tr>
+<td>3629459</td>
+<td>Plan staff redundancy payments (CO-RED)</td>
+</tr>
+<tr>
+<td>3639291</td>
+<td>Severance Compensation</td>
+</tr>
+<tr>
+<td>3639600</td>
+<td>Redundancy payments pre.retirement paym.</td>
+</tr>
+<tr>
+<td>3842205</td>
+<td>Allocation stuff redundancy payment</td>
+</tr>
+<tr>
+<td>3842206</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-REINCIC.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3545100</td>
+<td>Income Intercompany rents</td>
+</tr>
+<tr>
+<td>3545109</td>
+<td>Plan Inc. Rents Interco. (CO-REINCIC)</td>
+</tr>
+<tr>
+<td>3842465</td>
+<td>Alloc. income rents/leasing Intercompany</td>
+</tr>
+<tr>
+<td>3842466</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-RENT.ASS — 23 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1670000</td>
+<td>Rents lands, buildings, garages</td>
+</tr>
+<tr>
+<td>1670300</td>
+<td>Rents for PC primary</td>
+</tr>
+<tr>
+<td>1670860</td>
+<td>Leasing</td>
+</tr>
+<tr>
+<td>1671009</td>
+<td>Plan Leasing IAS</td>
+</tr>
+<tr>
+<td>1671100</td>
+<td>Leasing cars</td>
+</tr>
+<tr>
+<td>3601010</td>
+<td>Oxygen packaging -rental</td>
+</tr>
+<tr>
+<td>3670000</td>
+<td>Rents lands, buildings, garages</td>
+</tr>
+<tr>
+<td>3670001</td>
+<td>Rents lands, buildings, garages Producti</td>
+</tr>
+<tr>
+<td>3670009</td>
+<td>Plan rents, leases (CO-RENT)</td>
+</tr>
+<tr>
+<td>3670095</td>
+<td>Rents,leases,leasing / accrual month end</td>
+</tr>
+<tr>
+<td>3670100</td>
+<td>Rents for other equipment</td>
+</tr>
+<tr>
+<td>3670101</td>
+<td></td>
+</tr>
+<tr>
+<td>3670300</td>
+<td>Rents for PC primary</td>
+</tr>
+<tr>
+<td>3670400</td>
+<td>Rents Home office</td>
+</tr>
+<tr>
+<td>3670620</td>
+<td>Rental &amp; joint ownership property costs</td>
+</tr>
+<tr>
+<td>3670740</td>
+<td>Rental - postage machine</td>
+</tr>
+<tr>
+<td>3671000</td>
+<td>Leasing fees for other equipment</td>
+</tr>
+<tr>
+<td>3671100</td>
+<td>Leasing cars</td>
+</tr>
+<tr>
+<td>3671101</td>
+<td>Leasing cars / add.payment staff</td>
+</tr>
+<tr>
+<td>3671102</td>
+<td>Non Deductable Leasing Car Expsense</td>
+</tr>
+<tr>
+<td>3842325</td>
+<td>Allocation rents and leasing</td>
+</tr>
+<tr>
+<td>3842326</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+<tr>
+<td>3940250</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-RENTIC.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3670010</td>
+<td>Expense Intercompany rents/lease</td>
+</tr>
+<tr>
+<td>3670019</td>
+<td>Plan Exp. Rents Interco. (CO-RENTIC)</td>
+</tr>
+<tr>
+<td>3842450</td>
+<td>Allocation rents/leasing intercompany</td>
+</tr>
+<tr>
+<td>3842451</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-REVWAR.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1543910</td>
+<td>Reversal - Warranty provision</td>
+</tr>
+<tr>
+<td>3543910</td>
+<td>Reversal- Warranty provision</td>
+</tr>
+<tr>
+<td>3842540</td>
+<td>Alloc. inc. reversal provisions warranty</td>
+</tr>
+<tr>
+<td>3842541</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-SERVIC.ASS — 11 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1615015</td>
+<td>Services purchased Intercompany</td>
+</tr>
+<tr>
+<td>3518700</td>
+<td>Bonus Intercompany</td>
+</tr>
+<tr>
+<td>3614010</td>
+<td>Expense Intercompany transport costs</td>
+</tr>
+<tr>
+<td>3615000</td>
+<td>Expense Intercompany commissions</td>
+</tr>
+<tr>
+<td>3615010</td>
+<td>Services purchased Intercompany</td>
+</tr>
+<tr>
+<td>3615015</td>
+<td>Accrruals services purchased Intercomp.</td>
+</tr>
+<tr>
+<td>3615019</td>
+<td>Plan Exp. o. serv. purch. IC (CO-SERVIC)</td>
+</tr>
+<tr>
+<td>3690010</td>
+<td>Expense Intercompany Insurance</td>
+</tr>
+<tr>
+<td>3694785</td>
+<td>Administrat. cost affil.comp.+simil.accr</td>
+</tr>
+<tr>
+<td>3842455</td>
+<td>Allocation services purchased Intercomp.</td>
+</tr>
+<tr>
+<td>3842456</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-SMTOOL.ASS — 5 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3603000</td>
+<td>Small tools, small materials</td>
+</tr>
+<tr>
+<td>3603009</td>
+<td>Plan small tools (CO-SMTOOL)</td>
+</tr>
+<tr>
+<td>3603095</td>
+<td>Small tools accruals</td>
+</tr>
+<tr>
+<td>3842585</td>
+<td>Allocation small tools</td>
+</tr>
+<tr>
+<td>3842586</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-SOC.ASS — 40 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1641095</td>
+<td>Accruals Social taxes</td>
+</tr>
+<tr>
+<td>3640000</td>
+<td>Empl.contrib.pension-unemploym.insur/wag</td>
+</tr>
+<tr>
+<td>3640009</td>
+<td>Plan incidental personnel expense wage</td>
+</tr>
+<tr>
+<td>3641000</td>
+<td>Empl.contrib.pension-unemploym.insur/sal</td>
+</tr>
+<tr>
+<td>3641009</td>
+<td>Plan incidental personnel expense salary</td>
+</tr>
+<tr>
+<td>3641095</td>
+<td>Incidental pers.exp.salary accrual month</td>
+</tr>
+<tr>
+<td>3642009</td>
+<td>Plan legal social expenses (CO-SOC)</td>
+</tr>
+<tr>
+<td>3643021</td>
+<td>Welfare expenses - Labour union fee</td>
+</tr>
+<tr>
+<td>3643022</td>
+<td>Welfare expenses - Education fee</td>
+</tr>
+<tr>
+<td>3643023</td>
+<td>Welfare expenses - Retirem. Pension ins.</td>
+</tr>
+<tr>
+<td>3643024</td>
+<td>Welfare expenses - Unemployment ins.</td>
+</tr>
+<tr>
+<td>3643025</td>
+<td>Welfare expenses-Medical insurance</td>
+</tr>
+<tr>
+<td>3643026</td>
+<td>Welfare expenses - Add. Madical insur.</td>
+</tr>
+<tr>
+<td>3643027</td>
+<td>Welfare expenses - Housing fund ins.</td>
+</tr>
+<tr>
+<td>3643028</td>
+<td>Welfare expenses - Life insurance</td>
+</tr>
+<tr>
+<td>3643029</td>
+<td>Welfare expenses - Maternity insurance</td>
+</tr>
+<tr>
+<td>3643030</td>
+<td>Welfare expenses - Accident. injury ins.</td>
+</tr>
+<tr>
+<td>3648030</td>
+<td>Social Security Collection Office (URSSA</td>
+</tr>
+<tr>
+<td>3648031</td>
+<td>Labourer Ni</td>
+</tr>
+<tr>
+<td>3648032</td>
+<td>Setter NI</td>
+</tr>
+<tr>
+<td>3648033</td>
+<td>Life Assurance</td>
+</tr>
+<tr>
+<td>3648034</td>
+<td>Social Security Premiums Income (-)</td>
+</tr>
+<tr>
+<td>3648055</td>
+<td>Mutual organisation contributions</td>
+</tr>
+<tr>
+<td>3648060</td>
+<td>Contribution arpe</td>
+</tr>
+<tr>
+<td>3648075</td>
+<td>Association f. Industr./Comm.Employment</td>
+</tr>
+<tr>
+<td>3648080</td>
+<td>Contributions to other social agencies</td>
+</tr>
+<tr>
+<td>3648085</td>
+<td>Social expenses prov. on paid holiday</td>
+</tr>
+<tr>
+<td>3648090</td>
+<td>Social expenses prov. On bonus sales</td>
+</tr>
+<tr>
+<td>3648095</td>
+<td>Reversal social charges</td>
+</tr>
+<tr>
+<td>3648105</td>
+<td>Accrual social charges 13th month</td>
+</tr>
+<tr>
+<td>3648110</td>
+<td>Provision social expenses on determinate</td>
+</tr>
+<tr>
+<td>3648115</td>
+<td>Provision social expenses on determinate</td>
+</tr>
+<tr>
+<td>3648120</td>
+<td>Accrual social charges medal holder</td>
+</tr>
+<tr>
+<td>3648130</td>
+<td>Tax credit CICE</td>
+</tr>
+<tr>
+<td>3664756</td>
+<td>Compensation DIF</td>
+</tr>
+<tr>
+<td>3709330</td>
+<td>Tax paid by busin. to fund train. progr.</td>
+</tr>
+<tr>
+<td>3709350</td>
+<td>Accrual employee participation training</td>
+</tr>
+<tr>
+<td>3709360</td>
+<td>Accrual tax for investm. In construction</td>
+</tr>
+<tr>
+<td>3842210</td>
+<td>Allocation social security contributions</td>
+</tr>
+<tr>
+<td>3842211</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-TAX.ASS — 26 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1709000</td>
+<td>Other taxes and contributions</td>
+</tr>
+<tr>
+<td>3639630</td>
+<td>Legal and litigation fees</td>
+</tr>
+<tr>
+<td>3673100</td>
+<td>Contribu.to association and chambers</td>
+</tr>
+<tr>
+<td>3673200</td>
+<td>Contrib.to chamber of Commerce</td>
+</tr>
+<tr>
+<td>3673600</td>
+<td>Other fees (e.g. court fees)</td>
+</tr>
+<tr>
+<td>3687910</td>
+<td>Environmental tax</td>
+</tr>
+<tr>
+<td>3700000</td>
+<td>Trade capital tax</td>
+</tr>
+<tr>
+<td>3700009</td>
+<td>Plan taxes/contribution/fees (CO-TAX)</td>
+</tr>
+<tr>
+<td>3700095</td>
+<td>Other tax accruals</td>
+</tr>
+<tr>
+<td>3701000</td>
+<td>Tax on property</td>
+</tr>
+<tr>
+<td>3702000</td>
+<td>Land tax</td>
+</tr>
+<tr>
+<td>3703000</td>
+<td>Motor tax</td>
+</tr>
+<tr>
+<td>3704000</td>
+<td>Stamp duty</td>
+</tr>
+<tr>
+<td>3705000</td>
+<td>Urban construction tax</td>
+</tr>
+<tr>
+<td>3706000</td>
+<td>Education supplementary tax</td>
+</tr>
+<tr>
+<td>3709000</td>
+<td>Other taxes and contributions</td>
+</tr>
+<tr>
+<td>3709310</td>
+<td>TV tax</td>
+</tr>
+<tr>
+<td>3709370</td>
+<td>Professionalistaion tax</td>
+</tr>
+<tr>
+<td>3709380</td>
+<td>Handicapped tax</td>
+</tr>
+<tr>
+<td>3709390</td>
+<td>Tax advertising expense</td>
+</tr>
+<tr>
+<td>3709400</td>
+<td>Penalty cars</td>
+</tr>
+<tr>
+<td>3709430</td>
+<td>Tax disc and registration document</td>
+</tr>
+<tr>
+<td>3709490</td>
+<td>Tax participation employer training</td>
+</tr>
+<tr>
+<td>3709600</td>
+<td>Business entity tax</td>
+</tr>
+<tr>
+<td>3842315</td>
+<td>Allocation Other fees</td>
+</tr>
+<tr>
+<td>3842316</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-TRAV.ASS — 13 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1685300</td>
+<td>Cost for trains and flights / rented car</td>
+</tr>
+<tr>
+<td>3685000</td>
+<td>Expenses accomodation</td>
+</tr>
+<tr>
+<td>3685009</td>
+<td>Plan travel / entertainment (CO-TRENT)</td>
+</tr>
+<tr>
+<td>3685095</td>
+<td>Travel &amp; entertainment/accrual month end</td>
+</tr>
+<tr>
+<td>3685100</td>
+<td>Catering</td>
+</tr>
+<tr>
+<td>3685200</td>
+<td>Money paid for driven kilomtres</td>
+</tr>
+<tr>
+<td>3685300</td>
+<td>Cost for trains and flights / rented car</td>
+</tr>
+<tr>
+<td>3685420</td>
+<td>Missions with VAT</td>
+</tr>
+<tr>
+<td>3685500</td>
+<td>Other travel cost (taxi, parking, fees)</td>
+</tr>
+<tr>
+<td>3685502</td>
+<td>Non Deductable Travelling expenses</td>
+</tr>
+<tr>
+<td>3685711</td>
+<td></td>
+</tr>
+<tr>
+<td>3842280</td>
+<td>Allocation traveling costs</td>
+</tr>
+<tr>
+<td>3842281</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-VAR.ASS — 8 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1630100</td>
+<td>Royalty</td>
+</tr>
+<tr>
+<td>3630100</td>
+<td>Royalty</td>
+</tr>
+<tr>
+<td>3630195</td>
+<td>Royalty</td>
+</tr>
+<tr>
+<td>3639130</td>
+<td>Various premiums on salaries last year</td>
+</tr>
+<tr>
+<td>3639140</td>
+<td>Various premiums on salaries prev. year</td>
+</tr>
+<tr>
+<td>3639180</td>
+<td>Provision Bonus on Sales</td>
+</tr>
+<tr>
+<td>3639190</td>
+<td>Reversal provision Bonus on Sales</td>
+</tr>
+<tr>
+<td>3842220</td>
+<td>Allocation royalty/variable payments</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-WARA.ASS — 2 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3842300</td>
+<td>Allocation installation costs warrenty</td>
+</tr>
+<tr>
+<td>3842301</td>
+<td>&gt;&gt;&gt; No valid master record</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-WARC.ASS — 3 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3694400</td>
+<td>Custom.serv.by third-party contr.firms</td>
+</tr>
+<tr>
+<td>3694409</td>
+<td>Plan custom serv by third-party contr.fi</td>
+</tr>
+<tr>
+<td>3694495</td>
+<td>Customer service/accrual month end</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="note">
+<summary>CO-WARNC.ASS — 4 счётов</summary>
+<table>
+<thead>
+<tr>
+<th>SAP Счёт</th>
+<th>Название</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3615101</td>
+<td>Indemnity Customer Guarantee</td>
+</tr>
+<tr>
+<td>3694300</td>
+<td>Customer service by noncontracting firms</td>
+</tr>
+<tr>
+<td>3694301</td>
+<td>Custom.serv.by noncontr.firms f. wholes.</td>
+</tr>
+<tr>
+<td>3694309</td>
+<td>Plan cust. serv. by third party (CO-WAR)</td>
+</tr>
+</tbody>
+</table>
+</details>
 
 
 
