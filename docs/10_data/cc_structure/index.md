@@ -401,14 +401,7 @@ RU1                   WILO RUS
         RU1CONTRL             Local Controlling
           25801         FICO MANAGEMENT
           25802         CONTROLLING
-        RU1SVVN               Vietnam
-          25816         IFRS 16
-          25882         ADMINISTRATION
-          25886         Management Fee
-          25887         Strategic Management
-          25888         Facility Project Manager
-          25891         Building Cost GADM
-      RU1FINSE              Group Finance & Financial Serv
+      RU1FIACTA             Accounting & Taxes
         RU1FIACTAL            Local Accounting & Taxes
           25183         Wilo Academy
           25803         ACCOUNTING
@@ -418,6 +411,14 @@ RU1                   WILO RUS
           25831         HR MANAGEMENT
           25833         HR MANAGEMENT
           25991         Subst 2541 PRCO own
+    RU1MAN                Management
+      25816         IFRS 16
+      25882         ADMINISTRATION
+      25886         Management Fee
+      25888         Facility Project Manager
+      25891         Building Cost GADM
+    RU1SSM                Strategic Sales & Marketing
+      25887         Strategic Management
     RU1SVREM              Service Region Emerging Market
       RU1SVEUAS             Service Area Eurasia
         RU1SVRU               Russian Fed.
@@ -438,12 +439,6 @@ RU1                   WILO RUS
           25323         SERVICE CENTRAL FUNC
           25391         Building Cost SALC
   RU1OP                 Operations
-    RU10POTH              Others
-      RU1PBUACOS            Functional Area x PBU ACOS
-        RU1LMAIN              Local Maintenance
-          25499         Other operating result (Production)
-          25997         Sales
-          25999         Other operating result
     RU1OP1P               OP PL NOGI Total
       RU1OP1P2              OP PL NOGI Machine & Equipment
         RU1OP1P21             OP PL NOGI Production
@@ -482,7 +477,6 @@ RU1                   WILO RUS
           25696         Central Warehouse Production
         RU1OP1P47             OP PL NOGI StruCo Quality
           25421         QUALITY DEPARTMENT
-      RU1OP1P9              OP PL NOGI Other Cost Centers
         RU1OP1P48             OP PL NOGI StruCo Other Prod.
           RU1OP1P481            OP PL NOGI StruCo Enviro.&Safe
             25406         HSE
@@ -497,6 +491,7 @@ RU1                   WILO RUS
             25490         Allocations Insurances & Taxes
           RU1OP1P486            OP PL NOGI StruCo Admin others
             25002         Facility Variance NEW
+      RU1OP1P9              OP PL NOGI Other Cost Centers
         RU1OP1P91             OP PL NOGI General Cost Centers
           25491         Building Cost PRCO
           25619         Building Cost WHS
@@ -524,6 +519,10 @@ RU1                   WILO RUS
           25989         Subst 2541 ACOS TG
           25992         Subst 2541 PRCO IC Mat
           25994         Subst 2541 ACOS IC Mat
+  RU1OTH                Other Cost Center / Controllin
+    25499         Other operating result (Production)
+    25997         Sales
+    25999         Other operating result
   RU1SAL                Sales
     RU1SREM               Sales Region Emerging Markets
       RU1SAEUAS             Sales Area Eurasia
